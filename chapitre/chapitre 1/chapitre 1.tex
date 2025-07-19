@@ -1,0 +1,199 @@
+\chapter{trigonométrie (Rappels et compléments)}
+
+\minitoc
+
+Dans ce chapitre, on rappelle ce qui a été vu en trigonométrie au lycée et on complète avec les formules
+d’addition et de duplication ainsi que l’étude de la fonction tangente.
+
+\section{Cercle trigonométrique}
+
+On se place dans le plan muni d'un repère orthonormé \(\paren{O,\vec{i},\vec{j}}\)
+
+\begin{defi}[Cercle trigonométrique]
+
+	On appelle cercle trigonométrique le cercle de centre \(O\) et de rayon \(1\)
+
+\end{defi}
+
+\begin{prop}[enroulement de la droite des réels sur le cercle trigonométrique]
+	Soit \(M\) un point du plan. \\
+	Le point \(M\) appartient au cercle trigonométrique si, et seulement si, il existe un réel \(t\) tel que les coordonnées de \(M\) dans le repère orthonormé \(\paren{O,\vec{i},\vec{j}}\) sont \(\paren{\cos t ; \sin t}\)
+\end{prop}
+
+\subsection{Relation de congruence modulo \(2\pi\) sur \(\R\)}
+
+\begin{defi}
+	Deux réels \(a\) et \(b\) sont dits congrus modulo \(2\pi\) s'il existe un entier relatif \(k\) tel que \(a-b = 2k\pi\)
+	\underline{Notation} : \(a \equiv b \croch{2 \pi} \)
+\end{defi}
+
+\begin{defprop}
+	On dit que la relation \(\equiv\) est une relation d'équivalence sur \(\R\) car elle vérifie les propriétés suivantes :
+	\begin{enumerate}
+		\item Pour tout réel x, on a : \(x \equiv x \croch{2 \pi}\). \hfill (réfléxivité)
+		\item Pour tout couple de réels \(\paren{x,y}\) tel que \( x \equiv y \croch{2 \pi} \), on a :\( y \equiv x \croch{2 \pi} \) \hfill (symétrie)
+		\item Pour tout triplet de réels \(\paren{x,y,z}\) tel que \(x \equiv y \croch{2 \pi} \) et \( y \equiv z \croch{2 \pi} \), on a : \( x \equiv z \croch{2 \pi} \) \hfill (transitivité)
+	\end{enumerate}
+\end{defprop}
+
+
+
+\section{Cosinus et sinus}
+\subsection{Formules et valeur remarquables}
+
+\begin{formu}[Formule de base]
+	Pour tout réel \(t\), on a :
+	\begin{enumerate}
+		\item \( \cos\paren{\pi - t} = -\cos t \) et \( \sin\paren{\pi - t} = \sin t \) \\
+		\item \( \cos\paren{\pi + t} = -\cos t \) et \( \sin\paren{\pi + t} = -\sin t \) \\
+		\item \( \cos\paren{\frac{\pi}{2} - t} = \sin t \) et \( \sin\paren{\frac{\pi}{2} - t} = \cos t \) \\
+		\item \( \cos\paren{\frac{\pi}{2} + t} = -\sin t \) et \( \sin\paren{\frac{\pi}{2} + t} = \cos t \) \\
+	\end{enumerate}
+	\begin{tabular}{|c|c|c|c|c|c|}
+
+		\hline
+		\(t\)       & \(0\) & \(\frac{\pi}{6}\)      & \(\frac{\pi}{4}\)      & \(\frac{\pi}{3}\)       & \(\frac{\pi}{2}\) \\
+		\hline
+		\(\cos t \) & \(1\) & \(\frac{\sqrt{3}}{2}\) & \(\frac{\sqrt{2}}{2}\) & \(\frac{1}{2}\)        & \(0\)             \\
+		\hline
+		\(\sin t \) & \(0\) & \(\frac{1}{2}\)        & \(\frac{\sqrt{2}}{2}\) & \(\frac{\sqrt{3}}{2}\) & \(1\)             \\
+		\hline
+	\end{tabular}
+\end{formu}
+
+\begin{rem}
+	Soient \(a\) et \(b\) des réels :
+	\begin{itemize}
+		\item
+		      \(
+		      \begin{aligned}
+			      \cos a = \cos b
+			      \iff\
+			       & \left\{
+			      \begin{aligned}
+				      a & \equiv b \croch{2\pi}  \\
+				        & \text{ou}              \\
+				      a & \equiv -b \croch{2\pi}
+			      \end{aligned}
+			      \right.
+			      \iff\
+			       & \left\{
+			      \begin{aligned}
+				      \quantifs{\exists k \in \Z}  & a = b +2 k \pi   \\
+				                                   & \text{ou}        \\
+				      \quantifs{\exists k' \in \Z} & a = -b +2 k' \pi
+			      \end{aligned}
+			      \right.
+		      \end{aligned}
+		      \)\\
+		      \item\(
+		      \begin{aligned}
+			      \sin a = \sin b
+			      \iff\
+			       & \left\{
+			      \begin{aligned}
+				      a & \equiv b \croch{2\pi}     \\
+				        & \text{ou}                 \\
+				      a & \equiv \pi-b \croch{2\pi}
+			      \end{aligned}
+			      \right.
+			      \iff\
+			       & \left\{
+			      \begin{aligned}
+				      \quantifs{\exists k \in \Z}  & a = b +2 k \pi      \\
+				                                   & \text{ou}           \\
+				      \quantifs{\exists k' \in \Z} & a = \pi-b +2 k' \pi
+			      \end{aligned}
+			      \right.
+		      \end{aligned}
+		      \)
+	\end{itemize}
+
+\end{rem}
+
+\begin{formu} [Formule d'addition]
+	Pour tout couple de réels \(\paren{a,b}\) on a :
+	\begin{enumerate}
+		\item \( \cos\paren{a+b} = \cos\paren{a} \cos\paren{b} - \sin\paren{a} \sin\paren{b} \) \\
+		\item \( \cos\paren{a-b} = \cos\paren{a} \cos\paren{b} + \sin\paren{a} \sin\paren{b} \)\\
+		\item \( \sin\paren{a+b} = \sin\paren{a} \cos\paren{b} + \cos\paren{a} \sin\paren{b} \) \\
+		\item \( \sin\paren{a-b} = \sin\paren{a} \cos\paren{b} - \cos\paren{a} \sin\paren{b} \)\\
+	\end{enumerate}
+\end{formu}
+
+\begin{formu}[Formule de simpson]
+	Pour tout couple de réels \(\paren{a,b}\) on a :
+	\begin{enumerate}
+		\item \( \sin\paren{a+b} + \sin\paren{a-b} = 2\sin\paren{a} \cos\paren{b} \iff \frac{1}{2}\paren{\sin\paren{a+b} + \sin\paren{a-b}} = \sin\paren{a} \cos\paren{b}\) \\
+		\item \( \cos\paren{a+b} + \cos\paren{a-b} = 2\cos\paren{a} \cos\paren{b} \iff \frac{1}{2}\paren{\cos\paren{a+b} + \cos\paren{a-b}} = \cos\paren{a} \cos\paren{b}\)
+
+	\end{enumerate}
+
+\end{formu}
+
+\begin{appl}
+	Calcul : \[\int_{0}^{\pi} \sin\paren{x} \cos\paren{3x} dx = \int{0}^{\pi} \frac{1}{2} \paren{\sin\paren{4x}+\sin(2x) dx} = 0\]
+\end{appl}
+
+\begin{formu}[Formule de duplication]
+	Pour tout réel \(a\), on a :
+	\begin{enumerate}
+		\item \(\cos\paren{2a} = \cos^2\paren{a} - \sin^2\paren{a} = 2\cos^2(a)-1 = 1-\sin^2(a) \)
+		\item \(\sin(2a) = 2\cos(a)\sin(a) \)
+	\end{enumerate}
+\end{formu}
+
+\begin{prop}[Sinus et Cosinus]
+	\begin{itemize}
+		\item La fonction \(\cos\) est définie sur \(\R\), paire et périodique de période \(2\pi\). Elle est dérivable sur \(\R\) et sa dérivée vérifie \(\cos' = -\sin\)
+		\item La fonction \(\sin\) est définie sur \(\R\), impaire et périodique de période \(2\pi\). Elle est dérivable sur \(\R\) et sa dérivée vérifie \(\sin' = \cos\)
+	\end{itemize}
+\end{prop}
+
+\begin{prop}[Inégalité remarquable]
+	Pour tout réel \(t\), on a : \(\abs{\sin(t)} \leq \abs{t}\)
+\end{prop}
+
+\section{La fonction tangente}
+\begin{defi}
+	La fonction \(\frac{\sin}{\cos} \) est appelée la fonction tangente et notée \(\tan\)
+\end{defi}
+
+\begin{prop}
+	La fonction \(\tan\) est définie sur \(\R\backslash\accol{\frac{\pi}{2}+k\pi\tq k\in \Z}\), impaire et périodique de période \(\pi\). Elle est dérivable sur \(\R\)\(\R\backslash\accol{\frac{\pi}{2}+k\pi\tq k\in \Z}\) et sa dérivée vérifie \(\tan' = 1+\tan = \frac{1}{tan^2}\)
+\end{prop}
+
+\begin{formu}
+	Pour tout réel \(t\), on a :
+	\begin{enumerate}
+        \item \(tan(\pi-t) = -\tan(t)\)
+        \item \(tan(\pi+t) = \tan(t) \)
+        \item \begin{tabular}{|c|c|c|c|c|c|}
+
+		\hline
+		\(t\)       & \(0\) & \(\frac{\pi}{6}\)      & \(\frac{\pi}{4}\)      & \(\frac{\pi}{3}\)       & \(\frac{\pi}{2}\) \\
+		\hline
+		\(\tan t \) & \(0\) & \(\frac{1}{\sqrt{3}}\) & \(1\) & \(\sqrt{3}\)       & NULL             \\
+		\hline
+	\end{tabular}
+    \end{enumerate}
+\end{formu}
+
+\begin{formu}[addition et duplication]
+    Pour tout couple de réels \(\paren{a,b}\) n'appartenant pas à l'ensemble \(\accol{\frac{\pi}{2}+k\pi\tq k\in \Z}\), on a :
+    \begin{enumerate}
+        \item Si \(a+b\) n'appartient pas à l'ensemble \(\accol{\frac{\pi}{2}+k\pi\tq k\in \Z}\) alors \(\tan(a+b) = \frac{\tan(a)+\tan(b)}{1-\tan(a) \tan(b)}\)
+        \item Si \(a-b\) n'appartient pas à l'ensemble \(\accol{\frac{\pi}{2}+k\pi\tq k\in \Z}\) alors \(\tan(a-b) = \frac{\tan(a)-\tan(b)}{1+\tan(a) \tan(b)}\)
+        \item Si \(2a\)  n'appartient pas à l'ensemble \(\accol{\frac{\pi}{2}+k\pi\tq k\in \Z}\) alors \(\tan(2a) = \frac{2\tan(a)}{1-\tan^2(a)} \)
+    \end{enumerate}
+\end{formu}
+
+\begin{exoex}
+Soit \(t\) réel n'appartenant pas à \(\accol{\frac{\pi}{4}+k\frac{\pi}{2}\tq k\in \Z}\) : 
+    \begin{align*}
+        \sin(t) &= 2\sin\paren{\frac{t}{2}}\cos\paren{\frac{t}{2}} \\
+        &= \frac{2\sin\paren{\frac{t}{2}}}{\cos\paren{\frac{t}{2}}}\cos^2\paren{\frac{t}{2}}\\
+        &= \frac{1}{1+\tan^2\paren{\frac{t}{2}}}\times 2 \tan\paren{\frac{t}{2}} \\
+        &=\frac{2 \tan\paren{\frac{t}{2}}}{1+\tan^2\paren{\frac{t}{2}}} 
+    \end{align*}
+\end{exoex}

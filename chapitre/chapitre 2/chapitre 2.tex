@@ -1,0 +1,78 @@
+\chapter{Inégalité et fonction (rappel et compléments)}
+
+\minitoc
+
+Dans ce chapitre, sont rassemblés des rappels ou compléments sur les inégalités ainsi que des fondamentaux sur les fonctions de variable réelle à valeurs réelles (sans preuve ni évocation de continuité).
+
+\section{Inégalité}
+
+\subsection{Relation d'ordre sur \(\R\)}
+
+\begin{defi}
+	On dit que la relation \(\leq\) est une relation d'équivalence sur \(\R\) car elle vérifie les propriétés suivantes :
+	\begin{enumerate}
+		\item Pour tout réel x, on a : \(x \leq x \). \hfill (réfléxivité)
+		\item Pour tout couple de réels \(\paren{x,y}\) tel que \( x \leq y  \) et \(y \leq x\), on a :\( y = x  \) \hfill (antisymétrie)
+		\item Pour tout triplet de réels \(\paren{x,y,z}\) tel que \(x \leq y  \) et \( y \leq z  \), on a : \( x \leq z  \) \hfill (transitivité)
+	\end{enumerate}
+\end{defi}
+
+\begin{prop}[Compatibilité avec les opérations]
+	Soit \(x,y,z,t\) et \(a\) des réels.
+	\begin{enumerate}
+		\item Si \(x\leq y\) et \(z\leq t\) alors \(x+z\leq y +t \)
+		\item Si \(x\leq y \) et \( 0 \leq a\) alors \(a x \leq a y\)
+		\item Si \(x\leq y \) et \( a \leq 0\) alors \(a y \leq a x\)
+		\item Si \( 0 \leq x \leq y \) et \( 0\leq z \leq t \) alors \( 0 \leq xz \leq y t \)
+	\end{enumerate}
+\end{prop}
+
+\begin{nota}[Intervalles de \(\R\)]
+	Les partie \(I\) de \(\R\) pouvant s’écrire sous l’une des formes suivantes sont dites intervalles de \(\R\) :
+	\begin{itemize}
+		\item \(I = \emptyset\) \\
+		\item \(I = \accol{x \in \R\tq a \leq x \leq b} \underset{\mathrm{notation}}{=} \intervii{a}{b}\) avec \(\paren{a,b} \in \R^2 \) et \(a\leq b \) \\
+		\item \(I = \accol{x \in \R\tq a \leq x < b} \underset{\mathrm{notation}}{=} \intervie{a}{b}\) avec \(\paren{a,b} \in \R\times \paren{\R \union \accol{\pinf}} \) et \(a < b\) \\
+		\item \(I = \accol{x \in \R\tq a < x \leq b} \underset{\mathrm{notation}}{=} \intervei{a}{b}\) avec \(\paren{a,b} \in \paren{\R \union \accol{\minf}}\times \R \) et \(a < b\) \\
+		\item \(I = \accol{x \in \R\tq a < x \leq b} \underset{\mathrm{notation}}{=} \intervee{a}{b}\) avec \(\paren{a,b} \in \paren{\R \union \accol{\minf}}\times  \paren{\R \union \accol{\pinf}} \) et \(a < b\) \\
+
+	\end{itemize}
+\end{nota}
+
+\begin{prop}
+	\begin{enumerate}
+		\item Passage à l'inverse dans une inégalité
+		      \[\quantifs{\forall x \in \Rps ; \forall y \in \Rps} x\leq y \iff \frac{1}{y} \leq \frac{1}{x}\]
+		      \[\quantifs{\forall x \in \Rms ; \forall y \in \Rms} x\leq y \iff \frac{1}{y} \leq \frac{1}{x}\] \\
+		\item Passage au carré dans une inégalité
+		      \[\quantifs{\forall x \in \Rps ; \forall y \in \Rps} x\leq y \iff x^2 \leq y^2\]
+		      \[\quantifs{\forall x \in \Rms ; \forall y \in \Rms} x\leq y \iff y^2 \leq x^2\] \\
+		\item Passage à la racine carrée dans une inégalité
+		      \[\quantifs{\forall x \in \Rp ; \forall y \in \Rp} x\leq y \iff \sqrt{x}\leq \sqrt{y}\] \\
+		\item Passage à l’exponentielle ou au logarithme népérien dans une inégalité
+		      \[\quantifs{\forall x \in \R ; \forall y \in \R} x\leq y \iff \e{x}\leq \e{y}\]
+		      \[\quantifs{\forall x \in \Rps ; \forall y \in \Rps} x\leq y \iff \ln{x}\leq \ln{y}\] \\
+	\end{enumerate}
+\end{prop}
+
+\begin{exoex}
+	Montrer \(\quantifs{\forall x \in \intervii{0}{1}} x(1-x) \leq \frac{1}{4}\).
+\end{exoex}
+
+\begin{corr}[2 Méthode]
+	Soit \(x \in \intervii{0}{1} \)
+	\begin{enumerate}
+		\item Raisonnement par équivalence
+		      \[\begin{align}
+				      x(1-x) \leq \frac{1}{4} & \iff 0 \leq \frac{1}{4}-x(1-x)     \\
+				                              & \iff 0\leq x^2 -x +  \frac{1}{4}   \\
+				                              & \iff 0\leq\paren{x- \frac{1}{2}}^2
+			      \end{align}
+		      \]
+		      Ceci étant vrai \(\quantifs{\forall x\in \intervii{0}{1}}\) car \(\Delta = 0\) et \(x_0 =  \frac{1}{2}\), on conclut \(\quantifs{\forall x \in \intervii{0}{1}} x(1-x) \leq \frac{1}{4}\).\\
+		\item étude de la fonction \(\fonction{f}{\intervii{0}{1}}{\R}{x}{\frac{1}{4}-x(1-x)}\)\\
+	\end{enumerate}
+\end{corr}
+
+
+%faire exemple
