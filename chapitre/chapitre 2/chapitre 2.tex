@@ -63,11 +63,11 @@ Dans ce chapitre, sont rassemblés des rappels ou compléments sur les inégalit
 	Soit \(x \in \intervii{0}{1} \)
 	\begin{enumerate}
 		\item Raisonnement par équivalence
-		      \[\begin{align}
+		      \[\begin{aligned}
 				      x(1-x) \leq \frac{1}{4} & \iff 0 \leq \frac{1}{4}-x(1-x)     \\
 				                              & \iff 0\leq x^2 -x +  \frac{1}{4}   \\
 				                              & \iff 0\leq\paren{x- \frac{1}{2}}^2
-			      \end{align}
+			      \end{aligned}
 		      \]
 		      Ceci étant vrai \(\quantifs{\forall x\in \intervii{0}{1}}\) car \(\Delta = 0\) et \(x_0 =  \frac{1}{2}\), on conclut \(\quantifs{\forall x \in \intervii{0}{1}} x(1-x) \leq \frac{1}{4}\).\\
 		\item étude de la fonction \(\fonction{f}{\intervii{0}{1}}{\R}{x}{\frac{1}{4}-x(1-x)}\)\\
@@ -75,4 +75,166 @@ Dans ce chapitre, sont rassemblés des rappels ou compléments sur les inégalit
 \end{corr}
 
 
-%faire exemple
+\begin{exoex}
+	Montrer \(\quantifs{\forall x \in \Rps} x+\frac{1}{x}\geq 2\).
+\end{exoex}
+
+\begin{corr}
+	Soit \(x \in \Rps \)
+
+	\[\begin{aligned}
+			x+\frac{1}{x}\geq 2 & \iff \frac{x^2+1}{x}\geq 2 \\
+			                    & \iff x^2-2x+1\geq    0     \\
+			                    & \iff (x-1)^2 \geq 0
+		\end{aligned}
+	\]
+	Ceci étant vrai \(\quantifs{\forall x\in \Rps}\) on conclut \(\quantifs{\forall x \in \Rps} x+\frac{1}{x}\geq 2\).
+\end{corr}
+
+\begin{exoex}
+	Encadrer \(\frac{2x^2-x+1}{x^2+\sqrt{x+2}+3}\) pour \(x \in \intervii{-1}{1}\).
+\end{exoex}
+
+\begin{corr}
+	Soit \(x \in \intervii{-1}{1} \)
+	\begin{enumerate}
+		\item \underline{numérateur} :
+		      \[\begin{aligned}
+				      -1 \leq x\leq 1 & \iff 0 \leq x^2 \leq 1      \\
+				                      & \iff 0 \leq 2x^2 \leq 2     \\
+				                      & \iff 0 \leq 2x^2-x+1 \leq 4
+			      \end{aligned}
+		      \]
+
+		\item \underline{denominateur} : \[\begin{aligned}
+				      -1 \leq x\leq 1 & \iff 0 \leq x^2 \leq 1                                                      \\
+				                      & \iff 4 \leq x^2 +\sqrt{x+2}+3 \leq 4+\sqrt{3}                               \\
+				                      & \iff \frac{1}{4+\sqrt{3}} \leq \frac{1}{x^2 +\sqrt{x+2}+3 }\leq \frac{1}{4} \\
+			      \end{aligned}
+		      \]
+	\end{enumerate}
+	Ainsi par produit des deux inégalités on as \(0\leq\frac{2x^2-x+1}{x^2+\sqrt{x+2}+3}\leq1\) pour \(x \in \intervii{-1}{1}\).
+\end{corr}
+
+\begin{exoex}
+	Encadrer \(\frac{x-y^2+3}{x^2+y^2-y}\) pour \(\forall \paren{x,y} \in \intervii{1}{2}^2\).
+\end{exoex}
+
+\begin{corr}
+	Soit \(x \in \intervii{-1}{1} \)
+	\begin{enumerate}
+		\item \underline{numérateur} :
+		      \[\begin{aligned}
+				      1-4+3\leq x-y^2+3 \leq 2-1+4 & \iff 0 \leq x-y^2+3 \leq 5
+			      \end{aligned}
+		      \]
+
+		\item \underline{denominateur} : \[\begin{aligned}
+				      0 \leq y-1\leq 1 & \iff 0 \leq y^2-y \leq y                        \\
+				                       & \iff 0 \leq y^2-y \leq 2                        \\
+				                       & \iff 1 \leq x^2+y^2-y\leq 6                     \\
+				                       & \iff \frac{1}{6} \leq \frac{1}{x^2+y^2-y}\leq 1 \\
+			      \end{aligned}
+		      \]
+	\end{enumerate}
+	Ainsi par produit des deux inégalités on as \(0\leq \frac{x-y^2+3}{x^2+y^2-y} \leq 5\) pour \(\forall \paren{x,y} \in \intervii{1}{2}^2\).
+\end{corr}
+
+\begin{defi}[Parties majorées, majorants, maximum]
+	Une partie \(A\) de \(\R\) est dite majorée s’il existe un réel \(M\) tel que, pour tout réel \(x\) de \(A\), on a : \(x \leq M\). \\
+	Un tel réel \(M\) est alors dit :
+	\begin{itemize}
+		\item majorant de \(A\) dans le cas général. \\
+		\item maximum de \(A\) dans le cas particulier où \(M\) appartient à \(A\).\\
+	\end{itemize}
+
+\end{defi}
+
+\begin{defi}[Parties minorées, minorants, minimum]
+	Une partie \(A\) de \(\R\) est dite minorée s’il existe un réel \(m\) tel que, pour tout réel \(x\) de \(A\), on a : \(m\leq x\). \\
+	Un tel réel \(m\) est alors dit :
+	\begin{itemize}
+		\item minorant  de \(A\) dans le cas général. \\
+		\item minimum  de \(A\) dans le cas particulier où \(m\) appartient à \(A\).\\
+	\end{itemize}
+
+\end{defi}
+
+\begin{exoex}
+	Que dire de \(B = \accol{\frac{n}{n^2+1} \tq n \in \N}\) ?
+\end{exoex}
+
+\begin{corr}
+	\begin{itemize}
+
+		\item \(B\) est minorée car \( \quantifs{\forall n \in \N} 0 \leq \frac{n}{n^2+1} \) par ailleurs \(0 \in B\) donc \(0\) est un minimum. \\
+		\item \(B\) est majorée par \(\frac{1}{2}\). En effent en notant \(U_n = \frac{n}{n^2+1}\), On voit que \((U_n)\) est strictement décroissante
+	\end{itemize}
+\end{corr}
+
+\begin{exoex}
+	Que dire de \(C = \accol{\frac{\e{x}}{x} \tq x \in \Rps}\) ?
+\end{exoex}
+
+\begin{corr}
+	\begin{itemize}
+
+		\item \(C\) est minorée car \( \quantifs{\forall x \in \Rps} 0 \leq \frac{\e{x}}{x} \) donc \(0\) est un minorant mais pas un minimum  \\
+		\item Supposons que \(C\) est majorée alors \(\quantifs{\exists M \in \R,\forall c \in C} c\leq M \) ainsi \(\quantifs{\forall x \in \Rps} \frac{\e{x}}{x} \leq M \) donc par passage à la limite en \(\pinf\) on trouve \(\pinf \leq M\) ce qui est absurde donc \(C\) n'est pas majorée.
+	\end{itemize}
+\end{corr}
+
+\begin{defi}[Parties bornées]
+	Une partie \(A\) de \(\R\) est dite bornée si elle est majorée et minorée autrement dit s’il existe deux réels \(m\) et \(M\) tel que, pour tout réel \(x\) de \(A\), on a : \(m\leq x \leq M\).
+\end{defi}
+
+\section{Valeur absolue d'un réel}
+\begin{defi}
+Pour tout \(x\) réel, la valeur absolue de \(x\), notée \(\abs{x}\), est définie par : \(\abs{x} = \begin{cases}
+	-x & \text{si }  x < 0   \\
+	x  & \text{si }  x\geq 0 \\
+\end{cases}\)
+\end{defi}
+
+\begin{prop}
+	\begin{enumerate}
+		\item Pour tout \(x\) réel, on a : \(0\leq\abs{x}\) et \(x\leq\abs{x}\)
+		\item Pour tout couple\((x,y)\) de réels, on a : \(\abs{xy} = \abs{x}\abs{y}\)
+		\item Pour tout couple \((x,y)\) de réels tel que \(y\) est non nul, on a: \(\abs{\frac{x}{y}} = \frac{\abs{x}}{\abs{y}}\)
+	\end{enumerate}
+\end{prop}
+
+\begin{defprop}[Deux inéquations élémentaires]
+	Pour tout réel \(x\) et tout \underline{réel positif} \(\alpha\), on a:
+	\begin{enumerate}
+		\item \(\abs{x}\leq \alpha \iff -\alpha \leq x \leq \alpha \iff x \in \intervii{-\alpha}{\alpha}\)
+		\item \(\abs{x}\geq \alpha \iff x \leq -\alpha\text{ ou } \alpha \leq x \iff x \in \intervei{\pinf}{-\alpha}\union\intervie{\alpha}{\pinf}\)
+	\end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Interprétation sur la droite des réels]
+	Soit \(a\) un réel et \(b\) un \underline{réel positif}. \\
+	L’ensemble des réels \(x\) vérifiant \(\abs{x-a}\leq b\) (resp. \(\abs{ x-a}\geq b \)) est l’ensemble des points de la droite des
+	réels situés à une distance du point \(a\) inférieure ou égale (resp. supérieure ou égale) à \(b\).
+\end{defprop}
+
+\begin{prop}[Inégalité triangulaire]
+	Pour tout couple \((x,y)\) de réels, on a :
+	\[\abs{x+y}\leq \abs{x}+\abs{y}\]
+\end{prop}
+
+\begin{dem} [inégalité triangulaire]
+	Soit \((x,y) \in \R^2\)
+	\begin{align*}
+		\abs{x+y}\leq \abs{x}+\abs{y} & \iff \abs{x+y}^2\leq (\abs{x}+\abs{y})^2 \\
+        &\iff x^2+2xy+y^2 \leq x^2+y^2+2\abs{x}\abs{y} \\
+        &\iff xy\leq \abs{xy}
+	\end{align*}
+    Ce qui est vrai donc l'inégalité est bien démontrer 
+\end{dem}
+
+\begin{exoex}
+    Encadrer \(\frac{x\cos(x)+1}{\sin(x)+3}\) pour \(x\in\intervii{-\pi}{2\pi}\)
+\end{exoex}
+
+%exemple 2
