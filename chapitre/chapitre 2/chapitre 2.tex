@@ -190,10 +190,10 @@ Dans ce chapitre, sont rassemblés des rappels ou compléments sur les inégalit
 
 \section{Valeur absolue d'un réel}
 \begin{defi}
-Pour tout \(x\) réel, la valeur absolue de \(x\), notée \(\abs{x}\), est définie par : \(\abs{x} = \begin{cases}
-	-x & \text{si }  x < 0   \\
-	x  & \text{si }  x\geq 0 \\
-\end{cases}\)
+	Pour tout \(x\) réel, la valeur absolue de \(x\), notée \(\abs{x}\), est définie par : \(\abs{x} = \begin{cases}
+		-x & \text{si }  x < 0   \\
+		x  & \text{si }  x\geq 0 \\
+	\end{cases}\)
 \end{defi}
 
 \begin{prop}
@@ -226,15 +226,185 @@ Pour tout \(x\) réel, la valeur absolue de \(x\), notée \(\abs{x}\), est défi
 \begin{dem} [inégalité triangulaire]
 	Soit \((x,y) \in \R^2\)
 	\begin{align*}
-		\abs{x+y}\leq \abs{x}+\abs{y} & \iff \abs{x+y}^2\leq (\abs{x}+\abs{y})^2 \\
-        &\iff x^2+2xy+y^2 \leq x^2+y^2+2\abs{x}\abs{y} \\
-        &\iff xy\leq \abs{xy}
+		\abs{x+y}\leq \abs{x}+\abs{y} & \iff \abs{x+y}^2\leq (\abs{x}+\abs{y})^2      \\
+		                              & \iff x^2+2xy+y^2 \leq x^2+y^2+2\abs{x}\abs{y} \\
+		                              & \iff xy\leq \abs{xy}
 	\end{align*}
-    Ce qui est vrai donc l'inégalité est bien démontrer 
+	Ce qui est vrai donc l'inégalité est bien démontrer
 \end{dem}
 
 \begin{exoex}
-    Encadrer \(\frac{x\cos(x)+1}{\sin(x)+3}\) pour \(x\in\intervii{-\pi}{2\pi}\)
+	Encadrer \(\frac{x\cos(x)+1}{\sin(x)+3}\) pour \(x\in\intervii{-\pi}{2\pi}\)
 \end{exoex}
 
-%exemple 2
+\begin{corr}
+	Soit \(x\in\intervii{-\pi}{2\pi}\)
+	\begin{itemize}
+
+		\item \underline{numérateur} : \(\abs{x\cos(x)+1}\leq \abs{x}\abs{\cos(x)}+1\leq 2\pi+1 = 2\pi+1\)
+		\item \underline{dénominateur} : \(2\leq\abs{\sin(x)+3}\leq 4\)
+
+	\end{itemize}
+	Ainsi par produit des deux inégalités on as :\(0\leq\frac{\abs{x\cos(x)+1}}{\abs{\sin(x)+3}}\leq \frac{2\pi+1}{2} \)\\
+	donc \(-\frac{2\pi+1}{2} \leq \frac{x\cos(x)+1}{\sin(x)+3} \leq \frac{2\pi+1}{2}\) pour \(x\in\intervii{-\pi}{2\pi}\).
+\end{corr}
+
+\begin{prop}
+	Soit un couple \((x,y)\) de réels.
+	\[\abs{\abs{x}-\abs{y}} \leq\abs{x-y}\]
+\end{prop}
+
+\begin{dem}
+	Soit \((x,y) \in \R^2\)
+	\(x =(x-y)+y\) donc \(\abs{x} \underset{\mathrm{\text{inég. triang.}}}{\leq} \abs{x-y}+\abs{y}\) d'où \(\abs{x} - \abs{y} \leq \abs{x-y}\) \\
+	De même, \(y =(x-y)+x\) donc \(\abs{y} \underset{\mathrm{\text{inég. triang.}}}{\leq} \abs{x-y}+\abs{x}\) d'où \( -\abs{x-y} \leq\abs{x} - \abs{y}\)\\
+
+	ainsi on a \(-\abs{x-y} \leq\abs{x} - \abs{y} \leq \abs{x-y}\) donc \(\abs{\abs{x}-\abs{y}} \leq\abs{x-y}\).
+\end{dem}
+
+\section{Partie entière d'un réel}
+\begin{prop}
+	Pour tout réel \(x\),il existe un unique entier \(n\) tel que :
+	\[n\leq x < n+1\]
+\end{prop}
+\begin{defi}
+	On appelle partie entière de \(x\), notée \(\lfloor x \rfloor\), l'unique entier \(n\) vérifiant la propriété précédente.
+\end{defi}
+
+\begin{ex}
+	\(\lfloor 3.14 \rfloor = 3\), \(\lfloor -2.7 \rfloor = -3\) et \(\lfloor 5 \rfloor = 5\).
+\end{ex}
+
+\section{Généralité sur les fonctions}
+\begin{defi} [Fonction]
+	Une fonction de variable réelle à valeurs réelles notée \(f\) est un objet mathématique qui, à tout élément \(x\) d’une partie non vide de \(\R\), associe un et un seul nombre réel noté \(f(x)\). \\
+	\underline{Notation Fonctionnelle} : \[\fonction{f}{A}{\R}{x}{f(x)}\]
+\end{defi}
+
+\begin{defi}
+	Soit \(f\) une fonction de variable réelle à valeurs réelles.
+	\begin{enumerate}
+		\item L’ensemble des réels \(x\) pour lesquels \(f(x)\) existe est appelé ensemble/domaine de définition de \(f\) et souvent noté \(D_f = \accol{x \in \R \tq f(x) \text{existe}}\)
+		\item Soit \(x \in D_f\)\\
+		      La valeur réelle \(f(x)\) est appelée image de \(x\) par \(f\). \\
+		\item soit \( y \in \R\) \\
+		      S'il existe \(x\) dans \(D_f\) tel que \(f(x) = y\) alors \(x\) est dit antécédent de \(y\) par \(f\)
+	\end{enumerate}
+\end{defi}
+
+\begin{defprop}[égalité entre fonction]
+	Deux fonctions \(f\) et \(g\) de variable réelle à valeurs réelles sont dites égales si les deux conditions suivantes sont réunies :
+	\begin{itemize}
+		\item les fonctions \(f\) et \(g\) ont le même ensemble de définition \(D\) ;
+		\item pour tout \(x\) de \(D\), \(f(x) = g(x)\).
+	\end{itemize}
+	dans ce cas, on note \(f = g\).
+\end{defprop}
+
+\begin{exoex}
+	est-ce que les fonctions \(f\) et \(g\) définies par :
+	\[f: x\mapsto\frac{1}{\sqrt{1+x}+1} \text{ et } g:  x\mapsto\frac{\sqrt{1+x}-1}{x}\]
+	Sont égales ?
+\end{exoex}
+\begin{corr}
+	Tout d'abord \(\quantifs{\forall x \in D_f\inter D_g} f(x) = g(x)\) car :
+	\begin{align*} g(x) & = \frac{\sqrt{1+x}-1}{x}                                                 \\
+                    & = \frac{\paren{\sqrt{1+x}-1}\paren{\sqrt{1+x}+1}}{x\paren{\sqrt{1+x}+1}} \\
+                    & = \frac{1+x-1}{x\paren{\sqrt{1+x}+1}}                                    \\
+                    & = \frac{x}{x\paren{\sqrt{1+x}+1}}                                        \\
+                    & = \frac{1}{\sqrt{1+x}+1} = f(x)
+	\end{align*}
+	Donc \(f = g\) sur \(D_f\inter D_g\) mais
+	\(D_f = \intervei{-1}{\pinf}\) or \(D_g = \intervie{-1}{\pinf}\pd\accol{0}\) donc \(D_f \neq D_g\) donc \(f \neq g\).
+\end{corr}
+
+\begin{defi}[représentation graphique d'une fonction]
+	Dans le plan muni d’un repère orthonormé \((O, \vec{i}, \vec{j})\), l’ensemble de points \(\mathcal{C}_f\) défini par
+	\[
+		\mathcal{C}_f = \accol{ M(x; f(x)) \tq x \in D_f }
+	\]
+	est appelé représentation graphique de \(f\) (ou courbe représentative de \(f\)).
+\end{defi}
+
+\begin{defi}[Parité,imparité et périodicité d'une fonction]
+	\begin{itemize}
+		\item Une fonction \(f\) est dite paire si, pour tout \(x\) de son domaine de définition, on a : \(f(-x) = f(x)\).
+		\item Une fonction \(f\) est dite impaire si, pour tout \(x\) de son domaine de définition, on a : \(f(-x) = -f(x)\).
+		\item Une fonction \(f\) est dite périodique de période \(T\) si, pour tout \(x\) de son domaine de définition, on a : \(f(x+T) = f(x)\).
+	\end{itemize}
+\end{defi}
+\begin{exo}
+	Montrer que toute fonction de \(\R\) peut s'écrire de manière unique comme la somme d'une fonction paire et d'une fonction impaire.
+\end{exo}
+
+\begin{corr}[Analyse-synthèse]
+	Soit \(f : \R \mapsto \R \) une fonction quelqu'onque
+	\begin{itemize}
+		\item \underline{Analyse} :  Supposons qu'il existe \(\begin{cases}
+			      p:\R \mapsto \R \text{ paire} \\
+			      i:\R \mapsto \R \text{ impaire}
+		      \end{cases}\) telles que \(f = p + i\) \\
+		      Ainsi \(\forall x \in \R \begin{cases}
+			      f(x) = p(x) + i(x) \hfill (1)                  \\
+			      f(-x) = p(-x) + i(-x) = p(x) - i(x) \hfill (2) \\
+		      \end{cases}\) \\
+		      \begin{itemize}
+			      \item\(\frac{1}{2}\paren{\text{(1)+(2)}}\) donne \(p:x\mapsto \frac{f(x)+f(-x)}{2}\) \\
+			      \item \(\frac{1}{2}\paren{\text{(1)-(2)}}\) donne \(i:x\mapsto \frac{f(x)-f(-x)}{2}\) \\
+		      \end{itemize}
+		\item \underline{Synthèse} : vérifions que le seul couple trouvé convient :
+		      \begin{itemize}
+			      \item \(\forall x \in \R, f(x) = p(x)+i(x)\)\\
+			      \item \(p(-x) = p(x) \text{ et } i(-x) = -i(x)\)\\
+		      \end{itemize}
+	\end{itemize}
+	Ainsi \(f\) s'écrit de manière unique comme la somme d'une fonction paire et impaire
+\end{corr}
+
+\begin{defi} [opération et composition]
+	Soit \(f\) et \(g\) deux fonctions de variable réelle à valeurs réelles de domaines de définition \(D_f\) et \(D_g\).
+	\begin{itemize}
+		\item La somme de \(f\) et \(g\) est la fonction, notée \(f + g\), définie par \(f + g : x \mapsto f(x) + g(x)\). \\
+		      Son domaine de définition \(D_{f+g}\) vérifie : \(D_{f+g} = D_f \inter D_g\).
+		\item  La multiplication de \(f\) par le réel \(\alpha\) est la fonction, notée \(\alpha f\), définie par \(\alpha f : x \mapsto \alpha f(x)\). \\
+		      Son domaine de définition \(D_{\alpha f}\) vérifie : \(D_{\alpha f} = D_f\) si \(\alpha \neq 0\).
+		\item Le produit de \(f\) et \(g\) est la fonction, notée \(f g\), définie par \(f g : x \mapsto f(x)g(x)\). \\
+		      Son domaine de définition \(D_{fg}\) vérifie : \(D_{fg} = D_f \inter D_g\).
+		\item Le quotient de \(f\) par \(g\) est la fonction , notée \(frac{f}{g}\), définie par \(frac{f}{g} : x \mapsto \frac{f(x)}{g(x)}\). \\
+		      Son domaine de définition \(D_{frac{f}{g}}\) vérifie : \(D_{frac{f}{g}} = D_f \inter \accol{x \in D_g | g(x) \neq 0}\).
+		\item La composée de \(g\) et \(f\) est la fonction, notée \(g \circ f\), définie par \(g \circ f : x \mapsto g(f(x))\). \\
+		      Son domaine de définition \(D_{g \circ f}\) vérifie : \(D_{g \circ f} = \accol{x \in D_f | f(x) \in D_g}\).
+	\end{itemize}
+\end{defi}
+
+\begin{exoex}
+	Domaine de définition de : \(\fonction{f}{D_f}{\R}{x}{\sqrt{x-\frac{1}{x}}} \)
+\end{exoex}
+
+\begin{corr}
+	Soit \(x \in D_f\) alors \(x-\frac{1}{x} \geq 0 \iff x\neq 0\) et \(\frac{x^2-1}{x} = \frac{(x-1)(x+1)}{x} \geq 0\)\\
+	% Assurez-vous d'avoir \usepackage{tkz-tab} dans le préambule
+	\begin{tikzpicture}
+		\tkzTabInit{$x$/1,$(x-1)(x+1)$/1,$x$/1,$f$/1}{$-\infty$,$-1$,$0$,$1$,$+\infty$}
+		\tkzTabLine{,+,0,-,t,-,0,+,}
+		\tkzTabLine{,-,t,-,0,+,t,+,}
+		\tkzTabLine{,-,0,+,d,-,0,+}
+
+
+	\end{tikzpicture}\\
+    ainsi on voit bien que \(D_f = \intervie{-1}{0}\union\intervie{1}{\pinf}\) 
+\end{corr}
+
+\section{Fonction et relation d'ordre}
+\begin{defi}[Monotonie]
+    Soit \(f\) une fonction de variable réelle à valeurs réelles et \(D\) une partie de son domaine de définition \(D_f\).
+    \begin{enumerate}
+        \item \(f\) est dite \textbf{croissante} sur \(D\) si, pour tout \((x, y) \in D^2\) tel que \(x \leq y\), on a \(f(x) \leq f(y)\).
+        \item \(f\) est dite \textbf{décroissante} sur \(D\) si, pour tout \((x, y) \in D^2\) tel que \(x \leq y\), on a \(f(x) \geq f(y)\).
+        \item \(f\) est dite \textbf{strictement croissante} sur \(D\) si, pour tout \((x, y) \in D^2\) tel que \(x < y\), on a \(f(x) < f(y)\).
+        \item \(f\) est dite \textbf{strictement décroissante} sur \(D\) si, pour tout \((x, y) \in D^2\) tel que \(x < y\), on a \(f(x) > f(y)\).
+    \end{enumerate}
+    \textbf{Remarque :} \(f\) est dite \textbf{monotone} (resp. \textbf{strictement monotone}) sur \(D\) si elle est croissante ou décroissante (resp. strictement croissante ou strictement décroissante) sur \(D\).
+\end{defi}
+
+%fonction majorées, minorées, bornées
