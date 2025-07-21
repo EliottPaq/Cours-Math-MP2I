@@ -1,0 +1,234 @@
+\chapter{Calcul algébrique (rappels et compléments)}
+
+\minitoc
+\section{Sommes et produit finis}
+\begin{nota}
+	Soit \(\paren{a_i}_{i\in I}\) une famille de réels indexée par un ensemble \(I\) fini. \\
+	La somme (resp. le produit) de tous les réels de la famille est notée \(\sum_{i\in I} a_i\) (resp. \(\prod_{i\in I} a_i\)). \\
+	\begin{itemize}
+		\item Si \(I\) est l'ensemble vide, on convient que : \(\sum_{i\in I} a_i = 0\) et \(\prod_{i\in I} a_i = 1\).
+		\item Si \(I = \accol{1,2,\ldots,n}\) avec \(n\) un entier naturel non nul, on note \(\sum_{i=1}^n a_i\)  ou \(\sum_{1\leq i \leq n} a_i\) au lieu de \(\sum_{i\in I} a_i\) (resp. \(prod_{i=1}^n a_i\) ou \(\prod_{1\leq i \leq n} a_i\) au lieu de \(\prod_{i\in I} a_i\)).
+	\end{itemize}
+\end{nota}
+\begin{prop}[opération et calcul par paquets]
+	\begin{itemize}
+		\item Pour toutes familles \(\paren{a_i}_{i\in I}\) et \(\paren{b_i}_{i\in I}\) de réels indexées par \(I\) et pour tout couple\((\alpha,\beta)\) de réels, on a :
+		      \[ \sum_{i\in I} \paren{\alpha a_i + \beta b_i} = \alpha \sum_{i\in I} a_i + \beta \sum_{i\in I} b_i \qquad \text{ et } \qquad \prod_{i\in I} \paren{a_i b_i} = \paren{\prod_{i\in I} a_i}\paren{\prod_{b_i}}\]
+		\item Pour toute famille \(\paren{a_i}_{i\in I}\) de réels indexée par \(I\) avec \(I=I_1 \union I_2\) et \(I_1\cap I_2 = \emptyset\), on a :
+		      \[ \sum_{i\in I} a_i = \sum_{i\in I_1} a_i + \sum_{i\in I_2} a_i \qquad \text{ et } \qquad  \prod_{i\in I} a_i = \prod_{i\in I_1} a_i \prod_{i\in I_2} a_i \]
+	\end{itemize}
+\end{prop}
+
+\begin{exoex}
+	~\\
+	Calculer : \(\sum_{k=1}^{2n} (-1)^k k \) avec \(n \in \N\)
+\end{exoex}
+
+\begin{corr}
+	\begin{align*}
+		\sum_{k=1}^{2n} (-1)^k k & = \sum_{k=0}^{n-1} (-1)^{2k+1} (2k-+) + \sum_{k=1}^{n} (-1)^{2k} (2k) \\
+		                         & = -\sum_{k=0}^{n-1} (2k+1) + \sum_{k=1}^{n} 2k                        \\
+		                         & = -\paren{2\sum_{k=0}^{n-1} k + n} + 2\sum_{k=1}^{n} k                \\
+		                         & = -\paren{2\frac{(n-1)n}{2} + n} + 2\frac{n(n+1)}{2}                  \\
+		                         & = n\paren{n+1-n+1-1}                                                  \\
+		                         & = n                                                                   \\
+	\end{align*}
+\end{corr}
+\begin{defprop}[téléscopage]
+	Soit \(\paren{b_i}_{1 \leq i \leq n}\) une famille \underline{finie} de réels avec \(n\) supérieur ou égal à \(2\).
+	\begin{enumerate}
+		\item La somme \(\sum_{i=1}^n b_{i+1}-b_i\) est dire somme télescopique et vaut \(b_{n+1}-b_1\).
+		\item Si tous les \(b_i\) sont non nuls, le produit \(\prod_{i=1}^n \frac{b_{i+1}}{b_i}\) est dit produit télescopique et vaut \(\frac{b_{n+1}}{b_1}\).
+	\end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Somme usuelles]
+	Pour tout entier naturel \(n\) et tout réel \(x\) différent de \(1\), on a :
+	\[\sum_{k=0}^n k = \frac{n(n+1)}{2} \qquad \sum_{k=0}^n k^2 = \frac{n(n+1)(2n+1)}{6} \qquad \sum_{k=0}^n x^k = \frac{x^{n+1}-1}{x-1}\]
+\end{defprop}
+
+\begin{defprop}[Factorisation de \(a^n-b^n\) ]
+	Pour tout \(n\) entier naturel non nul et tout couple \((a,b)\) de réels, on a :
+	\begin{align*}
+		a^n-b^n & = (a-b)\paren{a^{n-1} + a^{n-2}b + \ldots + ab^{n-2} + b^{n-1}} \\
+		        & = (a-b)\sum_{k=0}^{n-1} a^{n-1-k}b^k                            \\
+		        & = (a-b)\sum_{k=0}^{n-1} a^kb^{n-1-k}                            \\
+	\end{align*}
+\end{defprop}
+
+\begin{defprop}[coefficients binomiaux]
+	Soit \(n\) un entier naturel non et \(k\) entière relatif, on a:
+	\begin{enumerate}
+		\item \(\binom{n}{k} = \binom{n}{n-k} \hfill \text{(symétrie)}\)
+		\item \(binom{n}{k} +\binom{n}{k+1} = \binom{n+1}{k+1} \hfill \text{(relation de Pascal)}\)
+		\item \(\binom{n}{k} \) est un entier naturel
+	\end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Formule du binôme de Newton]
+	Pour tout couple \((a,b)\) de réels et tout entier naturel \(n\), on a :
+	\[\paren{a+b}^n = \sum_{k=0}^n \binom{n}{k} a^{n-k}b^k = \sum_{k=0}^n \binom{n}{k} a^{k}b^{n-k}\]
+\end{defprop}
+
+
+\section{Cas des sommes doubles finies}
+\begin{defi}
+	Soit \(A\) un ensemble fini de couples et \((a_{i,j})_{(i,j)\in A}\) une famille de réels indexée par \(A\). La somme de tous les réels de la famille \((a_{i,j})_{(i,j)\in A}\) est notée \(\sum_{(i,j)\in A} a_{i,j}\) et appelée somme double. \\
+	\underline{Remarque} : Si \(A\) est l'ensemble vide, on convient que \(\sum_{(i,j)\in A} a_{i,j} = 0\)
+\end{defi}
+\begin{defprop}[Sommes double rectangulaires]
+	Dans le cas où \(A = \accol{1,2,\ldots,n}\times \accol{1,2,\ldots,m}\) avec \(n\) et \(m\) des entiers naturels non nuls,
+	\begin{itemize}
+		\item la somme double \(\sum_{(i,j)\in A} a_{i,j}\) est rectangulaire
+		\item le somme double \(\sum_{(i,j)\in A} a_{i,j}\) s'écrit aussi \(\sum_{\substack{1 \leq i \leq n \\ 1 \leq j \leq m}} a_{i,j}\)
+		\item la somme double \(\sum_{(i,j)\in A} a_{i,j}\) vaut  :
+		      \[ sum_{(i,j)\in A} a_{i,j} = \sum_{\substack{1 \leq i \leq n \\ 1 \leq j \leq m}} a_{i,j} = \sum_{i=1}^n \paren{\sum_{j=1}^m a_{i,j}} = \sum_{j=1}^m \paren{\sum_{i=1}^n a_{i,j}} \]
+		\item si \((b_i)_{1\leq i \leq n}\) et \((c_j)_{1\leq j \leq m}\) sont des familles finies de réels, alors : \[\paren{\sum_{i=1}^n b_i}\paren{\sum_{j=1}^m c_j} = \sum_{\substack{1 \leq i \leq n \\ 1 \leq j \leq m}} b_i c_j\]
+	\end{itemize}
+\end{defprop}
+
+\begin{defprop}[somme double triangulaire]
+	Dans le cas où \(A = \accol{(i,j) \in \N^2 | 1 \leq i \leq j \leq n}\) avec \(n\) un entier naturel non nul,
+	\begin{itemize}
+		\item La somme double \(\sum_{(i,j)\in A} a_{i,j}\) est dite triangulaire.
+		\item La somme double \(\sum_{(i,j)\in A} a_{i,j}\) s'écrit aussi \(\sum_{1\leq i \leq j \leq n} a_{i,j}\) et vaut:
+		      \[\sum_{(i,j)\in A} a_{i,i} = \sum_{1\leq i \leq j \leq n} a_{i,j} = \sum_{i=1}^n \paren{\sum_{j=i}^n a_{i,j}} = \sum_{j=1}^n \paren{\sum_{i=1}^j a_{i,j}}\]
+	\end{itemize}
+\end{defprop}
+
+
+\section{Système linéaire de deux équations à deux inconnues}
+\begin{defprop}[rappel de première]
+	Dans le plan \(\R^2\) muni d’un repère orthonormé \((O,\vec{i},\vec{j})\), toute droite \(D\) admet une équation de la forme \[ax + by = c\]
+	où \(a\), \(b\) et \(c\) sont des réels tels que \((a,b)\neq (0,0)\). \\
+	Avec ces notations,
+	\begin{itemize}
+		\item le vecteur \(\vec{n}\) de coordonnées \((a,b)\) est un vecteur normal à \(D\) ;
+		\item le vecteur \(\vec{u}\) de coordonnées \((-b,a)\) est un vecteur directeur de \(D\).
+	\end{itemize}
+\end{defprop}
+
+\begin{defprop}[Système linéaire de deux équations à deux inconnues]
+	Soit \(a\), \(b\), \(c\), \(a'\), \(b'\) et \(c'\) des réels. Le système d’équations
+	\[
+		(S) :
+		\begin{cases}
+			ax + by = c \\
+			a'x + b'y = c'
+		\end{cases}
+	\]
+	d’inconnues les réels \(x\) et \(y\) est dit système linéaire de deux équations à deux inconnues.
+\end{defprop}
+
+\begin{defprop}[Interprétation géométrique]
+	Dans le cas où \((a,b)\neq (0,0)\) et \((a',b')\neq (0,0)\), résoudre le système \((S)\) revient à  déterminer l’intersection entre deux droites \(D\) et \(D'\) du plan.
+	Trois cas se présentent :
+	\begin{itemize}
+		\item Les droites sont confondues donc \((S)\) a une infinité de solutions qui forment une droite ;
+		\item Les droites sont sécantes donc \((S)\) a une unique solution ;
+		\item Les droites sont parallèles non confondues donc \((S)\) n’a pas de solutions.
+	\end{itemize}
+\end{defprop}
+
+
+\section{Système linéaire de trois équations à trois inconnues}
+
+\begin{defprop}[rappel de terminale]
+	Dans l'espace \(\R^3\) muni d’un repère orthonormé \((O,\vec{i},\vec{j},\vec{k})\), tout plan \(P\) admet une équation de la forme
+	\[ax + by + cz = d\]
+	où \(a\), \(b\), \(c\) et \(d\) sont des réels tels que \((a,b,c)\neq (0,0,0)\)
+	\begin{itemize}
+		\item le vecteur \(\vec{n}\) de coordonnées \((a,b,c)\) est un vecteur normal à \(P\) ;
+		\item deux vecteurs non colinéaires pris parmi les vecteurs de coordonnées \((-b,a,0)\), \((0,-c,b)\) et \((-c,0,a)\) donnent la direction de \(P\).
+	\end{itemize}
+\end{defprop}
+
+\begin{defprop}[Système linéaire de deux équations à trois inconnues]
+	Soit \(a\), \(b\), \(c\), \(d\), \(a'\), \(b'\), \(c'\) et \(d'\) des réels. Le système d’équations
+	\[
+		(S) :
+		\begin{cases}
+			ax + by + cz = d \\
+			a'x + b'y + c'z = d'
+		\end{cases}
+	\]
+	d’inconnues les réels \(x\), \(y\) et \(z\) est dit système linéaire de deux équations à trois inconnues.
+\end{defprop}
+
+\begin{defprop}[Interprétation géométrique]
+	Dans le cas où \((a,b,c)\neq (0,0,0)\) et \((a',b',c')\neq (0,0,0)\), résoudre le système \((S)\) revient à déterminer l’intersection entre deux plans \(P\) et \(P'\) de l’espace.
+	Trois cas se présentent :
+	\begin{itemize}
+		\item Les plans sont confondus donc \((S)\) a une infinité de solutions qui forment un plan ;
+		\item Les plans sont sécants donc \((S)\) a une infinité de solutions qui forment une droite ;
+		\item Les plans sont parallèles non confondus donc \((S)\) n’a pas de solutions.
+	\end{itemize}
+\end{defprop}
+\begin{defprop}[Système linéaire de trois équations à trois inconnues]
+	Soit \(a\), \(b\), \(c\), \(d\), \(a'\), \(b'\), \(c'\), \(d'\), \(a''\), \(b''\), \(c''\) et \(d''\) des réels. Le système d’équations
+	\[ (S) : \begin{cases}
+			ax + by + cz = d     \\
+			a'x + b'y + c'z = d' \\
+			a''x + b''y + c''z = d''
+		\end{cases} \]
+	d’inconnues les réels \(x\), \(y\) et \(z\) est dit système linéaire de trois équations à trois inconnues.
+\end{defprop}
+
+\begin{defprop}[Interprétation géométrique]
+	Dans le cas où \((a,b,c)\neq (0,0,0)\), \((a',b',c')\neq (0,0,0)\) et \((a'',b'',c'')\neq (0,0,0)\), résoudre le système \((S)\) revient à déterminer l’intersection entre trois plans \(P\), \(P'\) et \(P''\) de l’espace.
+	Cela conduit à distinguer huit cas de figures qui donnent quatre types d’ensemble-solution pour \((S)\) :
+	\begin{itemize}
+		\item Le système \((S)\) a une infinité de solutions qui forment un plan ;
+		\item Le système \((S)\) a une infinité de solutions qui forment une droite ;
+		\item Le système \((S)\) a une unique solution ;
+		\item Le système \((S)\) n’a pas de solutions.
+	\end{itemize}
+\end{defprop}
+
+\section{Algorithme du Pivot}
+\begin{rem} [Remarque préliminaire]
+	En cycle terminal, de petits systèmes linéaires ont été rencontrés et résolus dans des cas simples, le plus souvent par “substitution”. \\
+	En MP2I, nous utiliserons en priorité la méthode de résolution par “pivot”. Plus efficace et élégante, cette technique sera reprise au semestre 2 dans le chapitre “Matrices” pour résoudre plus généralement des systèmes linéaires de \(n\) équations à \(p\) inconnues.
+\end{rem}
+
+\begin{defprop}[Opérations élémentaires]
+	On reprend les notations des paragraphes III. et IV. et on note \(L_i\) la \(i\)-ème ligne du système \((S)\).\\
+	On appelle opérations élémentaires sur les lignes du système linéaire \((S)\) :
+	\begin{enumerate}
+		\item l’échange de deux lignes distinctes : \(L_i \leftrightarrow L_j\) avec \(i\neq j\) ;
+		\item la multiplication d'une ligne par un réel non nul : \(L_i \leftarrow \lambda L_i\) avec \(\lambda\neq 0\) ;
+		\item l'addition à une ligne du produit d'une autre ligne par un réel non nul : \(L_i \leftarrow L_i + \lambda L_j\) avec \(i\neq j\) et \(\lambda\neq 0\).
+	\end{enumerate}
+\end{defprop}
+
+\begin{prop}[Propriété importante]
+	Toute opération élémentaire sur les lignes d’un système linéaire le transforme en un système linéaire équivalent c’est-à-dire un système ayant le même ensemble de solutions.
+\end{prop}
+
+\begin{defprop}[résolution d'un système linéaire par la méthode du pivot]
+	La résolution d’un système linéaire par la méthode du pivot se déroule en deux phases :
+	\begin{itemize}
+		\item \underline{phase de descente} : en effectuant des opérations élémentaires sur les lignes du système, on transforme le système en un système de forme “triangulaire” ou “trapézoïdale” comme, par exemple,
+		      \[(S1) : \begin{cases} a_1x+b_1y = c_1 \\ b'_1y = c'_1 \end{cases}\]
+		      \[(S2) : \begin{cases} a_1x+b_1y+c_1z = d_1 \\ b'_1y+c'_1z = d'_1 \end{cases}\]
+		      \[(S3) : \begin{cases} a_1x+b_1y+c_1z = d_1 \\ b'_1y+c'_1z = d'_1 \\ c''_1z = d''_1 \end{cases}\]
+		\item \underline{phase de remontée} : Le système obtenu est équivalent au système initial ; il est facile à résoudre ce qui permet d’obtenir l’ensemble des solutions du système initial. Dans cette phase de remontée, on peut au choix :
+		      \begin{itemize}
+			      \item effectuer des substitutions successives (moins élégant) ;
+			      \item utiliser à nouveau des opérations élémentaires sur les lignes pour réduire le système sous forme “diagonale” (plus élégant et facile à coder).
+		      \end{itemize}
+	\end{itemize}
+\end{defprop}
+\begin{rem}
+	Les opérations élémentaires effectuées lors de la résolution d’un système linéaire par la méthode du pivot (phases de descente et de remontée) doivent systématiquement être indiquées en marge du système étudié pour faciliter la lecture des correcteurs et permettre de retrouver les éventuelles erreurs de calcul.
+\end{rem}
+
+\begin{rem}[Pour aller plus loin (pour ceux qui ont suivi l’option maths expertes)]
+	\begin{itemize}
+		\item Les petits systèmes linéaires décrits au III. et IV. peuvent se traduire matriciellement par une équation matricielle du type \(AX = B\) avec \(A\) et \(B\) des matrices à préciser et \(X\) une matrice colonne inconnue.
+		\item L’effet des opérations élémentaires sur les lignes de ces systèmes peut se traduire matriciellement par des multiplications de la matrice \(A\) à gauche par des matrices inversibles bien
+	\end{itemize}
+\end{rem}
+
+
+%finir de taper les notes de cours 
