@@ -162,8 +162,8 @@ per-mode=power-positive-first
 \newcommand{\V}[1]{\mathscr{V}\paren{#1}} % neighborhood of a number
 
 % Redefines \Re and \Im to print Re and Im (the same way as ln or lim) instead of fraktur R and I which don't look nice and are less readable.
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Reel}[1]{\operatorname{Re}\paren{#1}}
+\newcommand{\Ima}[1]{\operatorname{Im}\paren{#1}}
 \newcommand{\Card}{\operatorname{Card}}
 
 % Command to print an upright e for the exponential instead of a slanted e and put the exponent.
@@ -722,6 +722,8 @@ per-mode=power-positive-first
 \include{chapitre/chapitre 2/chapitre 2}
 
 \include{chapitre/chapitre 3/chapitre 3}
+
+\include{chapitre/chapitre 4/chapitre 4}
 
 
 \end{document}

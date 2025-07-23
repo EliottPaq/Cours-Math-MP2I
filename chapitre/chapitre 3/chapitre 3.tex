@@ -129,7 +129,7 @@
 \end{defprop}
 
 \begin{dem}[Formule du binôme par récurrence]
-	Soit a et b des réels \\
+	Soit \(a\) et \(b\) des réels \\
 	Montrons que \(\quantifs{\forall n \in \N} (a+b)^n = \sum_{k=0}^n \binom{n}{k} a^{k}b^{n-k} \) \\
 	On note \(P(n)\) la Propriété \guillemets{\((a+b)^n = \sum_{k=0}^n \binom{n}{k} a^{k}b^{n-k}\)}
 	\begin{itemize}
@@ -140,17 +140,17 @@
 		      \end{cases}\)
 		\item \underline{Hérédité}
 		      Soit \(n \in \N\) tel que \(P(n)\) est vrai, Montrons que \(P(n+1)\) est vrai :
-              \begin{align*}
-                (a+b)^{n+1} &= (a+b)(a+b)^n \\
-                &= (a+b) \sum_{k=0}^n \binom{n}{k} a^{k}b^{n-k} \qquad \text{(Hérédité)}\\
-                & = \sum_{k=0}^n \binom{n}{k}  \paren{a^{k+1}b^{n-k}+a^{k}b^{n+1-k}} \\
-                & =\sum_{k=0}^n \binom{n}{k}  a^{k+1}b^{n-k}+ \sum_{k=0}^n \binom{n}{k}a^{k}b^{n+1-k} \\
-                & = \sum_{k=1}^n \binom{n}{k-1}  a^{k+1}b^{n-(k-1)}+\binom{n}{n}a^{n+1}b^0 \sum_{k=1}^n \binom{n}{k}a^{k}b^{n+1-k} + \binom{n}{0}a^0b^{n+1} \\
-                & = \sum_{k=1}^n \binom{n+1}{k} a^kb^{n-k+1} + a^{n+1}+ b^{n+1} \\
-                & = \sum_{k=1}^n \binom{n+1}{k} a^kb^{n-k+1} + \binom{n+1}{n+1}a^{n+1}+ \binom{n+1}{n+1}b^{n+1} \\
-                &= \sum_{k=0}^{n+1} \binom{n+1}{k} a^kb^{n-k+1} 
-              \end{align*}
-              Donc \(P(n+1)\)
+		      \begin{align*}
+			      (a+b)^{n+1} & = (a+b)(a+b)^n                                                                                                                            \\
+			                  & = (a+b) \sum_{k=0}^n \binom{n}{k} a^{k}b^{n-k} \qquad \text{(Hérédité)}                                                                   \\
+			                  & = \sum_{k=0}^n \binom{n}{k}  \paren{a^{k+1}b^{n-k}+a^{k}b^{n+1-k}}                                                                        \\
+			                  & =\sum_{k=0}^n \binom{n}{k}  a^{k+1}b^{n-k}+ \sum_{k=0}^n \binom{n}{k}a^{k}b^{n+1-k}                                                       \\
+			                  & = \sum_{k=1}^n \binom{n}{k-1}  a^{k+1}b^{n-(k-1)}+\binom{n}{n}a^{n+1}b^0 \sum_{k=1}^n \binom{n}{k}a^{k}b^{n+1-k} + \binom{n}{0}a^0b^{n+1} \\
+			                  & = \sum_{k=1}^n \binom{n+1}{k} a^kb^{n-k+1} + a^{n+1}+ b^{n+1}                                                                             \\
+			                  & = \sum_{k=1}^n \binom{n+1}{k} a^kb^{n-k+1} + \binom{n+1}{n+1}a^{n+1}+ \binom{n+1}{n+1}b^{n+1}                                             \\
+			                  & = \sum_{k=0}^{n+1} \binom{n+1}{k} a^kb^{n-k+1}
+		      \end{align*}
+		      Donc \(P(n+1)\) vrai
 	\end{itemize}
 \end{dem}
 

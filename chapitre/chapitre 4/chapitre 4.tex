@@ -1,0 +1,319 @@
+\chapter{Nombres complexes}
+
+\minitoc
+\section{Généralité}
+\begin{defi}[Propriété de \(\C\)]
+
+	On ADMET l'existence d’un ensemble noté \(\C\), dont les éléments sont appelés nombres complexes, tel que :
+	\begin{enumerate}
+		\item \(\C\) contient\(\R \)
+		\item \(\C\) est muni de deux opérations \(+\) et \(\times\) sur \(\C\) qui étendent les opérations \(+\) et \(\times\) connues sur \(\R\) et suivent les mêmes règles de calcul que celles-ci
+		\item \(\C\) contient un élément noté \(\i\) vérifiant \(\i^2 = -1\)
+		\item Tout élément \(z\) de \(\C\) s'écrit de manière uneique sous la forme \(z = a+\i b\) avec \(\paren{a,b} \in \R^2\)
+	\end{enumerate}
+\end{defi}
+\begin{rem}
+	\begin{itemize}
+		\item La forme \(z = a+\i b\)  avec \(\paren{a,b} \in \R^2\) est dite forme algébrique du nombre complexe \(z\) \begin{itemize}
+			      \item le réel \(a\) est dit partie réelle du nombre complexe \(z\) et noté \(a = \Reel{z}\)
+			      \item le réel \(b\) est dit partie imaginaire du nombre complexe \(z\) et noté \(b = \Im{z}\)
+		      \end{itemize}
+		\item L'unicité d'écriture d'un nombre complexe sous forme algébrique se traduit par : \\
+		      Pour tout réels \(a,b,a'\) et \(b'\), on a :
+		      \[a+\i b = a'+\i b' \text{si, et seulement si, } a=a' \text{ et } b= b'\]
+	\end{itemize}
+\end{rem}
+
+\begin{defprop}[Opériation sur \(\C\)]
+	L’ensemble \(\C = \accol{a + \i b \tq \paren{a, b} \in \R^2}\) est muni deux opérations + et \(+\) et \(\times\) définies par, pour tout nombre complexe \(z\) de forme algébrique \(a + \i b\) et tout nombre complexe \(z'\) de forme algébrique \(a' + \i b'\) : \[\begin{cases}
+			z+z' = (a+\i b) + (a'+\i b') = (a+a')+\i(b+b') \\
+			z \times z' = (a+\i b) \times (a'+\i b') = (aa'-bb') + \i(ab'+a'b)
+		\end{cases}\]
+\end{defprop}
+
+\begin{defprop}[Extension des résultat vus dans \(\R\)]
+	\begin{enumerate}
+		\item Pour tout \(n\) entier naturel et tout nombre complexe \(z\) différent de \(1\), on a :
+		      \[\sum_{k=0}^n z^k = \frac{1-z^{k+1}}{1-z}\]
+		\item Pour tout \(n\) entier naturel et tout couple \((z,z')\) nombres complexes , on a :
+		      \[(z+z')^n = \sum_{k=0}^{n}\binom{n}{k}z^k(z')^{n-k} = \sum_{k=0}^{n}\binom{n}{k}z^{n-k}(z')^k\]
+		\item Pour tout \(n\) entier naturel et tout couple \((z,z')\) nombres complexes , on a :
+		      \[z^n+(z')^n = (z-z')\paren{z^{n-1}+z^{n-1}z'+\dots+z(z')^{n-2}+(z')^{n-1}} = (z-z')\sum_{k=0}^{n-1} z^{n-1-k}(z')^{k} =(z-z')\sum_{k=0}^{n-1} z^{k}(z')^{n-1-k} \]
+	\end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Plan complexe : affixe d’un point, d’un vecteur]
+	Dans toute la suite, on considère le plan usuel muni d’un repère orthonormé direct.
+	\begin{itemize}
+		\item A tout complexe \(z\), on peut associer le point \(M\) de coordonnées \((\Reel{z}, \Ima{z})\) dit image de \(z\).
+		\item A tout point \(M\) de coordonnées \((x, y)\), on peut associer le complexe \(z = x + \i y\) dit affixe de \(M\) .
+	\end{itemize}
+	On identifie donc \(\C\) au plan usuel muni d’un repère orthonormé direct et on parle de “plan complexe”. \\
+
+	A tout complexe \(z\), on peut aussi associer le vecteur \(\vec{u}\) de coordonnées \((\Reel{z}, \Ima{z})\) dit image de z et à tout vecteur  \(\vec{u}\) de coordonnées \((x, y)\), on peut associer le complexe \( z = x + \i y\) dit affixe de  \(\vec{u}\) . Ainsi :
+	\begin{itemize}
+		\item Pour tout vecteur  \(\vec{u}\) d’affixe \(z\) et tout réel \(\alpha\), le vecteur \(\alpha \vec{u}\) a pour affixe \(\alpha z\). \\
+		\item Pour tous vecteurs \(\vec{u}\) et \(\vec{u'}\) d’affixes respectives \(z\) et \(z'\), le vecteur \(\vec{u} + \vec{u'} \) a pour affixe \(z + z'\). \\
+		\item Pour tous points \(M\) et \(M '\) d’affixes respectives \(z\) et \(z'\) , le vecteur \(\vec{MM'}\)a pour affixe \(z' - z\).
+	\end{itemize}
+\end{defprop}
+
+\section{Conugué d'un nombre complexe}
+\begin{defi}
+	On appelle conjugué d’un nombre complexe \(z\) et on note \(\conj{z}\) le nombre complexe défini par : \[\conj{z} = \Reel{z} -\i \Ima{z}\]
+	Pour tout nombre complexe \(z\), le point d’affixe \(\conj{z}\) et le point d’affixe \(z\) sont symétriques par rapport à l’axe des réels dans le plan complexe.
+\end{defi}
+
+\begin{defprop}
+	Pour tous nombres complexes \(z\) et \(z'\), on a les propriétés suivantes :
+	\begin{enumerate}
+		\item \(z+\conj{z} = 2 \Reel{a}\)\\
+		\item \(z-\conj{z} = -2 \Ima{z}\) \\
+		\item \(\conj{\conj{z}} = z \)\\
+		\item \(\conj{z+z'} = \conj{z}+\conj{z'}\)\\
+		\item \(\conj{zz'} = \conj{z} \conj{z'} \)\\
+		\item \(\conj{\frac{z}{z'}} = \frac{\conj{z}}{\conj{z'}}\)
+	\end{enumerate}
+\end{defprop}
+
+\section{module d'un nombre complexe}
+\begin{defprop}
+	On appelle module d’un nombre complexe \(z\) et on note \(\abs{z}\) le nombre réel positif défini par : \[\abs{z} = \sqrt{ \paren{\Reel{z}}^2+\paren{\Ima{z}}^2}\]
+\end{defprop}
+
+\begin{defprop}[interprétation géometriques]
+	\begin{itemize}
+		\item Pour tout nombre complexe \(z\), le module \(\abs{z}\) est : \begin{itemize}
+			      \item la distance entre le point d’affixe \(0\) et le point d’affixe \(z\) ;
+			      \item la norme de tout vecteur d’affixe \(z\)
+		      \end{itemize}
+		\item Pour tous nombres complexes  \(z\) et \(z'\) le module \(\abs{z-z'}\) est :\begin{itemize}
+			      \item la distance entre les points d’affixe \(z\) et \(z'\) ;
+			      \item la norme du vecteur d’affixe \(z' - z\)
+		      \end{itemize}
+		\item Soit \(r\) un réel positif, \(z_0\) un nombre complexe et \(M_0\) le point d’affixe \(z_0\).
+		      \begin{itemize}
+			      \item Les points du plan dont l’affixe \(z\) vérifie \(\abs{z - z_0} = r\) forment le cercle de centre \(M_0\) et de rayon \(r\).
+			      \item Les points du plan dont l’affixe \(z\) vérifie \(\abs{z - z_0} \leq r\) forment le disque de centre \(M_0\), de rayon \(r\)
+		      \end{itemize}
+	\end{itemize}
+\end{defprop}
+
+\begin{prop}
+	Pour tous nombres complexes \(z\) et \(z'\), on a les propriétés suivantes :
+	\begin{itemize}
+		\item \(\abs{\Reel{z}} \leq \abs{z}\) et \(\abs{\Ima{z}} \leq \abs{z}\)
+		\item \(\abs{z}^2 = z \conj{z}\)
+		\item \(\abs{zz'} = \abs{z} \abs{z'}\)
+		\item \(\abs{\frac{z}{z'}} = \frac{\abs{z}}{\abs{z'}}\) Dans le cas où \(z'\) est non nul
+		\item \(\frac{z}{z'} = \frac{z\abs{z'}}{\abs{z'}^2}\)
+		\item \(\abs{z+z'} \leq \abs{z}+\abs{z'}\) avec égalité si, et seulement si il existe un réel positif \(\alpha\) tel que \(z' = \alpha z\)
+	\end{itemize}
+\end{prop}
+
+\section{Nombre complexe de module \(1\) et trigonométrie}
+\begin{defi}[Cercle trigonométrique]
+	On identifie le cercle trigonométrique et l’ensemble des nombres complexes de module \(1\) que l’on note : \[\U = \accol{z \in \C \tq \abs{z} = 1}\]
+\end{defi}
+
+\begin{defprop}
+	Pour tout nombre réel \(t\), on appelle exponentielle imaginaire de \(t\) et on note \(e^{\i t}\) le nombre complexe défini par :
+	\[e^{\i t} = \cos(t) + \i \sin(t) \]
+	Pour tous nombres réels \(t\) et \(t'\), on a l’égalité : \[e^{\i(t+t')} = e^{\i t}e^{\i t'}+ \]
+\end{defprop}
+
+
+\begin{defprop}[Formule D'Euler]
+	Pour tout nombre réel \(t\), on a les égalités suivantes dites formules d’Euler
+	\[\cos(t) = \frac{e^{\i t}+e^{-\i t}}{2} \text{ et } \sin(t) = \frac{e^{\i t} - e^{-\i t}}{2}\]
+\end{defprop}
+\begin{prop}[Technique de l'angle moitié]
+
+	La technique de l’angle moitié permet l’obtention de factorisations classiques à savoir retrouver :
+	\begin{itemize}
+		\item pour tout \(t\) réel, \(1+e^{\i t} = e^{\i \frac{t}{2}}\paren{e^{-\i \frac{t}{2}}+e^{\i \frac{t}{2}}} = 2 \cos\paren{-\frac{t}{2}}e^{\i \frac{t}{2}} = 2 \cos\paren{\frac{t}{2}}e^{\i \frac{t}{2}} \)
+		\item pour tout \(t\) réel, \(1-e^{\i t} = e^{\i \frac{t}{2}}\paren{e^{-\i \frac{t}{2}}-e^{\i \frac{t}{2}}} = 2 \sin\paren{-\frac{t}{2}}e^{\i \frac{t}{2}} = -2 \sin\paren{\frac{t}{2}}e^{\i \frac{t}{2}} \)
+		\item pour tout réel \(p\) et \(q\), \(e^{\i p}+e^{\i q} = e^{\i \frac{p+q}{2}}\paren{e^{\i \frac{p-q}{2}}+e^{-\i \frac{p-q}{2}}} = 2 \cos\paren{\frac{p-q}{2}}e^{\i \frac{p+q}{2}}  \)
+		\item pour tout réel \(p\) et \(q\), \(e^{\i p}-e^{\i q} = e^{\i \frac{p+q}{2}}\paren{e^{\i \frac{p-q}{2}}-e^{-\i \frac{p-q}{2}}} = - 2 \sin\paren{\frac{p-q}{2}}e^{\i \frac{p+q}{2}}  \)
+	\end{itemize}
+	\underline{Remarque} : \\
+	En écrivant la partie réelle et la partie imaginaire de \(e^{\i p} \pm e^{\i q}\) à partir des deux dernières factorisations, on trouve des formules de factorisation pour \(\cos (p) \pm \cos (q) \)et \(\sin (p) \pm \sin (q)\) \\ \\
+	\underline{Linéarisation} \\
+	A l’aide des formules d’Euler et du binôme de Newton, on peut transformer une expression du type
+	\(cos(t)^n\) ou \(sin(t)^n\) avec \(t\) réel et \(n\) entier naturel en une combinaison linéaire de \(cos(pt)\) ou de \(sin(pt)\)
+	avec \(p\) un entier naturel. Cela est notamment utile pour du \underline{calcul de primitives}.
+\end{prop}
+
+\begin{exoex}
+	~\\Soit \(f(x) = \paren{\sin(x)}^3\) avec \(x \in \R\). Calculer la primitive de \(f\)
+\end{exoex}
+
+\begin{corr}
+	\begin{align*}
+		\paren{\sin(x)}^3 & = \paren{\frac{e^{\i x}-e^{-\i x}}{2 \i}}^3                                              \\
+		                  & =\frac{1}{-8\i} \paren{e^{3\i x}+3\paren{e^{-\i x}}-3\paren{e^{\i x}} -e^{-3 \i x}}      \\
+		                  & =\frac{1}{-4} \paren{\frac{e^{3\i x}-e^{-3\i x}}{2 \i}-3\frac{e^{\i x}-e^{_\i x}}{2 \i}} \\
+		                  & = -\frac{1}{4}\sin(3x) +\frac{3}{4}\sin(x)
+	\end{align*}
+	Donc \(F_\lambda(x) = \frac{1}{12}\cos(3x)- \frac{3}{4}\cos(x) + \lambda \) pour \(\lambda \in \R \)
+\end{corr}
+
+\begin{defprop}[Formule de Moivre]
+	Pour tout nombre réel \(t\) et tout entier relatif \(n\), on a \(e^{\i nt} = \paren{e^{\i t}}^n\), c’est-à-dire :
+	\[\cos(nt)+\i\sin(nt) = \paren{cos(t)+\i \sin(t)}^n\]
+\end{defprop}
+
+\begin{dem}[Moivre par récurrence]
+	Soit \(n \in \N\) et \(t\in\R\)
+	Montrons que \(\quantifs{\forall (n,t) \in \N\times\R} e^{\i nt} = \paren{e^{\i t}}^n\) \\
+	On note \(P(n)\) la Propriété \guillemets{\(e^{\i nt} = \paren{e^{\i t}}^n\)}
+	\begin{itemize}
+		\item \underline{Initialisation} :
+		      \(P(0)\) est vrai car \(\begin{cases}
+			      \paren{e^{\i t}}^0 & = 1 \\
+			      e^{\i t 0}         & = 1
+		      \end{cases}\)
+		\item \underline{Hérédité}
+		      Soit \(n \in \N\) tel que \(P(n)\) est vrai, Montrons que \(P(n+1)\) est vrai :
+		      \begin{align*}
+			      e^{\i (n+1) t} & = e^{\i(n+1)t}                      \\
+			                     & = e^{\i n t} \times e^{\i t}        \\
+			                     & =\paren{e^{\i t}}^n \times e^{\i t} \\
+			                     & = \paren{e^{\i t}}^{n+1}            \\
+		      \end{align*}
+	\end{itemize}
+	Donc \(P(n+1)\) Vrai.
+\end{dem}
+
+\begin{appl}[Applications usuelles importantes]
+	~\\
+	Soit \(C = \sum_{k=0}^n \cos(kt)\) et \(S = \sum_{k=0}^n \sin(kt)\) avec \(n \in \N\) et \(t \in \R\)\\
+	On Obtient des expressions simplifiées des sommes \(C\) et \(S\) par le calcul annexe suivant
+	\[C+\i S = \sum_{k=0}^n e^{\i kt} = \sum_{k=0}^n \paren{e^{\i t}}^k =
+		\begin{cases}
+			n+1                               & \text{si } t\equiv 0\croch{2 \pi} \\
+			\frac{1-e^{\i(n+1)t}}{1-e^{\i t}} & \text{ sinon }
+		\end{cases}
+	\]
+	qui donne \[C+\i S = \begin{cases}
+			n+1                                                                       & \text{si } t\equiv 0\croch{2 \pi} \\
+			\frac{\paren{1-e^{\i(n+1)t}}\paren{1-e^{\i t}}}{2\paren{1-\cos\paren{t}}} & \text{ sinon }
+		\end{cases} \]
+	On conclut alors sur les valeurs de \(C\) et \(S\) en exhibant les parties réelle et imaginaire de \(C + \i S\).
+\end{appl}
+
+\section{Forme trigonométrique pour les nombres complexes non nuls}
+
+\begin{defprop}
+	Tout nombre complexe non nul \(z\) peut s’écrire sous la forme \[ z = re^{\i \theta}\]
+	avec \(r\) un réel strictement positif et \(\theta\) un réel. Cette écriture est dite forme trigonométrique de \(z\). \\
+	\underline{Attention} \\
+	Dans cette écriture de \(z\).
+	\begin{itemize}
+		\item le réel strictement positif \(r\) est \underline{unique} car il est nécessairement égal à \(\abs{z}\)
+		\item le réel \(\theta\) n'est \underline{pas unique} car si le réel \(\theta\) convient alors les réels \(\theta ' \equiv \theta \croch{2 \pi}\) conviennent.
+	\end{itemize}
+\end{defprop}
+
+\begin{dem}
+	Soit \(z\in \Cs\), alors \(\abs{z} \neq 0 \) donc \(\frac{z}{\abs{z}}\) existe avec  \(\abs{\frac{z}{\abs{z}}} = \frac{\abs{z}}{\abs{\abs{z}}} = \frac{\abs{z}}{\abs{z}} = 1\) \\
+	Donc \(\frac{z}{\abs{z}} \in \U\) donc il existe \(\theta \in \R \) tel que \(\frac{z}{\abs{z}} = e^{\i \theta} \iff z = \abs{z}e^{\i \theta}\) \\
+	Ceci prouve l'existence de l'écriture. \\
+	\(r\) est unique car : \(\begin{cases}
+		z & = re^{\i \theta}  \\
+		z & = r'e^{\i \theta}
+	\end{cases} \imp \begin{cases}
+		\abs{z} & = r  \\
+		\abs{z} & = r'
+	\end{cases} \imp r = r'\)
+\end{dem}
+\begin{defprop}[Arguments]
+	Soit \(z\) un nombre complexe non nul. Tous les nombres réels \(\theta\) tels que \(z\) peut s'écrire \[z = re^{\i \theta}\] avec \(r\) réel strictement positif sont dits arguments de \(z\) \\
+	\underline{Remarque}\\
+	Si \(\theta\) est un argument de \(z\) complexe non nul, on peut écrire \(\arg(z) \equiv \theta\croch{2\pi}\)
+\end{defprop}
+
+\begin{prop}
+	Pour tous nombres complexes non nuls \(z\) et \(z'\), on a :
+	\begin{enumerate}
+		\item \(\arg\paren{zz'} \equiv \arg\paren{z}+\arg\paren{z'}\croch{2 \pi}\) \\
+		\item \( \arg\paren{\frac{z}{z'}} \equiv \arg\paren{z}-\arg\paren{z'}\croch{2 \pi}\)
+	\end{enumerate}
+\end{prop}
+
+\begin{defprop}[Transformation de \(a\cos(t) + b\sin(t)\) en \(A\cos(t-\phi)\)]
+	Soit \(a, b\) et \(t\) des nombres réels avec \((a, b)\neq (0, 0)\). On peut écrire
+	\[a\cos(t)+b\sin(t) = \Reel{\paren{a-\i b}\paren{\cos(t)+\i \sin(t)}} = \Reel{(a-\i b)e^{\i t}} \]
+	puis \(a-\i b = Ae^{-\i \phi} \) avec \(A\) réel strictement positif et \(\phi\) un réel ce qui donne :
+	\[a\cos(t)+b\sin(t) = \Reel{(a-\i b)e^{\i t}} = \Reel{Ae^{\i(t-\phi)}} \]
+	Donc \(a\cos(t)+b\sin(t) = A\cos(t-\phi)\)
+\end{defprop}
+
+\section{Fonctions d'une variable réelle à valeurs complexes}
+
+\begin{defi}
+	Une fonction de variable réelle à valeurs complexes notée \(f\) est un objet mathématique qui, tout élément \(x\) d’une partie non vide de \(\R\), associe un et un seul nombre complexes noté \(f (x)\).
+\end{defi}
+
+\begin{defprop}[Ce qui s’étend aux fonctions de variable réelle à valeurs complexes]
+	\begin{itemize}
+		\item Notation fonctionnelle
+		\item Domaine de définition
+		\item Image d’un réel, antécédent d’un complexe
+		\item Parité, imparité, périodicité
+		\item Somme, produit, quotient de fonctions et multiplication d’une fonction par un complexe
+		\item Dérivation
+	\end{itemize}
+\end{defprop}
+
+
+\begin{defprop}[Ce qui ne s’étend pas aux fonctions de variable réelle à valeurs complexes]
+	\begin{itemize}
+		\item Composition de fonctions
+		\item Monotonie
+		\item Fonction majorée, minorée ou bornée
+		\item Fonction réciproque
+	\end{itemize}
+\end{defprop}
+
+\begin{defprop}[Dérivation]
+	Soit \(I\) un intervalle de \(\R\) non vide et non réduit à un point.
+	Soit \(f\) une fonction définie sur \(I\) à valeurs complexe. \\
+	On note \(\Reel{f} :I \to \R\) et \(\Ima{f}:I\to\R\) les fonctions d’une variable réelle à valeurs réelles définies par :
+	\[\quantifs{\forall x \in I}\paren{\Reel{f}}(x) = \Reel{f(x)} \text{ et } \paren{\Ima{f}}(x) = \Ima{f(x)} \]
+	On dit que : \begin{itemize}
+		\item \(f\) est dérivable en \(x_0\) si les fonctions \(\Reel{f}\) et \( \Ima{f} \) sont dérivables en \(x_0\)
+		\item \(f\) est dérivable sur \(I\) si les fonctions \(\Reel{f}\) et \( \Ima{f} \) sont dérivables sur \(I\)
+	\end{itemize}
+	Selon le cas de figure, on appelle :
+	\begin{itemize}
+		\item nombre dérvée de \(f\) en \(x_0\) et on note \(f'(x_0)\) le nombre complexe suivant : \[f'(x_0) = \paren{\Reel{f}'(x_0)} + \ \paren{\Ima{f}'(x_0)}\]
+		\item fonction dérivée de \(f\) sur \(I\) et on note \(f'\) la fonction de variable réelle à valeurs complexes suivante :
+		      \[ f' = \paren{\Reel{f}'} + \ \paren{\Ima{f}'}\]
+	\end{itemize}
+\end{defprop}
+
+\begin{prop}
+	\begin{enumerate}
+		\item \underline{Combinaison linéaire}\\
+		      Soit \(f\) et \(g\) deux fonctions définies sur \(I\) et à valeurs complexes et \((\alpha, \beta)\) un couple de complexes. Si \(f\) et \(g\) sont dérivables sur \(I\) alors \(\alpha f + \beta g \) est dérivable sur \(I\) et sa dérivée vérifie :
+		      \[\paren{\alpha f + \beta g}' = \alpha f'+\beta g'\]
+		\item \underline{Produit}\\
+		      Soit \(f\) et \(g\) deux fonctions définies sur \(I\) et à valeurs complexes . Si \(f\) et \(g\) sont dérivables sur \(I\) alors \(fg\) est dérivable sur \(I\) et sa dérivée vérifie :
+		      \[\paren{fg}' = f'g+fg'\]
+
+		\item \underline{Quotient}\\
+		      Soit \(f\) et \(g\) deux fonctions définies sur \(I\) et à valeurs complexes tel que \(g\) ne s’annule pas sur \(I\). Si \(f\) et \(g\) sont dérivables sur \(I\) alors \(\frac{f}{g}\) est dérivable sur \(I\) et sa dérivée vérifie :
+		      \[\paren{\frac{f}{g}}' = \frac{f'g-g'f}{g^2}\]
+	\end{enumerate}
+\end{prop}
+
+\begin{appl}[exemple important]
+	Soit \(\phi\) une fonction définie sur \(I\) à valeurs complexes.
+	On note \(f : I \to \C\) la fonction définie sur \(I\) par :
+	\[\forall t \in I, f(t) = e^{\Reel{\phi(t)}}e^{\i\Ima{\phi(t)}}\]
+	Si \(\phi\) est dérivable sur \(I\) alors \(f\) est dérivable sur \(I\) et sa dérivée vérifie :
+	\[\forall t \in I,f'(t) = \phi '(t)f(t) \]
+	\underline{Remarque} \\
+	La fonction \(f\) sera aussi notée \(f = \exp(\phi)\) après étude de l’exponentielle complexe dans le chapitre \guillemets{Nombres complexes (\(2\))} ce qui permettra d’écrire \((\exp(\phi))' = \phi' \exp(\phi)\) et donc d’étendre une propriété déjà connue dans le cas où \(\phi\) est à valeurs réelles.
+\end{appl}
