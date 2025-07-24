@@ -1,0 +1,256 @@
+\chapter{Fonctions usuelles : Rappel et complément}
+
+\minitoc
+\section{Fonction exponentielle}
+\begin{defprop}
+	Il existe une unique fonction \(f\) définie sur \(\R\), dérivable sur \(\R\) à valeurs réelles vérifiant \(f' = f\) et \(f(0) = 1\) \\
+	Cette fonction, appelée fonction exponentielle et notée \(x\mapsto \exp(x)\) ou \(x\mapsto e^x\) vérifie :
+	\begin{itemize}
+		\item pour tout \(x\) et \(y\) des réels , \(e^{x+y}  =e^xe^y\)
+		\item pour tout x réel, \(e^{-x} = \frac{1}{e^x} \)
+		\item pour tout \(x\) réel et tout \(n\) entier relatif, \(e^{nx} = \paren{e^x}^n\)
+		\item pour tout \(x\) réel, \(e^x >0\)
+		\item la fonction \(\exp\) est définie et dérivable sur \(\R\).
+		\item la dérivée de \(\exp\) sur \(\R\) est \(\exp\).
+		\item la fonction \(\exp\) est strictement croissante sur \(\R\).
+		\item \(\lim_{x\to\minf}e^x =0\)
+		\item \(\lim_{x\to\pinf} e^x = \pinf \)
+		\item \(\lim_{x\to 0} \frac{e^x-1}{x} = 1\)
+		\item pour tout réel \(x\), \(e^x\geq 1+x\)
+	\end{itemize}
+\end{defprop}
+
+\section{Fonction logarithmes}
+\begin{defprop}
+    La fonction réciproque de la fonction exponentielle est appelée fonction logarithme népérien et notée \(\ln\) . \\
+Elle vérifie : \begin{itemize}
+    \item  pour tous \(x\) et \(y\) réels strictement positifs, \(ln(xy) = ln(x) + ln(y)\) 
+    \item pour tout \(x\) réel strictement positif, \(\ln\paren{\frac{1}{x}} = -\ln(x) \)
+    \item \(\ln(1) = 0\)
+    \item pour tout \(x\) réel strictement positif et tout \(n\) entier relatif, \(\ln(x^n) = n\ln(x)\)
+    \item la fonction \(\ln\) est définie et dérivable sur \(\Rps\).
+	\item la dérivée de \(\ln\) sur \(\Rps\) est \(x\mapsto\frac{1}{x}\).
+	\item la fonction \(\ln\) est strictement croissante sur \(\Rps\).
+	\item \(\lim_{x\to 0}\ln(x) =\pinf\)
+	\item \(\lim_{x\to\pinf} e^x = \pinf \)
+	\item \(\lim_{x\to 0} \frac{\ln(x+1)}{x} = 1\)
+	\item pour tout réel \(x>-1\), \(\ln(1+x)\geq x\)
+\end{itemize}
+\end{defprop}
+
+\begin{defprop}[logarithme en base \(2\) et en base \(10\)]
+    Les fonctions logarithme en base \(2\), notée \(\log_2\), et logarithme en base \(10\) notée \(\log_{10}\) sont définie sur \(\Rps\) par, pour tout réel \(x\) strictement positif : 
+    \[\log_2(x) = \frac{\ln(x)}{\ln(2)}\text{ et }\log_{10}(x) =\frac{\ln(x)}{\ln(10)} \]
+    On as aussi : \begin{itemize}
+        \item \(\log_2(2) = 1\) et \(\log_{10}(10) = 1\)
+        \item pour tout \(x\) entier relatif, \(\log_2(2^n) = n \) et \(\log_{10}(10^n) =n\)
+        \item \(\log_2\) et \(\log_{10}\) ont même monotonie et même limites aux bornes de \(\Rps\) que la fonction \(\ln\)
+    \end{itemize}
+\end{defprop}
+
+\section{Fonctions hyperboliques}
+\begin{defprop}
+    \begin{enumerate}
+        \item On appelle cosinus hyperbolique la fonction, notée \(\ch\) définie \(\R\) par, pour tout \(x\) réel, 
+        \[\ch(x) = \frac{e^x+e^{-x}}{2}\]
+        \item On appelle sinus hyperbolique la fonction, notée \(\sh\) définie \(\R\) par, pour tout \(x\) réel, 
+        \[\sh(x) = \frac{e^x-e^{-x}}{2}\]
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Relation fondamentale de la trigonométrie hyperbolique]
+    Pour tout réel \(x\),on a : \[\ch^2(x)-\sh^2(x) = 1\]
+\end{defprop}
+
+\begin{dem}
+\[\quantifs{\forall x \in \R} \ch^2(x)-\sh^2(x) = \paren{\ch(x)+\sh(x)}\paren{\ch(x)-\sh(x)} = \paren{e^x}\paren{e^{-x}} = e^0 = 1 \]
+\end{dem}
+
+\begin{defprop}[étude de la fonction \(\ch\)]
+    \begin{enumerate}
+        \item La fonction \(\ch\) est définie et dérivable sur \(\R\)
+        \item la dérivée de \(\ch\) sur \(\R\) est la fonction \(\sh\)
+        \item la fonction \(\ch\) est paire avec \(\ch(0) =1\)
+        \item la fonction \(\ch\) est : 
+        \begin{enumerate}
+            \item strictement décroissante sur \(\Rms\)
+            \item strictement croissante sur \(\Rps\)
+        \end{enumerate}
+        \item \(\lim_{x\to\minf} \ch(x) = \pinf \)
+        \item \(\lim_{x\to\pinf} \ch(x) = \pinf \)
+    \end{enumerate}    
+\end{defprop}
+
+\begin{defprop}[étude de la fonction \(\sh\)]
+    \begin{enumerate}
+        \item La fonction \(\sh\) est définie et dérivable sur \(\R\)
+        \item la dérivée de \(\sh\) sur \(\R\) est la fonction \(\ch\)
+        \item la fonction \(\sh\) est impaire avec \(\sh(0) =0\)
+        \item la fonction \(\sh\) est strictement croissante sur \(\R\)
+        \item \(\lim_{x\to\minf} \sh(x) = \minf \)
+        \item \(\lim_{x\to\pinf} \sh(x) = \pinf \)
+    \end{enumerate}    
+\end{defprop}
+
+\section{Tangente hyperbolique}
+\begin{defprop}
+    On appelle tangente hyperbolique la fonction, notée, \(\tth\), définie sur \(\R\) par, pour tout \(x\) réel \[\tth(x) = \frac{\ch(x)}{\sh(x)} = \frac{e^x-e^{-x}}{e^x+e^{-x}}\].
+\end{defprop}
+\begin{defprop}[étude de la fonction \(\tth\)]
+    \begin{enumerate}
+        \item La fonction \(\tth\) est définie et dérivable sur \(\R\)
+        \item la dérivée de \(\tth\) sur \(\R\) est la fonction \(1-\tth^2=\frac{1}{\ch^2}\)
+        \item la fonction \(\tth\) est impaire avec donc \(\tth(0) =0\)
+        \item la fonction \(\tth\) est strictement croissante sur \(\R\)
+        \item \(\lim_{x\to\minf} \tth(x) = -1 \)
+        \item \(\lim_{x\to\pinf} \tth(x) = 1 \)
+    \end{enumerate}    
+\end{defprop}
+
+\begin{defprop}[formule d'addition et de duplication]
+    Pour tout couple de réel \((a,b)\), on a:
+    \begin{enumerate}
+        \item \(\ch(a+b) = \ch(a)\ch(b)+\sh(a)\sh(b)\)
+        \item \(\ch(a-b) = \ch(a)\ch(b)-\sh(a)\sh(b)\)
+        \item \(\sh(a+b) = \ch(a)\sh(b)+\sh(a)\ch(b)\)
+        \item \(\sh(a-b) = \ch(a)\sh(b)-\sh(a)\ch(b)\)
+        \item \(\tth(a+b) = \frac{\tth(a)+\tth(b)}{1+\tth(a)\tth(b)}\)
+        \item \(\tth(a-b) = \frac{\tth(a)-\tth(b)}{1-\tth(a)\tth(b)}\)
+        \item \(\ch(2a) = \ch^2(a)-\sh^2(a) = 2\ch^2(a)-1 = 2\sh^2(a) +1\)
+        \item \(\sh(2a) = 2\sh(a)\ch(a)\)
+        \item \(\tth(2a) = \frac{2\tth(a)}{1+\tth^2(a)}\)
+    \end{enumerate}
+\end{defprop}
+
+\section{Arccos}
+\begin{defprop}
+    La fonction \(c : \intervii{0}{\pi} \to \intervii{-1}{1}\) définie par :
+
+    \[\text{Pour tout } x \text{ dans },c(x) = \cos(x)\] 
+    
+    est une bijection de \(\intervii{0}{\pi}\) sur \(\intervii{-1}{1}\) de bijection réciproque \(c^{-1} : \intervii{-1}{1} \to \intervii{0}{\pi}\) notée \(\Arccos\)
+    \\ Autrement dit : 
+    \begin{itemize}
+        \item pour tout réel \(y\) dans \(\intervii{-1}{1}\), l'équation \(y=\cos(x)\) admet une unique solution dans \(\intervii{0}{\pi}\)
+        \item pour tout réel \(y\) dans \(\intervii{-1}{1}\), \(\Arccos (y)\) est l'unique réel de \(\intervii{0}{\pi}\) donc le cosinus est égal à \(y\)
+    \end{itemize}
+    Par ailleurs la fonction \(\Arccos\) possède ces propriétés : 
+    \begin{enumerate}
+        \item la fonction \(\Arccos\) est définie sur \(\intervii{-1}{1}\) et dérivable sur \(\intervee{-1}{1}\)
+        \item la dérivée de \(\Arccos\) sur \(\intervee{-1}{1}\) est la fonction \(\Arccos' : x\mapsto \frac{-1}{\sqrt{1-x^2}} \)
+        \item la fonction \(\Arccos\) est strictement décroissante sur \(\intervii{-1}{1}\)
+    \end{enumerate}
+\end{defprop}
+
+\section{Arcsin}
+\begin{defprop}
+    La fonction \(s : \intervii{-\frac{\pi}{2}}{\frac{\pi}{2}} \to \intervii{-1}{1}\) définie par :
+
+    \[\text{Pour tout } x \text{ dans },s(x) = \sin(x)\] 
+    
+    est une bijection de \(\intervii{-\frac{\pi}{2}}{\frac{\pi}{2}}\) sur \(\intervii{-1}{1}\) de bijection réciproque \(s^{-1} : \intervii{-1}{1} \to \intervii{-\frac{\pi}{2}}{\frac{\pi}{2}}\) notée \(\Arcsin\)
+    \\ Autrement dit : 
+    \begin{itemize}
+        \item pour tout réel \(y\) dans \(\intervii{-1}{1}\), l'équation \(y=\sin(x)\) admet une unique solution dans \(\intervii{-\frac{\pi}{2}}{\frac{\pi}{2}}\)
+        \item pour tout réel \(y\) dans \(\intervii{-1}{1}\), \(\Arcsin (y)\) est l'unique réel de \(\intervii{-\frac{\pi}{2}}{\frac{\pi}{2}}\) donc le sinus est égal à \(y\)
+    \end{itemize}
+    Par ailleurs la fonction \(\Arcsin\) possède ces propriétés : 
+    \begin{enumerate}
+        \item la fonction \(\Arcsin\) est définie sur \(\intervii{-1}{1}\) et dérivable sur \(\intervee{-1}{1}\)
+        \item la dérivée de \(\Arcsin\) sur \(\intervee{-1}{1}\) est la fonction \(\Arcsin' : x\mapsto \frac{1}{\sqrt{1-x^2}} \)
+        \item la fonction \(\Arcsin\) est impaire sur \(\intervee{-1}{1}\)
+        \item la fonction \(\Arcsin\) est strictement croissante sur \(\intervii{-1}{1}\)
+    \end{enumerate}
+\end{defprop}
+
+\section{Arctan}
+\begin{defprop}
+    ~\\
+    La fonction \(t : \intervee{-\frac{\pi}{2}}{\frac{\pi}{2}} \to \R\) définie par :
+
+    \[\text{Pour tout } x \text{ dans },t(x) = \tan(x)\] 
+    
+    est une bijection de \(\intervee{-\frac{\pi}{2}}{\frac{\pi}{2}}\) sur \(\R\) de bijection réciproque \(t^{-1} : \R \to \intervee{-\frac{\pi}{2}}{\frac{\pi}{2}}\) notée \(\Arctan\)
+    \\ Autrement dit : 
+    \begin{itemize}
+        \item pour tout réel \(y\) dans \(\R\), l'équation \(y=\tan(x)\) admet une unique solution dans \(\intervee{-\frac{\pi}{2}}{\frac{\pi}{2}}\)
+        \item pour tout réel \(y\) dans \(\R\), \(\Arctan (y)\) est l'unique réel de \(\intervee{-\frac{\pi}{2}}{\frac{\pi}{2}}\) donc la tangente est égal à \(y\)
+    \end{itemize}
+    Par ailleurs la fonction \(\Arctan\) possède ces propriétés : 
+    \begin{enumerate}
+        \item la fonction \(\Arctan\) est définie et dérivable sur \(\R\)
+        \item la dérivée de \(\Arctan\) sur \(\R\) est la fonction \(\Arctan' : x\mapsto \frac{1}{1+x^2} \)
+        \item la fonction \(\Arctan\) est impaire sur \(\R\)
+        \item la fonction \(\Arctan\) est strictement croissante sur \(\R\)
+        \item \(\lim_{x\to\minf} \Arctan(x) = -\frac{\pi}{2}\)
+        \item \(\lim_{x\to\pinf} \Arctan(x) = \frac{\pi}{2}\)
+    \end{enumerate}
+\end{defprop}
+
+\section{Fonction puissances réelles}
+\begin{defi}
+    Soit \(\alpha\) un réel.
+
+    La fonction \(f_{\alpha}\) définie sur \(\Rps\) par 
+
+    \[\quantifs{\forall x \in \Rps} f_{\alpha}(x) = e^{\alpha \ln(x)} \]
+    est notée \(f_{\alpha}: x \mapsto x^{\alpha}\) et appelée fonction puissances (réelle). Elle respecte ces propriétés : 
+    \begin{itemize}
+        \item la fonction \(x\mapsto x^{\alpha}\) est définie et dérivable sur \(\Rps\)
+        \item la dérivée de \(x\mapsto x^{\alpha}\) sur \(\Rps\) est \(x\mapsto \alpha x^{\alpha-1}\)
+        \item la fonction \(x\mapsto x^{\alpha}\) est : 
+        \begin{itemize}
+            \item strictement croissante sur \(\Rps\) pour \(\alpha > 0 \) 
+            \item strictement décroissante  sur \(\Rps\) pour \(\alpha < 0 \) 
+        \end{itemize}
+        \item  \(\lim_{x\to 0} x^{\alpha} = \begin{cases}
+            0 &\text{ pour } \alpha >0 \\
+            \pinf &\text{ pour } \alpha <0
+        \end{cases}\)
+        \item  
+        \(\lim_{x\to \pinf} x^{\alpha} = 
+        \begin{cases}
+            \pinf &\text{ pour } \alpha >0 \\
+             0 &\text{ pour } \alpha <0
+        \end{cases}
+        \)
+    \end{itemize}
+\end{defi}
+
+\begin{prop}
+    Pour tout couple de réels \(\alpha,\beta\) et tout couple de réels strictement positifs \((x,y)\), on a:
+    \[\ln(x^{\alpha}) = \alpha \ln(x) \qquad (xy)^{\alpha} = x^{\alpha}y^{\alpha} \qquad x^{\alpha+\beta} = x^{\alpha}x^{\beta} \qquad \paren{x^{\alpha}}^{\beta} = x^{\alpha \beta}\]
+\end{prop}
+
+\begin{defprop}[cas particulier des puissances entières]
+    Les fonctions vues ci-dessus étendent les notions de puissances entières déjà connues sur \(\R\) ou \(\Rs\) :
+    \begin{itemize}
+        \item pour tout entier naturel \(n\), la fonction \(f_n : x\mapsto \prod_{k=1}^{n}x\) est notée \(x\mapsto x^n\)\\
+        elle est définie sur \(\R\), dérivable sur \(\R\) et de dérivée \(x\mapsto nx^{n-1}\)
+        \item pour tout entier relatif strictement négatif \(n\), la fonction \(f_n : x\mapsto \prod_{k=1}^{-n}x^{-1}\) est notée \(x\mapsto x^n\)\\
+        elle est définie sur \(\Rs\), dérivable sur \(\Rs\) et de dérivée \(x\mapsto nx^{n-1}\)
+    \end{itemize}
+\end{defprop}
+
+\section{croissance comparées}
+\begin{defprop}[Cas des fonctions \(x \mapsto \ln (x), x \mapsto x^{\alpha}\) et \(x \mapsto e^x\) avec \(\alpha >0\) ]
+    Pour tout \(\alpha\) réel strictement positif, lems croissances comparées des fonctions \(x \mapsto \ln (x), x \mapsto x^{\alpha}\) et \(x \mapsto e^x\) se résument à : 
+    \[\lim_{x\to\pinf} \frac{\ln(x)}{x^{\alpha}} = 0 \qquad \lim_{x\to\pinf} \frac{x^{\alpha}}{e^x} = 0 \qquad \lim_{x\to 0} x^{\alpha} \ln(x) = 0\]
+    \underline{Remarques}:
+    On en déduit les croissances comparées en \(\pinf\) des fonctions précédentes prises deux à deux :
+    \begin{itemize}
+        \item comparaison du logarithme népérien avec les puissances réelles ou l’exponentielle en \(\pinf\) :
+        \[\lim_{x\to\pinf} \frac{\ln(x)}{x^{\alpha}} = 0 \qquad \lim_{x\to\pinf} \frac{\ln(x)}{e^x} = 0\]
+        \item comparaison des puissances réelles avec le logarithme népérien ou l’exponentielle en \(\pinf\)
+        \[\lim_{x\to\pinf} \frac{x^{\alpha}}{\ln(x)} = \pinf \qquad \lim_{x\to\pinf} \frac{x^{\alpha}}{e^x} = 0\]
+        \item comparaison de l’exponentielle avec le logarithme népérien ou les puissances réelles en \(\pinf\)
+        \[\lim_{x\to\pinf} \frac{e^x}{\ln(x)} = \pinf \qquad \lim_{x\to\pinf} \frac{e^x}{x^{\alpha}} = \alpha\]
+    
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Cas des fonctions \(x \mapsto \abs{\ln (x)}^{\beta} , x \mapsto x^{\alpha} \)et \(x \mapsto e^{\gamma x}\)]
+    Pour tous réels strictement positifs \(\alpha , \beta \) et \(\gamma \), les croissances comparées des fonctions  \(x \mapsto \abs{\ln (x)}^{\beta} , x \mapsto x^{\alpha} \)et \(x \mapsto e^{\gamma x}\) se résument à :
+    \[\lim_{x\to\pinf} \frac{\abs{\ln (x)}^{\beta}}{x^{\alpha}} = 0 \qquad \lim_{x\to\pinf} \frac{x^{\alpha}}{e^{\gamma x}} = 0 \qquad \lim_{x\to 0} x^{\alpha}\abs{\ln (x)}^{\beta} = 0 \] 
+
+\end{defprop}

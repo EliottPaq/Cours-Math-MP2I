@@ -153,7 +153,14 @@ On se place dans le plan muni d'un repère orthonormé \(\paren{O,\vec{i},\vec{j
 \begin{prop}[Inégalité remarquable]
 	Pour tout réel \(t\), on a : \(\abs{\sin(t)} \leq \abs{t}\)
 \end{prop}
-
+\begin{defprop}[Relation fondamentale de la trigonométrie]
+    \(\quantifs{\forall x \in \R} \cos^2(x)+\sin^2(x) = 1\)
+\end{defprop}
+\begin{dem}
+    Soit \(f:x\mapsto \cos^2(x)+\sin^2(x)\)\\
+    alors on a : \(f'(x) = -2\sin(x)\cos + 2\sin(x)\cos(x) = 0\) \\
+    Donc \(f\) est constante ainsi \(\quantifs{\forall x \in \R} f(x) = f(0) = \cos^2(x)+\sin^2(x) = 1^2+0^2 = 1\)
+\end{dem}
 \section{La fonction tangente}
 \begin{defi}
 	La fonction \(\frac{\sin}{\cos} \) est appelée la fonction tangente et notée \(\tan\)
