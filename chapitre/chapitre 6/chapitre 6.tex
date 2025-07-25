@@ -1,0 +1,251 @@
+\chapter{Nombres complexes (\(2\))}
+
+\minitoc
+
+\section{Équations algébreiques}
+\subsection{Préliminaires}
+\begin{defi}[Définition d'une fonction polynomiale]
+    Une fonction \(P:\C\to\C\) est dite fonction polynomiale à coefficients complexes s'il existe un entier naturel \(n\) et un \(n+1\)-uplet de nombres complexes \((b_0,b_1,\dots,b_n)\) tel que pour tout \(z\) de \(\C\), 
+    \[P(z) = b_0+b_1z+\dots+b_nz^n = \sum_{k=0}^n b_k z^k\]
+\end{defi}
+\begin{prop}[Propriétés de factorisation]
+    Soit \(P\) une fonction polynomiale à coefficients complexes et \(a\) un nombre complexe.\\
+    Si \(a\) est une racine de \(P\) , autrement dit si \(P (a) = 0\), alors il existe une fonction polynomiale à coefficients complexes \(Q\) tel que, pour tout \(z\) de \(\C\), on a :
+    \[P(z) = (z-a)Q(z)\]
+\end{prop}
+
+\subsection{Résolution des équations du second degré dans \(\C\)}
+\begin{defprop} [cas particulier des équations du type \(z^2 = z_0\)]
+    Soit \(z_0\) et \(z\) des nombres complexes de formes algébriques respectives \(x_0 + \i y_0\) et \(x+\i y\) 
+    \[z^2 = z_0 \text{ six et seulement si ,} 
+    \begin{cases}
+        x^2-y^2 &= x_0 \\
+        x^2+y^2 &= \sqrt{x_0^2 + y_0^2}\\
+        2xy &= y_0 \\
+    \end{cases}
+    \]
+\end{defprop}
+
+\begin{defprop}[Cas général]
+    soit \(a,b\) et \(c\) des nombres complexes avec \(a\) non nul. \\
+    \begin{itemize}
+        \item \underline{Racines} \\Les solutions de l'équations polynomiale \(az^2+bz+c=0\) d'inconnue le nombre complexe \(z\) sont : 
+        \[z_1 = \frac{-b-\delta}{2a} \text{ et } z_2 = \frac{-b+\delta}{2a}\]
+        où \(\delta\) est une "racine carré" de \(\Delta = b^2 -4ac\), autrement dit où \(\delta\) est un nombre complexe vérifiant : 
+        \[\delta^2 = \Delta\]
+        \item \underline{Somme et produit des racines (formules de Viète)} \\
+        Les racines \(z_1\) et \(z_2\) de la fonction polynomiale \(P:z\mapsto az^2 + bz +c \) vérifient :
+        \[z_1+z_2 = -\frac{b}{a} \text{ et } z_1z_2 = \frac{c}{a}\]
+
+    \end{itemize}
+\end{defprop}
+
+\begin{dem}[Formule des solutions du cas général]
+    soit \(a,b\) et \(c\) des nombres complexes avec \(a\) non nul. \\
+    Soit \(z \in \C\)
+    \begin{align*}
+        az^2+bz+c &= a\paren{z^2+\frac{b}{a}z+\frac{c}{a}} \\
+        &=a\paren{\paren{z+\frac{b}{2a}}^2+\frac{c}{a} - \frac{b^2}{4a^2}} \\
+        &=a\paren{\paren{z+\frac{b}{2a}}^2 - \frac{b^2-4ac}{4a^2}} \\
+        &=a\paren{\paren{z+\frac{b}{2a}}^2 - \frac{\Delta}{\paren{2a}^2}} \hfill \text{ on pose }\Delta = b^2-4ac\\
+        &=a\paren{\paren{z+\frac{b}{2a}}^2 - \paren{\frac{\delta}{2a}}^2} \hfill \text{ on pose }\delta \text{ comme étant la "racine carré" de }\Delta\\
+        &=a\paren{z+\frac{b}{2a}-\frac{\delta}{2a}}\paren{z+\frac{b}{2a}+\frac{\delta}{2a}} \\
+        &=a\paren{z-z_1}\paren{z-z_2}\hfill \text{ avec } 
+        \begin{cases}
+            z_1 &= \frac{-b-\delta}{2a} \\
+            z_2 &= \frac{-b+\delta}{2a}
+        \end{cases}
+    \end{align*}
+\end{dem}
+
+\begin{dem}[Formule de viète]
+    soit \(a,b\) et \(c\) des nombres complexes avec \(a\) non nul. \\
+    Soit \(P:z\mapsto az^2+bz+c\) 
+    \[P(z) = az^2+bz+c = a(z-z_1)(z-z_2) = a(z^2-(z_1+z_2)z+z_1z_2)\]
+    donc par identification : 
+    \[
+    \begin{cases}
+        b &=-a(z_1+z_2) \\
+        c &= az_1z_2 
+    \end{cases} \iff\begin{cases}
+        -\frac{b}{a} &=z_1+z_2 \\
+        \frac{c}{a} &= z_1z_2 
+    \end{cases} 
+    \]
+\end{dem}
+
+\subsection{Résolution des équations du type \(z^n = z_0\) dans \(\C\) avec \(n\in \Ns\)}
+
+\begin{defi}
+    Soit \(n\) un entier naturel non nul et \(z_0\) un nombre complexe. \\
+    On appelle racine \(n\)- ième de \(z_0\) tout nombre complexe tel que \(z^n = z_0\)
+\end{defi}
+
+\begin{defprop}[Cas particulier où \(z_0 = 1\)]
+    \begin{itemize}
+        \item \underline{Racines} \\
+        Il y a \(n\) racine \(n\)-ième de l'unité qui sont les nombres complexes suivants : 
+        \[\omega_k = e^{\i\frac{2k\pi}{n}} \text{ avec } k \in \interventierii{0}{n-1}\] 
+        \item \underline{L'ensemble des raicnes} \\
+        \begin{itemize}
+            \item L'ensemble des racines \(n\)-ièmes de l'unité est noté 
+            \[\U_n = \accol{z\in\R \tq z^n = 1}\]
+            \item Les points dont les affixes sont les racines \(n\)-ièmes de l’unité sont les sommets d’un polygone régulier à \(n\) côtés, de centre \(O\) et inscrit dans \(\U\).
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+\begin{dem}
+    Soit \(z \in\C\) tel que \(z^n = 1\) \\
+    \(z=0\) n'est pas solution donc \(\quantifs{\exists (r,\theta) \in \Rps\times\R}z = re^{\i \theta}\) 
+    \begin{align*}
+        z^n=1 &\iff r^ne^{\i \theta n }= 1e^{\i \times 0} \\
+        &\iff  
+            \begin{cases}
+                r^n &= 1 \\
+                n \theta &\equiv 0 [2\pi]
+            \end{cases}\\
+        &\iff \begin{cases}
+                r &= 1 \\
+                \theta \equiv 0 \croch{\frac{2\pi}{n}}
+            \end{cases}\\
+    \end{align*}
+    Ainsi \(S = \U_n =\accol{e^{\i \frac{k2\pi}{n}}\tq k \in \Z}\) \\
+    On note \(\fonction{f}{\Z}{\C}{k}{e^{\i \frac{k2\pi}{n}}}\) alors on sait que \(f\) est \(n\) périodique car \(\forall  k \in \Z, \begin{cases}
+        k+n &\in \Z \\
+        k-n &\in \Z
+    \end{cases} \)
+    et 
+    \begin{align*}
+        f(k+n) &= e^{\i \frac{2(k+n)\pi}{n}} \\
+               &= e^{\i \frac{2k\pi}{n}}\times e^{\i \frac{2n\pi}{n}} \\
+               &= e^{\i \frac{2k\pi}{n}}\times 1 \\
+               &= f(k)
+    \end{align*}
+    Donc \(S = \U_n =\accol{e^{\i \frac{k2\pi}{n}}\tq k \in \interventierii{0}{n-1}}\). \\
+    Montrons que \(\U_n\) contient \(n\) élément autrement dit que: 
+    \[\quantifs{\forall (k,k') \in\interventierii{0}{n-1}^2,k<k'} \imp e^{\i \frac{k2\pi}{n}} \neq e^{\i \frac{k'2\pi}{n}}\]
+    \underline{Par l'absurde :}\\
+    Soit \(k\) et \(k'\) dans \(\interventierii{0}{n-1}\) avec \(k<k'\), supposons que \(e^{\i \frac{k2\pi}{n}} = e^{\i \frac{k'2\pi}{n}}\) \\
+    alors \(\frac{k2\pi}{n} \equiv \frac{k'2\pi}{n} \croch{2\pi}\)\\
+    donc il existe \(k'' \in \Ns\) tel que \(\frac{k2\pi}{n} -\frac{k'2\pi}{n} = 2 k'' \pi\) car \(k'-k >0\)\\
+    Ainsi \(k'-k = nk''\) avec \(\begin{cases}
+        k'-k \in \interventierii{1}{n-1} &\text{ car } 0\leq k<k'\leq n-1 \\
+        nk'' \in \interventierie{n}{\pinf} & \text{ car } k''\in \Ns
+    \end{cases}\) \\
+    Ce qui est absurde et prouve que \(e^{\i \frac{k2\pi}{n}} \neq e^{\i \frac{k'2\pi}{n}}\)\\
+    \underline{Conclusion :} \\
+    Il y as exactement \(n\) racine \(n\)-ièmes de l'unité qui sont les \( \omega_k = e^{\i \frac{k2\pi}{n}}\) pour \(k\in \interventierii{0}{n-1}\)
+\end{dem}
+
+
+\begin{defprop}[Cas général]
+    Il y a \(n\) racines \(n\)- ièmes pour le nombre complexe non nul \(z_0\) de forme trigonométrique \(z_0 = r_0e^{\i\theta_0}\) qui sont les nombres complexes suivants :
+    \[\sqrt[n]{r_0}e^{\i \paren{\frac{\theta_0}{n}+\frac{2k\pi}{n}}} \text{ avec }k \in \interventierii{0}{n-1}\]
+\end{defprop}
+
+\begin{ex}
+\[\U_3 = \accol{1,\exp\paren{\frac{2\i \pi}{3}},\exp \paren{\frac{4 \i \pi}{3}}}\]
+
+\[\U_4 = \accol{1,\exp\paren{\frac{2\i \pi}{4}},\exp \paren{\frac{4 \i \pi}{4}},\exp \paren{\frac{6 \i \pi}{4}}} = \accol{1,\i,-1,-\i}\]
+
+\[\U_4 = \accol{1,\exp\paren{\frac{2\i \pi}{5}},\exp \paren{\frac{4 \i \pi}{5}},\exp \paren{\frac{6 \i \pi}{5}},\exp \paren{\frac{8\i \pi}{5}}} \]
+
+\end{ex}
+
+\section{Exponentielle complexe}
+\begin{defi}
+Pour tout nombre complexe \(z\), on appelle exponentielle de \(z\) le nombre complexe noté \(e^z\) le nombre complexe \(e^z\) défini par : 
+\[e^z = e^{\Reel{z}}e^{\i \Ima{z}}\]
+dont le module est \(\abs{e^z} = e^{\Reel{z}}\) et les arguments vérrfient \(\arg(e^z)\equiv \Ima{z} [2\pi]\)
+\end{defi}
+
+\begin{prop}
+    Soit un couple de nombres complexe \((z,z')\)
+    \begin{itemize}
+        \item on as l'égalité suivante : 
+        \[e^{z+z'} = e^ze^{z'}\]
+        on en déduit les propriétés suivantes :
+        \begin{itemize}
+            \item \(\frac{1}{e^z} = e^{-z}\)
+            \item pour tout entier relatif \(n\), on a: \(e^{nz} = \paren{e^z}^n\)
+        \end{itemize}
+        \item \(e^z = e^{z'}\) si et seulement si, \(z-z' \in 2\i\pi \Z\) en notant \(2\i \pi \Z =\accol{2\i k \pi \tq k\in \Z}\)
+    \end{itemize}
+\end{prop}
+\begin{defprop}[Résolution de l'équations \(e^z = a\) avec \(a\) un nombre complexe]
+    Soit \(a\) un nombre complexe. \\
+    \begin{itemize}
+        \item Si \(a\) est nul alors l'équation \(e^z = a\) n'a pas de solution dans \(\C\)
+        \item Si \(a\) est non nul alors l'équation \(e^z = a\) possède une infinité de solutions dans \(\C\) qui sont les nombres complexes 
+        \[z= \ln(z)+\i \theta\]
+        avec \(r\) le module de \(a\) et \(\theta\) un argument de \(a\).
+    \end{itemize}
+\end{defprop}
+
+\section{Interprétations géométriques}
+\begin{defprop}[Module et arguments de \(\frac{z'-\omega}{z-\omega}\)]
+    Soit \(\omega,z \) et \(z'\) des nombres complexes tel que \(\omega \neq z\) et \(\omega \neq z'\) de points images notés \(\Omega,M\) et \(M'\). \\
+    Alors : 
+    \[\abs{\frac{z'-\omega}{z-\omega}} = \frac{\Omega M'}{\Omega M} \text{ et } \arg\paren{\frac{z'-\omega}{z-\omega}} = \paren{\overrightarrow{\Omega M},\overrightarrow{\Omega M'}}[2\pi]\]
+
+\end{defprop}
+\begin{defprop}[Traduction de l’alignement et l’orthogonalité]
+     Soit \(\Omega,M \) et \(M'\) trois points du plan tels que \(\Omega \neq M\) et \(\Omega \neq M'\) d'affixes respectivement notées \(\omega,z\) et \(z'\)
+     \begin{itemize}
+        \item Les points  \(\Omega,M \) et \(M'\) sont alignés si, et seulement si,  \(\frac{z'-\omega}{z-\omega}\) est un réel
+        \item Les droites \(\Omega M\) et \(\Omega M'\) sont orthogonales si, et seulement si, \(\frac{z'-\omega}{z-\omega}\) est un imaginaire pur.
+     \end{itemize}
+\end{defprop}
+\begin{defprop}[Ecriture complexe de transformations du plan vues au collège]
+    Dans ce paragraphe, \(M\) et \(M'\) sont deux points du plan complexe d’affixes respectives \(z\) et \(z'\).
+    \begin{itemize}
+        \item \underline{Translation} \\
+        Soit \(b\) un nombre complexe. \\
+        \(M'\) est l'image par \(M\) par la translation de vecteur d'affixe \(b\) si, et seulement si \[z' = z+b\]
+        \item \underline{Homothétie} \\
+        Soit \(\alpha\) un nombre réel et \(\Omega\) un point du plan d'affixe \(\omega\). \\
+        \(M'\) est l'image par \(M\) par l'Homothétie de centre \(\Omega\) et de rapport \(\alpha\)  si, et seulement si \[z'-\omega = \alpha(z-\omega)\]
+        \item \underline{Rotation} \\
+        Soit \(\theta\) un nombre réel et \(\Omega\) un point du plan d'affixe \(\omega\). \\
+        \(M'\) est l'image par \(M\) par la rotation de centre \(\Omega\) et d'angle \(\theta\)  si, et seulement si \[z'-\omega = e^{\i \theta}(z-\omega)\]
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Applicaitons \(z\mapsto az+b\) avec \((a,b) \in \Cs\times\C\)]
+    Soit  \((a,b) \in \Cs\times\C\).L'application \(f\) de \(\C\) dans \(\C\) définie par 
+    \[f(z) = az+b\]
+    est dite similitude directe. \\
+    \underline{Interprétation géométrique :}
+    Pour tout \(z\in \C\), on note \(M\) le point d'affixe \(z\) et \(M'\) le point d'affixe \(z' = f(z)\)
+    \begin{itemize}
+        \item \underline{Cas où \(a=1\)} \\
+        On a alors l'équivalence suivante : \(z' = f(z)\) so et seulement si, \(z'-z = b\) \\
+        L'application \(f\) est donc la translation de vecteur d'affixe \(b\).
+        \item\underline{Cas où \(a\neq1\)}\\ 
+        \(f\) admet alors un point fixe \(\omega\) donné par \(\omega = \frac{b}{1-a} \) dont le point image image est noté \(\Omega\) \\
+        On en déduit les équivalences suivantes :  \\
+        \begin{align*}
+            z' = f(z) &\text{ si, et seulement si, } z'-\omega = a'(z-\omega) \\
+                      &\text{ si, et seulement si, } z'-\omega  = \abs{a}\paren{e^{\i \arg(a)}(z-\omega)} \\
+                      &\text{ si, et seulement si, } z'-\omega  = e^{\i \arg(a)}\paren{\abs{a}(z-\omega)} \\
+        \end{align*}
+    \end{itemize}
+    L'application \(f\) est donc la composée commutative : 
+    \begin{itemize}
+        \item de l'Homothétie de centre \(\Omega\) et de rapport \(\abs{a}\)
+        \item de la rotation de centre \(\Omega\) et d'angle \(\arg(a)\)
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Applicaitons \(z\mapsto a\conj{z}+b\) avec \((a,b) \in \Cs\times\C\)]
+    Soit  \((a,b) \in \Cs\times\C\). \\
+    L'application \(g\) de \(\C\) dans \(\C\) définie par 
+    \[g(z) = a\conj{z}+b\]
+    est dite similitude indirect. Elle peut s'écrire sous la forme de la composée non commutative. 
+    \[g = f \circ s\]
+    avec :
+    \begin{itemize}
+        \item \(s:z\mapsto \conj{z}\) qui est la symétrie axiale d'axe de la droite des réels
+        \item \(f:z\mapsto az+b\) qui est une similitude directe.
+    \end{itemize}
+\end{defprop}
