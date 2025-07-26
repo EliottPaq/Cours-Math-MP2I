@@ -1,0 +1,232 @@
+\chapter{Calcul de primitives}
+
+\minitoc
+\begin{nota}
+    \begin{itemize}
+        \item \(I\) et \(J\) désige des intervalles de \(\R\), non vides et non réduits à un point
+        \item \(\K\) désigne l'ensemble \(\R\) ou \(\C\)
+    \end{itemize}
+\end{nota}
+
+\section{Primitives}
+
+\begin{defprop}
+    Soit \(f:I\to\K\) une fonction quelconque. \\
+    On dit qu'une fonction \(F:I\to\K\) est une primitive de \(f\) sur \(I\) si \(F\) est dérivable sur \(I\) de dérivée \(f\) \\
+    Si \(f\) admet une primitive \(F\) sur \(I\) alors l'ensemble des primitives de \(f\) sur \(I\) est \(\accol{x\mapsto F(x)+ \lambda \tq \lambda \in \K}\)
+\end{defprop}
+
+\begin{theo}[Théorème fondamental de l'analyse]
+    Si \(f\) \textbf{CONTINUE} sur \(I\) alors : 
+    \begin{itemize}
+        \item pour tout \(x_0\) réel, la fonction \(F:\int_{x_0}^{x} f(t) dt\) est une primitive de \(f\) sur \(I\)
+        \item la fonction \(f\) admet des primitives sur \(I\)
+    \end{itemize}
+\end{theo}
+
+\begin{defprop}[Application au calcul d'intégrales sur un segment]
+    Si \(f\) est \textbf{CONTINUE} sur \(I\) et \(F\) uine primitive de \(f\) sur \(I\) alors, pour tout réels \(a\) et \(b\) dans \(I\), on a :
+    \[\int_{a}^b f(t) dt = F(b)-F(a) \underset{\mathrm{notation}}{=} \croch{F}^a_b \]
+\end{defprop}
+
+\section{Primitives usuelles}
+\begin{defprop}[Puissances entière ou réelles]
+    ~\\
+    \renewcommand{\arraystretch}{2.75}
+	\begin{tabular}{|l|l|c|}
+
+		\hline
+		Si la fonction \(f\) est \(\dots\) & alors une primitive de \(f\) est \(\dots\) & sur tout intervalle \(I\) inclus dans \(\dots\)\\
+        \hline
+        \(x\mapsto x^n\) avec \(n \in \N\) & \(x\mapsto \frac{1}{n+1} x^{n+1}\) & \(\R\) \\
+        \(x\mapsto x^n\) avec \(n \in \Zm \pd\accol{-1}\) & \(x\mapsto \frac{1}{n+1} x^{n+1}\) & \(\Rs\) \\
+        \(x\mapsto \frac{1}{x}\) & \(x\mapsto \ln\paren{\abs{x}}\) & \(\Rs\) \\
+        \(x\mapsto \frac{1}{2\sqrt{x}}\) & \(x\mapsto \sqrt{x}\) & \(\Rps\) \\
+        \(x\mapsto x^{\alpha}\) avec \(\alpha \in \R \pd\Z\)& \(x\mapsto \frac{1}{\alpha + 1}x^{\alpha+1}\) & \(\Rps\) \\
+
+        \hline
+	\end{tabular}
+\end{defprop}
+
+\begin{defprop}[Exponentielle à valeurs réelles ou complexes et logarithme népérien]
+    ~\\
+    \renewcommand{\arraystretch}{2.75}
+	\begin{tabular}{|l|l|c|}
+
+		\hline
+		Si la fonction \(f\) est \(\dots\) & alors une primitive de \(f\) est \(\dots\) & sur tout intervalle \(I\) inclus dans \(\dots\)\\
+        \hline
+        \(x\mapsto e^{\lambda x}\) avec \(\lambda \in \Ks\) & \(x\mapsto \frac{1}{\lambda} e^{\lambda x}\) & \(\R\) \\
+        \(x\mapsto e^x\) & \(x\mapsto e^x\) & \(\R\) \\
+        \(x\mapsto \ln(x)\) & \(x\mapsto x\ln(x)-x\) & \(\Rps\) \\
+        \hline
+	\end{tabular}
+\end{defprop}
+\vspace{10cm} 
+\begin{defprop}[Fonctions hyperboliques]
+    ~\\
+    \renewcommand{\arraystretch}{2.75}
+	\begin{tabular}{|l|l|c|}
+
+		\hline
+		Si la fonction \(f\) est \(\dots\) & alors une primitive de \(f\) est \(\dots\) & sur tout intervalle \(I\) inclus dans \(\dots\)\\
+        \hline
+        \(x\mapsto \ch(x)\) & \(x\mapsto \sh(x) \) & \(\R\) \\
+        \(x\mapsto \sh(x)\) & \(x\mapsto \ch(x) \) & \(\R\) \\
+        \(x\mapsto 1-\tth^2(x)\) & \(x\mapsto \tth(x) \) & \(\R\) \\
+        \(x\mapsto \frac{1}{\ch^2(x)}\) & \(x\mapsto \tth(x) \) & \(\R\) \\        
+        \hline
+	\end{tabular}
+\end{defprop}
+\begin{defprop}[Fonctions circulaires et fonctions circulaires réciproques]
+    ~\\
+    \renewcommand{\arraystretch}{2.75}
+	\begin{tabular}{|l|l|c|}
+
+		\hline
+		Si la fonction \(f\) est \(\dots\) & alors une primitive de \(f\) est \(\dots\) & sur tout intervalle \(I\) inclus dans \(\dots\)\\
+        \hline
+        \(x\mapsto \cos(x)\) & \(x\mapsto \sin(x) \) & \(\R\) \\
+        \(x\mapsto \sin(x)\) & \(x\mapsto -\cos(x) \) & \(\R\) \\
+        \(x\mapsto 1+\tan^2(x)\) & \(x\mapsto \tan(x) \) & \(\R\pd\accol{\frac{\pi}{2}+k\pi\tq k\in\Z}\) \\
+        \(x\mapsto \frac{1}{\cos^2(x)}\) & \(x\mapsto \tan(x) \) & \(\R\pd\accol{\frac{\pi}{2}+k\pi\tq k\in\Z}\) \\
+        \(x\mapsto \frac{-1}{\sqrt{1-x^2}}\) & \(x\mapsto \Arccos(x) \) & \(\intervee{-1}{1}\) \\
+        \(x\mapsto \frac{1}{\sqrt{1-x^2}}\) & \(x\mapsto \Arcsin(x) \) & \(\intervee{-1}{1}\) \\
+        \(x\mapsto \frac{1}{1+x^2}\) & \(x\mapsto \Arctan(x) \) & \(\R\) \\
+
+        \hline
+	\end{tabular}
+\end{defprop}
+
+\section{Calculs de primitives}
+\begin{defprop}
+    \begin{itemize}
+        \item \underline{Primitives d’une combinaison linéaire de fonctions}\\
+        Si \(f : I \mapsto \K\) et \(g : I \mapsto \K\) sont des fonctions qui admettent des primitives sur \(I\) notées \(F\) et \(G\) alors, pour tous \(\alpha\) et \(\beta\) dans \(\K\), la fonction\( \alpha f + \beta g : I \mapsto \K\) admet pour primitive sur \(I\) la fonction \( \alpha F + \beta G\)
+        \item \underline{Primitives d’une fonction dérivée de fonctions composées} \\
+        Si \(u : I \mapsto \R\) est une fonction dérivable sur \(I\) tel que pour tout \(x\) de \(I\), \(u(x)\) appartient à \(J\) et si \(g : J \mapsto \K \) est une fonction dérivable sur \(I\) alors une primitive de la fonction \(f : x  \mapsto u'(x)g'(u(x))\) sur \(I\) est la fonction \(F : x  \mapsto g (u(x))\).\\
+        Dans le tableau ci-dessous (à savoir retrouver à partir des primitives usuelles), \(I\) désigne un intervalle sur lequel \(u\) est dérivable et tel que, pour tout \(x\) de \(I\), \(u(x)\) appartient au domaine de dérivabilité de \(F\) .
+    \end{itemize}
+    \renewcommand{\arraystretch}{2.5}
+    \begin{center}
+        
+	    \begin{tabular}{|l|l|}
+	    	\hline
+	    	Si la fonction \(f\) est \(\dots\) & alors une primitive de \(f\) est \(\dots\) \\
+            \hline
+            \(x\mapsto u'(x)\paren{u(x)}^{\alpha}\) avec \(\alpha \in \R\pd\accol{-1}\)  & \(x\mapsto \frac{1}{\alpha+1}\paren{u(x)}^{\alpha+1} \) \\
+            \(x\mapsto \frac{u'(x)}{u(x)}\)  & \(x\mapsto \ln(\abs{u(x)}) \) \\
+            \hline
+            \(x\mapsto u'(x)e^{\lambda u(x)}\) avec \(\lambda \in \Ks\) & \(x\mapsto \frac{1}{\lambda}e^{\lambda u(x)} \) \\
+            \(x\mapsto u'(x)\ln\paren{u(x)}\) & \(x\mapsto u(x)\ln(u(x))-u(x) \) \\
+            \hline
+            \(x\mapsto u'(x)\ch\paren{u(x)}\) & \(x\mapsto \sh(u(x)) \) \\
+            \(x\mapsto u'(x)\sh\paren{u(x)}\) & \(x\mapsto \ch(u(x)) \) \\
+            \(x\mapsto u'(x)\paren{1+\tth^2\paren{u(x)}}\) & \(x\mapsto \tth(u(x)) \) \\
+            \hline
+
+            \(x\mapsto u'(x)\cos\paren{u(x)}\) & \(x\mapsto \sin(u(x)) \) \\
+            \(x\mapsto u'(x)\sin\paren{u(x)}\) & \(x\mapsto -\cos(u(x)) \) \\
+            \(x\mapsto u'(x)\paren{1+\tan^2\paren{u(x)}}\) & \(x\mapsto \tan(u(x)) \) \\
+            \hline
+            \(x\mapsto \frac{-u'(x)}{\sqrt{1-u^2(x)}}\) & \(x\mapsto \Arccos(u(x)) \)\\
+            \(x\mapsto \frac{u'(x)}{\sqrt{1-u^2(x)}}\) & \(x\mapsto \Arcsin(u(x)) \)  \\
+            \(x\mapsto \frac{u'(x)}{1+u^2(x)}\) & \(x\mapsto \Arctan(u(x)) \) \\
+            \hline
+	    \end{tabular}
+    \end{center}
+\end{defprop}
+
+\subsection{Deux théorème important}
+\begin{defi}[préliminaire]
+    Une fonction \(f : I \mapsto \K\) est dite de classe \(\classe{1}\) sur \(I\) si \(f\) est dérivable sur \(I\) et de dérivée continue sur \(I\)
+\end{defi}
+
+\begin{theo}[Intégration par parties]
+    Si \(u\) et \(v\) sont deux fonctions de classe \(\classe{1}\) sur \(I\) alors, pour tous réels \(a\) et \(b\) dans \(I\), on a :
+    \[\int_{a}^{b}u'(t)v(t)dt = \croch{u(t)v(t)}^b_a - \int_{a}^{b}u(t)v'(t)dt\]
+\end{theo}
+
+\begin{dem}
+    Soit \(u\) et \(v\) deux applications de \(\ensclasse{1}{I}{\R}\) alors \(\forall (a,b) \in I^2\) : 
+    \[
+    \begin{aligned}
+        \int_{a}^{b}(uv)'(t)dt &= \int_{a}^{b}\paren{u'v+uv'}(t)dt \\
+         \croch{uv}^b_a &= \int_{a}^{b}(u'v)(t)dt + \int_{a}^{b}(uv')(t)dt \\
+          \int_{a}^{b}u'(t)v(t)dt &= \croch{uv}^b_a- \int_{a}^{b}(uv')(t)dt 
+    \end{aligned}
+    \]
+\end{dem}
+\begin{theo}[Changement de variable]
+    Si \(\phi  :J \mapsto \R\) est fonction de classe \(\classe{1}\) sur \(J\) tel que, pour tout \(t\) de \(J\), \(\phi(t)\) appartient à \(I\) \\
+    et\\
+    Si \(f  :I\mapsto \K\) est fonction continue sur \(I\) tel que, pour touts \(\alpha\) et \(\beta\) dans \(J\), on a: 
+    \[\int_{\alpha}^{\beta} f(\phi(t))\phi'(t) dt = \int_{\phi(\alpha)}^{\phi(\beta)}f(x)dx\]
+\end{theo}
+
+\begin{dem}
+    Soit \(\phi  :J \mapsto \R\) une fonction de classe \(\classe{1}\) sur \(J\) tel que, pour tout \(t\) de \(J\), \(\phi(t)\) appartient à \(I\) et \(f  :I\mapsto \K\) une fonction continue sur \(I\) tel que, pour touts \(\alpha\) et \(\beta\) dans \(J\), alors : \\
+
+    \(f\) possède une primitive sur \(I\) (car \(f\) est continue \(I\) ) que l'on note \(F\). \\
+    On note aussi \(G:t\mapsto F(\phi(t))\) qui est dérivable sur \(J\) par composition ainsi \(G':t\mapsto F'(\phi(t))\times \phi'(t)\), alors :
+    \[
+    \begin{aligned}
+        \int_{\alpha}^{\beta} f(\phi(t))\phi'(t)dt &= \int_{min}^{max} G'(t)dt \\
+        &=\croch{G(t)}_{\alpha}^{\beta} \\
+        &=F(\phi(\beta)) - F(\phi(\alpha)) \\
+        &= \croch{F}_{\phi(\alpha)}^{\phi(\beta)} \\
+        &= \int_{\phi(\alpha)}^{\phi(\beta)} f(x)dx
+    \end{aligned}
+    \]
+\end{dem}
+\subsection{Primitives de \(x \mapsto e^{ax} \cos(bx)\) ou \(x \mapsto e^{ax} \sin(bx)\)}
+\begin{defprop}[]
+    \begin{itemize}
+        \item \underline{Préliminaire} \\
+        Soit \(f\) et \(F\) des fonctions définies sur un intervalle \(I\) à valeurs complexes.
+        \begin{enumerate}
+            \item \(f\) admet des primitives sur \(I\) si, et seulement si, \(\Reel{f}\) et \(\Ima{f}\) admettent des primitives sur \(I\).
+            \item \(F\) est une primitive de \(f\) sur \(I\) si, et seulement si, 
+            \(\begin{cases*}
+                \Reel{F}\text{ est une primitive de } \Reel{f}\text{ sur  } I \\
+                \Ima(F) \text{ est une primitive de } \Ima{f} \text{ sur } I
+            \end{cases*}\).
+        \end{enumerate}
+        \item \underline{Une application usuelle du résultat précédent} \\
+        Soit \(a\) et \(b\) des réels tels que \((a,b) \neq (0,0)\). \\
+        On note \(\lambda = a+\i b\) et \(f_{\lambda}\) la fonction définie sur \(\R\) par, pour tout \(x\) réel 
+            \[f_{\lambda}(x) = e^{ax}\cos(bx) + \i e^{ax}\sin(bx) = e^{ax}e^{bx} \underset{\mathrm{def}}{=} e^{(a+\i b)x} = e^{\lambda x}\]
+        La fonction \(F_{\lambda}:x\mapsto \frac{1}{\lambda} e^{\lambda x}\) est une primitive de \(f_{\lambda}\) sur \(\R\) donc :
+        \begin{itemize}
+            \item la fonction \(\Reel{F_{\lambda}}\) est une primitive de la fonction \(\Reel{F_{\lambda}}:x\mapsto e^{ax}\cos(bx)\) sur \(\R\)
+            \item la fonction \(\Ima{F_{\lambda}}\) est une primitive de la fonction \(\Ima{F_{\lambda}}: x\mapsto e^{ax}\sin(bx)\) sur \(\R\)
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+
+\subsection{Primitives de \(x\mapsto \frac{1}{ax^2+bx+c}\) avec \(a,b\) et \(c\) des réels et \(a\) non nul}
+\begin{appl}
+    Soit \(a,b\) et \(c\) des réels avec \(a\) non nul et \(g\) la fonction \(g:\R \mapsto \R\) définie par \(g(x) = ax^2+bx+c\) \\
+    Trois cas se présentent : 
+    \begin{enumerate}
+        \item Si \(g\) admet deux racines réelles distinctes \(r_1\) et \(r_2\) alors il existe deux réels \(\alpha_1\) et \(\alpha_2\) tel que :
+        \[\forall x \in R\pd\accol{r_1,r_2}, \frac{1}{ax^2+bx+c} = \frac{\alpha_1}{x-r_1}+\frac{\alpha_2}{x-r_2}\]
+        Dans ce cas, \\
+        une primitive de \(x\mapsto \frac{1}{ax^2+bx+c}\) sur tout intervalle \(I\) inclus dans \(R\pd\accol{r_1,r_2}\) est :
+        \[x\mapsto \alpha_1 \ln\abs{x-r_1} + \alpha_2\ln\abs{x-r_2}\]
+
+
+        \item si \(g\) admet une racine réelle double \(r\) alors il existe un réel \(\alpha\) tel que :
+        \[\forall x \in R\pd\accol{r}, \frac{1}{ax^2+bx+c} = \frac{\alpha}{(x-r)^2}\]
+        Dans ce cas,\\
+        une primitive de \(x\mapsto \frac{1}{ax^2+bx+c}\) sur tout intervalle \(I\) inclus dans \(\R\pd\accol{r}\) est :
+        \[x\mapsto \frac{-\alpha}{x-r}\]
+
+
+        \item Si \(g\) n'admet pas de racines réelles alors, en écrivant \(g\) sous forme canonique, on peut trouver trois réels \(\alpha,\beta \) et \(\gamma\) tel que :
+        \[\forall \in \R, \frac{1}{ax^2+bx+c} = \frac{\alpha}{\paren{\frac{x+\beta}{\gamma}}^2+1}\]
+        Dans ce cas,\\
+        une primitive de \(x\mapsto \frac{1}{ax^2+bx+c}\) sur tout intervalle \(I\) inclus dans \(\R\) est :
+        \[x\mapsto \alpha \gamma \arctan\paren{\frac{x+\beta}{\gamma}}\]
+    \end{enumerate}
+\end{appl}
