@@ -1,0 +1,319 @@
+\chapter{Ensemble, application et relation}
+
+\minitoc
+
+\section{Ensemble}
+\subsection{Généralité}
+\begin{defi}
+    \begin{itemize}
+        \item Un ensemble est une collection d’objets, sans répétition et non ordonnée.
+        \item Les objets de l’ensemble sont appelés les éléments de l’ensemble.
+        \begin{itemize}
+            \item Si \(x\) est un élément de l’ensemble \(E\), on dit que \(x\) appartient à \(E\) et on note \(x \in E\) .
+            \item Dans le cas contraire, on dit que \(x\) n’appartient pas à \(E\) et on note \(x \notin E\).
+        \end{itemize}
+        \item L’ensemble sans élément est appelé l’ensemble vide et noté \(\emptyset\).
+        \item Les ensembles avec un seul élément sont appelés des singletons.
+        \item Les ensembles avec deux éléments sont appelés des paires.
+    \end{itemize}
+\end{defi}
+\begin{defprop}[Modes de définition d’un ensemble]
+    Un ensemble \(E\) peut être défini :\\
+    \begin{itemize}
+        \item en extension, c’est-à-dire en explicitant tous les éléments de l’ensemble \(E\), dans le cas où
+        il compte un nombre fini d’éléments appelé cardinal de l’ensemble. Les éléments de l’ensemble
+        sont ainsi tous cités entre accolades.
+        Par exemple :
+        \begin{itemize}
+            \item \(E = \accol{\i}\) singleton contenant le nombre complexe \(\i\) ;
+            \item \(E = \accol{\cos, \sin} \)paire contenant les fonctions cosinus et sinus ;
+            \item \(E = \accol{2, 3, 5, 7}\) ensemble des nombres premiers inférieurs à \(10\) ;
+            \item \(E = \accol{3, 4, . . . , 10}\) ensemble des entiers compris entre \(3\) et \(10\) au sens large (noté aussi \(\interventierii{3}{10}\)).
+        \end{itemize}
+        \item en compréhension, c’est-à-dire en donnant des propriétés vérifiées par les éléments de
+        l’ensemble et eux seuls. Là encore, on utilise des accolades.
+        Par exemple :\\
+        \begin{itemize}
+            \item \(E = \accol{x \in \R \tq x \equiv 0 \croch{2\pi}}\) ensemble des réels congrus à \(0\) modulo \(2\pi\) ;
+            \item \(E = \accol{f : \R \to \R \tq \forall x \in \R, f (-x) = f (x)}\) ensemble des fonctions paires de \(\R\) dans \(\R\) ;
+            \item \(E = \accol{z \in \C \tq \exists k \in \Z, z = e^{\frac{2\i k \pi}{5}}}\) ensemble des racines \(5\)-ièmes de l’unité.
+            \item \(E = \accol{\alpha e \tq \alpha \in \R}\) ensemble des fonctions de la forme \(x \mapsto \alpha e^x\) lorsque \(\alpha\) parcourt \(\R\).
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+
+\subsection{Inclusion entre ensembles et parties}
+\begin{defprop}
+    Soit E un ensemble.
+    \begin{itemize}
+        \item \underline{Inclusion}\\ On dit qu’un ensemble \(F\) est inclus dans \(E\) et on note \(F \subset E\), si tous les éléments de \(F\) appartiennent à \(E\), c’est-à-dire : \(\forall x, \paren{x \in F \imp x \in E}\) .
+        \item \underline{Parties}\\ On dit qu’un ensemble \(F\) est une partie ou un sous-ensemble de \(E\) si \(F\) est inclus dans \(E\).
+        \item \underline{Ensemble des parties}\\ On note \(\P{E}\) l’ensemble des parties de \(E\), c’est-à-dire \(\P{E} = \accol{A \tq A \subset E}\) .
+    \end{itemize}
+\end{defprop}
+\subsection{Egalité entre ensembles}
+\begin{defprop}
+    
+\begin{itemize}
+    \item  \underline{Définition}\\ On dit que deux ensembles \(E\) et \(F\) sont égaux, et on note \(E = F\) , s’ils ont les mêmes éléments, c’est-à-dire : \(\forall x, \paren{x \in E \iff x \in F }\) .
+\item  \underline{Caractérisation de l’égalité par double inclusion}\\ Deux ensembles \(E\) et \(F\) sont égaux si, et seulement si, \(E \subset F et F \subset E\).
+\end{itemize}
+\end{defprop}
+
+\subsection{Opérations sur les parties d’un ensemble}
+\begin{defprop}
+Soit \(E\) un ensemble et, \(A\) et \(B\) deux parties de \(E\).\\
+Soit \(I\) un ensemble et \(\accol{A_i \tq i \in I}\) un ensemble de parties de \(E\).
+\begin{itemize}
+    \item  \underline{Réunion}\\ 
+        On appelle réunion de \(A\) et \(B\), et on note \(A\union B\), la partie de \(E\) définie par \\\(A\union B = \accol{x \in E \tq x \in A \text{ ou } x \in B}\).\\
+        Plus généralement, on définit la réunion de parties \(A_i\) de \(E\), avec \(i\) qui varie dans un ensemble \(I\) : \[ \bigunion_{i\in I}A_i = \accol{x \in E \tq \exists i_0 \in I, x \in A_{i_0} }\] .
+    \item \underline{ Intersection}\\ 
+        On appelle intersection de \(A\) et \(B\), et on note \(A\inter B\), la partie de \(E\) définie par \(A \inter B = \accol{x \in E \tq x \in A \text{ et } x \in B}\).\\
+        Plus généralement, on définit l’intersection de parties \(A_i\) de\( E\), avec \(i\) qui varie dans un ensemble \(I\) :\[ \biginter_{i\in I}A_i = \accol{x \in E \tq \forall i \in I, x \in A{i} }\].
+    \item \underline{ Différence}\\ On appelle différence de \(B\) dans \(A\), et on note \(A \pd B\), la partie de \(E\) définie par \(A\pd B = \accol{x \in E \tq x \in A \text{ et } X\notin B}\) .
+    \item \underline{Complémentaire}\\ 
+    On appelle complémentaire de \(A\) dans \(E\) la partie \(E \pd A = \accol{x \in E \tq x \notin A}\) qui est encore notée \(\conj{A}\) ou \(A^c\) (en l’absence d’ambiguité sur l’ensemble dans lequel le complémentaire est considéré).
+    \item \underline{ Quelques règles de calcul ou loi de Morgan}\\
+    \begin{itemize}
+        \item \(\paren{\bigunion_{i\in I}A_i}\inter B = \bigunion_{i \in I} (A_i \inter B)\) et \(  \paren{\biginter_{i\in I} A_i} \union B = \biginter_{i\in I}(A_i \union B)\)
+        \item \(\conj{\biginter_{i \in I}A_i} = \bigunion_{i \in I} \conj{A_i}\) et \(\conj{\bigunion_{i \in I}A_i} = \biginter_{i \in I}\conj{A_i}\)
+    \end{itemize}
+    \item \underline{Recouvrement disjoint et partition d’un ensemble}\\
+    L’ensemble \(\accol{A_i \tq i \in I}\) de parties de \(E\) est dit partition de \(E\) si les conditions suivantes sont réunies :\\
+    \begin{itemize}
+        \item \(E = \bigunion_{i\in I}A_i\)
+        \item \(\forall i \in I,A_i \neq \emptyset\)
+        \item \(\forall i \in I,\forall j \in I, i\neq j \imp A_i\inter A_j = \emptyset\)
+    \end{itemize}
+\end{itemize}
+\end{defprop}
+
+\begin{dem}[Loi de Morgan]
+    Soit \(E\) un ensemble et \(A_j\) des parties de \(E\) où \(i \in I\) et \(B\) une partie de \(E\).
+    \begin{itemize}
+        \item \underline{Distributivité de l'intersection sur l'union} :\\
+        \begin{align*}
+            x\in \paren{\bigunion_{i\in I}A_i}\inter B &\iff \paren{x \in \bigunion_{i\in I}A_i} \text{ et } \paren{x \in B} \\
+            &\iff \paren{\exists i_0 \in I, x\in A_{i_0}} \text{ et } \paren{x \in B}\\
+            &\iff \exists i_0 \in I, x\in A_{i_0}\inter B \\
+            &\iff x\in \bigunion_{i\in I}\paren{A_i\inter B}
+        \end{align*}
+        \item \(\conj{\biginter_{i\in I}A_i} = \bigunion_{i\in I}\conj{A_i}\) :\\
+        \begin{align*}
+            x \in \conj{\biginter_{i\in I}A_i} &\iff x\notin \biginter_{i \in I} A_i\\
+            &\iff \exists A_{i_0}, x\notin A_{i_0}\\
+            &\iff x\in \conj{A_{i_0}} \\
+            &\iff x \in \bigunion_{i \in I} \conj{A_i}
+        \end{align*}
+    \end{itemize}
+\end{dem}
+
+\subsection{Produit cartésien d’un nombre fini d’ensembles}
+\begin{defprop}
+    Soit \(E_1, \dots, E_n\) des ensembles.\\
+    On appelle produit cartésien de \(E_1, \dots, E_n\) l’ensemble noté \(E_1 \times \dots \times E_n\) défini par :
+    \[E_1 \times \dots \times E_n = \accol{\paren{x_1,\dots,x_n} \tq \forall i \interventierii{1}{n}, x_i \in E_i} \]
+\end{defprop}
+
+
+\section{Application}
+
+\subsection{définition de base}
+\begin{defprop}
+    Une application \(f\) de \(E\) (ensemble de départ) dans \(F\) (ensemble d’arrivée) est un objet mathématique qui, à tout élément \(x\) de \(E\), associe un unique élément de \(F\) noté \(f (x)\) \\
+    \underline{Notation fonctionnelle} : \[\fonction{f}{E}{F}{x}{f(x)}\]
+\end{defprop}
+
+
+\begin{defprop}[Image et antécédent]
+    Soit \(f : E \mapsto F\) une application.
+    \begin{itemize}
+        \item Pour tout \(x\) élément de \(E\),\( f (x)\) est un élément de \(F\) appelé l’image de \(x\) par \(f\) .
+        \item Soit \(y \in F\) . S’il existe \(x\) dans \(E\) tel que \(y = f (x)\) alors \(x\) est dit un antécédent de \(y\) par \(f\) .
+    \end{itemize}
+\end{defprop}
+\begin{defprop}[Ensemble des applications]
+    L’ensemble des applications de \(E\) dans \(F\) est noté \(\ensclasse{\mathcal{F}}{E}{F}\) ou \(F^E\).
+\end{defprop}
+\begin{defprop}[Egalité entre applications]
+    On dit que deux applications \(f\) et \(g\) sont égales, et on note \(f = g\), si les conditions suivantes sont réunies :
+    \begin{itemize}
+        \item \(f\) et \(g\) ont le même ensemble de départ \(E\) et le même ensemble d’arrivée \(F\) ;
+        \item pour tout \(x\) de \(E\),\( f (x) = g(x)\).
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}  [Graphe]
+Soit \(f : E \mapsto F\) une application. \\
+On appelle graphe de \(f\) la partie \(G\) de \(E \times F\) définie par :
+\[ G = \accol{\paren{x; f (x)}\tq x \in E} \]
+\end{defprop}
+
+\subsection{Fonctions particulières}
+\begin{defprop}
+    \begin{itemize}
+        \item  \underline{Fonction indicatrice d’une partie} \\
+        Soit \(A\) une partie de \(E\). L’application \(f\) de \(E\) dans \(\accol{0, 1}\) définie par :
+        \[\forall x \in E, f(x) = \begin{cases}
+            1 &\text{ si } x\in A \\
+            0 &\text{ si } x\notin A
+        \end{cases}\]
+        est dite fonction indicatrice de \(A\) et notée \(\ind{A}\).
+        \item \underline{Restriction} \\
+        Soit\( f : E \mapsto F\) une application et \(A\) une partie de \(E\). \\
+        L’application \(g : A \mapsto F\) définie par \( \forall x \in A, g(x) = f (x)\) est dite restriction de \(f\) à \(A\) et notée \(\restr{f}{A}\).
+        \item \underline{Prolongement} \\
+        Soit \(A\) une partie de \(E\) et \(h : A \mapsto F\) une application. \\
+        Toute application \(f : E \mapsto F \) telle que \(\restr{f}{A} = h\) est dite prolongement de \(h\) à \(E\).
+    \end{itemize}
+\end{defprop}
+
+\subsection{Image directe et image réciproque}
+
+\begin{defprop}
+    Soit \(f : E \mapsto F\) une application.
+    \begin{itemize}
+        \item \underline{Image} : \\
+        Soit \(A\) une partie de \(E\). On appelle image directe de \(A\) par \(f\) la partie de \(F\) définie par :
+        \[f(A) = \accol{y \in F \tq \exists x \in A,y = f(x)} = \accol{f(x)\tq x \in A}\]
+        C’est l’ensemble des images par \(f\) des éléments de \(A\).
+        \item \underline{Image réciproque} :
+        Soit \(B\) une partie de \(F\) . On appelle image réciproque de \(B\) par \(f\) la partie de \(E\) définie par :
+        \[f^{-1}(B) = \accol{x\in E\tq f(x) \in B}\]
+        C’est l’ensemble des antécédents par \(f\) des éléments de \(B\).
+    \end{itemize}
+\end{defprop}   
+
+\subsection{Composition d’applications}
+\begin{defprop}  
+Soit \(f : E \mapsto F\) et \(g : F \mapsto G\) deux applications. L’application \(h : E \mapsto G\) définie par :
+\[\forall x \in E, h(x) = g (f (x))\]
+est dite composée des applications \(f\) et \(g\) et notée \(h = g \circ f\) .
+\end{defprop}
+
+\subsection{Injection, surjection}
+\begin{defprop}
+    Une application \(f : E \mapsto F\) est dite :
+    \begin{itemize}
+        \item \underline{Définitions} :\\
+        \begin{itemize}
+            \item  \underline{injection} si tout élément de \(F\) a au plus un antécédent par \(f\) .
+            \item \underline{surjection} si tout élément de \(F\) a au moins un antécédent par \(f\) .
+        \end{itemize} 
+        \item \underline{Caractérisations pratiques} : \\
+        \begin{itemize}
+        \item \(f\) est une injection si, et seulement si :\( \forall(x, x') \in E^2, f (x) = f (x') \imp x = x'\).
+        \item \(f\) est une surjection si, et seulement si : \(\forall y \in F, \exists x \in E, y = f (x)\).
+        \end{itemize}
+        \item \underline{Composition} :\\
+            La composée de deux injections (resp. surjections) est une injection (resp. surjection).
+    \end{itemize}
+\end{defprop}
+
+\begin{dem}[Composition]
+    \begin{itemize}
+        \item \underline{injection} :\\
+        Soit \(f : E\mapsto F\) et \(g:F\mapsto G\) deux fonctions injective \\
+        \(\forall (x,x')\in E^2 \) tel que \( g(f(x)) = g(f(x'))\) \\
+        On a \(f(x) = f(x')\) car \(g\) est une injection \\
+        et donc \(x=x'\) car \(f\) est une injection \\
+        \underline{conclusion} : \(\forall (x,x')\in E^2, g(f(x)) = g(f(x')) \imp x=x'\) donc \(g\circ f\) injective\\
+
+        \item\underline{surjection} : \\
+        Soit \(f : E\mapsto F\) et \(g:F\mapsto G\) deux fonctions surjectives \\
+        Soit\(z \in G\) alors \(\exists y \in F,z=g(y)\) car \(g\) surjective \\
+        Soit\(y \in F\) alors \(\exists x \in E,y=f(x)\) car \(f\) surjective \\
+        \underline{conclusion} : \(\forall z \in G,\exists x \in E \) tel que \(z = g(f(x))\) donc \(g\circ f\) surjective
+    \end{itemize}
+\end{dem}
+
+\subsection{Bijection}
+\begin{defprop}
+    \begin{itemize}
+        \item \underline{Définitions} : \\
+        Une application \(f : E \mapsto F\) est dite bijection si tout élément de \(F\) a un unique antécédent par \(f\).\\
+        Dans ce cas, l’application \(f ^{-1} : F \mapsto E\) définie par :
+        \[\forall y \in F, f^{-1}(y) = x \text{ avec } x \text{ l’unique élément de }E \text{ tel que } y = f (x)\]
+        est dite bijection réciproque de \(f\) et vérifie :
+        \[f \circ f^{-1} = \id{F} \text{ et } f^{-1} \circ f = \id{F}\]
+        \item \underline{ Caractérisation pratique} :\\
+        Une application \(f : E \mapsto F\) est une bijection si, et seulement si, \(f\) est une injection et une surjection.
+        \item \underline{Composition} :
+        \begin{itemize}
+            \item La composée de deux bijections est une bijection.
+            \item La bijection réciproque de la composée \(g \circ f\) où \(f\) et \(g\) sont des bijections est l’application
+            \[(g \circ f )^{-1} = f ^{-1} \circ g^{-1}\]
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+
+\section{Relation Binaire sur un ensemble}
+
+\subsection{Généralité}
+\begin{defprop}
+    \begin{itemize}
+    \item \underline{Définitions} : \\
+    On appelle relation binaire sur un ensemble \(E\) toute partie \(\mathcal{R}\) de \(E \times E\).\\
+    Pour tout \((x, y) \in \mathcal{R}\) :
+    \begin{itemize}
+        \item on dit que \(x\) est en relation avec \(y\) par la relation \(\mathcal{R}\) ;
+        \item on note usuellement \(x\mathcal{R}y\)
+    \end{itemize}
+    \item \underline{Propriétés} : \\
+    On dit qu’une relation binaire \(\mathcal{R}\) sur un ensemble \(E\) est :
+    \begin{itemize}
+        \item réflexive si : \(\forall x \in E, x\mathcal{R}x\) ;
+        \item transitive si :\(\forall (x, y, z) \in E^3, (x\mathcal{R}y \text{ et } y\mathcal{R}z)\imp x\mathcal{R}z\) ;
+        \item symétrique si : \(\forall (x, y) \in E^2, x\mathcal{R}y \imp y\mathcal{R}x\) ;
+        \item antisymétrique si : \(\forall (x, y) \in E^2, (x\mathcal{R}y et y\mathcal{R}x) \imp x = y\).
+    \end{itemize}
+    \item \underline{ Quelques exemples déjà rencontrés} : 
+        \begin{enumerate}
+            \item Sur un ensemble \(E\) : la relation d’égalité.
+            \item Sur l’ensemble \(\P{E}\) des parties d’un ensemble \(E\) : la relation d’inclusion.
+            \item Sur l’ensemble \(\R\) : les relations \(\leq, <\) et la relation de congruence modulo un réel non nul.
+            \item Sur l’ensemble \(\ensclasse{\mathcal{F}}{D}{\R} = \R^D\) des applications d’une partie \(D\) de \(\R\) dans \(\R\) : la relation \(\leq\).
+            \item Sur l’ensemble Z : les relations de divisibilité \(\divise\) et de congruence modulo un entier non nul.
+        \end{enumerate}
+    \end{itemize}
+\end{defprop}
+
+\subsection{Relations d'équivalence}
+\begin{defprop}
+    \begin{itemize}
+        \item \underline{Définitions} : \\
+            Toute relation binaire sur un ensemble \(E\) qui est réflexive, transitive et symétrique est dite relation d’équivalence sur \(E\). Les relations d’équivalence sont souvent notées \(\sim,\simeq \) ou \(equiv\).
+        \item \underline{Théorème} : \\
+        Soit \(\sim\) une relation d’équivalence sur un ensemble \(E\).\\
+        Alors la famille d’ensembles \(\paren{\accol{y \in E \tq x \sim y}}_{x\in E}\) est une partition de \(E\).
+        \item \underline{Exemples des relations de congruence}
+        \begin{itemize}
+            \item La relation de congruence modulo \(2\pi\) est une relation d’équivalence sur \(\R\).\\
+                Les classes d’équivalence sont les ensembles \(x + 2\pi\Z = \accol{x + 2n\pi \tq n \in Z}\) avec \(x\) qui décrit \(\intervie{0}{2\pi}\).
+            \item La relation de congruence modulo \(n \in \Ns\) est une relation d’équivalence sur \( \Z\).
+                Les classes d’équivalence sont les ensembles \(r + n\Z = \accol{r + nq \tq q \in \Z}\) avec \(r\) qui décrit \(\interventierii{0}{n-1}\).
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+
+\subsection{Relation d'ordre}
+
+\begin{defprop}
+    \begin{itemize}
+        \item \underline{Définitions} : \\
+            Toute relation binaire sur un ensemble \(E\) qui est réflexive, transitive et antisymétrique est dite relation d’ordre sur \(E\). Les relations d’ordre sont souvent notées \(\leq, \precsim , \lesssim \) ou \(\preceq \).
+        \item \underline{Ordre partiel et ordre total} : \\ 
+            Une relation d’ordre \(\preceq\) sur un ensemble \(E\) est dite totale si :
+            \[\forall (x, y) \in E^2, x \preceq y ou y \preceq x\]
+            Dans le cas contraire, la relation d’ordre \(\preceq\) est dite partielle.
+        \item \underline{ Minorant, majorant, maximum, minimum, etc} : \\
+            Les notions de partie minorée, majorée ou bornée ainsi que celles de minorant, majorant, minimum, maximum, borne inférieure ou borne supérieure vues pour les parties de \(\R\) peuvent être étendues aux parties d’un ensemble muni d’une relation d’ordre.\\
+            Par exemple, pour \(E\) un ensemble muni d’une relation d’ordre \(\preceq\) et \(A\) une partie de \(E\) :
+            \begin{itemize}
+                \item \(A\) est dite majorée pour \(\preceq\) s’il existe \(M\) dans \(E\) tel que, pour tout élément \(x\) de \(A\), on a :\( x \preceq M\).\\
+                Dans ce cas, on dit que \(M\) est un majorant de \(A\) pour \(\preceq\).
+                \item si \(A\) admet un majorant \(M\) pour \(\preceq\) qui appartient à \(A\) alors celui-ci est unique et est appelé le maximum de \(A\) ou le plus grand élément de \(A\) pour \(\preceq\).
+            \end{itemize}
+    \end{itemize}
+\end{defprop}
