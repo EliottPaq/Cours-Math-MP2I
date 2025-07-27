@@ -1,0 +1,216 @@
+\chapter{Compléments sur les nombres réels}
+
+\minitoc
+\section{Parties denses de \(\R\)}
+
+\begin{defprop}[Généralité]
+    Une partie \(X\) de \(R\) est dite dense dans \(\R\) si elle rencontre tout intervalle ouvert non vide de \(\R\). \\
+    ~\\
+    \underline{En pratique:} \\
+    Pour étable qu'une partie \(X\) de \(R\) est dense dans \(R\) à l'aide de cette définition, on montre que tout intervalle du type \(\intervee{a}{b}\) avec \(a\) et \(b\) des réels tel que \(a<b\), contient au moins un élément de \(X\).
+\end{defprop}
+
+\begin{ex}
+\begin{itemize}
+    \item Les ensembles \(\N\) et \(\Z\) sont des parties de \(\R\) qui ne sont pas denses dans \(\R\)
+    \item Les ensemble \(\Q\) et \(\R\pd\Q\) sont des parties de \(\R\) qui sont denses dans \(\R\)
+\end{itemize}
+\end{ex}
+
+\begin{dem}[Preuve de \(Q\) dense dans \(\R\)]
+    Soit \(a\) et \(b\) des réels avec \(a<b\).\\
+    Montrons que \(\intervee{a}{b}\) contient un élément de \(\Q\), c'est à dire \(\exists (p,q) \in \Z\times\Ns\) tel que \(a<\frac{p}{q}<b\)
+    autrement dit \(qa<p<qb\) \\
+    Ainsi pour que \(p\) existe il faut que : \\
+    \begin{align*}
+    &qa - qb > 1       \tag*{car \( p \in \Z \)} \\
+    &q(a - b) > 1      \\
+    &q > \frac{1}{b-a} \tag*{car \( b > a \)}\\
+    \text{Prenons } &q=\floor{\frac{1}{b-a}} +1 \tag*{car \(\frac{1}{b-a}>\floor{\frac{1}{b-a}}+1\)}  
+\end{align*}
+Prenons \(p=\floor{qa}+1\), donc  \( p-1 \leq qa<p\) \\
+or \(p<qb\) car \(q>\frac{1}{b-a} \iff qb-qa>1 \iff qb>qa+1\geq \floor{qa}+1=p\) \\
+Ainsi \(qa<p<qb\imp a<\frac{p}{q}<b<b\) avec \(q=\floor{\frac{1}{b-a}} +1\) et \(p=\floor{qa}+1\).
+\\\\
+\underline{Conclusion :} \\
+Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un rationnel donc par définition, \(\Q\) est dense dans \(\R\).
+\end{dem}
+
+\begin{dem}[preuve que \(\R\pd\Q\) est dense dans \(\R\)] ~\\
+    \begin{itemize}
+        \item \underline{Préliminaire} : Démonstration que \(\sqrt{2}\) est irrationnel\\
+        On suppose qu'il existe \((p,q) \in \Z\times\Ns \) avec \(p\) et \(q\) premier entre eux tel que \(\frac{p}{q} = \sqrt{2}\) alors : 
+        \begin{align*}
+            \frac{p}{q} = \sqrt{2} &\iff \sqrt{2}q = p \\
+            &\imp 2q^2 = p^2 \qquad \text{donc } p^2 \text{ est pair ce qui explique } p \text{ pair}\\
+            &\imp 2q^2 = (2k)^2 \qquad \text{en posant } p =2k \text{ avec } k \in \Z \\
+            &\imp 2q^2 = 4k^2 \\
+            &\imp 2k^2 = q^2 \qquad \text{donc } q^2 \text{ est pair et donc } q \text{ aussi} 
+        \end{align*}
+        Ce qui est absurde car \(p\) et \(q\) sont premier entre eux donc ils ne peuvent pas être tous les deux pair.
+        \underline{Conclusion :} \(\sqrt{2}\) est irrationnel.
+        \item \underline{Preuve que \(\R\pd\Q\) est dense dans \(\R\)} \\~\\
+        Soit \(a\) et \(b\) des réels avec \(a<b\).\\
+        Montrons que \(\intervee{a}{b}\) contient un irrationnel :\\
+        Par densité de \(\Q\) dans \(\R\), \(\intervee{\frac{a}{\sqrt{2}}}{\frac{b}{\sqrt{2}}}\) contient un rationnel \(r\)\\
+        on a donc \(\frac{a}{\sqrt{2}}<r<\frac{b}{\sqrt{2}} \imp a<\sqrt{2}r<b\)
+        \begin{itemize}
+            \item \underline{Si \(r\neq 0\)}\\
+            \(\sqrt{2}r \in \intervee{a}{b}\) et \(\sqrt{2}r\) est irrationnel car sinon \(\sqrt{2}r\) serait rationnel et alors \(\underset{\in \Q}{\sqrt{2}r} \times \underset{\in \Q}{\frac{1}{r}} = \sqrt{2}\) donc \(\sqrt{2} \in \Q\) ce qui est faux.\\
+            Donc \(\intervee{a}{b}\) contient un irrationnel.
+            \item \underline{Si \(r = 0\)}\\
+            On résone de même manière mais sur avec un intervalle \(\intervee{0}{b}\) et \(\intervee{0}{\frac{b}{\sqrt{2}}}\)\\
+            Ainsi on trouve \(r'\in \intervee{0}{\frac{b}{\sqrt{2}}}\inter \Q\) puis \(r'\sqrt{2} \in \intervee{0}{b}\inter\paren{\R\pd\Q}\)\\
+            Donc \(\intervee{a}{b}\) contient un irrationnel.
+        \end{itemize}
+    \end{itemize}
+    \underline{Conclusion :} Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un irrationnel donc par définition, \(\R\pd\Q\) est dense dans \(\R\).
+\end{dem}
+
+\begin{theo}[Caractérisation séquentiel des parties denses dans \(\R\)]
+    Une partie \(X\) de \(\R\) est dense dans \(\R\) si, et seulement si, tout réel est limite d'une suite d'élément de \(X\)
+\end{theo}
+\begin{dem}
+    Soit \(X\) une partie de \(\R\)
+    On procède par double implication.
+    \begin{itemize}
+    \item[\impdir]
+    On suppose que \(X\) est dense dans \(\R\), soit \(x\) un réel et \(n\in\N\) \\
+    alors \(\intervee{x-\frac{1}{n+1}}{x}\) contient un élément de \((u_n)\) de \(X\) par densité de \(X\) dans \(\R\) \\
+    Donc \(\forall n \in \N,x-\frac{1}{n+1}<u_n<x\) or \(x-\frac{1}{n+1} \underset{n\to\pinf}{\to}x\) et \(x\underset{n\to\pinf}{\to}x\) donc par théorème d'encadrement \(u_n \underset{n\to\pinf}{\to}x\) \\
+    \underline{Conclusion} : \\
+    tour réel x est limite d'une suite \((u_n)\) d'élement de \(X\)
+    \item[\imprec] On suppose que tout réel est limite d'une suite d'élement de \(X\) \\
+    Soit \((a,b)\in\R^2\) avec \(a<b\) et \(l\in \intervee{a}{b}\)\\
+    par hypothèse, il existe une suite \((u_n)\) telle que \(\forall n \in \N, u_n \in X\) et \(u_n\underset{n\to\pinf}{\to}l\)\\
+    par définition de la limite, \(\intervee{a}{b}\) qui contient \(l\) contient aussi tous les termes de la suite \((u_n)\) à partir d'un certain rang d'où l'existence de 
+    \(\begin{cases}
+        u_{n_0} &\in X \\
+        u_{n_0} &\in \intervee{a}{b}
+    \end{cases}\)\\
+    \underline{Conclusion} : \\
+    \(X\) est dense car pour tout \(\intervee{a}{b}\) avec \(a<b\) il existe un élément (ici \(u_{n_0}\)) de \(X\) dans \(\intervee{a}{b}\)
+    \end{itemize} 
+    \underline{Conclusion} : \\
+    Par double implication le théorème est vérifié
+\end{dem}
+
+\section{Approximation décimale d'un réel}
+\begin{defprop}[rappel]
+    L'ensemble des nombres décimaux est notée \(\D\) et définie par \(\D = \accol{\frac{p}{10^n}\tq (p,n)\in\Z\times\N}\)
+\end{defprop}
+\begin{prop}[Approximation décimales d'un réel]
+    Soit \(x\) un réel et \(n\) un entier naturel. Il existe un unique nombre décimal \(d_n\) tel que :
+    \[10^nd_n \in\Z \text{ et } d_n \leq x \leq d_n+10^{-n}\]
+    Par ailleurs pour tout réel \(x\) les suites de nombres décimaux \((d_n)\) et \((d_n+10^{-n})\) définie ci-dessus sont convergentes de limite égal à\(x\) donc, par caractérisation séquentielle, l'ensemble \(\D\) est dense dans \(\R\)
+\end{prop}
+
+\begin{defprop}[Dévellopement décimal d'un réel]
+    Soit \(x\) un réel et \((d_n)\) la suite des valeurs décimales approchées de \(x\) à \(10^{-n}\) près par défaut. \\
+    Alors :
+    \begin{itemize}
+        \item Pour tout \(k\) dans \(Ns\), il existe un unique entier \(a_k\) dans \(\interventierii{0}{9} \) tel que \(d_k-d_{k-1} = \frac{a_k}{10^k}\) \\
+        \item Pour tout \(n\) dans \(\N\), \(d_n = \sum_{k=0}^{n} \frac{a_k}{10^k}\) avec \(a_0 = \floor{x}\)
+    \end{itemize}
+    Puisque la suite \((d_n)\) converge vers \(x\), on peut donc écrire que :   
+    \[x = \lim_{n\to\pinf} \paren{\sum_{k=0}^{n} \frac{a_k}{10^k}} \underset{Notation}{=} \sum_{k=0}^{\pinf} \frac{a_k}{10^k} = a_0,a_1a_2\dots\]
+    ce qu'on appelle un "dévellopement décimal illimié de \(x\)". \\
+    \underline{Par ailleurs} : \\
+    L’existence et l’unicité d’un tel \(a_k\) résulte du fait que : \(\forall k \in \Ns, 10^k (d_k - d_{k-1}) \in \interventierii{0}{9}\). L’expression de \(d_n\) sous forme de somme finie s’obtient alors par sommation des égalités \(d_k - d_{k-1} =\frac{a_k}{10^k} \) et télescopage
+\end{defprop}
+
+\section{Borne inférieur et supérieure d'une partie de \(\R\)}
+
+\begin{defi}
+    Soit \(X\) une partie de \(\R\). S'il existe :
+    \begin{itemize}
+        \item le plus petit des majorants de \(X\) est appelé borne supérieure de \(X\) et noté \(\sup X\)
+        \item le plus grand des minorants de \(X\) est appelé borne inférieure de \(X\) et noté \(\inf X\)
+    \end{itemize}
+    \underline{Remarques} : \\
+    \begin{itemize}
+        \item les bornes supérieure ou inférieure de \(X\) ne sont pas nécessairement dans \(X\).
+        \item En revanche,
+        \begin{itemize}
+            \item si \(X\) admet un maximum alors \(X\) admet une borne supérieure, égale au maximum de \(X\) ;
+            \item si \(X\) admet un minimum alors \(X\) admet une borne inférieure, égale au minimum de \(X\).
+        \end{itemize}
+
+    \end{itemize}
+\end{defi}
+
+\begin{prop}[Propriété dite de la borne supérieure/inférieur]
+    \begin{itemize}
+        \item toute partie non vide et majorée de \(\R\) admet une borne supérieure.
+        \item Toute partie non vide et minorée de \(\R\) admet une borne inférieure.
+    \end{itemize}
+\end{prop}
+
+\begin{defprop}[ Traduction séquentielle de la borne supérieure/inférieure]
+Soit \(X\) une partie de \(\R\).
+    \begin{itemize}
+        \item Si \(X\) est non vide et minorée alors il existe une suite d’éléments de \(X\)  de limite \(\inf X\).
+        \item Si \(X\) est non vide et majorée alors il existe une suite d’éléments de \(X\)  de limite \(\sup X\).
+        \item Si \(X\) est non vide et non minorée alors il existe une suite d’éléments de \(X\)  de limite \(\minf\) .
+        \item Si \(X\) est non vide et non majorée alors il existe une suite d’éléments de \(X\)  de limite \(\pinf\).
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Droite achevée \(\Rb\)]
+    On appelle droite achevée l'ensemble noté \(\Rb\) défini par :
+    \[\Rb = \R \union \accol{\minf,\pinf}\]
+    On y étend la relation d’ordre \(\leq\), l’addition et la multiplication connues sur \(\R\) avec les conventions :
+    \begin{enumerate}
+        \item \(\forall x\in \R,\minf < x\pinf\)
+        \item \((\minf)+(\minf) = \minf\)
+        \item \((\pinf)+(\pinf) = \pinf\)
+        \item \(\forall x \in \R,x+(\minf) = (\minf)+x = \minf\)
+        \item \(\forall x \in \R,x+(\pinf) = (\pinf)+x = \pinf\)
+        \item \(\forall x \in \Rb \pd \accol{0}, x \times (\minf) = (\minf)\times x = \begin{cases}
+            \pinf & \text{ si } x<0 \\
+            \minf & \text{ si } x>0
+        \end{cases}\)
+        \item \(\forall x \in \Rb \pd \accol{0}, x \times (\pinf) = (\pinf)\times x = \begin{cases}
+            \minf & \text{ si } x<0 \\
+            \minf & \text{ si } x>0
+        \end{cases}\)
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Caractérisation des intervalles de \(\R\)]
+    Une partie \(X\) de \(\R\) est un intervalle de \(\R\) si, et seulement si, pour tous réels \(a\) et \(b\) dans \(X\) tels que \(a\leq b\) le segment \(\intervii{a}{b}\) est inclus dans \(X\)
+\end{defprop}
+
+\begin{dem}
+    On rappelle que \(I\) est un intervalle de \(\R\) si \(I\) est de l'une des formes suivantes : 
+    \begin{itemize}
+		\item \(I = \emptyset\) \\
+		\item \(I = \accol{x \in \R\tq a \leq x \leq b} \underset{\mathrm{notation}}{=} \intervii{a}{b}\) avec \(\paren{a,b} \in \R^2 \) et \(a\leq b \) \\
+		\item \(I = \accol{x \in \R\tq a \leq x < b} \underset{\mathrm{notation}}{=} \intervie{a}{b}\) avec \(\paren{a,b} \in \R\times \paren{\R \union \accol{\pinf}} \) et \(a < b\) \\
+		\item \(I = \accol{x \in \R\tq a < x \leq b} \underset{\mathrm{notation}}{=} \intervei{a}{b}\) avec \(\paren{a,b} \in \paren{\R \union \accol{\minf}}\times \R \) et \(a < b\) \\
+		\item \(I = \accol{x \in \R\tq a < x \leq b} \underset{\mathrm{notation}}{=} \intervee{a}{b}\) avec \(\paren{a,b} \in \paren{\R \union \accol{\minf}}\times  \paren{\R \union \accol{\pinf}} \) et \(a < b\) \\
+	\end{itemize}
+
+    Soit \(X\) une partie de \(\R\).
+    Dans le cas où \(X\) est l'ensemble vide, l'équivalence attendue est immédiate. On se place donc, dans la suite, dans le cas où \(X\) est une partie non vide de \(\R\) et on raisonne par double implication
+    \begin{itemize}
+        \item[\impdir] On suppose que \(X\) est un intervalle de \(\R\)\\
+        \(X\) est alors d'une des formes \( 2, 3, 4\) ou \(5\) indiquées ci-dessus. Ainsi, pour tous réels \(\alpha\) et \(\beta\) dans \(X\) tels que \(\alpha \leq \beta\), on a bien \(\intervii{\alpha}{\beta} \subset X\)
+        \item[\imprec] On suppose que : \(\forall (\alpha,\beta) \in X^2, \alpha \leq \beta \imp \intervii{\alpha}{\beta} \subset X \) \\
+        En considérant \(X\) comme partie de la droite achevée \(\Rb\), on peut noter \(m = \inf X\) et \(M = \sup X\) \\
+        Montrons que \(\intervee{m}{M} \subset X \subset \intervii{m}{M}\)
+        \begin{itemize}
+            \item Soit \(t\in \intervee{m}{M}\) \\
+            Alors le réel \(t\) n'est pas un majorant de \(X\) (car \(t\) est strictement inférieur à \(M\) qui est le plus petit des majorants de \(X\)) et le réel \(t\) n'est pas un minorant de \(X\)(car \(t\) est strictement supérieur à \(m\) qui est le plus grand es minorants de \(X\)). \\
+            ~\\
+            Il existe donc\((\alpha, \beta) \in X^2\) tel que \(\alpha <t<\beta\) ce qui prouve que \(t\) appartint à l'intervalle \(\intervee{\alpha}{\beta}\) donc au segment \(\intervii{\alpha}{\beta}\). Comme les réels \(\alpha\) et \(\beta\) appartiennent à \(X\), l'hypothèse faite sur \(x\) donne \(\intervii{\alpha}{\beta} \subset X\) ce qui prouve, en particulier, que \(t\) appartient à \(X\)\\
+            \underline{Conclusion :} \(\intervee{m}{M} \subset X\)
+            \item Soit \(t\in X\)\\
+            Alors, par définition de \(m\) et \(X\), on a : \(m\leq t\leq M\) c'est à dire \(t\in \intervii{m}{M}\) \\
+            \underline{Conclusion :} \(X \subset \intervii{m}{M} \)
+        \end{itemize} 
+        On a donc montré que \(\intervee{m}{M} \subset X\subset \intervii{m}{M}\). Cela implique que \(X\), vue comme partie de \(\Rb\) est égale à l'une des parties suivantes \(\intervee{m}{M},\intervei{m}{M},\intervie{m}{M}\) ou \(\intervii{m}{M}\).\\
+        Comme \(X\) est une partie de \(\R\), on en déduit que \(X\) est bien de l'une des formes \( 2, 3, 4\) ou \(5\) indiquées ci-dessus donc que \(X\) est un intervalle de \(\R\)\\
+    \end{itemize}
+    \underline{Conclusion} : \(X\) est un intervalle de \(\R\) si, et seulement si, \(\forall(\alpha,\beta) \in X^2, \alpha \leq \beta \imp \intervii{\alpha}{\beta} \subset X\)
+\end{dem}
