@@ -1,0 +1,319 @@
+\chapter{Suites numériques particulières}
+
+\minitoc
+
+\section{Suite arithmétique}
+\begin{defi}
+    Soit \((u_n)\) une suite réelle (resp. complexe).\\
+    La suite \((u_n)\) est dite arithmétique s’il existe un réel (resp. complexe) \(r\) tel que :
+    \[\forall n \in \N, u_{n+1} = u_n + r\]
+    Le nombre \(r\) est unique et appelé raison de la suite \((u_n)\).
+\end{defi}
+
+\begin{defprop}[Expression du terme général]
+    Si \((u_n)\) est une suite arithmétique réelle (resp. complexe) de raison \(r\) alors :
+    \[\forall p \in \N, \forall n \in \N, n \geq p \imp u_n = u_p + \paren{n - p}r\]
+\end{defprop}
+\begin{defprop}[Limite]
+    Soit \((u_n)\) une suite arithmétique réelle (resp. complexe) de raison \(r\).
+    \begin{itemize}
+        \item Si \(r\) = 0 alors \((u_n)\) converge vers \(u_0\).
+        \item Si \(r \neq 0\) alors \((u_n)\) diverge avec, dans le cas où la suite est réelle, \(u_n \to \begin{cases}
+            \pinf & \text{ si } r>0\\
+            \minf& \text{ si } r<0
+        \end{cases}\)
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Somme finie de termes consécutifs]
+   Si \((u_n)\) est une suite arithmétique réelle (resp. complexe) de raison \(r\) alors
+    \[\forall p \in \N, \forall n \in \N, n \geq p \imp \sum_{k=p}^n u_k = \frac{\paren{u_p + u_n}\paren{n-p+1}}{2}\]
+\end{defprop}
+
+\section{Suites géométriques}
+
+\begin{defi}
+    Soit \((u_n)\) une suite réelle (resp. complexe).\\
+    La suite \((u_n)\) est dite géométrique s’il existe un réel (resp. complexe) \(q\) tel que :
+    \[\forall n \in \N, u_{n+1} = q\times u_n \]
+    Le nombre \(q\) est unique et appelé raison de la suite \((u_n)\).
+\end{defi}
+
+\begin{defprop}[Expression du terme général]
+    Si \((u_n)\) est une suite géométrique réelle (resp. complexe) de raison \(q\) alors :
+    \[\forall p \in \N, \forall n \in \N, n \geq p \imp u_n = q^{n-p}\times u_p \]
+\end{defprop}
+\begin{defprop}[Limite]
+    Soit \((u_n)\) une suite géométrique réelle (resp. complexe) de raison \(q\).
+    \begin{itemize}
+        \item Si \(\abs{q}<1\) ou \(u_0 =0\) alors \((u_n)\) converge vers \(0\).
+        \item Si \(\abs{q} =1\) et \(u_0\neq 0\) alors \((u_n)\) diverge sauf dans le cas particulier \(q=1\) où elle converge vers \(u_0\).
+        \item Si \(\abs{q}>1\) et \(u_0\neq 0\) alors \((u_n)\) diverge avec, dans le cas où la suite est réelle et q > 1, \[ u_n \to \begin{cases}
+            \pinf & \text{ si } u_0>0\\
+            \minf& \text{ si } u_0<0
+        \end{cases}\]
+
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Somme finie de termes consécutifs]
+   Si \((u_n)\) est une suite géométrique réelle (resp. complexe) de raison \(q\) alors
+    \[\forall p \in \N, \forall n \in \N, n \geq p \imp \sum_{k=p}^n u_k = \begin{cases}
+        u_p \times \frac{1-q^{n-p+1}}{1-q} & \text{ si } q\neq 1\\
+        u_p \times (n-p+1) & \text{ si } q=1
+    \end{cases}\]
+\end{defprop}
+
+\section{Suites arithmético-géométriques}
+
+\begin{defi}
+    Soit \((u_n)\) une suite réelle (resp. complexe).\\
+    La suite \((u_n)\) est dite arithmético-géométrique s’il existe des réels (resp. complexes) \(a\) et \(b\) tels que
+    \[\forall n \in \N, u_{n+1} = a\times u_n + b\]
+    \underline{Remarques} :\\
+    \begin{itemize}
+        \item Si \(a = 1\), on retrouve les suites arithmétiques de raison \(b\).
+        \item Si \(b = 0\), on retrouve les suites géométriques de raison \(a\).
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[Expression du terme général]
+    Soit \((u_n)\) une suite arithmético-géométrique définie par la donnée de \(u_0\) réel (resp. complexe) et par :
+    \[\forall n \in \N, u_{n+1} = a\times u_n + b\]
+    avec \(a\) et \(b\) des réels (resp. complexes) tel que \(a\neq 1\)\\
+    \underline{Méthode d’obtention du terme général }\\
+    On montre que : \\
+    \begin{itemize}
+        \item La seule suite \((v_n)\) constante qui vérifie \(\forall n \in \N, v_{n+1} = a\times v_n + b\) est donnée par : 
+        \[\forall n \in \N,v_n = \frac{b}{1-a}\]
+        \item La suite \(w_n\) définie par \(\forall n \in \N , w_n = u_n-v_n\) est alors une suite géométrique de raison \(a\) donc : 
+        \[\forall n \in \N, w_n = w_0\times a^n\]
+        on en déduit que :
+        \[\forall n \in \N, u_n = \frac{b}{1-a} + \paren{u_0 + \frac{b}{1-a}}a^n\]
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Limite]
+    Soit \((u_n)\) une suite arithmético-géométrique définie par la donnée de son premier terme \((u_0)\) et par :
+    \[\forall n \in \N, u_{n+1} = a\times u_n + b\]
+    avec \(a\) et \(b\) des réels (resp. complexes) tels que \(a\neq 1\)
+    \begin{itemize}
+        \item Si \(\abs{a}<1\) ou \(u_0 = \frac{b}{1-a}\)
+        \item Si \(\abs{a} \geq 1\) et \(u_0 \neq \frac{b}{1-a}\) alors \((u_n)\) diverge avec, dans le cas où la suite est réelle et \(a > 1\),
+        \[ u_n \to \begin{cases}
+            \pinf & \text{ si } u_0>\frac{b}{1-a}\\
+            \minf& \text{ si } u_0<\frac{b}{1-a}
+        \end{cases}\]
+    \end{itemize}
+\end{defprop}
+
+\section{Suites récurrentes linéaires d’ordre \(2\) à coefficients constants}
+
+\begin{defi}
+    Soit \((u_n)\) une suite réelle (resp. complexe).\\
+    La suite \((u_n)\) est dite récurrente linéaire homogène d’ordre \(2\) à coefficients constants s’il existe des réels (resp. complexes) \(a\) et \(b\) tel que
+    \[\forall n \in \N,u_{n+2} +a u_{n+1} + b u_n = 0\]
+\end{defi}
+
+\begin{defprop}[Equation caractéristique associée]
+    Soit \(a\) et \(b\) deux réels (resp. complexes). \\
+    La recherche de suites géométriques non nulles de raison \(q\) vérifiant la relation de récurrence
+    \[\paren{E} : \forall n \in \N, u_{n+2} + a u_{n+1} + bu_n = 0\]
+    conduit à l’équation dite “équation caractéristique” suivante :
+   \[\paren{EC} : q^2 + aq + b = 0.\]
+\end{defprop}
+
+\begin{defprop}[Expression du terme général]
+    \begin{enumerate}
+        \item Cas où \((u_n)\) est COMPLEXE et vérifie \(\forall n \in \N, u_{n+2} + a u_{n+1} + b u_n = 0\) avec \(\paren{a,b} \in \C^2\).
+        \begin{itemize}
+            \item Si \(EC\) a deux racines distinctes \(q_1\) et \(q_2\) alors il existe des complexes \(\lambda_1\) et \(\lambda_2\) tel que 
+            \[\forall n \in \N,u_n = \lambda_1 q_1^n + \lambda_2q_2^n\]
+            \item Si \(EC\) a une racine double \(q\) alors il existe des complexes \(\lambda_1\) et \(\lambda_2\) tel que 
+            \[\forall n \in \N,u_n = \paren{\lambda_1 + \lambda_2 n}q^n\]
+        \end{itemize}
+        \item Cas où \((u_n)\) est RÉELLE  et vérifie \(\forall n \in \N, u_{n+2} + a u_{n+1} + b u_n = 0\) avec \(\paren{a,b} \in \R^2\).
+        \begin{itemize}
+            \item Si \(EC\) a deux racines distinctes \(q_1\) et \(q_2\) alors il existe des réels \(\lambda_1\) et \(\lambda_2\) tel que 
+            \[\forall n \in \N,u_n = \lambda_1 q_1^n + \lambda_2q_2^n\]
+            \item Si \(EC\) a une racine double \(q\) alors il existe des réels \(\lambda_1\) et \(\lambda_2\) tel que 
+            \[\forall n \in \N,u_n = \paren{\lambda_1 + \lambda_2 n}q^n\]
+            \item Si \(EC\) a deux racines complexes non réelles \(q\) et \(\conj{q}\) alors il existe des réels \(\lambda_1\) et \(\lambda_2\) tel que 
+            \[\forall n \in \N,u_n = \paren{\lambda_1\cos\paren{\theta n} + \lambda_2 \sin \paren{n \theta}}r^n\]
+            avec \(re^{\i \theta}\) forme trigonométrique de \(q\).
+        \end{itemize}
+    \end{enumerate}
+\end{defprop}
+
+\begin{dem}[Suite complexes récurrentes linéaire d'ordre \(2\) à coefficients constants]
+    Soit \(a\) et \(b\) des complexes avec \(b\neq 0\)\\~\\
+    On cherche à expliciter l'ensemble \(\mathcal{E}_{a,b}\) des suites \((u_n)_{n\in \N}\) de complexes qui vérifient : 
+    \[\forall n \in \N, u_{n+2} + a u_{n+1} b u_n = 0\] 
+    \underline{Préliminaire} : 
+    \begin{enumerate}
+        \item Combinaison linéaire d'éléments de \(\mathcal{E}_{a,b}\) : \\~\\
+            Si \((u_n)_{n\in \N}\) et \((v_n)_{n\in \N}\) sont deux suites appartenant à \(\mathcal{E}_{a,b}\) \\~\\
+            alors pour tout couple \(\paren{\lambda_1,\lambda_2}\) de complexes la suite \(\paren{\lambda_1 u_n + \lambda_2 v_n}_{n\in \N}\) appartient à \(\mathcal{E}_{a,b}\)\\~\\
+            autrement dit, \(\mathcal{E}_{a,b}\) est stable par combinaison linéaire, \\~\\
+            \underline{Démonstration :}
+            On suppose les hypothèses réunies, en notant \(\paren{w_n}_{n \in \N} = \paren{\lambda_1 u_n + \lambda_2 v_n}_{n \in \N}\) on a :
+            \begin{align*}
+                \forall n \in \N, w_{n+2} + a w_{n+1} +b w_n &= \paren{\lambda_1 u_{n+2} + \lambda_2 v_{n+2}} + a \paren{\lambda_1 u_{n+1} + \lambda_2 v_{n+1}} + b\paren{\lambda_1 u_n + \lambda_2 v_n}\\
+                &=\lambda_1\paren{u_{n+2} + au_{n+1} + bu_{n}} + \lambda_2 \paren{v_{n+2} + a v_{n+1} + bv_{n}} \\
+                &= \lambda_1 \paren{ 0 } + \lambda_2 \paren{0} \text{ car } (u_n)_{n\in \N} \text{ et }(v_n)_{n\in \N} \text{ appartiennent à } \mathcal{E}_{a,b} \\
+                &= 0
+            \end{align*}
+            Par conséquent, \((w_n)_{n\in \N}\) appartient à \(\mathcal{E}_{a,b}\).~\\
+        \item Recherche de suites géométriques dans \(\mathcal{E}_{a,b}\) : \\~\\
+            soit \(q\) un complexe non nul. \\~\\
+            La suite \(\paren{q^n}_{n\in \N} \) appartient à \(\mathcal{E}_{a,b}\) si, et seulement si, \(q\) est racine de l'équation suivante.
+            \[\paren{EC} : q^2 + aq+b=0\]
+            \(\paren{EC}\) est dite équation caractéristique associée à \(\mathcal{E}_{a,b}\)\\~\\
+            \underline{Démonstration :}
+            \begin{align*}
+            \text{La suite }\paren{q^n}_{n \in \N}\text{ appartient à }\mathcal{E}_{a,b} &\text{ si, et seulement si : } \forall n \in \N, q^{n+2} + a q^{n+1} b q^n =0 \\
+            &\text{si, et seulement si : } \forall n \in \N,q^n\paren{q^2 + aq +b} =0 \\
+            &\text{si, et seulement si : } \forall n \in \N, q^2 +aq+b =0 \text{ car } \forall n \in \N,q^n \neq 0\\
+            &\text{si, et seulement si : } q^2 + aq +b =0
+            \end{align*}
+    \end{enumerate}
+    ~\\
+    \underline{Détermination des éléments de \(\mathcal{E}_{a,b}\)} : \\
+    \begin{itemize}
+        \item Cas où l'équation \(\paren{EC}\) a deux racines complexes distinctes \(q_1\) et \(q_2\).\\~\\
+        Dans ce cas, \(q_1\) et \(q_2\) sont tous deux non nuls car \(q_1 q_2 = b\) (Formule de Viète) et \(b\neq 1\)\\~\\
+        Pour tout complexes \(\lambda_1\) et \(\lambda_2\), la suite \(\paren{\lambda_1 q_1^n + \lambda_2q_2^n}_{n \in \N}\) appartient alors à \(\mathcal{E}_{a,b}\) par combinaison linéaire d'élément de \(\mathcal{E}_{a,b}\) \\~\\
+        Montrons qu'il n'y a pas d'autres suites que celles trouvées ci-dessus dans \(\mathcal{E}_{a,b}\) : \\~\\
+        Soit \(\paren{u_n}_{n \in \N}\) une suite appartenant à \(\mathcal{E}_{a,b}\)\\
+        \analyse 
+        on suppose qu'il existe \(\lambda_1\) et \(\lambda_2\) des complexes tel que \(\forall n \in \N, u_n = \lambda_1 q_1^n + \lambda_2 q_2^n\). \\
+        on a alors en particulier, \(\begin{cases}
+            u_0&= \lambda_1 + \lambda_2 \\
+            u_1 &= \lambda_1q_1 + \lambda_2q_2
+        \end{cases} \)\\
+        Avec les opérations sur les lignes suivantes \(q_1 L_1 - L_2\) et \(q_2L_1 - L_2\), on en déduit que
+        \[q_1 u_0-u_1 = \lambda_2(q_1-q_2) \qquad q_2u_0-u_1 = \lambda_1(q_2-q_1) \]
+        Comme \(q_1\) et \(q_2\) sont distincts, on obtient finalement : 
+        \[\lambda_1 = \frac{u_0q_2-u_1}{q_2 - q_1} \qquad \lambda_2 = \frac{u_1-u_0q_1}{q_2-q_1}\]
+        ~\\
+        \synthese pour tout \(n \in \N\), on note \(w_n = u_n-\lambda_1q_1^n-\lambda_2q_2^n\)avec les nombres complexes \(\lambda_1\) et \(\lambda_2\) trouvées dans l'analyse \\
+        ~\\ Un calcul simple donne alors \[w_0 =w_1 =0 \qquad (1) \]
+        Par ailleurs la suite \(\paren{w_n}_{n \in \N}\) appartient à \(\mathcal{E}_{a,b}\) comme combinaison linéaire d'éléments de \(\mathcal{E}_{a,b}\) donc
+        \[\forall n \in \N, w_{n+2} + a w_{n+1} +b w_n = 0 \qquad (2)\]
+        Par récurrence immédiate en utilisant \((1)\) et \((2)\), on trouve que \(\paren{w_n}_{n \in \N}\) est la suite nulle ce qui prouve que 
+        \[\forall n \in \N, u_n = \lambda_1q_1^n + \lambda_2q_2^n\]
+        Ainsi si \(\paren{u_n}_{n \in \N}\) est une suite de \(\mathcal{E}_{a,b}\) alors il existe des complexes \(\lambda_1\) et \(\lambda_2\) tel que \(\paren{u_n}_{n \in \N} = \paren{\lambda_1q_1^n + \lambda_2q_2^n}_{n \in \N}\)\\ ~\\
+        \conclusion si l'équation caractéristique \(\paren{EC}\) a deux racine complexes distinctes \(q_1\) \(q_2\) alors 
+        \[\mathcal{E}_{a,b} = \accol{\paren{\lambda_1q_1^n + \lambda_2q_2^n}_{n \in \N} \tq \paren{\lambda_1,\lambda_2} \in \C^2}\]
+        ~\\
+        \item cas où l'équation caractéristique \(\paren{EC}\) a une racine complexe double \(q\) \\~\\
+        Le discriminant de \(\paren{EC}\) est alors nul (donc \(a^2 = 4b\)) et \(q = -\frac{1}{2}a\) ce qui implique que \(q\) est non nul sinon on aurait \(a =b = 0\) ce qui est exclu par hypothèse sur b. \\~\\
+        Pour tout complexes, \(\lambda_1\) et \(\lambda_2\), la suite \(\paren{\lambda_1 q^n + \lambda_2 n q^n}_{n \in \N}\) appartient alors à \(\mathcal{E}_{a,b}\) par combinaison linéaire d'élément de \(\mathcal{E}_{a,b}\)\\~\\
+        En, effet \(\paren{q^n}_{n\in \N}\) appartient à \(\mathcal{E}_{a,b}\) (d'après le Préliminaire \(2\)) et \(\paren{nq^n}_{n \in \N}\) appartient à \(\mathcal{E}_{a,b}\) car 
+        \begin{align*}
+            \forall n \in \N, \paren{n+2}q^{n+2}+a\paren{n+1}q^{n+1} + bnq^n &= nq^n\paren{q^2+aq+b} + q^n\paren{2q^2+aq} \\
+            &= nq^n(0)+q^n(0) \\
+            &=0
+        \end{align*}
+        Montrons qu'il n'y a pas d'autres suites que celles trouvées ci-dessus dans \(\mathcal{E}_{a,b}\) \\~\\
+        Soit \(\paren{u_n}_{n \in \N}\) une suite appartenant à \(\mathcal{E}_{a,b}\)\\~\\
+        \analyse on suppose qu'il existe \(\lambda_1\) et \(\lambda_2\)des complexes tel que \(\forall n \in \N, u_n = \lambda_1q^n + \lambda_2nq^n\)\\~\\
+        On a alors, en particulier, \(\begin{cases}
+            u_0 &= \lambda_1 \\
+            u_1 &= \lambda_1q+\lambda_2q
+        \end{cases}\)\\~\\
+        Comme \(q\) est non nul, on trouve :
+        \[\lambda_1 = u_0 \qquad \lambda_2 = \frac{u_1-u_0q}{q}\]
+        \synthese pour tout \(n \in \N\), on note \(w_n = u_n-\lambda_1 q^n - \lambda_2 n q^n\) avec les nombres complexes \(\lambda_1\) et \(\lambda_2\) trouvées dans l'analyse. \\~\\
+        Un calcul simple donne alors :\[w_0 = w_1 =0 \qquad (1)\]
+        Par ailleurs, la suite \(\paren{w_n}_{n\in \N}\) appartient à \(\mathcal{E}_{a,b}\) comme combinaison linéaire d'élément de \(\mathcal{E}_{a,b}\) donc 
+        \[\forall n \in \N,w_{n+2}+a w_{n+1}+bw_n = 0 \qquad (2)\]
+        Par récurrence immédiate en utilisant \((1)\) et \((2)\), on trouve que \(\paren{w_n}_{n\in \N}\) est la suite nulle ce qui provoque que 
+        \[\forall n \in \N, u_n = \lambda_1q^n + \lambda_2 n q^n\]
+        Ainsi si \(\paren{v_n}_{n\in \N}\) est une suite de \(\mathcal{E}_{a,b}\) alors il existe des complexes \(\lambda_1\) et \(\lambda_2\) tel que \(\paren{u_n}_{n \in \N} = \paren{ \lambda_1 q^n + \lambda_2 n q^n}_{n \in \N}\)\\~\\
+        \conclusion si l'équation caractéristique \(\paren{EC}\) a une racine complexe double \(q\) alors 
+        \[\mathcal{E}_{a,b} = \accol{\paren{\lambda_1q^n + \lambda_2 n q^n}_{n \in \N}\tq \paren{\lambda_1,\lambda_2}\in \C^2}\]
+    \end{itemize}
+\end{dem}
+
+\begin{dem}[Suite réelles récurrentes linéaire d'ordre \(2\) à coefficients constants]
+     Soit \(a\) et \(b\) des réels avec \(b\neq 0\)\\~\\
+    On cherche à expliciter l'ensemble \(\mathcal{E}_{a,b}\) des suites \((u_n)_{n\in \N}\) de réels qui vérifient : 
+    \[\forall n \in \N, u_{n+2} + a u_{n+1} b u_n = 0\]
+    on appelle toujours \underline{équation caractéristique} associée à \(\mathcal{E}_{a,b}\) l'équation \(\paren{EC} : q^2 +aq+b=0\)\\~\\
+    Les deux cas suivants se traitent de la même manière que pour les suites compelxes 
+    \begin{itemize}
+        \item Cas où l'équation \(\paren{EC}\) a deux racines réelles distinctes \(q_1\) et \(q_2\).\\~\\
+        \conclusion si l'équation caractéristique \(\paren{EC}\) a deux racine réelles distinctes \(q_1\) \(q_2\) alors 
+        \[\mathcal{E}_{a,b} = \accol{\paren{\lambda_1q_1^n + \lambda_2q_2^n}_{n \in \N} \tq \paren{\lambda_1,\lambda_2} \in \R^2}\]
+        \item cas où l'équation caractéristique \(\paren{EC}\) a une racine réelle double \(q\) \\~\\
+        \conclusion si l'équation caractéristique \(\paren{EC}\) a une racine réelle double \(q\) alors 
+        \[\mathcal{E}_{a,b} = \accol{\paren{\lambda_1q^n + \lambda_2 n q^n}_{n \in \N}\tq \paren{\lambda_1,\lambda_2}\in \R^2}\]
+        \item Cas où l'équation \(\paren{EC}\) a deux racines complexes conjuguées non réelles \(q\) et \(\conj{q}\).\\~\\
+        Comme \(q\) et \(\conj{q}\) sont distincts (car q n'est pas réel), on sait que les suites complexes vérifiant 
+        \[\forall n \in \N,u_{n+2} + au_{n+1}+bu_n = 0\]
+        sont les suites \(\paren{\lambda_1 q^n + \lambda_2\conj{q}^n}_{n \in \N}\) avec \(\paren{\lambda_1,\lambda_2}\in C^2\) \\~\\
+        Determinons parmi ces suites \underline{celles qui sont à valeurs réelles} en utilisant les propriété de la conjugaison. \\~\\
+        \begin{align*}
+        \paren{\lambda_1q^n + \lambda_2 \conj{q}^n}_{n \in \N} \text{ est à valeurs réelles } &\text{si, et seulement si, } \forall n \in \N,\lambda_1 q^n + \lambda_2 \conj{q}^n =\conj{\lambda_1 q^n + \lambda_2 \conj{q}^n} \\
+        &\text{si, et seulement si, } \forall n \in \N,\lambda_1 q^n + \lambda_2 \conj{q}^n =\conj{\conj{\lambda_1} \conj{q}^n + \conj{\lambda_2} q^n}\\
+        &\text{si, et seulement si, } \forall n \in \N,\paren{\lambda_1 -\conj{\lambda_2}}q^ - \paren{\conj{\lambda_1}-\lambda_2}\conj{q}^n = 0 \\
+        &\text{si, et seulement si, } \forall n \in \N,\paren{\lambda_1 -\conj{\lambda_2}}q^ - \conj{\paren{\lambda_1-\conj{\lambda_2}}q^n} = 0 \\
+        &\text{si, et seulement si, } \forall n \in \N,2 \Ima{\paren{\lambda_1-\conj{\lambda_2}}q^n} = 0 
+        \end{align*}
+        \begin{itemize}
+            \item Si \(\paren{\lambda_1 q^n + \lambda_2\conj{q}^n}_{n \in \N}\)  est à valeurs réelles, on a donc \(\Ima{\paren{\lambda_1-\conj{\lambda_2}}q^0} = 0 \) et \(\Ima{\paren{\lambda_1-\conj{\lambda_2}}q} = 0 \)\\
+            La première égalité donne \(\lambda_1 - \conj{\lambda_2} \in \R\). La seconde égalité implique alors que \(\paren{\lambda_1-\conj{\lambda_2}}\Ima{q} =0\) puis que \(\paren{\lambda_1-\conj{\lambda_2}} = 0\) (car \(q\) n'est pas réel donc sa partie imaginaire est non nulle). Ainsi \(\lambda_1 = \lambda_2\).
+            \item Réciproquement, si \(\lambda_1 = \conj{\lambda_2}\) alors, pour tout \(n\) entier naturel, on a \(2i \Ima{\paren{\lambda_1-\conj{\lambda_2}q^n}} = 0\) donc, avec les équivalences précédentes \(\paren{\lambda_1q^n + \lambda_2 \conj{q}^n}_{n \in \N}\) est à valeurs réelles. 
+        \end{itemize}
+        En résumé : les suites de \(\mathcal{E}_{a,b}\) sont donc les suites \(\paren{\lambda_1 q^n + \conj{\lambda_1}\conj{q}^n}_{n \in \N} \) avec \(\lambda_1\) complexe quelconque. \\~\\
+        Pour faire apparaître une forme de terme général plus explicite (sans nombres complexes), on écrit \(q\) sous forme trigonométrique \(q = re^{\i \theta}\)(\(r>0\) et \(\theta\) réel) et \(\lambda_1\) sous forme algébrique \(\lambda_1 = \alpha_1 + \i \beta_1\)(\(\alpha_1\) et \(\beta_1\) réels)\\~\\
+        On a alors : \[\lambda_1 q^n + \conj{\lambda_1}\conj{q}^n = 2\Reel{\lambda_1q^n} = 2\Reel{r^n\paren{\alpha_1+\i \beta_1}e^{\i n \theta}} = 2r^n\paren{\alpha_1\cos\paren{n\theta}-\beta \sin\paren{n\theta}}\]
+        ce qui peut encore s'écrire sous la forme 
+        \[u_n = r^n\paren{\mu_1\cos\paren{n\theta} + \mu_2\sin\paren{n\theta}}\]
+        avec \(\paren{\mu_1,\mu_2} \in \R^2\)
+        \conclusion : Si l'équation \(\paren{EC}\) a deux racines complexes conjuguées non réelles \(q\) et \(\conj{q}\) alors 
+        \[\mathcal{E}_{a,b} = \accol{r^n\paren{\mu_1\cos(n \theta)+\mu_2 \sin(n \theta)}\tq \paren{\mu_1,\mu_2}\in \R^2}\]
+        où \(r= \abs{q}\) et \(\theta\) est un argmument de \(q\).
+    \end{itemize}
+\end{dem}
+
+\section{Cas simples de suites récurrentes du type \(u_{n+1} = f (u_n)\)}
+
+\begin{defi}
+    On s’intéresse à la suite réelle \((u_n)\) définie par récurrence par la donnée de :\\
+    \[u_0 \in I \text{ et } \forall n \in \N, u_{n+1} = f (u_n)\]
+    avec \(I\) un intervalle de \(\R\), non vide et non réduit à un point et \(f : I \to I \) une fonction.
+\end{defi}
+\begin{defprop}[Limite éventuelle]
+    
+    Si \((u_n)\) converge vers un réel \(l \in I\) en lequel \(f\) est continue alors \(f (l) = l\).\\
+    \underline{Attention} : \\
+    \begin{itemize}
+        \item La réciproque de la propriété précédente est FAUSSE.
+        \item La recherche des réels \(l \in I\) tel que \(f (l) = l\) fournit uniquement les limites éventuelles de \((u_n)\).
+        \item Une étude complémentaire permet de conclure si \((u_n)\) converge vers une des valeurs trouvées.
+    \end{itemize}
+    Dans certains cas, l’étude de la fonction \(g : x \mapsto f (x) - x\) peut être utile pour montrer l’existence de racines pour \(g\) qui sont les limites éventuelles de \((u_n)\).
+\end{defprop}
+
+\begin{defprop}[Monotonie éventuelle]
+    Pour montrer une monotonie éventuelle de \((u_n)\), on regarde si le signe de
+    \[u_{n+1} - un = \begin{cases}
+        f(u_n)-u_n &(1)\\
+        f(u_n)-f(u_{n_1}) &(2)
+    \end{cases}\]
+    est fixe lorsque \(n\) varie dans \(\Ns\) ou à partir d’un certain rang.
+    \begin{itemize}
+        \item Dans certains cas, l’étude de la fonction \(g : x \mapsto f (x) - x\) peut aider à déterminer le signe de \((1)\).
+        \item Dans le cas où \(f\) est CROISSANTE sur \(I\),
+        \begin{itemize}
+            \item une récurrence simple avec \((2)\) montre que, pour tout \(n \in \N, u_{n+1} - u_n\) est du signe de\( u_1 - u_0\) :
+            \[\begin{cases} 
+                \text{Si }u_0 < u_1 \text{ alors } (u_n) \text{est croissante}\\
+                \text{Si }u_0 > u_1 \text{ alors } (u_n) \text{est décroissante}
+            \end{cases}\]
+            \item l’étude de la fonction \(g : x \mapsto f (x)-x\) peut être utile pour déterminer le signe \(u_1 -u_0 = f (u_0)-u_0\).
+        \end{itemize} 
+    \end{itemize}
+\end{defprop}

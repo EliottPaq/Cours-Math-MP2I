@@ -32,7 +32,7 @@ Prenons \(p=\floor{qa}+1\), donc  \( p-1 \leq qa<p\) \\
 or \(p<qb\) car \(q>\frac{1}{b-a} \iff qb-qa>1 \iff qb>qa+1\geq \floor{qa}+1=p\) \\
 Ainsi \(qa<p<qb\imp a<\frac{p}{q}<b<b\) avec \(q=\floor{\frac{1}{b-a}} +1\) et \(p=\floor{qa}+1\).
 \\\\
-\underline{Conclusion :} \\
+\conclusion \\
 Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un rationnel donc par définition, \(\Q\) est dense dans \(\R\).
 \end{dem}
 
@@ -48,7 +48,7 @@ Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un ratio
             &\imp 2k^2 = q^2 \qquad \text{donc } q^2 \text{ est pair et donc } q \text{ aussi} 
         \end{align*}
         Ce qui est absurde car \(p\) et \(q\) sont premier entre eux donc ils ne peuvent pas être tous les deux pair.
-        \underline{Conclusion :} \(\sqrt{2}\) est irrationnel.
+        \conclusion \(\sqrt{2}\) est irrationnel.
         \item \underline{Preuve que \(\R\pd\Q\) est dense dans \(\R\)} \\~\\
         Soit \(a\) et \(b\) des réels avec \(a<b\).\\
         Montrons que \(\intervee{a}{b}\) contient un irrationnel :\\
@@ -64,7 +64,7 @@ Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un ratio
             Donc \(\intervee{a}{b}\) contient un irrationnel.
         \end{itemize}
     \end{itemize}
-    \underline{Conclusion :} Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un irrationnel donc par définition, \(\R\pd\Q\) est dense dans \(\R\).
+    \conclusion Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un irrationnel donc par définition, \(\R\pd\Q\) est dense dans \(\R\).
 \end{dem}
 
 \begin{theo}[Caractérisation séquentiel des parties denses dans \(\R\)]
@@ -78,7 +78,7 @@ Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un ratio
     On suppose que \(X\) est dense dans \(\R\), soit \(x\) un réel et \(n\in\N\) \\
     alors \(\intervee{x-\frac{1}{n+1}}{x}\) contient un élément de \((u_n)\) de \(X\) par densité de \(X\) dans \(\R\) \\
     Donc \(\forall n \in \N,x-\frac{1}{n+1}<u_n<x\) or \(x-\frac{1}{n+1} \underset{n\to\pinf}{\to}x\) et \(x\underset{n\to\pinf}{\to}x\) donc par théorème d'encadrement \(u_n \underset{n\to\pinf}{\to}x\) \\
-    \underline{Conclusion} : \\
+    \conclusion \\
     tour réel x est limite d'une suite \((u_n)\) d'élement de \(X\)
     \item[\imprec] On suppose que tout réel est limite d'une suite d'élement de \(X\) \\
     Soit \((a,b)\in\R^2\) avec \(a<b\) et \(l\in \intervee{a}{b}\)\\
@@ -88,10 +88,10 @@ Tout intervalle réel de type \(\intervee{a}{b}\) avec \(a<b\) contient un ratio
         u_{n_0} &\in X \\
         u_{n_0} &\in \intervee{a}{b}
     \end{cases}\)\\
-    \underline{Conclusion} : \\
+    \conclusion \\
     \(X\) est dense car pour tout \(\intervee{a}{b}\) avec \(a<b\) il existe un élément (ici \(u_{n_0}\)) de \(X\) dans \(\intervee{a}{b}\)
     \end{itemize} 
-    \underline{Conclusion} : \\
+    \conclusion \\
     Par double implication le théorème est vérifié
 \end{dem}
 
@@ -204,13 +204,13 @@ Soit \(X\) une partie de \(\R\).
             Alors le réel \(t\) n'est pas un majorant de \(X\) (car \(t\) est strictement inférieur à \(M\) qui est le plus petit des majorants de \(X\)) et le réel \(t\) n'est pas un minorant de \(X\)(car \(t\) est strictement supérieur à \(m\) qui est le plus grand es minorants de \(X\)). \\
             ~\\
             Il existe donc\((\alpha, \beta) \in X^2\) tel que \(\alpha <t<\beta\) ce qui prouve que \(t\) appartint à l'intervalle \(\intervee{\alpha}{\beta}\) donc au segment \(\intervii{\alpha}{\beta}\). Comme les réels \(\alpha\) et \(\beta\) appartiennent à \(X\), l'hypothèse faite sur \(x\) donne \(\intervii{\alpha}{\beta} \subset X\) ce qui prouve, en particulier, que \(t\) appartient à \(X\)\\
-            \underline{Conclusion :} \(\intervee{m}{M} \subset X\)
+            \conclusion \(\intervee{m}{M} \subset X\)
             \item Soit \(t\in X\)\\
             Alors, par définition de \(m\) et \(X\), on a : \(m\leq t\leq M\) c'est à dire \(t\in \intervii{m}{M}\) \\
-            \underline{Conclusion :} \(X \subset \intervii{m}{M} \)
+            \conclusion \(X \subset \intervii{m}{M} \)
         \end{itemize} 
         On a donc montré que \(\intervee{m}{M} \subset X\subset \intervii{m}{M}\). Cela implique que \(X\), vue comme partie de \(\Rb\) est égale à l'une des parties suivantes \(\intervee{m}{M},\intervei{m}{M},\intervie{m}{M}\) ou \(\intervii{m}{M}\).\\
         Comme \(X\) est une partie de \(\R\), on en déduit que \(X\) est bien de l'une des formes \( 2, 3, 4\) ou \(5\) indiquées ci-dessus donc que \(X\) est un intervalle de \(\R\)\\
     \end{itemize}
-    \underline{Conclusion} : \(X\) est un intervalle de \(\R\) si, et seulement si, \(\forall(\alpha,\beta) \in X^2, \alpha \leq \beta \imp \intervii{\alpha}{\beta} \subset X\)
+    \conclusion \(X\) est un intervalle de \(\R\) si, et seulement si, \(\forall(\alpha,\beta) \in X^2, \alpha \leq \beta \imp \intervii{\alpha}{\beta} \subset X\)
 \end{dem}
