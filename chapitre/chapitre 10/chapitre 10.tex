@@ -181,7 +181,7 @@
     \underline{Détermination des éléments de \(\mathcal{E}_{a,b}\)} : \\
     \begin{itemize}
         \item Cas où l'équation \(\paren{EC}\) a deux racines complexes distinctes \(q_1\) et \(q_2\).\\~\\
-        Dans ce cas, \(q_1\) et \(q_2\) sont tous deux non nuls car \(q_1 q_2 = b\) (Formule de Viète) et \(b\neq 1\)\\~\\
+        Dans ce cas, \(q_1\) et \(q_2\) sont tous deux non-nuls car \(q_1 q_2 = b\) (Formule de Viète) et \(b\neq 1\)\\~\\
         Pour tout complexes \(\lambda_1\) et \(\lambda_2\), la suite \(\paren{\lambda_1 q_1^n + \lambda_2q_2^n}_{n \in \N}\) appartient alors à \(\mathcal{E}_{a,b}\) par combinaison linéaire d'élément de \(\mathcal{E}_{a,b}\) \\~\\
         Montrons qu'il n'y a pas d'autres suites que celles trouvées ci-dessus dans \(\mathcal{E}_{a,b}\) : \\~\\
         Soit \(\paren{u_n}_{n \in \N}\) une suite appartenant à \(\mathcal{E}_{a,b}\)\\
@@ -203,7 +203,7 @@
         Par récurrence immédiate en utilisant \((1)\) et \((2)\), on trouve que \(\paren{w_n}_{n \in \N}\) est la suite nulle ce qui prouve que 
         \[\forall n \in \N, u_n = \lambda_1q_1^n + \lambda_2q_2^n\]
         Ainsi si \(\paren{u_n}_{n \in \N}\) est une suite de \(\mathcal{E}_{a,b}\) alors il existe des complexes \(\lambda_1\) et \(\lambda_2\) tel que \(\paren{u_n}_{n \in \N} = \paren{\lambda_1q_1^n + \lambda_2q_2^n}_{n \in \N}\)\\ ~\\
-        \conclusion si l'équation caractéristique \(\paren{EC}\) a deux racine complexes distinctes \(q_1\) \(q_2\) alors 
+        \conclusion si l'équation caractéristique \(\paren{EC}\) a deux racines complexes distinctes \(q_1\) \(q_2\) alors 
         \[\mathcal{E}_{a,b} = \accol{\paren{\lambda_1q_1^n + \lambda_2q_2^n}_{n \in \N} \tq \paren{\lambda_1,\lambda_2} \in \C^2}\]
         ~\\
         \item cas où l'équation caractéristique \(\paren{EC}\) a une racine complexe double \(q\) \\~\\
@@ -217,7 +217,7 @@
         \end{align*}
         Montrons qu'il n'y a pas d'autres suites que celles trouvées ci-dessus dans \(\mathcal{E}_{a,b}\) \\~\\
         Soit \(\paren{u_n}_{n \in \N}\) une suite appartenant à \(\mathcal{E}_{a,b}\)\\~\\
-        \analyse on suppose qu'il existe \(\lambda_1\) et \(\lambda_2\)des complexes tel que \(\forall n \in \N, u_n = \lambda_1q^n + \lambda_2nq^n\)\\~\\
+        \analyse on suppose qu'il existe \(\lambda_1\) et \(\lambda_2\)des complexes tels que \(\forall n \in \N, u_n = \lambda_1q^n + \lambda_2nq^n\)\\~\\
         On a alors, en particulier, \(\begin{cases}
             u_0 &= \lambda_1 \\
             u_1 &= \lambda_1q+\lambda_2q
@@ -244,7 +244,7 @@
     Les deux cas suivants se traitent de la même manière que pour les suites compelxes 
     \begin{itemize}
         \item Cas où l'équation \(\paren{EC}\) a deux racines réelles distinctes \(q_1\) et \(q_2\).\\~\\
-        \conclusion si l'équation caractéristique \(\paren{EC}\) a deux racine réelles distinctes \(q_1\) \(q_2\) alors 
+        \conclusion si l'équation caractéristique \(\paren{EC}\) a deux racines réelles distinctes \(q_1\) \(q_2\) alors 
         \[\mathcal{E}_{a,b} = \accol{\paren{\lambda_1q_1^n + \lambda_2q_2^n}_{n \in \N} \tq \paren{\lambda_1,\lambda_2} \in \R^2}\]
         \item cas où l'équation caractéristique \(\paren{EC}\) a une racine réelle double \(q\) \\~\\
         \conclusion si l'équation caractéristique \(\paren{EC}\) a une racine réelle double \(q\) alors 
@@ -253,7 +253,7 @@
         Comme \(q\) et \(\conj{q}\) sont distincts (car q n'est pas réel), on sait que les suites complexes vérifiant 
         \[\forall n \in \N,u_{n+2} + au_{n+1}+bu_n = 0\]
         sont les suites \(\paren{\lambda_1 q^n + \lambda_2\conj{q}^n}_{n \in \N}\) avec \(\paren{\lambda_1,\lambda_2}\in C^2\) \\~\\
-        Determinons parmi ces suites \underline{celles qui sont à valeurs réelles} en utilisant les propriété de la conjugaison. \\~\\
+        Déterminons parmi ces suites \underline{celles qui sont à valeurs réelles} en utilisant les propriété de la conjugaison. \\~\\
         \begin{align*}
         \paren{\lambda_1q^n + \lambda_2 \conj{q}^n}_{n \in \N} \text{ est à valeurs réelles } &\text{si, et seulement si, } \forall n \in \N,\lambda_1 q^n + \lambda_2 \conj{q}^n =\conj{\lambda_1 q^n + \lambda_2 \conj{q}^n} \\
         &\text{si, et seulement si, } \forall n \in \N,\lambda_1 q^n + \lambda_2 \conj{q}^n =\conj{\conj{\lambda_1} \conj{q}^n + \conj{\lambda_2} q^n}\\
@@ -274,7 +274,7 @@
         avec \(\paren{\mu_1,\mu_2} \in \R^2\)
         \conclusion : Si l'équation \(\paren{EC}\) a deux racines complexes conjuguées non réelles \(q\) et \(\conj{q}\) alors 
         \[\mathcal{E}_{a,b} = \accol{r^n\paren{\mu_1\cos(n \theta)+\mu_2 \sin(n \theta)}\tq \paren{\mu_1,\mu_2}\in \R^2}\]
-        où \(r= \abs{q}\) et \(\theta\) est un argmument de \(q\).
+        où \(r= \abs{q}\) et \(\theta\) est un argument de \(q\).
     \end{itemize}
 \end{dem}
 
@@ -308,7 +308,7 @@
         \item Dans certains cas, l’étude de la fonction \(g : x \mapsto f (x) - x\) peut aider à déterminer le signe de \((1)\).
         \item Dans le cas où \(f\) est CROISSANTE sur \(I\),
         \begin{itemize}
-            \item une récurrence simple avec \((2)\) montre que, pour tout \(n \in \N, u_{n+1} - u_n\) est du signe de\( u_1 - u_0\) :
+            \item une récurrence simple avec \((2)\) montre que, pour tout \(n \in \N, u_{n+1} - u_n\) est du signe de \( u_1 - u_0\) :
             \[\begin{cases} 
                 \text{Si }u_0 < u_1 \text{ alors } (u_n) \text{est croissante}\\
                 \text{Si }u_0 > u_1 \text{ alors } (u_n) \text{est décroissante}

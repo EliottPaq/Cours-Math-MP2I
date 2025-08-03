@@ -166,7 +166,7 @@ per-mode=power-positive-first
 % Redefines \Re and \Im to print Re and Im (the same way as ln or lim) instead of fraktur R and I which don't look nice and are less readable.
 \newcommand{\Reel}[1]{\operatorname{Re}\paren{#1}}
 \newcommand{\Ima}[1]{\operatorname{Im}\paren{#1}}
-\newcommand{\Card}{\operatorname{Card}}
+\newcommand{\Card}[1]{\operatorname{Card}\paren{#1}}
 
 % Command to print an upright e for the exponential instead of a slanted e and put the exponent.
 \newcommand{\e}[1]{\mathrm{e}^{#1}}
@@ -739,6 +739,10 @@ per-mode=power-positive-first
 \include{chapitre/chapitre 9/chapitre 9}
 
 \include{chapitre/chapitre 10/chapitre 10}
+
+\include{chapitre/chapitre 11/chapitre 11}
+
+
 
 
 \end{document}

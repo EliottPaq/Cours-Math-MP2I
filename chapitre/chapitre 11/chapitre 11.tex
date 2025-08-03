@@ -1,0 +1,359 @@
+\chapter{Suites numériques}
+
+\minitoc
+
+\section{Généralité sur les suites réelles}
+\subsection{Définition}
+\begin{defprop}
+    Toute fonction \(u\) définie sur \(\N\) et à valeurs dans \(\R\) est dite suite réelle.\\
+    \underline{Notations usuelles}\\
+    \begin{itemize}
+        \item Pour tout \(n \in \N\) est noté \(u_n\) (terme général de la suite)
+        \item La fonction \(u\) est notée \(\paren{u_n}_{n \in \N}\) ou \(\paren{u_n}_{n \geq 0}\) ou encore \((u_n)\)
+    \end{itemize}
+    \underline{Remarque}\\
+    Plus généralement, on appelle suite réelle et on note \(\paren{u_n}_{n\geq p}\) toutes fonctions \(u\) définie sur 
+    \[
+    \interventierie{p}{\pinf} = \accol{n \in \N \tq n \geq p}
+    \]
+    et à valeurs dans \(\R\) avec \(p\) un entier fixé.
+\end{defprop}
+
+\begin{defprop}[Modes de définition d’une suite]
+    Une suite réelle \((u_n)\) peut être définie : 
+    \begin{enumerate}
+        \item explicitement par la donnée, pour tout entier naturel \(n\), de l'expression de \(u_n\) en fonctions de \(n\)\\
+        \item implicitement par la donnée d'une propriété vérifiée par les termes de la suite \\
+        \item par récurrence
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Suites majorées, minorées, bornées}
+\begin{defprop}
+    Soit \((u_n)\) une suite réelle et \(A = \accol{u_n \tq n \in \N}\) la partie de \(\R\) contenant tous les termes de la suite. 
+    \begin{itemize}
+        \item La suite \((u_n)\) est dite \underline{majorée} si \(A\) est majorée\\
+        \cad s'il existe un réel \(M\) tel que, pour tout entier naturel \(n\), on a \(u_n \leq M\)
+        \item La suite \((u_n)\) est dite \underline{minorée} si \(A\) est minorée\\
+        \cad s'il existe un réel \(m\) tel que, pour tout entier naturel \(n\), on a \(m \leq u_n\)
+        \item La suite \((u_n)\) est dite \underline{bornée} si \(A\) est bornée\\
+        \cad s'il existe des réels \(M\) et \(m\) tel que, pour tout entier naturel \(n\), on a \(m \leq u_n \leq M\)
+    \end{itemize}
+\end{defprop}
+\begin{defprop}[Caractérisation du caractère borné]
+    Une suite réelle \((u_n)\) est bornée si, et seulement si, la suite \((\abs{u_n})\) est majorée par un réel strictement positif.
+\end{defprop}
+
+\subsection{Suites stationnaires, monotones, strictement monotones}
+\begin{defprop}
+    Une suite réelle \((u_n)\) est dite :
+    \begin{itemize}
+        \item \underline{stationnaire} s'il existe un entier naturel \(p\) tel que, pour tout entier \(n\) supérieur à \(p\), on a \(u_n = u_p\)\\~\\
+        \item \underline{croissante} si, pour tout entier naturel \(n\), on a \(u_n \leq u_{n+1}\)
+        \item \underline{décroissante} si, pour tout entier naturel \(n\), on a \(u_{n+1}\leq u_n\)\\~\\
+        \item \underline{strictement croissante} si, pour tout entier naturel \(n\), on a \(u_n < u_{n+1}\)
+        \item \underline{strictement décroissante} si, pour tout entier naturel \(n\), on a \(u_{n+1}< u_n\)\\~\\
+        \item \underline{monotone} si elle est croissante ou décroissante.
+        \item \underline{strictement décroissante} si elle est strictement croissante ou strictement décroissante
+    \end{itemize} 
+\end{defprop}
+
+\section{ Limite d'une suite réelle}
+\subsection{Généralités sur les limites}
+\begin{defprop}[Définition d'une limite finie]
+    Soit \((u_n)\) une suite réelle et \(l\) un réel. \\
+    On dit que la suite \((u_n)\) a pour limite \(l\) si tout segment centrée en \(l\) contient tous les termes de la suite \((u_n)\) à partir d'un certain rang, ce qui se traduit par
+    \[\quantifs{\forall x \in \Rs;\exists n_0 \in \N; \forall n \in \N;n\geq n_0} \imp \abs{u_n - l}\leq \epsilon\]
+\end{defprop}
+\begin{defprop}[Définition d'une limite infinie]
+    Soit \((u_n)\) une suite réelle. \\
+    \begin{itemize}
+        \item On dit que la suite \((u_n)\) a pour limite \(\pinf\) si tout intervalle du type \(\interventierie{A}{\pinf}\) contient tous les termes de la suite \((u_n)\) à partir d'un certain rang, ce qui se traduit par :
+        \[\quantifs{\forall A \in \Rs;\exists n_0 \in \N; \forall n \in \N; n \geq n_0} \imp u_n \geq A\]
+        \item On dit que la suite \((u_n)\) a pour limite \(\minf\) si tout intervalle du type \(\interventierei{\minf}{A}\) contient tous les termes de la suite \((u_n)\) à partir d'un certain rang, ce qui se traduit par :
+        \[\quantifs{\forall A \in \Rs;\exists n_0 \in \N; \forall n \in \N; n \geq n_0} \imp u_n \leq A\]
+    \end{itemize}
+\end{defprop}
+
+\begin{prop}[Unicité de la limte d'une suite]
+    Si \((u_n)\) est une suite réelle de limite \(l\) alors \(l\) est unique et notée \(l = \lim u_n \) ou \(u_n \to l\)
+\end{prop}
+
+\subsection{Cas particulier des limites finies : retour en \(0\)}
+\begin{defprop}
+    Soit \((u_n)\) une suite réelle et \(l\) un réel. \\~\\
+    Pour tout \( n \in \N, \abs{u_n -l} = \abs{\paren{u_n - l}-0} = \abs{\abs{u_n - l}-0}\) donc : \\
+    \begin{itemize}
+        \item la suite \((u_n)\) a pour limite \((l)\) si, et seulement si, la suite \((u_n - l)\) converge vers \(0\) \\
+        \item la suite \((u_n)\) a pour limite \((l)\) si, et seulement si, la suite \(\abs{u_n - l}\) converge vers \(0\)
+    \end{itemize}
+\end{defprop}
+
+\subsection{Suites convergentes et divergentes}
+
+\begin{defi}
+    Une suite réelle \((u_n)\) est dite : 
+    \begin{itemize}
+        \item \underline{convergente} si elle admet une limite réelle \(l\) et, dans ce cas, on dit que \((u_n)\) converge vers \(l\)
+        \item \underline{divergente} sinon.
+    \end{itemize}
+\end{defi}
+
+\begin{prop}
+    \begin{enumerate}
+        \item Toute suite réelle convergente est bornée. \\
+        \item Toute suite réelle non bornée est divergente.
+    \end{enumerate}
+\end{prop}
+
+\subsection{Opérations sur les limites}
+    Soit \((u_n)\) et \(u'_n\) deux suites réelles et \(\alpha\) un réel.
+\begin{defprop}
+    \begin{enumerate}
+        \item \underline{Addition} \\~\\
+        \begin{enumerate}
+            \item Si \(u_n \to l\) avec \(l \in \R\) et \(u'_n \to l'\) avec \(l' \in \R\) alors \(u_n + u'_n \to l + l'\)
+            \item Si \(u_n \to \pinf\)  et \(u'_n\to l'\) avec \(l' \in \R \union \accol{\pinf}\) alors \(u_n + u'_n \to \pinf\)
+            \item     Si \(u_n \to \minf\)  et \(u'_n\to l'\) avec \(l' \in \R \union \accol{\minf}\) alors \(u_n + u'_n \to \minf\)
+        \end{enumerate}
+        \item \underline{Multiplication par un réel}.\\~\\
+            \begin{enumerate}
+                \item Si \(u_n \to l \) avec \(l \in \R\) alors \(\alpha u_n \to \alpha l\)
+                \item Si \(u_n \to \pinf\) alors \(\alpha u_n \to \begin{cases}
+                    \pinf &\text{ si } \alpha>0 \\
+                    0 &\text{ si } \alpha=0 \\
+                    \minf &\text{ si } \alpha<0 \\
+                \end{cases}\)
+                \item Si \(u_n \to \minf\) alors \(\alpha u_n \to \begin{cases}
+                    \pinf &\text{ si } \alpha<0 \\
+                    0 &\text{ si } \alpha=0 \\
+                    \minf &\text{ si } \alpha>0 \\
+                \end{cases}\)
+            \end{enumerate}
+        \item \underline{Produit} 
+            \begin{enumerate}
+                \item Si \(u_n \to l\) avec \(l \in \R\) et \(u'_n \to l'\) avec \(l' \in \R\) alors \(u_n u'_n \to ll'\)
+                \item Si \(u_n \to \pinf\) et \(u'_n \to l'\) avec \(l' \in \Rb \pd \accol{ 0}\) alors \(u_n u'_n \to \begin{cases}
+                    \pinf &\text{ si } l' > 0 \\
+                    \minf &\text{ si } l'<0
+                \end{cases}\)
+                \item Si \(u_n \to \minf\) et \(u'_n \to l'\) avec \(l' \in \Rb \pd \accol{0}\) alors \(u_n u'_n \to \begin{cases}
+                    \minf &\text{ si } l'> 0 \\
+                    \pinf &\text{ si } l' < 0 
+                \end{cases}\)
+            \end{enumerate}
+        \item \underline{Inverse}
+            \begin{enumerate}
+                \item Si \(u_n \to l\) avec \( l \in Rs\) alors \(\frac{1}{u_n} \to \frac{1}{l}\)
+                \item Si \(u_n \to l\) avec \( l\in \accol{\pinf, \minf}\) alors \(\frac{1}{u_n} \to 0\)
+                \item Si \(u_n \to 0\) avec les termes \(u_n\) strictement positifs à partir d'un certain rang alors \(\frac{1}{u_n}\to \pinf\)
+                \item Si \(u_n \to 0\) avec les termes \(u_n\) strictement négatifs à partir d'un certain rang alors \(\frac{1}{u_n} \to \minf\)
+            \end{enumerate}
+    \end{enumerate}
+\end{defprop}
+
+
+\subsection{Limite et relation d'ordre}
+\begin{defprop}[Passage à la limite d'une inégalité large]
+    Soit \((u_n)\) et \((u'_n)\) deux suites réelles convergentes respectivement vers des réels \(l\) et \(l'\)\\~\\
+    S'il existe un entier \(n_0\) tel que \(\quantifs{\forall n \in N} n \leq n_0 \imp u_n \leq u'_n\) alors \(l \leq l'\)
+\end{defprop}
+\begin{defprop}[Signes des termes d'une suite et signe de la limite]
+    Soit \((u_n)\) une suite réelle de limite \(l\) appartenant \(\Rb\).
+    \begin{itemize}
+        \item Si \(l>0\) alors il existe un rang à partir duquel tous les termes \(u_n\) sont strictement positif
+        \item  Si \(l<0\) alors il existe un rang à partir duquel tous les termes \(u_n\) sont strictement négatif
+    \end{itemize}
+\end{defprop}
+
+\subsection{Existence d'une limite finie}
+
+\begin{theo}[Théorème d'encadrement]
+    Soit \((u_n),(v_n)\) et \((w_n)\) trois suites réelles et \(l\) un réel. \\~\\
+    S'il existe un entier \(n_0\) tel que  \(\quantifs{\forall n \in \N}, n\geq n_0 \imp v_n \leq u_n \leq w_n\) et si \((v_n)\) et \((w_n)\) convergent vers \(l\) alors \((u_n)\) converge vers \(l\).
+\end{theo}
+
+\begin{prop}[pratique]
+    Soit \((u_n)\) et \((v_n)\) deux suites réelles et \(l\) un réel. \\~\\
+    S'il existe un rang à partir duquel on a 
+    \[\abs{u_n -l} \leq v_n \text{ avec } (v_n) \text{ convergente vers } 0\]
+    alors \((u_n)\) converge vers \(l\).
+\end{prop}
+
+\begin{defprop}[Conséquence]
+    Soit \((u_n)\) et \((v_n)\) deux suites réelles. \\~\\
+    \begin{enumerate}
+        \item Si \((u_n)\) converge vers un réel \(l\) alors \((\abs{u_n})\) converge vers \(\abs{l}\).
+        \item Si \((u_n)\) converge vers un réel \(0\) et \(v_n\) est bornée alors \((u_n v_n)\) converge vers \(0\)
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Existence d'une limite infinie}
+\begin{theo}[Théorème de minoration]
+    Soit \((u_n)\) et \((v_n)\) deux suites réelles.\\~\\
+    S'il existe un entier \(n_0\) tel que \(\forall n \in \N, n \leq n_0 \imp v_n\leq u_n\) et si \((v_n)\) a pour limite \(\pinf\) alors \((u_n)\) a pour limite \(\pinf\)
+\end{theo}
+
+\begin{theo}[Théorème de majoration]
+    Soit \((u_n)\) et \((v_n)\) deux suites réelles.\\~\\
+    S'il existe un entier \(n_0\) tel que \(\forall n \in \N, n \leq n_0 \imp v_n\geq u_n\) et si \((v_n)\) a pour limite \(\minf\) alors \((u_n)\) a pour limite \(\minf\)
+\end{theo}
+
+\subsection{Cas des suites monotones}
+\begin{theo}[Théorèmes de la limite monotone]
+    \begin{itemize}
+        \item Si \((u_n)\) est une suite réelle croissante et majorée alors \((u_n)\) converge vers \(l = \sup \accol{u_n \tq n \in \N}\)
+        \item Si \((u_n)\) est une suite réelle croissante et non majorée alors \((u_n)\) a pour limite \(\pinf\)\\~\\
+        
+        \item Si \((u_n)\) est une suite réelle décroissante et minorée alors \((u_n)\) converge vers \(l = \inf \accol{u_n \tq n \in \N}\)
+        \item Si \((u_n)\) est une suite réelle décroissante et non minorée alors \((u_n)\) a pour limite \(\minf\)
+    \end{itemize}
+\end{theo}
+
+\begin{theo}[Théorème des suites adjacentes]
+    Soit \((u_n)\) et \((v_n)\) deux suites réelles.\\~\\
+    Si \((u_n)\) est croissante, \((v_n)\) est décroissante et \((v_n -u_n)\) converge vers \(0\) alors \((u_n)\) et \((v_n)\) convergent vers une même limite réelle \(l\) qui vérifie \(\forall n \in \N, u_n \leq l \leq v_n\)
+\end{theo}
+\begin{dem}[Théorème des suites adjacentes]
+    On suppose les hypothèses réunies.\\~\\
+    \begin{itemize}
+        \item Montrons tout d'abord que  : \(\forall n \in \N, u_v \leq v_n\)\\~\\
+        Raisonnons par l'absurde en supposant qu'il existe un entier naturel \(n_0\) tel que \(v_{n_0} < u_{n_0}\). Par monotonie des suites \((u_n)\) et \((v_n)\), on en déduit : 
+        \[\forall n \in \N, n \geq n_0 \imp v_n \leq v_{n_0} < u_{n_0}\leq u_n\]
+        ce qui donne 
+        \[\forall n \in \N,u_{n_0}-v_{n_0}\leq u_n -v_n\]
+        La suite \((u_n - v_n)\) étant convergente de limite nulle, par passage à la limite dans une inégalité large, on obtient alors : \(u_{n_0}-v_{n_0}\leq 0\) ce qui contredit l'hypothèse fait que \(v_{n_0}<u_{n_0}\)\\~\\
+        \underline{conclusion} : \(\forall n \in \N, u_n \leq v_n\)
+        \item Montrons alors que les suites \((u_n)\) et \((v_n)\) convergent.\\~\\
+        Par décroissance de la suite \((v_n)\) et le résultat trouvé ci-dessus, on a  : \(\forall n \in \N, u_n \leq v_0\). La suite \((u_n)\) est donc croissante et majorée. Par théorème de la limite monotone, on en déduit que la suite \((u_n)\) converge\\~\\
+        De même, la suite \((v_n)\) est décroissante et minorée (par \(u_0\)) donc elle converge. \\~\\
+        On note \(l = \lim u_n\) et \(l' = \lim v_n\). Par opération algébrique sur les limites, la suite \((u_n - v_n)\) converge vers \(l-l'\). Par unicité de la limite, l'hypothèse faite sur la suite \((u_n - v_n)\) donne alors \((l-l' = 0)\) donc \(l = l'\)\\~\\
+        \underline{conclusion} : les suites \((u_n)\) et \((v_n)\) convergent vers une même limite \(l\).
+        \item Montrons que \(\forall n \in \N, u_n \leq  l \leq v_n\)
+        Par théorème de la limite monotone, 
+        \begin{itemize}
+            \item comme \(u_n\) est croissante et convergente vers \(l\), on a \(l  = \sup_{n \in \N} u_n\)
+            \item comme \(v_n\) est décroissante et convergente vers \(l\), on a \(l  = \inf_{n \in \N} u_n\)
+        \end{itemize}
+        \underline{conclusion} : \(\forall n \in \N, u_n \leq l \leq v_n\)
+    \end{itemize}
+    
+\end{dem}
+
+\section{Suites extraites}
+\subsection{Définition}
+\begin{defi}
+    Soit \((u_n)\) une suite réelle.\\~\\
+    On appelle suite extraite de \((u_n)\) toute suite \((v_k)\) telle que \(\forall k\in \N, v_k = u_{\phi(k)}\) avec \(\phi\) une fonction strictement croissante définie sur \(\N\) et à valeurs dans \(\N\).
+\end{defi}
+\subsection{Suites extraites et limites}
+\begin{prop}
+Si \(u_n\) est une suite réelle de limite \(l \in \Rb\) alors toutes les suites extraites de \((u_n)\) ont la même limite \(l\).
+\end{prop}
+
+\begin{dem}[Suites extraites et limites]
+    \underline{Résultat préliminaire}\\~\\
+    Soit \(\phi : \N \to \N\) une fonction strictement croissante.\\~\\
+    On a \(\phi(0)\geq 0\). Soit \(k \in \N\) tel que \(\phi(k)\geq k\) alors par stricte croissance de \(\phi\), \(\phi(k+1)>\phi(k)\) donc, puisque \(\phi\) est à valeurs dans \(\N\), on a \(\phi(k+1)\geq \phi(k)+1\) et enfin \(\phi(k +1) \geq k+1\).\\~\\
+    Par principe de récurrence, on a donc : \[\forall k \in \N, \phi(k)\geq k\]
+    \begin{itemize}
+        \item On suppose que \(u\) est une suite réelle de limite réelle \(l\) et \(\phi : \N \to \N\) une fonction strictement croissante.\\~\\
+        Soit \(\epsilon\in \Rps\). Par hypothèse  sur la suite \(u\) il existe un entier naturel \(n_0\) tel que pour tout entier naturel \(n\) supérieur ou égal à \(n_0\), on a \(\abs{u_n - l \leq \epsilon}\)\\~\\
+        Soit \(k \in \N\) tel que \(k \geq n_0\). Alors par stricte croissance de \(\phi\) et avec le résultat préliminaire, on a \(\phi(k)\geq \phi(n_0)\geq n_0\) ce qui permet d'obtenir, avec ce qui précède, \(\abs{u_{\phi(k)}-l}\leq l\)\\~\\
+        Autrement dit, la suite \((u_{\phi(k)})\) a pour limite \(l\).
+        \item On suppose que \(u\) est une suite réelle de limite \(\pinf\) et \(\phi : \N \to \N\) une fonction strictement croissante.\\~\\
+        Soit \(A \in \Rps\). Par hypothèse sur la suite \(u\), il existe un entier naturel \(n_0\) tel que pour tout entier naturel \(n\) supérieur ou égal à \(n_0\), on a \(u_n \geq A\)\\~\\
+        Soit \(k \in \N\) tel que \(k \geq n_0\). Comme ci-dessus obtient \(u_{\phi(k)}\geq A\).\\~\\
+        En résumé : \(\forall A \in Rps, \exists n_0 \in \N, k \geq n_0 \imp u_{\phi(k)}\geq A\)
+        \item Le cas où \(u\) est une suite réelle de limite \(\minf\) se traite de la même façon.
+    \end{itemize}
+    \underline{Conclusion} : Si \(u\) est une suite réelle de limite \(k \in \Rb\) alors toute suite extraite de \(u\) a pour limite \(l\).
+\end{dem}
+
+\begin{defprop}[Utilisation de suites extraites pour prouver une divergence]
+    Soit \((u_n)\) une suite réelle.
+    \begin{itemize}
+        \item S'il existe une suite extraite de \((u_n)\) qui diverge alors la suite \((u_n)\) diverge
+        \item S'il existe deux suites extraites de \((u_n)\) de limites réelles différentes alors la suite \((u_n)\) diverge
+    \end{itemize} 
+\end{defprop}
+
+\begin{defprop}[Utilisation des suites extraites pour prouver une convergence]
+    Soit \((u_n)\) une suite réelle.\\~\\
+    Si les suites \(u_{2n}\) et \((u_{2n+1})\) ont pour limite \(l\) avec \(l\) appartenant à \(\Rb\) alors \((u_n)\) a pour limite \(l\)
+\end{defprop}
+
+\begin{theo}[Théorème de Bolzano-Weierstrass]
+    Toute suite réelle bornée admet une suite extraite convergente.
+\end{theo}
+\begin{dem}[Théorème de Bolzano-Weierstrass]
+    \begin{itemize}
+        \item Montrons le résultat annoncé dans le cas des suites réelles\\~\\
+        On suppose que \((u_n)\) est une suite réelle bornée.\\~\\
+        \((u_n)\) admet donc une borne inférieure et une borne supérieure ; on note \(m = \inf_{n \in \N} u_n\) et \(M = \sup_{n \in \N}u_n\).
+        \begin{itemize}
+            \item \underline{Construction d'une suite de segments par dichotomie}\\~\\
+            \begin{enumerate}
+                \item On note \(I_0\) le segment \(\intervii{m}{M}\) : \(I_0\) est de longueur de \(M-m\) et contient tous les termes de la suite \(u_n\).
+                \item L'un des deux segments \(\intervii{m}{\frac{m+M}{2}}\) ou \(\intervii{\frac{m+M}{2}}{M}\) contient nécessairement une infinité de termes de la suite \((u_n)\) ; on le note \(I_1 :I_1\) est inclus dans \(I_0\), est de longueur \(\frac{M-m}{2}\) et contient une infinité de termes de la suite \((u_n)\)
+                \item à partir de \(I_1\), on construit un segment noté \(I_2\) inclus dans \(I_1\), de longueur \(\frac{M-m}{2^2}\) et qui contient une infinité de termes de la suite \((u_n)\)
+            \end{enumerate}
+            En répétant l'opération on construit ainsi une suite de segments \((I_n)\) telle que : \\~\\
+            \begin{enumerate}
+                \item \(\forall n \in \N,I_{n+1}\subset I_n\)
+                \item pour tout \(n \in \N, I_n\) est de longueur \(\frac{M-m}{2^n}\)
+                \item pour tout \(n \in \N,I_n\) contient une infinité de termes de la suite.
+            \end{enumerate}
+            Dans chaque segment \(I_n\), il y a une infinité de termes de la suite \((u_n)\). Il existe donc une application \(\phi : \N \to \N\) strictement croissante telle que 
+            \[\forall n \in \N, u_{\phi(n)} \in I_n\]
+            \item Montrons que la suite \((u_{\phi(n)})\) ainsi construite, qui est extraite de \((u_n)\), est une suite convergente.\\~\\
+            Pour tout  \(n \in \N\), on note \(I_n = \intervii{\alpha_n}{\beta_n}\). Par décroissance de la suite \((I_n)\) pour l'inclusion, la suite \(\alpha_n\) est croissante et la suite \((\beta_n)\) est décroissante. Par ailleurs, la suite \(\paren{\beta_n - \alpha_n}\) est égale à la suite \(\frac{(M-m)}{2^n}\) donc elle converge vers \(0\).\\~\\
+            Par théorème des suites adjacentes, on en déduit que les suites \((\alpha_n)\) et \((\beta_n)\) convergent vers une même limite \(l\). Le théorème d'encadrement utilisé avec les inégalités \(\forall n \in \N,\alpha_n \leq u_{\phi(n)}\leq \beta_n\) permet alors de conclure que la suite \((u_{\phi(n)})\) converge vers \(l\).
+        \end{itemize}
+    \item Montrons le résultat annoncé dans le cas des suites complexes
+    Soit \(u_n\) une suite bornée de \(\C\).\\~\\
+    Alors \((x_n) = (\Reel{u_n})\) et \((y_n) = (\Ima{u_n})\) sont deux suites bornées de \(\R\)\\~\\
+    On peut donc extraire de \((x_n)\) une suite convergente \(x_{\phi_1(n)}\) notée \((a_n)\)\\~\\
+    La suite \((y_{\phi_1(n)})\), notée \((\beta_n)\), est alors une suite bornée de \(\R\), car elle est extraite de la suite bornée \((y_n)\) de \(\R\). On peut donc extraire de \((b_n)\) une suite convergente \((\beta_{\phi_2(n)})\) notée \((\beta_n)\)\\~\\
+    La suite \((a_{\phi_2(n)})\), notée \((\alpha_n)\), est alors convergente puisqu'elle est extraite de la suite convergente \((a_n)\)\\~\\
+    On en déduit que la suite \((\alpha_n + \i \beta_n)\) est une suite extraite de \((u_n)\) qui converge.
+    \underline{Conclusion} de toute suite bornée de complexes, on peut extraire une suite convergente
+    \end{itemize}
+\end{dem}
+
+\section{Suite complexes}
+\begin{defi}
+    Toute fonction \(u\) définie sur \(\N\) et à valeurs dans \(\C\) est dite suite complexe.
+\end{defi}
+
+\begin{defprop}[Ce qui s’étend aux suites complexes]
+    \begin{itemize}
+        \item Notation séquentielle, modes de définition d’une suite, suite stationnaire
+        \item Limite \underline{finie} : définition et caractérisation (cf. infra), unicité, opérations sur les limites \underline{finies}
+        \item Convergence et divergence
+        \item Suite bornée : définition (cf. infra), lien avec la convergence
+        \item Suites extraites : définitions, propriétés, théorème de Bolzano-Weierstrass
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Ce qui ne s’étend pas aux suites complexes]
+    \begin{itemize}
+        \item Notation de limite \underline{infinie}
+        \item Résultats utilisant la relation d’ordre dont les théorèmes d’existence de limite.
+    \end{itemize}
+\end{defprop}
+
+\subsection{Suite complexe bornée et limite d’une suite complexe}
+
+\begin{defi}
+    Une suite complexe \((u_n)\) est dite bornée s'il existe un réel strictement positif \(M\) tel que, pour tout entier naturel\(n, \abs{u_n}\leq M\)
+\end{defi}
+\begin{defi}[Limite d'une suite complexe]
+    Soit \((u_n)\) une suite complexe et \(l\) un complexe.\\~\\
+    On dit que la suite \((u_n)\) a pour limite \(l\) si tout disque fermé centré en \(l\) contient tous les termes de la suite \((u_n)\) à partir d'un certain rang, ce qui se traduit par 
+    \[\quantifs{\forall \epsilon \in\Rps;\exists n_0 \in \N; \forall n \in \N}  n\geq n_0\imp \abs{u_n - l}\leq \epsilon\]
+\end{defi}
+\begin{defprop}[Caractérisation de la limite d'une suite complexe]
+    Soit \((u_n)\) une suite complexe et \(l\) un complexe.\\~\\
+    La suite complexe \((u_n)\) a pour limite \(l\) si et seulement si, les suites réelles \((\Reel{u_n})\) et \(\Ima{u_n}\) ont respectivement pour limites \(\Reel{l}\) et \(\Ima{l}\)
+\end{defprop}
