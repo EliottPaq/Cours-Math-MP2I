@@ -1,0 +1,411 @@
+\chapter{Limite et continuité}
+
+\minitoc
+\begin{nota}
+    Dans ce chapitre, \(I\) et \(J\) désignent des intervalles de \(\R\), non vides et non réduits à un point.
+\end{nota}
+\section{étude locale des fonctions à valeurs réelles}
+\subsection{Limite en un point \(a\) de \(\Rb\) appartenant à \(I\) ou extrémité de \(I\)}
+
+\begin{defi}
+    Soit \(f\) une fonction définie sur \(I\) à  valeur dans \(\R\)
+    \begin{itemize}
+        \item Cas où \(a\) est un réel, appartenant à \(I\) ou extrémité de \(I\).\\
+        On dit que \(f\) admet pour limite \(l\) en \(a\) si : \(\quantifs{\forall \epsilon \in \Rps;\exists\delta \in \Rps;\forall x \in I} \abs{x-a}\leq \delta \imp \abs{f(x)-l}\leq \epsilon\)
+        \item cas où \(a = \pinf\) est extrémité de \(I\)\\
+            On dit que \(f\) admet pour limite \(l\) en \(\pinf\) si : \(\quantifs{\forall \epsilon \in \Rps;\exists B \in \Rps;\forall x \in I} x\geq B \imp \abs{f(x)-l}\leq \epsilon\)
+        \item cas où \(a = \minf\) est extrémité de \(I\)\\
+         On dit que \(f\) admet pour limite \(l\) en \(\minf\) si : \(\quantifs{\forall \epsilon \in \Rps;\exists B \in \Rms;\forall x \in I} x\leq B \imp \abs{f(x)-l}\leq \epsilon\)
+    \end{itemize}
+\end{defi}
+
+\begin{defi}[Définitions d’une limite infinie]
+    \begin{itemize}
+        \item cas où \(a\) est un réel, appartenant à \(I\) ou extrémité de \(I\).\\~\\
+            On dit que \(f\) admet pour limite \(\pinf \) en \(a\) si : \(\quantifs{\forall A \in \Rps;\exists\delta \in \Rps;\forall x \in I} \abs{x-a}\leq \delta \imp f(x)\geq A\)\\
+            On dit que \(f\) admet pour limite \(\minf \) en \(a\) si : \(\quantifs{\forall A \in \Rms;\exists\delta \in \Rps;\forall x \in I} \abs{x-a}\leq \delta \imp f(x)\leq A\)
+        \item cas où \(a = \pinf\) est extrémité de \(I\)\\~\\
+            On dit que \(f\) admet pour limite \(\pinf \) en \(\pinf\) si : \(\quantifs{\forall A \in \Rps;\exists B \in \Rps;\forall x \in I} x\geq B \imp f(x)\geq A\)\\
+            On dit que \(f\) admet pour limite \(\minf \) en \(\pinf\) si : \(\quantifs{\forall A \in \Rms;\exists B \in \Rps;\forall x \in I} x\geq B \imp f(x)\leq A\)
+        \item cas où \(a = \minf\) est extrémité de \(I\)\\~\\
+            On dit que \(f\) admet pour limite \(\pinf \) en \(\minf\) si : \(\quantifs{\forall A \in \Rps;\exists B \in \Rms;\forall x \in I} x\leq B \imp f(x)\geq A\)\\
+            On dit que \(f\) admet pour limite \(\minf \) en \(\minf\) si : \(\quantifs{\forall A \in \Rms;\exists B \in \Rms;\forall x \in I} x\leq B \imp f(x)\leq A\)
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[Unicité]
+    Si \(f\) admet une limite \(l\) en \(a\) alors celle-ci est unique et on note \(f(x)\underset{x\to a}{\to} l\) ou \(\lim_{x\to a} f(x) = l\).
+\end{defprop}
+\begin{defprop}[Existence d’une limite en un point où la fonction est définie]
+    Si \(f\) est définie en \(a\) et possède une limite en \(a\) alors \(\lim_{x\to a} f(x) = f(a)\).
+\end{defprop}
+
+\begin{defprop}[condition nécessaire d'existence de limite]
+    Si \(f\) possède une limite finie en \(a\) alors \(f\) est bornée au voisinage de \(a\).
+\end{defprop}
+
+\subsection{Limite à gauche et à droite en un réel appartenant à \(I\) ou extrémité de \(I\).}
+
+\begin{nota}
+    Soit \(f\) une fonction définie sur \(I\), à valeurs dans \(\R\).
+\end{nota}
+\begin{defi}
+    Soit \(a\) un point de \(\R\), appartenant à \(I\) ou extrémité de \(I\).
+    \begin{enumerate}
+        \item On dit que \(f\) admet une limite à gauche en \(a\) si la restriction \(f_{| I \inter \intervee{\minf}{a}}\) admet une limite en \(a\)\\
+        Dans ce cas, on note \(\lim_{x\to a^-}f(x)\)  ou \(\lim_{\substack{x \to a \\ x < a}} f(x)\) la limite obtenue.
+        \item On dit que \(f\) admet une limite à droite en \(a\) si la restriction \(f_{| I \inter \intervee{a}{\pinf}}\) admet une limite en \(a\)\\
+        Dans ce cas, on note \(\lim_{x\to a^+}f(x)\)  ou \(\lim_{\substack{x \to a \\ x > a}} f(x)\) la limite obtenue.
+    \end{enumerate}
+\end{defi}
+
+\begin{defprop}[Condition nécessaire et suffisante d’existence de limite]
+    Soit \(a\) un point de \(\R\) appartenant à \(I\) mais pas extrémité de \(I\)\\~\\
+    \(f\) admet une limite en \(a\) \ssi les trois conditions suivantes sont réunies :
+    \begin{enumerate}
+        \item \(f\) a une limite à gauche en \(a\).
+        \item \(f\) a une limite à droite en \(a\)
+        \item \(\lim_{x\to a^-} f(x) = \lim_{x \to a^+} f(x) = f(a)\)
+    \end{enumerate}
+\end{defprop}
+\subsection{Caractérisation séquentielle de la limite}
+\begin{theo}
+    Soit \(f\) une fonction définie sur \(I\), à valeurs dans \(\R\)\\
+    Soit \(a\) un point de \(\Rb\), appartenant à \(I\) ou extrémité de \(I\), et \(l\) un point de \(\Rb\)\\~\\
+    \(f\) admet une limite \(l\) en \(a\) \ssi pour toute suite \((x_n)\) d'éléments de \(I\) qui admet pour limite \(a\), la suite réelle \((f(x_n))\) admet pour limite \(l\)
+\end{theo}
+
+\subsection{Opérations sur les limites}
+\begin{defprop}
+    Soit \(a\) un point de \(\Rb\), appartenant à \(I\) ou extrémité de \(I\).
+    Soit \(f\) et \(g\) deux fonctions définies sur \(I\) et à valeurs réelles et \(\lambda\) un réel
+    \begin{enumerate}
+        \item \underline{Addition} \\~\\
+        \begin{enumerate}
+            \item Si \(f(x) \underset{x\to a}{\to} l\) avec \(l \in \R\) et \(g \underset{x\to a}{\to} l'\) avec \(l' \in \R\) alors \((f+g)(x) \underset{x\to a}{\to} l + l'\)
+            \item Si \(f(x) \underset{x\to a}{\to} \pinf\)  et \(g(x)\underset{x\to a}{\to} l'\) avec \(l' \in \R \union \accol{\pinf}\) alors \((f+g)(x) \underset{x\to a}{\to} \pinf\)
+            \item     Si \(f(x) \underset{x\to a}{\to}\minf\)  et \(g(x)\underset{x\to a}{\to} l'\) avec \(l' \in \R \union \accol{\minf}\) alors \((f+g)(x)\underset{x\to a}{\to} \minf\)
+        \end{enumerate}
+        \item \underline{Multiplication par un réel}.\\~\\
+            \begin{enumerate}
+                \item Si \(f(x) \underset{x\to a}{\to} l \) avec \(l \in \R\) alors \(\lambda f(x) \underset{x\to a}{\to} \lambda l\)
+                \item Si \(f(x) \underset{x\to a}{\to}\pinf\) alors \(\lambda f(x)\underset{x\to a}{\to}\begin{cases}
+                    \pinf &\text{ si } \lambda>0 \\
+                    0 &\text{ si } \lambda=0 \\
+                    \minf &\text{ si } \lambda<0 \\
+                \end{cases}\)
+                \item Si \(f(x) \underset{x\to a}{\to} \minf\) alors \(\lambda f(x) \underset{x\to a}{\to} \begin{cases}
+                    \pinf &\text{ si } \lambda<0 \\
+                    0 &\text{ si } \lambda=0 \\
+                    \minf &\text{ si } \lambda>0 \\
+                \end{cases}\)
+            \end{enumerate}
+        \item \underline{Produit} 
+            \begin{enumerate}
+                \item Si \(f(x) \underset{x\to a}{\to} l\) avec \(l \in \R\) et \(g(x) \underset{x\to a}{\to} l'\) avec \(l' \in \R\) alors \((fg)(x)\underset{x\to a}{\to}ll'\)
+                \item Si \(f(x) \underset{x\to a}{\to} \pinf\) et \(g(x) \underset{x\to a}{\to} l'\) avec \(l' \in \Rb \pd \accol{0}\) alors \((fg)(x) \underset{x\to a}{\to} \begin{cases}
+                    \pinf &\text{ si } l' > 0 \\
+                    \minf &\text{ si } l'<0
+                \end{cases}\)
+                \item Si \(f(x) \underset{x\to a}{\to} \minf\) et \(g(x) \underset{x\to a}{\to} l'\) avec \(l' \in \Rb \pd \accol{0}\) alors \((fg)(x) \underset{x\to a}{\to} \begin{cases}
+                    \minf &\text{ si } l'> 0 \\
+                    \pinf &\text{ si } l' < 0 
+                \end{cases}\)
+            \end{enumerate}
+        \item \underline{Inverse}\\
+            On suppose que \(f\) ne s'annule pas sur un voisinage de \(a\) sauf éventuellement en \(a\).
+            \begin{enumerate}
+                \item Si \(f(x) \underset{x\to a}{\to} l\) avec \( l \in Rs\) alors \(\frac{1}{f(x)} \underset{x\to a}{\to} \frac{1}{l}\)
+                \item Si \(f(x) \underset{x\to a}{\to} l\) avec \( l\in \accol{\pinf, \minf}\) alors \(\frac{1}{f(x)} \underset{x\to a}{\to} 0\)
+                \item Si \(f(x) \underset{x\to a}{\to} 0\) avec les termes \(f(x)\) strictement positifs au voisinage de \(a\) alors \(\frac{1}{f(x)}\underset{x\to a}{\to} \pinf\)
+                \item Si \(f(x) \underset{x\to a}{\to} 0\) avec les termes \(f(x)\) strictement négatifs au voisinage de \(a\) alors \(\frac{1}{f(x)} \underset{x\to a}{\to} \minf\)
+            \end{enumerate}
+        \item \underline{Composition}\\
+            Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles telle que \(f (I) \subset J\).\\
+            Soit \(g\) une fonction définie sur \(J\) et à valeurs réelles.\\
+            Soit \(a\) un point de \(\Rb\), appartenant à \(I\) ou extrémité de \(I\).\\
+            Soit \(b\) un point de \(\Rb\), appartenant à \(J\) ou extrémité de \(J\).\\
+            Soit \(l\) un point de \(\Rb\).\\
+            Si \(f\) admet pour limite \(b\) en \(a\) et si \(g\) admet pour limite \(l\) en \(b\) alors \(g \circ f\) admet pour limite \(l\) en \(a\). Autrement dit,
+            \[f(x) \underset{x\to a}{\to} b \text{ et } g(y) \underset{y\to b}{\to} l \imp g \circ f (x)\underset{x\to a}{\to} l\]
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Limites et relation d’ordre}
+Soit \(a\) un point de \(\Rb\), appartenant à \(I\) ou extrémité de \(I\).
+\begin{defprop}[Passage à la limite d’une inégalité large]
+    Soit \((l,l')\in \Rb \times \Rb\)\\~\\
+    Si \(f\) et \(g\) sont deux fonctions définies sur \(I\), à valeurs réelles telles que \(f\leq g\) au voisinage  \(a\) avec \(f\) de limite \(l\) en \(a\) et \(g\) de limite \(l'\) en \(a\) alors \(l \leq l'\)
+\end{defprop}
+
+\begin{defprop}[Signe de la fonction et signe de la limite]
+    Soit \(f\) une fonction définie sur \(I\), à valeurs réelles, de limite \(l \in \R\) en \(a\).
+    \begin{itemize}
+        \item Si \(l > 0\) alors \(f\) est strictement positive au voisinage de \(a\).
+        \item Si \(l < 0\) alors \(f\) est strictement négative au voisinage de \(a\).
+    \end{itemize}
+\end{defprop}
+\subsection{Existence d’une limite finie}
+Soit \(a\) un point de \(\R\), appartenant à \(I\) ou extrémité de \(I\).
+\begin{theo}[Théorème d’encadrement]
+    Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles, et \(l\) un nombre réel. S’il existe deux fonctions \(g\) et \(h\) définies sur \(I\), à valeurs réelles telles que \(g \leq f \leq h\) au voisinage de \(a\) avec \(g\) et \(h\) de même limite finie \(l\) en \(a\) alors \(f\) admet pour limite \(l\) en \(a\).
+\end{theo}
+
+\begin{defprop}[Propriété pratique]
+    Soit \(f\) et \(g\) deux fonctions définies sur \(I\), à valeurs réelles, et \(l\) un nombre réel. S’il existe un voisinage de \(a\) sur lequel on \(a\) pour tout \(x\), \(\abs{f(x)-l}\leq g(x)\) avec g de limite \(0\) en \(a\) alors \(f\) a pour limite \(l\) en \(a\).
+\end{defprop}
+
+\begin{defprop}[Corollaires de la propriété pratique]
+Soit \(f\) et \(g\) deux fonctions définies sur \(I\), à valeurs réelles.
+    \begin{itemize}
+        \item Si \(f\) a pour limite le réel \(l\) en \(a\) alors \(\abs{f}\) a pour limite \(\abs{l}\) en \(a\).
+        \item Si \(f\) a pour limite \(0\) en \(a\) et si \(g\) est bornée au voisinage de \(a\) alors \(f g\) a pour limite \(0\) en a
+    \end{itemize}
+\end{defprop}
+
+\subsection{Existence d’une limite infinie}
+Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles.\\~\\
+Soit \(a\) un point de \(\R\), appartenant à \(I\) ou extrémité de \(I\).
+
+\begin{theo}[Théorème de minoration]
+    S’il existe une fonction \(g\) définie sur \(I\), à valeurs réelles, telle que \(g \leq f\) au voisinage de \(a\) avec \(g\) de limite \(\pinf\) en \(a\) alors \(f\) admet pour limite \(\pinf\) en \(a\).
+\end{theo} 
+
+\begin{theo} [Théorème de majoration]
+S’il existe une fonction \(h\) définie sur \(I\), à valeurs réelles telle que \(f \leq h\) au voisinage de \(a\) avec \(h\) de limite \(\minf\) en \(a\) alors \(f\) admet pour limite \(\minf\) en \(a\).
+\end{theo}
+
+\subsection{Théorèmes de limite monotone}
+\begin{theo}
+    Soit \((a, b) \in \R \times \R\) avec \(a < b\).\\~\\
+    \begin{itemize}
+        \item Cas où la fonction f\( : \intervee{a}{b} \to \R\) définie sur \(\intervee{a}{b}\) est \underline{CROISSANTE}\\
+        \begin{itemize}
+            \item Si \(f\) est croissante et majorée alors \(f\) admet une limite finie en \(b\) et \( \lim_{x \to b^-} f(x) = \sup_{x \in \intervee{a}{b}} (f(x))\)
+            \item Si \(f\) est croissante et non majorée alors \(f\) admet pour limite \(\pinf \) en \(b\).\\
+            \item Si \(f\) est croissante et minorée alors \(f\) admet une limite finie en \(a\) et \( \lim_{x \to a^+} f(x) = \inf_{x \in \intervee{a}{b}} (f(x))\)
+            \item Si \(f\) est croissante et non minorée alors \(f\) admet pour limite \(\minf\) en \(a\).
+        \end{itemize}
+        \item Cas où la fonction f\( : \intervee{a}{b} \to \R\) définie sur \(\intervee{a}{b}\) est \underline{DECROISSANTE}\\
+        \begin{itemize}
+            \item Si \(f\) est décroissante et minorée alors \(f\) admet une limite finie en \(b\) et \( \lim_{x \to b^-} f(x) = \inf_{x \in \intervee{a}{b}} (f(x))\)
+            \item Si \(f\) est décroissante et non minorée alors \(f\) admet pour limite \(\minf \) en \(b\).\\
+            \item Si \(f\) est décroissante et majorée alors \(f\) admet une limite finie en \(a\) et \( \lim_{x \to a^+} f(x) = \sup_{x \in \intervee{a}{b}} (f(x))\)
+            \item Si \(f\) est décroissante et non majorée alors \(f\) admet pour limite \(\pinf\) en \(a\).
+        \end{itemize}
+\end{itemize}
+\end{theo}
+
+\section{Continuité des fonctions à valeurs réelles en un point}
+Soit \(f\) une fonction définie sur \(I\), à valeurs dans \(\R\) et \(a\) un réel appartenant à \(I\).
+\subsection{Définition}
+\begin{defi}
+    \begin{enumerate}
+        \item \(f\) est dite continue en \(a\) si \(f\) admet pour limite \(f (a)\) en \(a\).
+        \item \(f\) est dite continue à gauche en \(a\) si la restriction \(f_{|I\inter\intervee{\minf}{a}}\) est continue en \(a\) c’est-à-dire si \(\lim_{ x\to a^-}f(x)\) existe et vaut \(f (a)\).
+        \item \(f\) est dite continue à droite en \(a\) si la restriction \(f_{|I\inter\intervee{a}{\pinf}}\) est continue en \(a\) c’est-à-dire si \(\lim_{ x\to a^+}f(x)\) existe et vaut \(f (a)\).
+    \end{enumerate}
+\end{defi}
+\subsection{Condition nécessaire et suffisante de continuité en un point}
+\begin{defprop}
+     \(f\) est continue en \(a\) si, et seulement si, elle est continue à gauche et à droite en \(a\).
+\end{defprop}
+\subsection{Caractérisation séquentielle de la continuité en un point}
+\begin{defprop}
+     \(f\) est continue en \(a\) si, et seulement si, pour toute suite \((x_n)\) d’éléments de \(I\) qui admet pour limite \(a\), la suite réelle \((f (x_n))\) admet pour limite \(f (a)\).
+\end{defprop}
+
+\subsection{Opérations sur les fonctions continues en un point}
+\begin{defprop}
+    Soit \(f\) et \(g\) deux fonctions définies sur \(I\), à valeurs réelles.
+    \begin{enumerate}
+        \item \underline{Combinaison linéaire}\\~\\
+            Si \(f\) et \(g\) sont continues en \(a\) et \((\lambda, \mu)\) est un couple de réels alors \(\lambda f + \mu g\) est continue en \(a\).
+        \item \underline{Produit}\\~\\
+            Si \(f\) et \(g\) sont continues en \(a\) alors \(f g\) est continue en \(a\).
+        \item \underline{Quotient}\\~\\
+            Si \(f\) et \(g\) sont continues en \(a\) et si \(g\) ne s’annule pas au voisinage de \(a\) alors \(f g\) est continue en \(a\).
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Composition de fonctions continues en un point}
+    \begin{defprop}
+        Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles tel que, pour tout \(x\) de \(I\), \(f (x)\) appartient à \(J\).\\
+        Soit \(g\) une fonction définie sur \(J\) et à valeurs réelles.\\
+        Soit \(a\) un réel de \(I\).\\
+        Si \(f\) est continue en \(a\) et si \(g\) est continue en\( f (a)\) alors \(g \circ f\) est continue en \(a\).\\
+\end{defprop}
+
+
+\subsection{Prolongement par continuité} 
+\begin{defprop} 
+    Soit \(b\) un réel n’appartenant pas à \(I\) mais extrémité de \(I\). \\
+    Si \(f\) admet une limite finie \(l\) en \(b\) alors le prolongement de \(f\) à \(I \union \accol{b}\) noté \(\tilde{f} : I \union {b} \to \R\) défini par \(\forall x \in  I, \tilde{f} (x) = f (x)\) et \(\tilde{f} (b) = l \) est continu en \(b\) et appelé prolongement par continuité de \(f\) en \(b\).
+\end{defprop}
+
+\section{Continuité des fonctions sur un intervalle}
+\subsection{Définition}
+\begin{defi}
+    Une fonction définie sur \(I\), à valeurs dans \(R\) est dite continue sur \(I\) si elle est continue en tout \(a\) de \(I\). \\
+    L’ensemble des fonctions continues sur \(I\) à valeurs dans \(R\) est souvent noté \(\mathscr{C}\paren{I,\R} \) ou \(\classe{I}\)
+\end{defi}
+\subsection{Théorèmes généraux : combinaison linéaire, produit, quotient, composée}
+\begin{theo}
+    \begin{itemize}
+        \item \(\forall \paren{f,g} \in \paren{\mathscr{C}\paren{I,\R}}^2,\forall \paren{\alpha,\beta}\in\R^2,\alpha f + \beta g \in \mathscr{C}\paren{I,\R}\)
+        \item \(\forall \paren{f,g} \in \paren{\mathscr{C}\paren{I,\R}}^2,fg \in \mathscr{C}\paren{I,\R}\)
+        \item \(\forall \paren{f,g} \in \paren{\mathscr{C}\paren{I,\R}}^2,g(I)\subset \Rs,\frac{f}{g}\in \mathscr{C}\paren{I,\R}\)
+        \item \(\forall f \in \mathscr{C}\paren{I,\R},\forall g \in \mathscr{C}\paren{J,\R},f(I)\subset J \imp g \circ f \in \mathscr{C}\paren{I,\R}\)
+    \end{itemize}
+\end{theo}
+
+\subsection{Théorème des valeurs intermédiaires et corollaires}
+\begin{theo} [Théorème des valeurs intermédiaires]
+Soit \(f\) une fonction définie sur \(I\) à valeurs dans \(\R\) et, \(a\) et \(b\) deux points de \(I\).\\
+Si \(f\) est continue sur \(I\) avec \(f (a) \leq f (b)\) alors \(f\)\(\) atteint toute valeur intermédiaire entre \(f (a)\) et \(f (b)\)
+\end{theo}
+\begin{dem}
+    On suppose les hypothèses réunies. Dans le cas \(a = b\), le résultat attendu est immédiat. On se place donc dans le cas \(a < b\) (sans perte de généralité) avec \(f (a) < f (b)\) (car le cas \(f (a) = f (b)\) est immédiat).\\~\\
+Soit \(y\) un réel de l’intervalle \(\intervee{f(a)}{f(b)}\).\\~\\
+\underline{Montrons, en suivant le principe de dichotomie, qu’il existe un réel \(x\) dans \(\intervii{a}{b} \) tel que \(y = f (x)\).
+}
+\begin{itemize}
+    \item On note \(a_0 = a, b_0 = b\) ; on a alors \( f (a_0) < y < f (b_0)\).\\
+    \item Etape \(1\) : on pose \( m_0 = \frac{1}{2}(a_0 + b_0)\).
+        \begin{itemize}
+            \item si \(y = f (m_0)\) alors on a bien trouvé un réel \(x\) dans \(\intervii{a}{b} \) tel que \(y = f (x)\) : c’est terminé !
+            \item si \(f (a_0) < y < f (m_0)\), on pose \((a_1, b_1) = (a_0, m_0)\) et on continue la recherche de \(x\) dans \(\intervii{a_1}{b_1} \).
+            \item si \(f (m_0) < y < f (b_0)\), on pose \((a_1, b_1) = (m_0, b_0)\) et on continue la recherche de \(x\) dans \(\intervii{a_1}{b_1} \).
+        \end{itemize}
+        Dans ces deux derniers cas, on a : \(f (a_1) < y < f (b_1)\) et on passe à l’étape \(2\).
+    \item Etape \(2\) : on pose\( m_1 = \frac{1}{2}(a_1 + b_1)\).
+        \begin{itemize}
+            \item si \(y = f (m_1)\) alors on a bien trouvé un réel \(x\) dans \(\intervii{a}{b} \) tel que \(y = f (x)\) : c’est terminé !
+            \item si \(f (a_1) < y < f (m_1)\), on pose \((a_2, b_2) = (a_1, m_1)\) et on continue la recherche de \(x\) dans \(\intervii{a_2}{b_2} \).
+            \item si \(f (m_1) < y < f (b_1)\), on pose \((a_2, b_2) = (m_1, b_1)\) et on continue la recherche de \(x\) dans \(\intervii{a_2}{b_2} \).
+        \end{itemize}
+        Dans ces deux derniers cas, on a : \(f (a_2) < y < f (b_2)\) et on passe à l’étape \(3...0\).
+\end{itemize}
+Dans ce processus, s’il existe un entier \(k_0\) tel que \(f (m_{k_0} ) = y\), c’est terminé ! Sinon, on a créé une suite croissante \((a_k)\) et une suite décroissante \((b_k)\) telles que la suite \(\paren{a_k-b_k} = \paren{\frac{b-a}{2^k}}\) a pour limite \(0\).\\~\\
+Ces suites sont donc adjacentes. Par théorème, elles convergent vers une même limite réelle \(l\) qui vérifie \(\forall k \in \N, a_k \leq l \leq b_k\) donc, en particulier, \(a_0 \leq l \leq b_0 \) c’est-à-dire \(a \leq l \leq b\).\\~\\
+Comme \(f\) est continue, on en déduit alors que les suites \((f (a_k))\) et \((f (b_k))\) convergent vers \(f (l)\).\\~\\
+De plus, par construction des suites \((a_k)\) et \((b_k)\), on a : \(\forall k \in  \N, f (a_k) < y < f (b_k)\). Par passage à la limite, on trouve donc : \(f (l) \leq y \leq f (l)\) puis, par antisymétrie, \(f (l) = y\) et c’est terminé !\\~\\
+\underline{Conclusion} : \(f\) atteint toute valeur intermédiaire entre \(f (a)\) et \(f (b)\).
+\end{dem}
+
+
+\begin{defprop}[Image d’un intervalle]
+    L’image d’un intervalle de \(R\) par une fonction continue à valeurs réelles est un intervalle de \(R\).
+\end{defprop}
+\begin{dem}
+    On suppose que \(f\) est une fonction définie, continue sur un intervalle \(I\) et à valeurs réelles.\\~\\
+    \underline{Montrons que \(f (I)\) est un intervalle de \(\R\)} à l’aide de la caractérisation des intervalles vue dans le chapitre “Compléments sur les réels”.\\~\\
+    Soit \(\alpha\) et \(\beta\) deux réels quelconques de \(f (I)\) tels que \(\alpha < \beta\).\\~\\
+    Alors il existe \(a\) et \(b\) deux réels de \(I\) tels que \(\alpha = f (a)\) et \(\beta = f (b)\).\\~\\
+    Pour tout réel \(y\) de \(\intervii{\alpha}{\beta}\) , le théorème des valeurs intermédiaires assure alors l’existence d’un réel \(x\) compris entre \(a\) et \(b\) tel que \(y = f (x)\). Comme \(a\) et \(b\) sont des réels appartenant à l’intervalle \(I\), le réel \(x\) appartient aussi à l’intervalle \(I\) ce qui prouve que y appartient à \(f (I)\).\\~\\
+    Ainsi : \(\forall (\alpha, \beta) \in (f (I))^2 , \alpha < \beta \imp \intervii{\alpha}{\beta} \subset f (I)\).\\~\\
+    Par caractérisation des intervalles, on en déduit que \(f (I)\) est un intervalle.
+\end{dem}
+
+\begin{defprop}[Cas des fonctions continues strictement monotones]
+    
+Si \(f : I \to R\) est continue et strictement croissante sur \(I\), intervalle de bornes \(a\) et \(b\) avec \(a < b\), alors
+\begin{itemize}
+    \item  pour \(I = \intervii{a}{b}\), on a : \(f(I) = \intervii{f(a)}{f(b)}\)
+    \item  pour \(I = \intervee{a}{b}\), on a : \(f(I) = \intervee{\lim_{x\to a^+}f(x)}{\lim_{x\to b^-}f(x)}\)
+    \item  pour \(I = \intervie{a}{b}\), on a : \(f(I) = \intervie{f(a)}{\lim_{x\to b^-}f(x)}\)
+    \item  pour \(I = \intervei{a}{b}\), on a : \(f(I) = \intervei{\lim_{x\to a^+}f(x)}{f(b)}\)
+\end{itemize}
+\end{defprop}
+\subsection{Théorème des bornes atteintes et corollaire}
+\begin{theo}[Théorème des bornes atteintes]
+    Si \(f\) est une fonction continue sur un segment et à valeurs réelles alors \(f\) est bornée et atteint ses bornes.
+\end{theo}
+\begin{dem}
+    On suppose les hypothèses réunies.\\~\\
+    \(f\) étant continue sur l’intervalle \(\intervii{a}{b}\) et à valeurs réelles, l’image de \(\intervii{a}{b}\) par \(f\) est un intervalle \(J\). On note \(m\) la borne inférieure de \(J\) et \(M\) la borne supérieure de l’intervalle \(J\) considéré comme partie de la droite achevée \(\Rb\).
+
+    Par propriété (vue dans le chapitre “Compléments sur les réels”), il existe une suite \((y_n)\) d’éléments de \(J\) de limite \(m\).\\~\\
+    Comme \(J = f (\intervii{a}{b})\) , il existe alors une suite \((x_n)\) d’éléments de\( \intervii{a}{b}\) telle que \(\forall n \in \N, y_n = f (x_n)\).\\~\\
+    La suite \((x_n)\) étant à valeurs dans \(\intervii{a}{b}\), elle est bornée. D’après le théorème de Bolzano-Weiestrass,elle admet donc une suite extraite convergente. On note \(x_{\phi(n)}\) une telle suite et \(l\) sa limite.\\~\\
+    On a donc :
+    \begin{itemize}
+        \item  \(y_{\phi(n)} \to  m\) comme suite extraite d’une suite convergente de limite \(m\) ;
+        \item \(x_{\phi(n)} \to l\)  ;
+        \item \(f\) continue en \(l\) car \(f\) continue sur\( \intervii{a}{b}\) et \(l \in \intervii{a}{b}\), comme limite d’une suite à valeurs dans \(\intervii{a}{b}\).
+    \end{itemize}
+    On peut donc passer à la limite dans les égalités\\~\\
+    \[\forall n \in \N, y_{\phi(n)} = f\paren{x_{\phi(n)}}\]
+    Cela donne \(m = f (l)\) et prouve donc que \(m\) est un réel et que \(m\) est atteint par \(f\) .\\~\\
+    On montre de même que \(M\) est un réel atteint par \(f\) .\\~\\
+    \underline{Conclusion} : \(f\) est bornée et atteint ses bornes.
+\end{dem}
+
+\begin{defprop}[Image d’un segment]
+    L’image d’un segment de \(\R\) par une fonction continue à valeurs réelles est un segment de \(\R\).
+\end{defprop}
+
+\subsection{Théorème de la bijection}
+\begin{defprop}[Continuité et injectivité]
+    Toute fonction continue sur un intervalle, à valeurs réelles et injective, est strictement monotone.\\~\\
+\underline{Remarque}
+    La réciproque est fausse ; en revanche, toute fonction strictement monotone sur un intervalle est injective.
+\end{defprop}
+
+\begin{dem}
+    Soit \(I\) un intervalle de \(\R\), non vide et non réduit à un point, et \(f : I \to R\) continue et injective.\\~\\
+    Raisonnons par l’absurde en supposant que \(f\) n’est ni strictement croissante, ni strictement décroissante. Alors,
+    il existe \((a, b) \in I^2\) tel que \(a < b\) et \(f (a) \geq f (b)\) et il existe \((a', b') \in I^2\) tel que \(a' < b'\) et \(f (a') \leq f (b')\).\\~\\
+    On note \(g : \intervii{0}{1} \to \R\) définie par : \(\forall t \in \intervii{0}{1}, g(t) = f ((1 - t)a' + ta) - f ((1 - t)b' + tb)\) . Par théorèmes généraux, \(g\) est continue sur \(\intervii{0}{1}\) avec \(g(0) = f (a') - f (b')\) et \(g(1) = f (a) - f (b)\) donc \(g(0) \leq 0 \) et \(g(1) \geq 0\). Par théorème des valeurs intermédiaires, il existe alors \(t_0 \in \intervii{0}{1}\) tel que \(g(t0) = 0\).\\~\\
+    Ainsi \(f ((1 - t_0)a' + t_0a) = f ((1 - t_0)b' + t_0b)\) puis, par injectivité de \(f\) , \((1 - t_0)a' + t_0a = (1 - t_0)b' + t_0b\) ce qui donne \((1 - t_0)(b' - a') + t_0(b - a) = 0\). Comme les termes \((1 - t_0)(b' - a')\) et \(t_0(b - a)\) sont positifs, on en déduit que\( (1 - t_0)(b' - a') = t_0(b - a) = 0\) et enfin, comme \( b' - a'\) et \(b - a\) sont strictement positifs, on trouve \(1 - t_0 = 0\) et \( t0 = 0\) ce qui est absurde.\\~\\
+    \underline{Conclusion} : \(f\) est strictement monotone.
+\end{dem}
+\begin{theo}[Théorème de la bijection]
+Si \(f\) est une fonction à valeurs réelles définie, continue et strictement monotone sur un intervalle \(I\) alors \(f\) réalise une bijection de \(I\) sur\( J = f (I)\) dont la bijection réciproque \(f {^-1}\) est définie, continue et strictement monotone sur \(J\) avec même monotonie que \(f\) .
+\end{theo}
+
+\begin{dem}
+On suppose les hypothèses réunies.\\~\\
+\(f\) est injective (car strictement monotone) donc l’application \(\tilde{f} : I \mapsto f (I)\) définie par \(\forall x \in I, \tilde{f} (x) = f (x)\) est injective et surjective donc est une bijection : on dit que \(f\) réalise une bijection de \(I\) sur \(J = f (I)\). De plus, comme \(f\) est continue et à valeurs réelles, \(J = f (I)\) est un intervalle de \(R\), non vide (puisque \(I\) est non vide) et non réduit à un point de \(\R\) (puisque \(I\) n’est pas réduit à un point et que \(f\) est injective).\\~\\
+La bijection réciproque \(\tilde{f^{-1}} : J \mapsto I\), notée plus simplement \(f ^{-1}\), est définie sur \(J\) et strictement monotone de même monotonie que \(f\) . En effet, si on suppose que \(f\) est strictement croissante (par ex), alors pour tout \((x, y) \in J^2\) tel que \(x < y\), on a \(f ^{-1}(x) < f ^{-1}(y)\) (sinon on aurait \(f ^{-1}(x) \geq f ^{-1}(y)\) puis par stricte croissance de \(f\) , \(x \geq y\) ce qui est faux) donc \(f ^{-1}\) est strictement croissante sur \(J\) par définition.\\~\\
+Soit \(\lambda \in J\). Comme \(f ^{-1}\) est strictement monotone sur \(J\), le corollaire du théorème de limite monotone prouve (sous réserve que cela ait du sens) que \(l = lim _{\lambda^-} f ^{-1}\) existe, est finie et appartient à \(I\). Par continuité de \(f\) en \(l\), \(\lim_{x\to l}f (x) = f (l)\) puis par composition de limites, \(\lim_{ y\to\lambda^-} f \paren{f ^{-1}(y)} = f (l)\) ce qui donne \(f (l) = \lambda\) puis \(l = f ^{-1}(\lambda)\) et prouve que\( f ^{-1}\) est continue à gauche en \(\lambda\). On montre de même (sous réserve que cela ait du sens) la continuité à droite ce qui prouve la continuité de \(f ^{-1}\) en tout \(\lambda\) de \(J\).\\~\\
+\underline{Conclusion} : \(f ^{-1}\) est définie, continue et strictement monotone sur \(J\) avec même monotonie que \(f\) .
+\end{dem}
+
+
+\section{Cas des fonctions à valeurs complexes}
+\subsection{Ce qui s’étend aux fonctions complexes}
+\begin{defprop}
+    \begin{itemize}
+        \item Limite finie :
+        \begin{itemize}
+            \item définition et caractérisations (cf infra) ;
+            \item unicité ;
+            \item opérations sur les limites finies ;
+            \item lien entre existence d’une limite finie en un point et caractère borné au voisinage de ce point.
+        \end{itemize}
+        \item Continuité en un point et sur un intervalle.
+    \end{itemize}
+\end{defprop} 
+
+\subsection{Ce qui ne s’étend pas aux fonctions à valeurs complexes}
+\begin{defprop}
+    \begin{itemize}
+        \item Notion de limite infinie.
+        \item Résultats utilisant la relation d’ordre dont les théorèmes d’existence de limite.
+    \end{itemize}
+\end{defprop}
+\subsection{Limite d’une fonction à valeurs complexes}
+\begin{defprop}
+    Soit \(f\) une fonction définie sur \(I\) et à valeurs complexes, et \(l\) un nombre complexe.\\
+    \underline{Définition} :\\~\\
+    Soit \(a\) un point de \(I\) ou une extrémité de \(I\).\\
+    On dit que \(f\) a pour limite \(l\) en \(a\) si la fonction à valeurs réelles \(\abs{f-l}\) a pour limite \(0\) en \(a\).
+    \underline{Caractérisations} :\\~\\
+    \begin{itemize}
+        \item \(f\) admet pour limite \(l\) en \(a\) (point de \(I\) ou extrémité de \(I\)) si, et seulement si, \(\Reel{f}\) et \(\Ima{f}\) admettent respectivement pour limite \(\Reel{l}\) et \(\Ima{l}\) en \(a\).
+        \item \(f\) est continue en \(a\) (point de \(I\)) si, et seulement si,  \(\Reel{f}\) et \(\Ima{f}\) le sont.
+        \item \(f\) est continue sur \(I\) si, et seulement si, \(Re(f ) et Im(f )\) le sont.
+    \end{itemize}
+            
+\end{defprop}

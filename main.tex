@@ -211,7 +211,7 @@ per-mode=power-positive-first
 % Make the not version of implies, impliedby and iff look nice.
 \newcommand{\notimp}{\centernot{\imp}}
 \newcommand{\notimpr}{\centernot{\impr}}
-\newcommand{\notssi}{\centernot{\ssi}}
+\newcommand{\notiff}{\centernot{\iff}}
 
 \renewcommand{\subset}{\subseteq}
 \renewcommand{\supset}{\supseteq}
@@ -444,8 +444,7 @@ per-mode=power-positive-first
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 
-\newcommand{\pinf}{+\infty}
-\newcommand{\minf}{-\infty}
+\newcommand{\pinf}{+\infty}\newcommand{\minf}{-\infty}
 
 \newcommand{\id}[1]{\mathrm{id}_{#1}}
 
@@ -476,7 +475,6 @@ per-mode=power-positive-first
 \newcommand{\bigunion}{\bigcup}
 \newcommand{\biginter}{\bigcap}
 
-\newcommand{\ssi}{\iff}
 \newcommand{\imp}{\implies}
 \newcommand{\impr}{\impliedby}
 
@@ -514,6 +512,8 @@ per-mode=power-positive-first
 \newcommand{\note}[1]{\textbf{\(\star\star\) #1 \(\star\star\)}}
 \newcommand{\cad}{c'est-à-dire }
 \newcommand{\Cad}{C'est-à-dire }
+\newcommand{\ssi}{si, et seulement si, }
+\newcommand{\Ssi}{Si, et seulement si, }
 \newcommand{\ie}{\textit{i.e.} }
 \newcommand{\cf}{\textit{cf.} }
 \newcommand{\Cf}{\textit{Cf.} }
@@ -700,6 +700,8 @@ per-mode=power-positive-first
 }
 \ExplSyntaxOff
 
+\input{nblignes.tex}
+
 \begin{document}
 \renewcommand{\labelitemi}{\(\bullet\)}
 \renewcommand{\labelenumi}{(\arabic{enumi})}
@@ -714,6 +716,9 @@ per-mode=power-positive-first
 	Les éléments des tables des matières initiale et présentes au début de chaque chapitre sont cliquables (amenant directement à la partie cliquée). C'est également le cas des références à des éléments antérieurs de la forme, par exemple, \guillemets{Démonstration 5.22}.
 
 	Dernier TD corrigé : aucun.
+
+    Le nombre total de lignes de latex utilisé pour générer tout ce document est : \nombredeligne.
+
 \end{abstract}
 
 \dominitoc\tableofcontents
@@ -741,6 +746,9 @@ per-mode=power-positive-first
 \include{chapitre/chapitre 10/chapitre 10}
 
 \include{chapitre/chapitre 11/chapitre 11}
+
+\include{chapitre/chapitre 12/chapitre 12}
+
 
 
 
