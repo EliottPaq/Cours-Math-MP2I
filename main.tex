@@ -718,6 +718,8 @@ per-mode=power-positive-first
 	Dernier TD corrigé : aucun.
 
     Le nombre total de lignes de latex utilisé pour générer tout ce document est : \nombredeligne.
+    % se génère en lançant : echo "\\newcommand{\\nombredeligne}{$(wc -l chapitre/chapitre*/chapitre*.tex | awk '{total += $1} END {print total}')}" > nblignes.tex
+    % dans son terminal
 
 \end{abstract}
 
@@ -750,6 +752,8 @@ per-mode=power-positive-first
 \include{chapitre/chapitre 12/chapitre 12}
 
 \include{chapitre/chapitre 13/chapitre 13}
+
+\include{chapitre/chapitre 14/chapitre 14}
 
 
 

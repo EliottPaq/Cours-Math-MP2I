@@ -1,0 +1,209 @@
+\chapter{Équations différentielles  linéaires}
+
+\minitoc
+
+Dans ce chapitre, \(I\) désigne un intervalle de \(\R\) non vide réduit à un point de \(\K\) l'ensemble \(\R\) ou \(\R\)
+
+\section{Équations différentielles linéaires d’ordre \(1\)}
+\subsection{Définition}
+\begin{defi}
+    Soit \(a\) et \(b\) deux fonctions continues sur \(I\), à valeurs dans \(\K\).\\~\\
+    La fonction \(f : I \to \K\) est dite solution de l’équation différentielle linéaire du premier ordre
+    \[(E) : y' + a(t)y = b(t)\]
+    si \(f\) est dérivable sur \(I\) et vérifie :
+    \[\forall t \in I, f'(t) + a(t)f (t) = b(t).\]
+\end{defi}
+
+\subsection{Forme générale des solutions}
+\begin{defprop}
+    Soit \(a\) et \(b\) deux fonctions continues sur \(I\), à valeurs dans \(\K\).\\~\\
+    Les solutions de l’équation différentielle linéaire du premier ordre \((E) : y' + a(t)y = b(t)\) s’obtiennent en additionnant :
+    \begin{itemize}
+        \item UNE solution particulière de \((E)\) ;
+        \item LES solutions de l’équation différentielle homogène associée \((H) : y' + a(t)y = 0\).
+    \end{itemize}
+    
+\end{defprop}
+
+\begin{dem}
+    Soit \(a \) et \(b\) deux fonctions continues sur \(I\), à valeurs dans \(\K\).\\~\\
+    on pose \((E) : y' + a(t)y = b(t)\)\\~\\
+    Supposons que \(y_0\) est solution de \(E\)\\~\\
+    Soit \(y : I \mapsto \K\) dérivable\\~\\
+    \begin{align*}
+        y \text{ solution de } (E) & \iff \forall t \in I,y'(t) + a(t) y(t) = y_0'(t) + a(t) y_0(t) \\
+        &\iff \forall t \in I,\paren{y-y_0}'(t) + a(t)\paren{y-y_0}(t) = 0\\
+        &\iff y-y_0 \text{ solution de } (H):z' + a(t)z = 0 \\
+        &\iff y_0 \text{ s'écrit } y = y_0 +z \text{ où } z \text{ est une solution quelconque de } (H) \text{ sur } I
+    \end{align*}
+    Ainsi : 
+    \[\mathcal{S}_{E,I} = y_0+\mathcal{S}_{H,I}\]
+\end{dem}
+
+\subsection{Solutions de l’équation différentielle homogène \(y' + a(t)y = 0\).}
+\begin{defprop}
+    Soit \(a\) une fonction continue sur \(I\), à valeurs dans \(\K\).\\~\\
+    L’ensemble des solutions de l’équation différentielle linéaire homogène \((H) : y' + a(t)y = 0\) sur \(I\) est
+    \[\mathcal{S}_H = \accol{t\mapsto \lambda e^{-A(t)} \tq \lambda \in \K}\]
+    où \(A\) désigne une primitive de la fonction \(a\) sur \(I\).
+\end{defprop}
+\begin{dem}
+    Résolution de \((H) : y' + a(t)y = 0\) sur \(I\)\\~\\
+    On note \(A\) une primitive de \(a\) sur \(I\)\\~\\
+    Soit \(y : I \mapsto \K\) dérivable sur I\\~\\
+    \begin{align*}
+        y \text{ solution de } (H) & \iff \forall t \in I, y'(t) + A'(t)y(t) =0 \\
+        &\iff \forall t \in I, y'(t)e^{A(t)} + A'(t) e^{A(t)} y(t) \text{ car } \forall t \in I,e^{A(t)} \neq 0 \\
+        &\iff \forall t \in I, g'(t) = 0 \text{ avec } g(t) = y(t)e^{A(t)}\\
+        &\iff \exists \lambda \in \K, \forall t \in I, g(t) = \lambda \\
+        &\iff \exists \lambda \in \K, \forall t \in y(t) = \lambda e^{-A(t)}
+    \end{align*}
+    \underline{Conclusion} : 
+    \[\mathcal{S}_H = \accol{t\mapsto \lambda e^{-A(t)} \tq \lambda \in \K}\]
+\end{dem}
+
+\subsection{Solution particulière de l’équation différentielle \( y' + a(t)y = b(t)\).}
+\begin{defprop}[Principe de superposition de solutions]
+    Soit \(a, b_1\) et \(b_2\) des fonctions continues sur \(I\), à valeurs dans \(\K\).
+    \[\text{Si }\begin{cases}
+        f_1 : I \to K \text{ est solution de l’équation différentielle linéaire } y' + a(t)y = b_1(t) \text{ sur } I\\
+        f_2 : I \to K \text{ est solution de l’équation différentielle linéaire } y' + a(t)y = b_2(t) \text{ sur } I\\
+    \end{cases}\]
+
+    alors, \( f_1 + f_2 : I \to K\) est solution sur \(I\) de l’équation différentielle linéaire \(y' + a(t)y = b_1(t) + b_2(t)\).
+\end{defprop}
+
+\begin{defprop}[Détermination d’une solution particulière \(y_0\)]
+
+    Soit \(a\) et \(b\) deux fonctions continues sur \(I\), à valeurs dans \(\K\).\\~\\
+    S’il n’y a pas de solution particulière évidente/connue pour \((E) : y' + a(t)y = b(t)\) ou si le principe de superposition des solutions n’est pas applicable pour en déterminer une alors on pourra chercher une solution particulière de \((E)\) selon la méthode dite de “variation de la constante” c’est-à-dire sous la forme
+    \[y_0 : t \mapsto \lambda(t)e^{-A(t)}\]
+    avec \(A\) une primitive de \(a\) sur \(I\) et \(\lambda\) une fonction inconnue dérivable sur \(I\) à valeurs dans \(\K\).
+\end{defprop}
+
+\begin{dem}[Démonstration de la méthode de la variation de la constante]
+    Soit \(a\) et \(b\) deux fonctions continues sur \(I\), à valeurs dans \(\K\).\\~\\
+    Résolution de \((E) : y' + a(t)y = b(t)\) sur \(I\)\\~\\
+    On pose \(y_0(t) = \lambda(t)e^{-A(t)}\) avec \(\lambda\) une fonction dérivable sur \(I\) et à valeur dans \(\K\) et \(A\) une primitive de \(a\)
+    \begin{align*}
+        y_0 \text{ solution de } (E) &\iff \forall t \in I,y_0'(t) + a(t)y_0(t) = b(t) \\
+        &\iff \forall t \in I,\lambda'(t)e^{-A(t)} + \lambda(t)\paren{-a(t)e^{-A(t)} + a(t)e^{-A(t)}} = b(t) \\
+        &\iff \forall t \in I,\lambda'(t)e^{-A(t)} = b(t) \\
+        &\iff \forall t \in I, \lambda'(t) = b(t)e^{A(t)}
+    \end{align*}
+    Ainsi en primitivant \(b(t)e^{A(t)}\) (qui existe car \(b\) et \(A\) sont continue) on trouve une solution particulière
+\end{dem}
+
+\subsection{Théorème de Cauchy : existence et unicité}
+\begin{theo}
+    Soit \(a\) et \(b\) deux fonctions continues sur \(I\), à valeurs dans \(\K\).\\~\\
+    Pout tout \(t_0 \in I\) et tout \(\alpha_0 \in \K \), il existe une unique solution \(f\) sur \(I\) de l’équation différentielle linéaire du premier ordre \(y' + a(t)y = b(t)\) telle que \(f(t_0) = \alpha_0\)
+\end{theo}
+
+\section{Equations différentielles linéaires d’ordre \(2\) à coefficients constants}
+\subsection{Définition}
+\begin{defi}
+    Soit \(a\) et \(b\) deux éléments de \(\K\) et \(g\) une application continue sur \(I\), à valeurs dans \(\K\).\\~\\
+    La fonction\( f : I \to \K\) est dite solution de l’équation différentielle linéaire d’ordre \(2\) à coefficients constants
+    \[(E) : y''+ ay' + by = g(t)\]
+    si \(f\) est deux fois dérivable sur \(I\) et vérifie :
+    \(\forall t \in I, f''(t) + af'(t) + bf (t) = g(t).\)
+\end{defi}
+
+\subsection{Forme générale des solutions}
+\begin{defprop}
+    Soit \(a\) et \(b\) deux éléments de \(\K\) et \(g\) une application continue sur \(I\), à valeurs dans \(\K\).\\~\\
+    Les solutions de l’équation différentielle linéaire du second ordre\( (E) : y'' + ay' + by = g(t)\) s’obtiennent en additionnant :
+    \begin{itemize}
+        \item une solution particulière de \((E)\) ;
+        \item les solutions de l’équation différentielle homogène associée \((H) : y'' + ay' + by = 0\)
+    \end{itemize}
+    
+\end{defprop}
+
+
+
+\subsection{Solutions de l’équation différentielle linéaire homogène \(y'' + ay' + by = 0\)}
+
+\begin{defprop}[Equation caractéristique]
+    Soit \(a\) et \(b\) deux éléments de \(\K\).\\~\\
+    La recherche de solutions de l’équation différentielle linéaire homogène à coefficients constants
+    \[(H) : y'' + ay' + by = 0\]
+    sous la forme \(t \mapsto e^{rt}\) avec \(r \in \K\) conduit à l’équation
+    \[(EC) : r^2 + ar + b = 0\]
+    dite équation caractéristique associée à \((H)\).
+\end{defprop}
+
+\begin{defprop}[Ensemble des solutions dans le cas où \(\K = \C\)]
+    Soit \(a\) et \(b\) deux éléments de \(\C\)\\~\\
+    On note \(\mathcal{S}_H\) l’ensemble des solutions sur \(I\) de l’équation différentielle \((H) : y'' + ay' + by = 0\)
+    \begin{itemize}
+        \item Si l'équation caractéristique \((EC)\) a deux racines distinctes \(r_1\) et \(r_2\) alors : 
+        \[\mathcal{S}_H = \accol{t \mapsto \lambda_1 e^{r_1 t} + \lambda_2 e^{r_2 t} \tq \paren{\lambda_1,\lambda_2} \in \C^2}\]
+        \item Si l'équation caractéristique \((EC)\) a une racine double \(r\) alors 
+        \[\mathcal{S}_H = \accol{t \mapsto \paren{\lambda_1 + \lambda_2  t }e^{r t} \tq \paren{\lambda_1,\lambda_2} \in \C^2}\]
+    \end{itemize}
+
+\end{defprop}
+\begin{defprop}[Ensemble des solutions dans le cas où \(\K = \R\)]
+    Soit \(a\) et \(b\) deux éléments de \(\R\)\\~\\
+    On note \(\mathcal{S}_H\) l’ensemble des solutions sur \(I\) de l’équation différentielle \((H) : y'' + ay' + by = 0\)
+    \begin{itemize}
+        \item \item Si l'équation caractéristique \((EC)\) a deux racines distinctes \(r_1\) et \(r_2\) alors : 
+        \[\mathcal{S}_H = \accol{t \mapsto \lambda_1 e^{r_1 t} + \lambda_2 e^{r_2 t} \tq \paren{\lambda_1,\lambda_2} \in \R^2}\]
+        \item Si l'équation caractéristique \((EC)\) a une racine double \(r\) alors 
+        \[\mathcal{S}_H = \accol{t \mapsto \paren{\lambda_1 + \lambda_2  t }e^{r t} \tq \paren{\lambda_1,\lambda_2} \in \R^2}\]
+        \item Si l'équation caractéristique \((EC)\) a deux racines complexes conjuguées \(r\) et \(\conj{r}\) non réelles alors
+        \[\mathcal{S}_H = \accol{t \mapsto e^{\alpha t}\paren{\lambda_1 \cos (\beta t) + \lambda_2 \sin (\beta t)}\tq \paren{\lambda_1,\lambda_2} \in \R^2}\]
+        \[\text{avec } \alpha = \Reel{r} \text{ et } \beta = \Ima{r}\]
+
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Structure de l’ensemble des solutions]
+    Soit \(a\) et \(b\) deux éléments de \(\K\).\\~\\
+    Les deux points précédents permettent de mettre en évidence le résultat suivant.\\~\\
+    L’ensemble des solutions sur \(I\) de l’équation différentielle linéaire \((H) : y'' + ay' + by = 0\) est donc :
+    \[\mathcal{S}_H = \accol{t \mapsto \lambda_1 y_1 (t) + \lambda_2 y_2 (t) \tq \paren{\lambda_1,\lambda_2} \in \K ^2 }\]
+    où \((y_1, y_2)\) un couple de fonctions non colinéaires solutions de \((H)\) sur \(I\).
+\end{defprop}
+
+\subsection{Solution particulière de l’équation différentielle \(y'' + ay' + by = g(t)\).}
+
+\begin{defprop}[Principe de superposition de solutions]
+    Soit \(a, b\) deux éléments de \(\K\), \(g_1\) et \(g_2\) des fonctions continues sur \(I\), à valeurs dans \(\K\).
+    \[\text{Si }\begin{cases}
+        f_1 : I \to K \text{ est solution de l’équation différentielle linéaire } y'' + ay' + by= g_1(t) \text{ sur } I\\
+        f_2 : I \to K \text{ est solution de l’équation différentielle linéaire } y'' + ay' + by= g_2(t) \text{ sur } I\\
+    \end{cases}\]
+
+    alors, \( f_1 + f_2 : I \to K\) est solution sur \(I\) de l’équation différentielle linéaire \(y'' + ay' + by = b_1(t) + b_2(t)\).
+\end{defprop}
+
+\begin{defprop}[Détermination d’une solution particulière y0]
+    Soit \(a\) et \(b\) deux éléments de \(\K\) et \(g\) une application continue sur \(I\), à valeurs dans \(\K\).\\~\\
+    Selon le programme de MP2I,\\~\\
+    s’il n’y a pas de solution particulière \(y_0\) évidente/connue pour \((E) : y'' + ay' + by = g(t)\) ou si le principe de superposition ne s’applique pas pour en déterminer une, les étudiants doivent savoir en trouver une dans les trois cas suivants selon le type du second membre.
+    \begin{itemize}
+        \item Cas où \(g\) est une fonction polynomiale de degré \(n\)\\~\\
+        On pourra chercher \(y_0\) sous la forme d’une fonction polynomiale de degré \(n\) si \(b\) est différent de\( 0\) ou de degré \(n + 1\) si \(b\) est égal à \(0\).
+        \item Cas où \(g : t \mapsto A e^{\lambda t}\) avec \(A\) et \(\lambda\) deux éléments de \(\K\).
+        On pourra chercher \(y_0\) sous l’une des formes suivantes selon la valeur de \(\lambda\) :
+        \[y_0 : t \mapsto \begin{cases}
+            \alpha e^{\lambda t} &\text{ si } \lambda \text{ n'est pas racine de } (EC)\\
+            \alpha t e^{\lambda t} &\text{ si } \lambda \text{ n'est pas racine simple de } (EC) \text{ avec } \alpha \in \K\\
+            \alpha t^2 e^{\lambda t} &\text{ si } \lambda \text{ n'est pas racine double de } (EC)\\
+        \end{cases}\]
+        \item  Cas où \(\K = \R\) et \(g : t \mapsto B \cos (\omega t)\) [ou \(g : t \mapsto B \sin (\omega t)\)] avec \(B\) et \(\omega\) deux éléments de \(\R\)\\~\\
+            On pourra, à l’aide de la méthode décrite ci-dessus, déterminer une solution particulière \(z_0\) de l’équation
+           \[ y'' + ay' + by = B e^{i\omega t}\]
+            et conclure que \(y_0 = \Reel{z_0}\) [ou \(y_0 = \Ima{z_0}\) selon le cas étudié] convient.
+    \end{itemize}
+\end{defprop}
+
+\subsection{Théorème de Cauchy : existence et unicité (preuve hors programme)}
+\begin{defprop}
+    Soit \(a\) et \(b\) deux éléments de \(\K\) et \(g\) une application continue sur \(I\), à valeurs dans \(\K\).\\~\\
+
+    Pout tout \(t_0 \in I\) et tout \((\alpha_0, \beta_0) \in \K^2\), il existe une unique solution \(f\) sur \(I\) de l’équation différentielle linéaire du second ordre à coefficients constants \(y'' + ay' + by = g(t)\) telle que \(f (t_0) = \alpha_0\) et \(f'(t_0) = \beta_0\).
+\end{defprop}
