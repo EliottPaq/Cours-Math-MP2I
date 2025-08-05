@@ -1,0 +1,305 @@
+\chapter{Calcul matriciel et systèmes linéaire}
+
+\minitoc
+
+Dans ce chapitre \(\K = \R\) ou \(\C\)
+\section{Matrice rectangles}
+Soit \((m,n,p,q,r,s)\in \N^6\)
+\subsection{Généralités}
+\begin{defi}
+    Toute application\( A :\intervii{1}{n}\times \intervii{1}{p} \to \K\) est appelée matrice de taille \((n, p)\) à coefficients dans \(K\).\\~\\
+    \underline{Notations et représentation}
+    \begin{itemize}
+        \item Pour tout \((i, j) \in \intervii{1}{n}\times \intervii{1}{p} \), on pose \(a_{ij} = A(i, j)\) et on note usuellement
+            \[A = \paren{a_{ij}}_{\substack {1\leq i \leq n \\ 1\leq j \leq p}}\]
+        \item On représente \(A = {\paren{a_{ij}}}_{\substack{1\leq i \leq n \\ 1\leq j \leq p}}\) sous forme d’un tableau, à \(n\) lignes et \(p\) colonnes, dont l’élément situé en ligne \(i\) et colonne \(j\) est le nombre \(a_{ij}\).
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[L’ensemble des matrices rectangles]
+   L’ensemble des matrices de taille \((n, p)\) à coefficients dans \(\K\) est noté \(\mathcal{M}_{n,p}\paren{\K}\). 
+\end{defprop}
+
+\begin{defprop}[Opérations sur les matrices rectangles]
+    On munit l'ensemble \(\mathcal{M}_{n,p}\paren{\K}\) de deux lois :
+    \begin{itemize}
+        \item une loi interne (addition entre matrices) notée \(+\) définie par :
+        \[\forall (A,B) \in \paren{\mathcal{M}_{n,p}\paren{\K}}^2, A+B = {\paren{a_{ij} + b_{ij}}}_{\substack {1\leq i \leq n \\ 1\leq j \leq p}}\]
+        \item une loi externe (Multiplication par un scalaire \ie un élement de \(\K\)) noté \(.\) définie par : 
+        \[\forall \lambda \in \K, \forall A \in \mathcal{M}_{n,p}\paren{\K}, \lambda . A  = \paren{\lambda a_{ij}}_{\substack {1\leq i \leq n \\ 1\leq j \leq p}}\]
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Matrices élémentaires]
+    Toute matrice \(A\) de \(\mathcal{M}_{n,p}\paren{\K}\) peut s’écrire \(A = \sum_{\substack {1\leq i \leq n \\ 1\leq j \leq p}}a_{i,j}E_{ij}\) avec \(E_{ij}\) la matrice de\(\mathcal{M}_{n,p}\paren{\K}\) à coefficients tous nuls, sauf celui de la \(i^e\) ligne et \(j^e\) colonne qui vaut \(1\).
+\end{defprop}
+
+
+\subsection{Produit}
+\begin{defi}
+    On définit le produit de deux matrices rectangles de taille \((n, p)\) et \((p, q)\) de la manière suivante :
+    \[\forall A \in \mathcal{M}_{n,p}\paren{\K},\forall B \in \mathcal{M}_{p,q}\paren{\K}, A \times B = \paren{c_{ik}}_{{\substack {1\leq i \leq n \\ 1\leq j \leq p}} \in \mathcal{M}_{n,q}\paren{\K}}\]
+    avec 
+    \[c_{ij} = a_{i1}b_{1j} + a_{i2} b_{2j} + \dots +a_{ip} b_{pj} = \sum_{k=1}^p a_{ik}b_{kj}\]
+\end{defi}
+
+\begin{prop}
+    \begin{enumerate}
+        \item Le produit matriciel est bilinéaire, c’est-à-dire :
+         \[\forall (A,B) \in \paren{ \mathcal{M}_{n,p}\paren{\K}}^2, \forall C \in  \mathcal{M}_{p,q}\paren{\K}, \forall (\alpha,\beta) \in \K^2, \paren{\alpha A + \beta B}C = \alpha A C + \beta B C\]
+         \[\forall (A,B) \in \paren{ \mathcal{M}_{n,p}\paren{\K}}^2, \forall C \in  \mathcal{M}_{p,q}\paren{\K}, \forall (\alpha,\beta) \in C\K^2, \paren{\alpha A + \beta B} = \alpha C A  + \beta C B\]
+        \item Le produit matriciel est associatif, \cad : 
+        \[\forall A \in  \mathcal{M}_{n,p}\paren{\K}, \forall B \in  \mathcal{M}_{p,q}\paren{\K},\forall C \in  \mathcal{M}_{q,r}\paren{\K} , \paren{AB}C =   A \paren{BC}\]
+    \end{enumerate}
+\end{prop}
+
+\begin{dem}[Preuve de l'associativité du produit matriciel]
+    Soit \(A \in  \mathcal{M}_{n,p}\paren{\K}, B \in  \mathcal{M}_{p,q}\paren{\K}, C \in  \mathcal{M}_{q,r}\paren{\K} \).
+    On pose :
+    \begin{itemize}
+        \item \(A = \paren{a_{i,j}}_{\substack {1\leq i \leq n \\ 1\leq j \leq n}}\)
+        \item \(B = \paren{b_{i,j}}_{\substack {1\leq i \leq p \\ 1\leq j \leq q}}\)
+        \item \(C = \paren{c_{i,j}}_{\substack {1\leq i \leq q \\ 1\leq j \leq r}}\)
+        \item \(BC = \paren{d_{i,j}}_{\substack {1\leq i \leq p \\ 1\leq j \leq r}} \)
+        \item \(A\paren{BC} = \paren{e_{i,j}}_{\substack {1\leq i \leq n \\ 1\leq j \leq r}}\)
+        \item \(AB = \paren{d'_{i,j}}_{\substack {1\leq i \leq n \\ 1\leq j \leq q}}\)
+        \item \(\paren{AB}C = \paren{e'_{i,j}}_{\substack {1\leq i \leq n \\ 1\leq j \leq r}}\)
+    \end{itemize}
+    Soit \(\paren{i,j} \in \intervii{1}{n}\times \intervii{1}{r}\)
+    \begin{align*}
+        A\paren{BC} = e_{i,j} &= \sum_{k=1}^p a_{i,k}d_{k,j} \\
+                              &= \sum_{k=1}^p \paren{a_{i,k} \paren{\sum_{s=1}^q b_{k,s}c_{s,j}}}\\
+                              &= \sum_{k=1}^p \paren{\sum_{s=1}^q a_{i,k}b_{k,s}c_{s,j} }\\
+                              &= \sum_{s=1}^q \paren{\sum_{k=1}^p a_{i,k}b_{k,s}c_{s,j} } \\
+                              &= \sum_{s=1}^q \paren{\sum_{k=1}^p a_{i,k}b_{k,s}}c_{s,j}  \\
+                              &= \sum_{s=1}^q d'_{i,s}c_{s,j} \\
+                              &= \paren{AB}C\\
+    \end{align*}
+\end{dem}
+
+\begin{defprop}[Produits remarquables]
+    \begin{enumerate}
+        \item Le produit d'une matrice \(A\) de \(\mathcal{M}_{n,p}\paren{\K}\) et d'une matrice colonne \(X\) de \(\mathcal{M}_{p,1}\paren{\K}\) est une combinaison linéaire des colonnes de \(A\).
+        \item Le produit des matrices élémentaires \(E_{xy}\) de \(\mathcal{M}_{n,p}\paren{\K}\) et \(E_{zt}\) de \(\mathcal{M}_{p,q}\paren{\K}\) est la matrice \(\mathcal{M}_{n,q}\paren{\K}\) 
+        \[E_{xy}E_{zt} = \delta_{y,z} E_{xt}\text{ avec } \delta_{y,z} = \begin{cases}
+            1 & \text{ si } y = z \\
+            0 & \text{ si } y \neq z
+        \end{cases}\]
+        \underline{Remarque}\\
+        Pour \(\paren{i,j} \in \N^2 , \delta_{i,j}\) est appelé "sybome de Kronecker"
+    \end{enumerate}
+\end{defprop}
+\subsection{Transposition}
+\begin{defi}
+    La transposée de \( A = \paren{a_{ij}}_{\substack {1\leq i \leq n \\ 1\leq j \leq p}}\) de \(\mathcal{M}_{n,p}\paren{\K}\) est la matrice de \(\mathcal{M}_{n,p}\paren{\K}\) notée \(\trans{A}\) définie par : 
+    \[\trans{A} = \paren{b_{ij}}_{\substack {1\leq i \leq n \\ 1\leq j \leq p}} \in \mathcal{M}_{n,p}\paren{\K} \text{ avec } b_{ij} = a_{ji}\]
+\end{defi}
+\begin{defprop}[Linéarité de la transposition]
+    \[\forall \paren{A,B} \in \mathcal{M}_{n,p}\paren{\K} \times \mathcal{M}_{n,p}\paren{\K}, \forall (\lambda,\mu) \in \K^2 , \trans{\paren{\lambda A + \mu B}} = \lambda \trans{A} + \mu \trans{B}\]
+\end{defprop}
+
+\begin{defprop}[transposée d'un produit]
+    \[\forall \paren{A,B} \in \mathcal{M}_{n,p}\paren{\K} \times \mathcal{M}_{p,q},\trans{\paren{AB}} = \trans{B}\trans{A}\]
+\end{defprop}
+
+\section{Opérations élémentaires, systèmes linéaires}
+\subsection{Définitions}
+\begin{defi}
+    On appelle opération élémentaire sur les lignes \(L_1, \dots , L_n\) d’une matrice de \(\mathcal{M}_{n,p}\paren{\K}\) l’une des opérations suivantes :
+    \begin{enumerate}
+        \item  Echange de deux lignes distinctes :
+        \[L_r \leftrightarrow L_s\]
+        avec \(r \neq s\)
+        \item Multiplication d’une ligne par un scalaire non nul :    
+        \[L_r \leftarrow \lambda L_r\]
+        avec \(\lambda \neq 0 \).       
+        \item Addition à une ligne du produit d’une autre ligne par un scalaire non nul :     
+        \[L_r \leftarrow L_r + \lambda L_s\] 
+        avec \(r\neq s\) et \( \lambda \neq 0\).
+    \end{enumerate}
+\end{defi}
+
+\subsection{Traduction en termes de produit matriciel}
+\begin{defprop}[Matrice identité]
+    ~\\
+    \begin{enumerate}
+        \item La matrice de \(\mathcal{M}_{n,p}\paren{\K}\) définie par \(I_n = \begin{pmatrix}
+1 & 0 & \cdots & 0 \\
+0 & 1 & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \cdots & 0 & 1
+\end{pmatrix} \) est dite matrice identité
+        \item \(\forall A \in \mathcal{M}_{n,p}\paren{\K}, I_nA = A\)
+        \item \(\forall A \in \mathcal{M}_{n,p}\paren{\K}, A I_p = A\)
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Opérations élémentaires et produits matriciels]
+    \begin{itemize}
+        \item L’opération \(L_r \leftrightarrow L_s\) sur \(A \in \mathcal{M}_{n,p}\paren{\K}\) équivaut à la multiplication \(P_{r,s} \times A\) avec \(P_{r,s} \in \mathcal{M}_{n,p}\paren{\K}\) définie par :
+        \[P_{r,s} = I_n +(E_{rs} + E_{rs} - E_{rr}-E_{ss})\]
+        \(P_{r,s}\) est dite matrice de permutation
+        \item L'opération \(L_r \leftarrow \lambda L_r\) sur \(A \in \mathcal{M}_{n,p}\paren{\K}\) équivaut à la multiplication \(D_{r,\lambda} \times A\) avec \(D_{r,\lambda} \times A\) avec \(D_{r,\lambda} \in \mathcal{M}_n\paren{\K}\) définie par : 
+        \[D_{r,s} = I_n + \paren{\lambda - 1}E_{rr}\]
+        \(D_{r,\lambda}\) est dite matrice de dilatation
+        \item L'opération \(L_r \leftarrow L_r + \lambda L_s\) sur \(A\in \mathcal{M}_{n,p}\paren{\K}\) équivaut à la multiplication \(T_{r,s,\lambda} \times A \) avec \(T_{r,s,\lambda} \in \mathcal{M}_n\paren{\K}\) définie par :
+        \[T_{r,s,\lambda} = I_n + \lambda E_{rs}\]
+        \(T_{r,s,\lambda} \) est dite matrice de transvection.
+    \end{itemize}
+\end{defprop}
+
+\subsection{Système d'équation linéaires}
+\begin{defprop}
+    Soit \(A = \paren{a_{ij}}_{\substack {1\leq i \leq n \\ 1\leq j \leq p}} \in \mathcal{M}_{n,p}\paren{\K}\) et \(B = \begin{pmatrix}
+        b_1 \\ \vdots \\b_n 
+    \end{pmatrix} \in \mathcal{M}_{n,1}\paren{\K}\)\\~\\
+    Le Système linéaire \(\mathcal{S} : 
+        \left\{
+        \begin{array}{rcl}
+        a_{11}x_1 + \dots + a_{1p}x_p & = & b_1 \\
+        \vdots & & \vdots \\
+        a_{n1}x_1 + \dots + a_{np}x_p & = & b_n
+        \end{array}
+        \right.
+        \) d'inconnue \(\paren{x_1,\dots,x_n} \in \K^p\) se traduit matriciellement par l'équation \(AX = B\) d'inconnue \(X = \begin{pmatrix}
+            x_1 \\\vdots\\x_n
+        \end{pmatrix} \in \mathcal{M}_{p,1}\paren{\K}\) que l'on appelle encore système
+
+    \begin{itemize}
+        \item \underline{Compatibilité du système}\\~\\
+        On dit que le système \(AX = B\) est compatible si \(B\) est combinaison linéaire des colonnes de \(A\) (ce qui assure l’existence de solutions au système).
+        \item \underline{Ensemble-solution de \(\mathcal{S}\)}
+        Si le système \(AX = B\) est compatible alors ses solutions sont les matrices \(X_0 + Y\) avec :
+        \begin{enumerate}
+            \item \(X_0 \in \mathcal{M}_{p,1}\paren{\K}\) une solution particulière de \(AX = B\) ;
+            \item \(Y \in \mathcal{M}_{p,1}\paren{\K}\) solution quelconque du système homogène \(AX = 0\) associé.
+        \end{enumerate}
+        \item Résolution effective de \(\mathcal{S}\)
+        Par opérations élémentaires sur les lignes du système \(\mathcal{S}\), on peut obtenir un système \(\mathcal{S}'\), dit équivalent à \(\mathcal{S}\) (car il a les mêmes solutions que \(\mathcal{S}\)) de forme trapézoïdale
+        \[S' : \left\{
+        \begin{array}{rccccccl}
+        a'_{11}x_1 +&            &            &\cdots&      & + a'_{1p}x_p&=      & b'_1     \\
+                    &a'_{22}x_2 +&            &\cdots&      & + a'_{2p}x_p&=      & b'_2     \\
+                    &  \ddots    &            &      &      & \vdots      & \vdots&\vdots    \\
+                    &            &a'_{qq}x_q  &+     &\cdots& + a'_{qp}x_p&=      & b'_q     \\
+                    &            &            &      &      &0            &=      & b'_{q+1} \\
+                    &            &            &      &      & \vdots      &\vdots& \vdots    \\
+                    &            &            &      &      & 0           &=      & b'_n
+        \end{array}
+        \right.\] 
+        qui peut se traduire matriciellement par :
+        \[A'X = B'\]
+        avec \(A'\) matrice  \(\mathcal{M}_{n,p}\paren{\K}\) telle que :
+        \begin{itemize}
+            \item  les lignes de \(1\) à \(q\) contiennent chacune au moins un coefficient non nul ;
+            \item dans chaque ligne de \(2\) à \(q\), le premier coefficient non nul à partir de la gauche est situé à droite du premier coefficient non nul de la ligne précédente ;
+            \item les lignes numérotées de q + 1 à n sont nulles.
+        \end{itemize}
+        Les \((n - q)\) dernières équations de \(\mathcal{S}'\) donnent les conditions de compatibilité du système. Ces conditions étant réunies, le nombre de paramètres pour la résolution est \((p - q)\).
+    \end{itemize}
+\end{defprop}
+
+\section{Matrices carrées}
+\subsection{Ensemble des matrices carrées}
+\begin{defi}
+    L’ensemble \(\mathcal{M}_{n,n}\paren{\K}\) est souvent noté plus simplement \(\mathcal{M}_n\paren{\K}\).
+\end{defi}
+
+\subsection{Matrices carrées de formes particulières}
+\begin{defprop}
+    Soit \(A =  \paren{a_{ij}}_{1\leq i,j \leq ,}\) une matrice de \(\mathcal{M}_n\paren{\K}\).
+    \begin{enumerate}
+        \item \underline{Matrices diagonales ou triangulaires}
+        \begin{enumerate}
+            \item \(A\) est dite scalaire s’il existe \( \lambda \in \K\) tel que \(A = \lambda I_n\).
+            \item \(A\) est dite diagonale si \(\forall(i, j) \intervii{1}{n}^2 , i\neq j \imp a_{ij} = 0\).
+            \item \(A\) est dite triangulaire supérieure si \(\forall(i, j) \intervii{1}{n}^2 , i > j \imp a_{ij} = 0\).
+            \item \(A\) est dite triangulaire inférieure si \(\forall(i, j) \intervii{1}{n}^2 , i < j \imp a_{ij} = 0\).
+        \end{enumerate}
+        \item \underline{Matrices symétriques ou antisymétriques}
+        \begin{enumerate}
+            \item \(A\) est dite symétrique si \( \trans{A} = A\). \\
+            On note \(\mathcal{S}_n \paren{\K}\) l’ensemble des matrices symétriques de \(\mathcal{M}_n\paren{\K}\).
+            \item \(A\) est dite antisymétrique si \(\trans{A} = -A\). \\
+            On note \(\mathcal{A}_n \paren{\K}\) l’ensemble des matrices antisymétriques de \(\mathcal{M}_n\paren{\K}\). 
+        \end{enumerate}
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Deux formules usuelles}
+Soit \(\paren{A,B} \in \paren{\mathcal{M}_n\paren{\K}}^2\)
+\begin{itemize}
+    \item \underline{Formule du binôme}\\~\\
+        Si \(AB = BA\) alors, pour tout \(p \in \N\)
+        \[\paren{A +B }^n = \sum_{k=0}^p \binom{p}{k}A^k B^{p-k}=\sum_{k=0}^p \binom{p}{k}A^{p-k} B^{k}\]
+    \item \underline{Une formule de factorisation}\\~\\
+        Si \(AB = BA\) alors, pour tout \(p \in \N\)
+        \[A^p - B^p = \paren{A-B}\sum_{k=0}^{p-1} A^k B^{p-1-k} = \paren{A-B}\sum_{k=0}^{p-1} A^{p-1-k} B^{k}\]
+\end{itemize}
+
+\subsection{Matrices inversibles}
+\begin{defprop}
+    \begin{itemize}
+        \item Une matrice \(A \in \mathcal{M}_n\paren{\K}\) est dite inversible s’il existe \(B \in \mathcal{M}_n\paren{\K}\) telle que
+            \[AB = BA = I_n\]
+        Dans ce cas, \\
+        la matrice \(B\) est unique, notée \(B = A^{-1}\), et appelée matrice inverse de \(A\).
+        \item L’ensemble des matrices inversibles de \(\mathcal{M}_n\paren{\K}\) est noté \(\mathcal{GL}_n\paren{\K}\) et appelé groupe linéaire.
+    \end{itemize}
+\end{defprop}
+\begin{prop}
+\begin{itemize}
+    \item Si \(A\) et \(B\) sont deux matrices inversibles de \(\mathcal{M}_n\paren{\K}\) alors \(AB\) est inversible d’inverse \(A^{-1}B^{-1}\), autrement dit :
+    \[\forall \paren{A, B} \in \paren{\mathcal{GL}_n\paren{\K}}^2 , AB \in \mathcal{GL}_n\paren{\K}\text{ et } \paren{AB}^{-1} = B^{-1}A^{-1}.\]
+    \item Si \(A\) est une matrice inversible de \(\mathcal{M}_n\paren{\K}\) alors \(\trans{A}\) est inversible d’inverse \(\trans{\paren{A^{-1}}}\), autrement dit :
+    \[\forall A \in \mathcal{GL}_n\paren{\K}, \trans{A} \in \mathcal{GL}_n\paren{\K} \text{ et } \paren{\trans{A}}^{-1} = \trans{\paren{A^{-1}}}\]
+\end{itemize}
+\end{prop}
+
+\begin{defprop}[Trois caractérisations des matrices inversibles]
+    Soit \(A \in \mathcal{M}_n\paren{\K}\).
+    \begin{enumerate}
+        \item \(A\) est inversible si, et seulement si, il existe \(B \in  \mathcal{M}_n\paren{\K}\) telle que \(AB = I_n\).\\~\\
+        Dans ce cas,\( B = A^{-1}\).
+        \item \(A\) est inversible si, et seulement si, il existe \(C \in  \mathcal{M}_n\paren{\K}\) telle que \(CA = I_n\).\\~\\
+        Dans ce cas, \(C = A^{-1}\).
+        \item \(A\) est inversible si, et seulement si, pour toute matrice colonne \(Y \in  \mathcal{M}_{n,1}\paren{\K}\), le système \(AX = Y \) d’inconnue \(X \in \mathcal{M}_{n,1}\paren{\K}\) a une unique solution.
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Calculs de matrices inverses en pratique}
+\begin{defprop}[Calcul de l’inverse par résolution d’un système]
+    La résolution du système \(AX = Y\) avec \(A \in  \mathcal{M}_n\paren{\K}\) et \(\paren{X, Y } \in  \paren{\mathcal{M}_n\paren{\K}}^2\) permet de déterminer si la matrice \(A\) est inversible et d’obtenir son inverse si celle-ci existe.\\~\\
+    En effet,
+    \begin{itemize}
+        \item si \(A\) est inversible alors le système \(AX = Y\) a une unique solution \(X = A^{-1}Y\) . Dans ce cas, l’expression de \(X\) en fonction de \(Y\) obtenue après résolution permet d’expliciter \(A^{-1}\).
+        \item Si le système \(AX = Y\) n’a pas de solution unique (pas de solution ou plusieurs solutions) alors \(A\) n’est pas inversible.
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Préservation de l’inversibilité par les opérations élémentaires]
+    Si \(A\) est une matrice carrée inversible alors la matrice obtenue à partir de \(A\) après des opérations élémentaires sur les lignes ou colonnes de \(A\) est inversible.\\~\\
+    \underline{Remarques}
+    \begin{itemize}
+        \item Cela résulte de l’inversibilité des matrices de permutation, de dilatation et de transvection \(P_{r,s}, D_{r,\lambda}\) et \(T_{r,s,\lambda}\) et de la stabilité de \(\mathcal{GL}_n\paren{\K}\) par produit.
+        \item Par contraposition, si la matrice obtenue à partir de \(A\) après des opérations élémentaires sur les lignes ou colonnes n’est pas inversible alors la matrice \(A\) n’est pas inversible.
+    \end{itemize}
+
+\end{defprop}
+
+\begin{defprop}[Calcul de l’inverse par opérations élémentaires ]
+    En réalisant en parallèle les mêmes opérations élémentaires sur les lignes (ou les colonnes) d’une matrice \(A\) de \(\mathcal{M}_n\paren{\K}\) et de la matrice identité \(I_n\), on peut déterminer si la matrice \(A\) est inversible et obtenir son inverse si celle-ci existe. En effet, en essayant de retransformer \(A\) en la matrice identité \(I_n\) et en reproduisant simultanément les même opérations sur la matrice identité \(I_n\) alors à la fin de la transformation, la matrice obtenue de la matrice identité est \(A^{-1}\). (méthode du pivot de Gauss-Jordan).\\~\\
+    \underline{Remarque}\\~\\
+    Dans cette méthode, il est impératif de ne pas mélanger les opérations sur les lignes et colonnes : autrement dit, on agit uniquement sur les lignes ou uniquement sur les colonnes. On pourra lui préférer la méthode de résolution du système dans laquelle la confusion ne peut se faire.
+\end{defprop}
+
+\subsection{Cas particulier}
+\begin{defprop}[Matrices diagonales]
+    Une matrice diagonale est inversible si, et seulement si, ses coefficients diagonaux sont tous non-nuls.\\~\\
+    Dans ce cas, sa matrice inverse est diagonale.
+\end{defprop}
+
+\begin{defprop}[Matrices triangulaires]
+    Une matrice triangulaire est inversible si, et seulement si, ses coefficients diagonaux sont tous non-nuls.\\~\\
+    Dans ce cas, sa matrice inverse est triangulaire.
+\end{defprop}
