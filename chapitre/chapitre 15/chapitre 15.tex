@@ -6,261 +6,261 @@
 Soit \((a, b, c, d) \in \Z^4\).
 \subsection{Divisibilité dans \(\Z\)}
 \begin{defi}
-    S’il existe \(q\) dans \(\Z\) tel que \(a = bq\), on dit que \(b\) divise \(a\) (ou \(b\) est un diviseur de \(a\)) et on note \(b \divise a\).\\~\\
-    Dans ce cas,\\~\\
-    on dit aussi que \(a\) est divisible par \(b\) (ou \(a\) est un multiple de \(b\)).
+	S’il existe \(q\) dans \(\Z\) tel que \(a = bq\), on dit que \(b\) divise \(a\) (ou \(b\) est un diviseur de \(a\)) et on note \(b \divise a\).\\~\\
+	Dans ce cas,\\~\\
+	on dit aussi que \(a\) est divisible par \(b\) (ou \(a\) est un multiple de \(b\)).
 \end{defi}
 
 \begin{defprop}[Ensembles des diviseurs et des multiples]
-    \begin{itemize}
-        \item On note \(\mathcal{D}(a) = \accol{b \in \Z \tq \exists q \in \Z, a = bq}\) l’ensemble des diviseurs de \(a\).
-        \begin{itemize}
-            \item Si \(a = 0\) alors \(\mathcal{D}(a) = \Z\) donc \(\mathcal{D}(a)\) est infini.
-            \item Si \(a \neq 0\) alors \(\mathcal{D}(a) \subset \interventierii{-\abs{a}}{\abs{a}} \) donc \(\mathcal{D}(a)\) est fini.
-        \end{itemize}
-        \item On note \(b\Z = \accol{bq \tq q \in \Z}\) l’ensemble des multiples de \(b\).
-        \begin{itemize}
-            \item Si \(b = 0\) alors \(b\Z = \accol{0}\) donc \(b\Z\) est fini.
-            \item Si \(b \neq 0\) alors \(b\Z\) est infini.
-        \end{itemize}
-    \end{itemize}
+	\begin{itemize}
+		\item On note \(\mathcal{D}(a) = \accol{b \in \Z \tq \exists q \in \Z, a = bq}\) l’ensemble des diviseurs de \(a\).
+		      \begin{itemize}
+			      \item Si \(a = 0\) alors \(\mathcal{D}(a) = \Z\) donc \(\mathcal{D}(a)\) est infini.
+			      \item Si \(a \neq 0\) alors \(\mathcal{D}(a) \subset \interventierii{-\abs{a}}{\abs{a}} \) donc \(\mathcal{D}(a)\) est fini.
+		      \end{itemize}
+		\item On note \(b\Z = \accol{bq \tq q \in \Z}\) l’ensemble des multiples de \(b\).
+		      \begin{itemize}
+			      \item Si \(b = 0\) alors \(b\Z = \accol{0}\) donc \(b\Z\) est fini.
+			      \item Si \(b \neq 0\) alors \(b\Z\) est infini.
+		      \end{itemize}
+	\end{itemize}
 \end{defprop}
 
 \begin{defprop}[Caractérisation des couples d’entiers associés]
-    Si l’une des propositions équivalentes suivantes est vérifiée, on dit que les entiers \(a\) et \(b\) sont associés.
-    \begin{enumerate}
-        \item \(a \divise b\) et \(b \divise a\).
-        \item \(\abs{a} = \abs{b}\).
-        \item \(a = b\) ou \(a = -b\).
-    \end{enumerate}
+	Si l’une des propositions équivalentes suivantes est vérifiée, on dit que les entiers \(a\) et \(b\) sont associés.
+	\begin{enumerate}
+		\item \(a \divise b\) et \(b \divise a\).
+		\item \(\abs{a} = \abs{b}\).
+		\item \(a = b\) ou \(a = -b\).
+	\end{enumerate}
 \end{defprop}
 
 \begin{defprop}[Propriétés immédiates]
-    \begin{enumerate}
-        \item \(a \divise a\).
-        \item Si \(a \divise b\) et \(b \divise c\) alors \(a \divise c\).
-        \item Si \(a \divise b\) et \(c \divise d\) alors \(ac \divise bd\).
-        \item Si \(a \divise b\) alors, pour tout \(n \in \Ns\), \(an\divise bn\).
-        \item Si \(c \divise a\) et \(c \divise b \) alors, pour tout \( (u, v) \in\Z^2, c \divise au + bv\).
-        \item Si \(a = bc + d\) alors \(\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(b) \inter \mathcal{D}(d)\).
-    \end{enumerate}
+	\begin{enumerate}
+		\item \(a \divise a\).
+		\item Si \(a \divise b\) et \(b \divise c\) alors \(a \divise c\).
+		\item Si \(a \divise b\) et \(c \divise d\) alors \(ac \divise bd\).
+		\item Si \(a \divise b\) alors, pour tout \(n \in \Ns\), \(an\divise bn\).
+		\item Si \(c \divise a\) et \(c \divise b \) alors, pour tout \( (u, v) \in\Z^2, c \divise au + bv\).
+		\item Si \(a = bc + d\) alors \(\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(b) \inter \mathcal{D}(d)\).
+	\end{enumerate}
 \end{defprop}
 
 \subsection{Division euclidienne}
 \begin{theo}[Théorème de la division euclidienne]
-    Pour tout couple \((a, b)\) de \(\Z \times \Ns\), il existe un unique couple \((q, r)\) de \(\Z^2\) tel que :\\~\\
-    \[a = bq + r \text{ et } 0 \leq r \leq b - 1.\]
-    Dans la division euclidienne de \(a\) par \(b\), \(a\) est appelé dividende, \(b\) diviseur, \(q\) quotient et \(r\) reste.
+	Pour tout couple \((a, b)\) de \(\Z \times \Ns\), il existe un unique couple \((q, r)\) de \(\Z^2\) tel que :\\~\\
+	\[a = bq + r \text{ et } 0 \leq r \leq b - 1.\]
+	Dans la division euclidienne de \(a\) par \(b\), \(a\) est appelé dividende, \(b\) diviseur, \(q\) quotient et \(r\) reste.
 \end{theo}
 
 \begin{dem}
-    Soit \((a,b)\in \Z \times \Ns\)\\~\\
-    \existence posons \(q = \floor{\frac{a}{b}}\) et \(r = a-bq\)\\~\\
-    alors \(q\leq \frac{a}{b}<b+1\)\\~\\
-    donc \(bq\leq a < b(q+1) \iff 0\leq r<b\).\\~\\
-    De plus \(q \in \Z\) donc \(r \in \Z\) ainsi avec ce qui précède on a : \(r \in \interventierii{0}{b-1}\)\\~\\
-    \unicite On suppose qu'il existe \(\begin{cases}
-        (q,r) &\in \Z \times \interventierii{0}{b-1}\\
-        (q',r') &\in \Z \times \interventierii{0}{b-1}\\
-    \end{cases}\) tel que \(\begin{cases}
-        a &= bq+r\\
-        a &= bq'+r'
-    \end{cases}\)
-    \\~\\
-    Alors \(b(q-q') = r'-r\) Ainsi\\~\\
-    Si \(q-q' \neq 0\) alors \(\abs{q-q'}\geq 1\) puis \(\abs{r'-r}\geq \abs{b}\) et donc \(\abs{r'-r}\geq b\) car \(b>0\).\\~\\
-    or \(\abs{r'-r\leq b-1}\) car \(\begin{cases}
-        0\leq r \leq b-1\\
-        0\leq r' \leq b-1
-    \end{cases}\) \\~\\
-    Donc \(q-q' = 0 \imp q=q'\) et aussi \(r-r' = 0\imp r = r'\)
-    \conclusion Le couple \(q,r\) existe et est unique 
+	Soit \((a,b)\in \Z \times \Ns\)\\~\\
+	\existence posons \(q = \floor{\frac{a}{b}}\) et \(r = a-bq\)\\~\\
+	alors \(q\leq \frac{a}{b}<b+1\)\\~\\
+	donc \(bq\leq a < b(q+1) \iff 0\leq r<b\).\\~\\
+	De plus \(q \in \Z\) donc \(r \in \Z\) ainsi avec ce qui précède on a : \(r \in \interventierii{0}{b-1}\)\\~\\
+	\unicite On suppose qu'il existe \(\begin{cases}
+		(q,r)   & \in \Z \times \interventierii{0}{b-1} \\
+		(q',r') & \in \Z \times \interventierii{0}{b-1} \\
+	\end{cases}\) tel que \(\begin{cases}
+		a & = bq+r   \\
+		a & = bq'+r'
+	\end{cases}\)
+	\\~\\
+	Alors \(b(q-q') = r'-r\) Ainsi\\~\\
+	Si \(q-q' \neq 0\) alors \(\abs{q-q'}\geq 1\) puis \(\abs{r'-r}\geq \abs{b}\) et donc \(\abs{r'-r}\geq b\) car \(b>0\).\\~\\
+	or \(\abs{r'-r\leq b-1}\) car \(\begin{cases}
+		0\leq r \leq b-1 \\
+		0\leq r' \leq b-1
+	\end{cases}\) \\~\\
+	Donc \(q-q' = 0 \imp q=q'\) et aussi \(r-r' = 0\imp r = r'\)
+	\conclusion Le couple \(q,r\) existe et est unique
 \end{dem}
 
 
-\begin{defprop}[Caractérisation de la divisibilité] 
-    Soit \((a, b) \in \Z \times \Ns\).\\~\\
-    \(b\) divise \(a\) si, et seulement si, le reste de la division euclidienne de \(a\) par \(b\) est nul.
+\begin{defprop}[Caractérisation de la divisibilité]
+	Soit \((a, b) \in \Z \times \Ns\).\\~\\
+	\(b\) divise \(a\) si, et seulement si, le reste de la division euclidienne de \(a\) par \(b\) est nul.
 \end{defprop}
 
 \section{PGCD et PPCM}
 \subsection{Cas de deux entiers naturels}
 \begin{defi}[Définition du PGCD]
-    Soit \((a, b) \in \N \times \Ns\).\\~\\
-    Le plus grand élément (au sens de \(\leq\)) de l’ensemble des diviseurs communs à \(a\) et \(b\) est dit PGCD de \(a\) et \(b\) et noté \(a \wedge b\) :
-    \[a \wedge b = \max (\mathcal{D}(a) \inter \mathcal{D}(b))\]
+	Soit \((a, b) \in \N \times \Ns\).\\~\\
+	Le plus grand élément (au sens de \(\leq\)) de l’ensemble des diviseurs communs à \(a\) et \(b\) est dit PGCD de \(a\) et \(b\) et noté \(a \wedge b\) :
+	\[a \wedge b = \max (\mathcal{D}(a) \inter \mathcal{D}(b))\]
 \end{defi}
 
 \begin{prop}[Propriété importante]
-    
-    Soit \((a, b) \in \N \times \Ns\).\\~\\
-    Si \(r\) est le reste de la division euclidienne de \(a\) par \(b\) alors \(\begin{cases}
-        \mathcal{D}(a) \inter \mathcal{D}(b) &= \mathcal{D}(b) \inter \mathcal{D}(r) \\
-        a\wedge b                            &= b\wedge r
-    \end{cases}\)
+
+	Soit \((a, b) \in \N \times \Ns\).\\~\\
+	Si \(r\) est le reste de la division euclidienne de \(a\) par \(b\) alors \(\begin{cases}
+		\mathcal{D}(a) \inter \mathcal{D}(b) & = \mathcal{D}(b) \inter \mathcal{D}(r) \\
+		a\wedge b                            & = b\wedge r
+	\end{cases}\)
 \end{prop}
 
 \begin{dem}
-    Soit \((a, b) \in \N \times \Ns\), on note \(r \in \N\) le reste de la division euclidienne de \(a\) par \(b\).
-    Montrons que \(\begin{cases}
-        \mathcal{D}(a) \inter \mathcal{D}(b) &= \mathcal{D}(b) \inter \mathcal{D}(r) \\
-        a\wedge b                            &= b\wedge r
-    \end{cases}\) par double inclusion :
-    \begin{itemize}
-        \item Montrons que \(\mathcal{D}(a) \inter \mathcal{D}(b) \subset \mathcal{D}(b) \inter \mathcal{D}(r)\)\\~\\
-            Soit \(d \in \mathcal{D}(a) \inter \mathcal{D}(b)\) alors : \\~\\
-            \(d \divise b\) donc \(d \divise bq\) avec \(q \in \Zs\) et \(d \divise a\) donc \(d \divise a-bq\) or \(r = a-bq\) donc \(d \divise r\) et \(d \divise b\) donc \(d \in \mathcal{D}(b) \inter \mathcal{D}(r)\).
-        \item De même Montrons que \(  \mathcal{D}(b) \inter \mathcal{D}(r) \subset \mathcal{D}(a) \inter \mathcal{D}(b)\)
-         Soit \(d \in \mathcal{D}(b) \inter \mathcal{D}(r)\) alors :\\~\\
-         alors \(d \divise b\) donc \(d \divise bq\) avec \(q \in \Zs\) et \(d \divise r\) donc \(d \divise bq+r\) or \(a = bq+r\) donc \(d \divise a\) et \(d \divise b\) donc \(d \in \mathcal{D}(b) \inter \mathcal{D}(a)\).
-        
-    \end{itemize}
-    \conclusion Par double inclusion \(\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(b) \inter \mathcal{D}(r)\) et ainsi par définition du PGCD \(a\wedge b = b\wedge r\)
+	Soit \((a, b) \in \N \times \Ns\), on note \(r \in \N\) le reste de la division euclidienne de \(a\) par \(b\).
+	Montrons que \(\begin{cases}
+		\mathcal{D}(a) \inter \mathcal{D}(b) & = \mathcal{D}(b) \inter \mathcal{D}(r) \\
+		a\wedge b                            & = b\wedge r
+	\end{cases}\) par double inclusion :
+	\begin{itemize}
+		\item Montrons que \(\mathcal{D}(a) \inter \mathcal{D}(b) \subset \mathcal{D}(b) \inter \mathcal{D}(r)\)\\~\\
+		      Soit \(d \in \mathcal{D}(a) \inter \mathcal{D}(b)\) alors : \\~\\
+		      \(d \divise b\) donc \(d \divise bq\) avec \(q \in \Zs\) et \(d \divise a\) donc \(d \divise a-bq\) or \(r = a-bq\) donc \(d \divise r\) et \(d \divise b\) donc \(d \in \mathcal{D}(b) \inter \mathcal{D}(r)\).
+		\item De même Montrons que \(  \mathcal{D}(b) \inter \mathcal{D}(r) \subset \mathcal{D}(a) \inter \mathcal{D}(b)\)
+		      Soit \(d \in \mathcal{D}(b) \inter \mathcal{D}(r)\) alors :\\~\\
+		      alors \(d \divise b\) donc \(d \divise bq\) avec \(q \in \Zs\) et \(d \divise r\) donc \(d \divise bq+r\) or \(a = bq+r\) donc \(d \divise a\) et \(d \divise b\) donc \(d \in \mathcal{D}(b) \inter \mathcal{D}(a)\).
+
+	\end{itemize}
+	\conclusion Par double inclusion \(\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(b) \inter \mathcal{D}(r)\) et ainsi par définition du PGCD \(a\wedge b = b\wedge r\)
 \end{dem}
 
 \begin{defprop}[algorithme d'euclide]
-    Soit \((a, b) \in \N \times \Ns\).\\~\\
-    On pose \(r_0 = a\) et \(r_1 = b\) puis, pour tout \(i \in \Ns\) tel que \(r_i \neq 0\), on définit \(r_{i+1}\) comme suit :\\~\\
-    \[r_{i+1}\text{ est le reste de la division euclidienne de } r_{i-1}\text{ par }r_i.\]
-    Alors :
-    \begin{itemize}
-        \item il existe \(n \in N\) tel que
-    \[r_{n+1} = 0\text{ et }r_n \neq 0\]
-        \item pour tout \(i \in \interventierii{1}{n} \),
-    \[r_{i-1} \wedge r_i = r_i \wedge r_{i+1}\]
-    \end{itemize}
-    En particulier \(r_0 \wedge r_1 = r_n \wedge r_{n+1}\) donc :
-    \[a \wedge b = r_n\]
+	Soit \((a, b) \in \N \times \Ns\).\\~\\
+	On pose \(r_0 = a\) et \(r_1 = b\) puis, pour tout \(i \in \Ns\) tel que \(r_i \neq 0\), on définit \(r_{i+1}\) comme suit :\\~\\
+	\[r_{i+1}\text{ est le reste de la division euclidienne de } r_{i-1}\text{ par }r_i.\]
+	Alors :
+	\begin{itemize}
+		\item il existe \(n \in N\) tel que
+		      \[r_{n+1} = 0\text{ et }r_n \neq 0\]
+		\item pour tout \(i \in \interventierii{1}{n} \),
+		      \[r_{i-1} \wedge r_i = r_i \wedge r_{i+1}\]
+	\end{itemize}
+	En particulier \(r_0 \wedge r_1 = r_n \wedge r_{n+1}\) donc :
+	\[a \wedge b = r_n\]
 \end{defprop}
 
 \begin{defprop}[Caractérisation du PGCD]
-    Soit \((a, b) \in \N \times \Ns\).\\~\\
-    L’ensemble des diviseurs communs à \(a\) et \(b\) est égal à l’ensemble des diviseurs de \(a \wedge b\) :
-    \[\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(a \wedge b)\]
-    Le PGCD de \(a\) et \(b\) est donc le plus grand élément (au sens de la divisibilité) de l’ensemble des diviseurs communs à \(a\) et \(b\), c’est-à-dire que :
-    \begin{itemize}
-        \item \(a \wedge b \divise a\) et \(a \wedge b \divise b\)
-        \item\( \forall d \in \N, d \divise a\) et \( d \divise b \imp d \divise a \wedge b\).
-    \end{itemize} 
+	Soit \((a, b) \in \N \times \Ns\).\\~\\
+	L’ensemble des diviseurs communs à \(a\) et \(b\) est égal à l’ensemble des diviseurs de \(a \wedge b\) :
+	\[\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(a \wedge b)\]
+	Le PGCD de \(a\) et \(b\) est donc le plus grand élément (au sens de la divisibilité) de l’ensemble des diviseurs communs à \(a\) et \(b\), c’est-à-dire que :
+	\begin{itemize}
+		\item \(a \wedge b \divise a\) et \(a \wedge b \divise b\)
+		      \item\( \forall d \in \N, d \divise a\) et \( d \divise b \imp d \divise a \wedge b\).
+	\end{itemize}
 \end{defprop}
 
 \begin{defprop} [Propriété de factorisation du PGCD]
-    Soit \((a, b) \in \N \times \Ns\).\\~\\
-    Pour tout \(k \in \Ns\), le PGCD de \(ka\) et \(kb\) vérifie
-    \[ka \wedge kb = k (a \wedge b)\]
+	Soit \((a, b) \in \N \times \Ns\).\\~\\
+	Pour tout \(k \in \Ns\), le PGCD de \(ka\) et \(kb\) vérifie
+	\[ka \wedge kb = k (a \wedge b)\]
 \end{defprop}
 
 \begin{dem}
-    Soit \((a, b) \in \N \times \Ns\) et \(k \in \Ns\)
-    \begin{itemize}
-        \item \(\begin{cases}
-            a\wedge b \divise a \\
-            k \divise k
-        \end{cases}\) 
-        et 
-        \(\begin{cases}
-            a\wedge b \divise b \\
-            k \divise k
-        \end{cases}\)
-         donc par propriété 
-         \(\begin{cases}
-            k\paren{a\wedge b} &\divise ka \\
-            k\paren{a\wedge b} &\divise kb
-         \end{cases}\) donc \(k\paren{a\wedge b} \divise ka\wedge kb\) car \(\mathcal{D}(ka)\inter \mathcal{D}(kb) = \mathcal{D}(ka\wedge kb)\)
-         \item \(k \divise ka\) et \(k \divise kb\) donc \(k \divise ka \wedge kb\) donc \(\exists q \in \N\) tel que \(ka \wedge kb = kq\)\\~\\
-         Ainsi \(kq\divise ka\) et \(kq\divise kb\) et donc \(q\divise a\) et \(q \divise b\)\\~\\
-         ainsi \(q \divise a\wedge b\) puis \(kq \divise k\paren{a\wedge b}\) et donc enfin \(ka \wedge kb \divise k\paren{ a \wedge b}\)
-    \end{itemize}
-    Ainsi on a \(k\paren{a\wedge b} \divise ka\wedge kb\) et \(ka \wedge kb \divise k\paren{ a \wedge b}\) \\~\\
-    donc \(k\paren{a\wedge b} \) et \(ka\wedge kb\) sont associés et donc égaux, car ce sont des entiers naturels non-nuls donc \(ka \wedge kb = k (a \wedge b)\)
+	Soit \((a, b) \in \N \times \Ns\) et \(k \in \Ns\)
+	\begin{itemize}
+		\item \(\begin{cases}
+			      a\wedge b \divise a \\
+			      k \divise k
+		      \end{cases}\)
+		      et
+		      \(\begin{cases}
+			      a\wedge b \divise b \\
+			      k \divise k
+		      \end{cases}\)
+		      donc par propriété
+		      \(\begin{cases}
+			      k\paren{a\wedge b} & \divise ka \\
+			      k\paren{a\wedge b} & \divise kb
+		      \end{cases}\) donc \(k\paren{a\wedge b} \divise ka\wedge kb\) car \(\mathcal{D}(ka)\inter \mathcal{D}(kb) = \mathcal{D}(ka\wedge kb)\)
+		\item \(k \divise ka\) et \(k \divise kb\) donc \(k \divise ka \wedge kb\) donc \(\exists q \in \N\) tel que \(ka \wedge kb = kq\)\\~\\
+		      Ainsi \(kq\divise ka\) et \(kq\divise kb\) et donc \(q\divise a\) et \(q \divise b\)\\~\\
+		      ainsi \(q \divise a\wedge b\) puis \(kq \divise k\paren{a\wedge b}\) et donc enfin \(ka \wedge kb \divise k\paren{ a \wedge b}\)
+	\end{itemize}
+	Ainsi on a \(k\paren{a\wedge b} \divise ka\wedge kb\) et \(ka \wedge kb \divise k\paren{ a \wedge b}\) \\~\\
+	donc \(k\paren{a\wedge b} \) et \(ka\wedge kb\) sont associés et donc égaux, car ce sont des entiers naturels non-nuls donc \(ka \wedge kb = k (a \wedge b)\)
 \end{dem}
 
 \subsection{Cas de deux entiers relatifs}
 
 \begin{defi}
-    Soit \((a, b) \in \Z^2\). \\~\\
-    On appelle PGCD de \(a\) et \(b\) l’entier naturel noté \(a \wedge b\) défini par :
-    \[a \wedge b = \begin{cases}
-        \abs{a} \wedge \abs{b} &\text{ si } (a, b) \neq (0, 0) \\
-        0 &\text{ si } (a, b) = (0, 0)
-    \end{cases}
-    \]
+	Soit \((a, b) \in \Z^2\). \\~\\
+	On appelle PGCD de \(a\) et \(b\) l’entier naturel noté \(a \wedge b\) défini par :
+	\[a \wedge b = \begin{cases}
+			\abs{a} \wedge \abs{b} & \text{ si } (a, b) \neq (0, 0) \\
+			0                      & \text{ si } (a, b) = (0, 0)
+		\end{cases}
+	\]
 \end{defi}
 
 \begin{defprop}[Extension des résultats vus pour les entiers naturels]
-    \begin{enumerate}
-        \item Soit \((a, b) \in \Z^2 \pd \accol{(0, 0)}\) .
-        \begin{enumerate}
-            \item \(a \wedge b\) est le plus grand élément (au sens de \(\leq\)) de l’ensemble des diviseurs communs à \(a\) et \(b\).
-            \item \(a \wedge b\) est le plus grand élément (au sens de \(\divise\) ) de l’ensemble des diviseurs communs à \(a\) et \(b\).
-        \end{enumerate}
-        \item Soit \((a, b) \in \Z^2\).
-        \begin{enumerate}
-            \item \(\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(a \wedge b)\).
-            \item Pour tout \(k \in \Z, ka \wedge kb = \abs{k} (a \wedge b) \)
-        \end{enumerate}
-    \end{enumerate}
+	\begin{enumerate}
+		\item Soit \((a, b) \in \Z^2 \pd \accol{(0, 0)}\) .
+		      \begin{enumerate}
+			      \item \(a \wedge b\) est le plus grand élément (au sens de \(\leq\)) de l’ensemble des diviseurs communs à \(a\) et \(b\).
+			      \item \(a \wedge b\) est le plus grand élément (au sens de \(\divise\) ) de l’ensemble des diviseurs communs à \(a\) et \(b\).
+		      \end{enumerate}
+		\item Soit \((a, b) \in \Z^2\).
+		      \begin{enumerate}
+			      \item \(\mathcal{D}(a) \inter \mathcal{D}(b) = \mathcal{D}(a \wedge b)\).
+			      \item Pour tout \(k \in \Z, ka \wedge kb = \abs{k} (a \wedge b) \)
+		      \end{enumerate}
+	\end{enumerate}
 \end{defprop}
 
 \begin{defprop}[Relation de Bézout]
-    Soit \((a, b) \in \Z^2\).\\~\\
-    Il existe un couple d’entiers \((u, v) \in \Z^2\), dit couple de Bézout, tel que \(au + bv = a \wedge b\).
-    \underline{Remarque}
-    \begin{itemize}
-    \item  Un tel couple n’est PAS UNIQUE.
-    \item  Pour \((a, b) \neq (0, 0)\), on peut déterminer un tel couple par l’algorithme d’Euclide étendu.\\~\\
-    on a : \((r_0, r_1) = (a, b), r_{i-1} = r_iq_i + r_{i+1}\) (division euclidienne de \(r_{i-1}\) par \(r_i\)) et \(n\) le plus petit entier tel que \(r_{n+1} = 0\). Ainsi, en posant
-    \[\begin{cases}
-    (u_0, v_0) &= (1, 0)
-    (u_1, v_1) = (0, 1)\end{cases}\text{ et, pour tout }i \in \interventierii{1}{N} , (u_{i+1}, v_{i+1}) = (u_{i-1} - q_i u_i, v_{i-1} - q_iv_i)\] .
-    on a : \(\forall i \in \interventierii{0}{n} , a u_i + b v_i = r_i\). En particulier, comme \(r_n\) est égal à \(a \wedge b\), on en déduit que :
-    \[a \wedge b = au_n + bv_n\text{ avec }(u_n, v_n) \in \Z^2\]
-    \item Il n’est pas nécessaire de connaître les relations de récurrence définissant les familles \( (u_i)_{0\leq i \leq n}\) et \((v_i)_{0\leq i \leq n}\).
-    \end{itemize}
+	Soit \((a, b) \in \Z^2\).\\~\\
+	Il existe un couple d’entiers \((u, v) \in \Z^2\), dit couple de Bézout, tel que \(au + bv = a \wedge b\).
+	\underline{Remarque}
+	\begin{itemize}
+		\item  Un tel couple n’est PAS UNIQUE.
+		\item  Pour \((a, b) \neq (0, 0)\), on peut déterminer un tel couple par l’algorithme d’Euclide étendu.\\~\\
+		      on a : \((r_0, r_1) = (a, b), r_{i-1} = r_iq_i + r_{i+1}\) (division euclidienne de \(r_{i-1}\) par \(r_i\)) et \(n\) le plus petit entier tel que \(r_{n+1} = 0\). Ainsi, en posant
+		      \[\begin{cases}
+				      (u_0, v_0) & = (1, 0)
+				      (u_1, v_1) = (0, 1)\end{cases}\text{ et, pour tout }i \in \interventierii{1}{N} , (u_{i+1}, v_{i+1}) = (u_{i-1} - q_i u_i, v_{i-1} - q_iv_i)\] .
+		      on a : \(\forall i \in \interventierii{0}{n} , a u_i + b v_i = r_i\). En particulier, comme \(r_n\) est égal à \(a \wedge b\), on en déduit que :
+		      \[a \wedge b = au_n + bv_n\text{ avec }(u_n, v_n) \in \Z^2\]
+		\item Il n’est pas nécessaire de connaître les relations de récurrence définissant les familles \( (u_i)_{0\leq i \leq n}\) et \((v_i)_{0\leq i \leq n}\).
+	\end{itemize}
 \end{defprop}
 
 \subsection{PPCM}
 \begin{defi}
-    Soit \((a, b) \in \Z^2\). Le PPCM de \(a\) et \(b\) est l’entier naturel noté \(a \vee b\) défini par
-    \[a \vee b = \begin{cases}
-    \min \paren{\abs{a} \Ns \inter \abs{b} \Ns} &\text{ si } a\neq 0\text{ et }b \neq 0 \\
-    0 &\text{ si } a = 0 \text{ ou } b = 0 
-    \end{cases}
-    \]
-    \underline{Remarques}\\~\\
-        \begin{itemize}
-            \item Pour tout \(a \in \Z, a \vee a = a \vee 1 = \abs{1}\).
-            \item Pour tout \((a, b) \in (\Zs)^2\), \(a \vee b\) est le plus petit entier naturel non nul, multiple commun de \(a\) et \(b\).
-        \end{itemize}
+	Soit \((a, b) \in \Z^2\). Le PPCM de \(a\) et \(b\) est l’entier naturel noté \(a \vee b\) défini par
+	\[a \vee b = \begin{cases}
+			\min \paren{\abs{a} \Ns \inter \abs{b} \Ns} & \text{ si } a\neq 0\text{ et }b \neq 0 \\
+			0                                           & \text{ si } a = 0 \text{ ou } b = 0
+		\end{cases}
+	\]
+	\underline{Remarques}\\~\\
+	\begin{itemize}
+		\item Pour tout \(a \in \Z, a \vee a = a \vee 1 = \abs{1}\).
+		\item Pour tout \((a, b) \in (\Zs)^2\), \(a \vee b\) est le plus petit entier naturel non nul, multiple commun de \(a\) et \(b\).
+	\end{itemize}
 \end{defi}
 
 \begin{prop}
-    Pour tout \((a, b) \in \Z^2\), on a :
-    \[\abs{ab} = (a \wedge b) (a \vee b)\]  
+	Pour tout \((a, b) \in \Z^2\), on a :
+	\[\abs{ab} = (a \wedge b) (a \vee b)\]
 \end{prop}
 
 \begin{dem}
-    \(\forall (a,b) \in \Z^2\)\\~\\
-    \begin{itemize}
-        \item si \((a,b)\neq(0,0)\) alors prenons \(k \in \N\) \\~\\
-        alors : 
-        \begin{align*}
-            k \in \abs{a}\Ns\inter\abs{b}\Ns &\iff \abs{a}\divise k \text{ ou } \abs{b}\divise k \\
-            &\iff \abs{ab}\divise \paren{k\abs{a}\wedge k \abs{b}} \\
-            &\iff \abs{ab} \divise k \paren{\abs{a}\wedge \abs{b}}\\
-            &\iff \exists q\in \N,k \paren{\abs{a}\wedge \abs{b}} = q\abs{ab} \\
-            &\iff \exists q\in \N,k q\frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}}\\
-            &\iff \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}} \divise k\\
-            &\iff k \in \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}} \Ns \\
-            &\iff \abs{a}\Ns\inter\abs{b}\Ns = \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}} \Ns 
-        \end{align*}
-        Donc \(a\vee b = \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}}\).\\~\\
-        Ainsi\(\abs{ab} =\paren{a \vee b}\paren{\abs{a}\wedge \abs{b}} \imp \abs{ab} =\paren{a \vee b}\paren{a\wedge b}\)
-        \item De plus si \((a,b) = (0,0)\) alors on a toujours \(\abs{ab} =\paren{a \vee b}\paren{a\wedge b}\) car \(\begin{cases}
-            \abs{ab} &= 0 \\
-            \paren{a \vee b}\paren{a\wedge b}&=0
-        \end{cases}\)
-    \end{itemize}
+	\(\forall (a,b) \in \Z^2\)\\~\\
+	\begin{itemize}
+		\item si \((a,b)\neq(0,0)\) alors prenons \(k \in \N\) \\~\\
+		      alors :
+		      \begin{align*}
+			      k \in \abs{a}\Ns\inter\abs{b}\Ns & \iff \abs{a}\divise k \text{ ou } \abs{b}\divise k                                   \\
+			                                       & \iff \abs{ab}\divise \paren{k\abs{a}\wedge k \abs{b}}                                \\
+			                                       & \iff \abs{ab} \divise k \paren{\abs{a}\wedge \abs{b}}                                \\
+			                                       & \iff \exists q\in \N,k \paren{\abs{a}\wedge \abs{b}} = q\abs{ab}                     \\
+			                                       & \iff \exists q\in \N,k q\frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}}               \\
+			                                       & \iff \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}} \divise k                        \\
+			                                       & \iff k \in \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}} \Ns                        \\
+			                                       & \iff \abs{a}\Ns\inter\abs{b}\Ns = \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}} \Ns
+		      \end{align*}
+		      Donc \(a\vee b = \frac{\abs{ab}}{\paren{\abs{a}\wedge \abs{b}}}\).\\~\\
+		      Ainsi\(\abs{ab} =\paren{a \vee b}\paren{\abs{a}\wedge \abs{b}} \imp \abs{ab} =\paren{a \vee b}\paren{a\wedge b}\)
+		\item De plus si \((a,b) = (0,0)\) alors on a toujours \(\abs{ab} =\paren{a \vee b}\paren{a\wedge b}\) car \(\begin{cases}
+			      \abs{ab}                          & = 0 \\
+			      \paren{a \vee b}\paren{a\wedge b} & =0
+		      \end{cases}\)
+	\end{itemize}
 \end{dem}
 
 \section{Entiers premiers entre eux}
@@ -268,275 +268,275 @@ Soit \((a, b, c, d) \in \Z^4\).
 Soit \((a, b, c, n) \in \Z^4\)
 
 \begin{defi}
-    Les entiers \(a\) et \(b\) sont dits premiers entre eux si leur PGCD est égal à \(1\).
-    \underline{Remarque}\\~\\
-    Autrement dit, \(a\) et \(b\) sont premiers entre eux si leurs seuls diviseurs communs sont \(-1\) et \(1\).
+	Les entiers \(a\) et \(b\) sont dits premiers entre eux si leur PGCD est égal à \(1\).
+	\underline{Remarque}\\~\\
+	Autrement dit, \(a\) et \(b\) sont premiers entre eux si leurs seuls diviseurs communs sont \(-1\) et \(1\).
 \end{defi}
 
 \begin{theo}[Théorème de Bézout]
-    \(a\) et \(b\) sont premiers entre eux si, et seulement si, il existe \((u, v) \in \Z^2\) tel que \(au + bv = 1\)
+	\(a\) et \(b\) sont premiers entre eux si, et seulement si, il existe \((u, v) \in \Z^2\) tel que \(au + bv = 1\)
 \end{theo}
 
 \begin{dem}[Théorème de Bézout]
-    Montrons le théorème par double inclusion\\~\\
-    \begin{itemize}
-        \item \impdir immédiat par relation de Bézout
-        \item \imprec On suppose \(\exists (u,v)\in \Z^2,au+bv = 1\)\\~\\
-        Soit \(d \in \N\) tq \(d \divise a\) et \(d \divise b\) alors \(d\divise au+bv\) donc \(d \divise 1\) donc \(d=1\) ainsi \(a\wedge b = 1\)
+	Montrons le théorème par double inclusion\\~\\
+	\begin{itemize}
+		\item \impdir immédiat par relation de Bézout
+		\item \imprec On suppose \(\exists (u,v)\in \Z^2,au+bv = 1\)\\~\\
+		      Soit \(d \in \N\) tq \(d \divise a\) et \(d \divise b\) alors \(d\divise au+bv\) donc \(d \divise 1\) donc \(d=1\) ainsi \(a\wedge b = 1\)
 
-    \end{itemize}
+	\end{itemize}
 \end{dem}
 
 \begin{theo}[Lemme de Gauss]
-    Si \(c\) divise \(ab\) et si \(a\) et \(c\) sont premiers entre eux alors \(c\) divise \(b\).\\~\\
-    \underline{Remarque}\\~\\
-        Tout nombre rationnel r non nul peut s’écrire sous la forme \(r = \frac{a}{b}\) avec \((a, b) \in \Zs \times \Ns \) et \(a \wedge b = 1\).\\~\\
-        Cette écriture est unique et appelée forme irréductible de \(r\).
+	Si \(c\) divise \(ab\) et si \(a\) et \(c\) sont premiers entre eux alors \(c\) divise \(b\).\\~\\
+	\underline{Remarque}\\~\\
+	Tout nombre rationnel r non nul peut s’écrire sous la forme \(r = \frac{a}{b}\) avec \((a, b) \in \Zs \times \Ns \) et \(a \wedge b = 1\).\\~\\
+	Cette écriture est unique et appelée forme irréductible de \(r\).
 \end{theo}
 
 \begin{prop}[Propriétés sur le produit]
-    \begin{enumerate}
-        \item Si \(a\) et \(b\) sont premiers entre eux et si \(a\) et \(b\) divisent \(n\) alors \(ab\) divise \(n\).
-        \item Si \(a\) et \(n\) sont premiers entre eux et si \(b\) et \(n\) sont premiers entre eux alors \(ab\) et \(n\) sont premiers
-        entre eux.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Si \(a\) et \(b\) sont premiers entre eux et si \(a\) et \(b\) divisent \(n\) alors \(ab\) divise \(n\).
+		\item Si \(a\) et \(n\) sont premiers entre eux et si \(b\) et \(n\) sont premiers entre eux alors \(ab\) et \(n\) sont premiers
+		      entre eux.
+	\end{enumerate}
 \end{prop}
 
 \begin{dem}
-    Soit \((a,b,n) \in \Z^3\)\\~\\
-    Démontrons les deux propriétés précédentes
-    \begin{enumerate}
-        \item par hypothèse \(\begin{cases}
-        \exists q \in \Z, n=aq\\
-        \exists q' \in \Z, n=bq'
-        \end{cases}\)
-        donc \(aq = bq'\) avec \(a\wedge b = 1\) donc \(b\divise q\)\\~\\
-        \(\exists q'' \in \Z\) tel que \(q = bq''\) ce qui donne \(n = abq''\) donc \(ab \divise n\)
-        \item par hypothèse et d'après le théorème de bézout on a :
-        \[\exists (u,v) \in \Z^2 \text{ tel que } au+nv=1\]
-        \[\exists (u',v') \in \Z^2 \text{ tel que } bu'+nv'=1\]
-        donc par multiplication membre à membre on a  : 
-        \[ab(u'u) + n(bvu' + nvv'+auv') = 1\]
-        donc d'après le théorème de bézout \(ab \wedge n =1\)
-    \end{enumerate}
+	Soit \((a,b,n) \in \Z^3\)\\~\\
+	Démontrons les deux propriétés précédentes
+	\begin{enumerate}
+		\item par hypothèse \(\begin{cases}
+			      \exists q \in \Z, n=aq \\
+			      \exists q' \in \Z, n=bq'
+		      \end{cases}\)
+		      donc \(aq = bq'\) avec \(a\wedge b = 1\) donc \(b\divise q\)\\~\\
+		      \(\exists q'' \in \Z\) tel que \(q = bq''\) ce qui donne \(n = abq''\) donc \(ab \divise n\)
+		\item par hypothèse et d'après le théorème de bézout on a :
+		      \[\exists (u,v) \in \Z^2 \text{ tel que } au+nv=1\]
+		      \[\exists (u',v') \in \Z^2 \text{ tel que } bu'+nv'=1\]
+		      donc par multiplication membre à membre on a  :
+		      \[ab(u'u) + n(bvu' + nvv'+auv') = 1\]
+		      donc d'après le théorème de bézout \(ab \wedge n =1\)
+	\end{enumerate}
 \end{dem}
 
 \subsection{Cas de \(n\)-uplet d’entiers avec \( n \geq 2\) }
 Soit \(n \in \N\) avec \(n \geq 2\) et \((a_1, \dots , a_n) \in \Z^n\).
 
 \begin{defprop}[PGCD d’un nombre fini d’entiers]*
-    On appelle PGCD des entiers \(\paren{a_1, \dots , a_n}\) l’entier naturel, noté \(a1 \wedge \dots \wedge a_n\), tel que
-    \[\mathcal{D}\paren{a_1 \wedge \dots \wedge a_n} = \mathcal{D}(a_1) \inter \dots \inter \mathcal{D}(a_n)\]
+	On appelle PGCD des entiers \(\paren{a_1, \dots , a_n}\) l’entier naturel, noté \(a1 \wedge \dots \wedge a_n\), tel que
+	\[\mathcal{D}\paren{a_1 \wedge \dots \wedge a_n} = \mathcal{D}(a_1) \inter \dots \inter \mathcal{D}(a_n)\]
 \end{defprop}
 
 \begin{defprop}[Relation de Bézout]
-    Il existe un \(n\)-uplet d’entiers \((u_1, \dots , u_n) \in \Z^n\) tel que  \(a_1u_1 +\dots + a_nu_n = a_1 \wedge \dots \wedge a_n\)
+	Il existe un \(n\)-uplet d’entiers \((u_1, \dots , u_n) \in \Z^n\) tel que  \(a_1u_1 +\dots + a_nu_n = a_1 \wedge \dots \wedge a_n\)
 \end{defprop}
 
 \begin{defprop}[Entiers premiers entre eux]
-    Les entiers \(a_1, \dots , a_n\) sont dits :
-    \begin{itemize}
-        \item premiers entre eux dans leur ensemble si \(a_1 \wedge \dots \wedge a_n = 1\).
-        \item premiers entre eux deux à deux si \(\forall (i, j) \in \interventierii{1}{n} , i \neq j \imp a_i \wedge a_j = 1\).
-    \end{itemize}
+	Les entiers \(a_1, \dots , a_n\) sont dits :
+	\begin{itemize}
+		\item premiers entre eux dans leur ensemble si \(a_1 \wedge \dots \wedge a_n = 1\).
+		\item premiers entre eux deux à deux si \(\forall (i, j) \in \interventierii{1}{n} , i \neq j \imp a_i \wedge a_j = 1\).
+	\end{itemize}
 \end{defprop}
 \begin{dem}[existence et unicité de la forme irréductible de tout rationnel non nul]
-    Montrons l'existence et unicité de la forme irréductible de tout rationnel non nul autrement dit \(\forall r \in \Qs, \exists ! (a',b') \in \Zs \times \Ns, r = \frac{a'}{b'}\)
-    \begin{itemize}
-        \item \existence Soit \(r \in \Qs \) alors par définition \(\exists (a,b) \in \Zs \times \Ns, r = \frac{a'}{b'}\)\\~\\
-        on note \(d = a\wedge b\) alors on note \(\begin{cases}
-            a = da' &\text{ avec } a'\in \Zs\\
-            b = db' &\text{ avec } b' \in \Zs
-        \end{cases}\)\\~\\
-        ce qui donne \(r = \frac{da'}{db'} = \frac{a'}{b'}\) avec \(a'\wedge b' = \frac{d\paren{a'\wedge b'}}{d} = \frac{da' \wedge db'}{d} = \frac{a \wedge b}{d} = 1\)
-        \item \unicite Soit \(r \in \Qs\) tel que \(r = \frac{a'}{b'} = \frac{a''}{b''}\) avec \(\begin{cases}
-            a'\wedge b' &= 1 \\
-            a'' \wedge b'' &= 1
-        \end{cases}\)\\~\\
-        on en déduit que \(a'b'' = a'' b'\) ce qui donne \(b''\divise a''b'\) puis \(b'' \divise b'\) car \(a'\wedge b' =1\) \\~\\
-        de même \(b'\divise b''\) donc \\~\\
-        \(b'\) et \(b''\) sont associés et entier naturel et donc égaux ce qui donne \(a' = a''\) et \(b' = b''\) ce qui prouve l'unicité
-    \end{itemize}
+	Montrons l'existence et unicité de la forme irréductible de tout rationnel non nul autrement dit \(\forall r \in \Qs, \exists ! (a',b') \in \Zs \times \Ns, r = \frac{a'}{b'}\)
+	\begin{itemize}
+		\item \existence Soit \(r \in \Qs \) alors par définition \(\exists (a,b) \in \Zs \times \Ns, r = \frac{a'}{b'}\)\\~\\
+		      on note \(d = a\wedge b\) alors on note \(\begin{cases}
+			      a = da' & \text{ avec } a'\in \Zs  \\
+			      b = db' & \text{ avec } b' \in \Zs
+		      \end{cases}\)\\~\\
+		      ce qui donne \(r = \frac{da'}{db'} = \frac{a'}{b'}\) avec \(a'\wedge b' = \frac{d\paren{a'\wedge b'}}{d} = \frac{da' \wedge db'}{d} = \frac{a \wedge b}{d} = 1\)
+		\item \unicite Soit \(r \in \Qs\) tel que \(r = \frac{a'}{b'} = \frac{a''}{b''}\) avec \(\begin{cases}
+			      a'\wedge b'    & = 1 \\
+			      a'' \wedge b'' & = 1
+		      \end{cases}\)\\~\\
+		      on en déduit que \(a'b'' = a'' b'\) ce qui donne \(b''\divise a''b'\) puis \(b'' \divise b'\) car \(a'\wedge b' =1\) \\~\\
+		      de même \(b'\divise b''\) donc \\~\\
+		      \(b'\) et \(b''\) sont associés et entier naturel et donc égaux ce qui donne \(a' = a''\) et \(b' = b''\) ce qui prouve l'unicité
+	\end{itemize}
 \end{dem}
 \section{Nombres premiers}
 \subsection{Généralités}
 \begin{defi}
-    Un nombre entier naturel non nul \(p\) est dit premier s’il admet uniquement deux diviseurs entiers naturels distincts (qui sont \(1\) et \(p\))
+	Un nombre entier naturel non nul \(p\) est dit premier s’il admet uniquement deux diviseurs entiers naturels distincts (qui sont \(1\) et \(p\))
 \end{defi}
 
 \begin{defprop}
-    Ensemble des nombres premiers
-L’ensemble \(\mathcal{P}\) des nombres premiers est infini.
+	Ensemble des nombres premiers
+	L’ensemble \(\mathcal{P}\) des nombres premiers est infini.
 \end{defprop}
 \begin{dem}
-    Par l'absurde, supposons que \(\mathcal{P}\) est fini \cad \(\mathcal{P = \accol{p_1 \dots p_n}}\)\\~\\
-    On pose \(N = \paren{\prod_{i = 1}^{n} p_i} + 1\)\\~\\
-    alors \(\begin{cases}
-        N \in \N \\
-        N \geq 2
-    \end{cases}\) donc \(N\) admet un diviseur premier \(i_0\) \\~\\
-    \(\exists i_0 \in \interventierii{1}{n} , \begin{cases}
-        p_{i_0} \divise N \\
-        p_[i_0] \divise \prod_{i=1}^{n} p_i
-    \end{cases}\) donc \(p_{i_0} \divise 1\)\\~\\
-    d'où \(p_{i_0} = 1\) ce qui est faux car \(p_{i_0}\) est premier\\~\\
-    \conclusion \(\mathcal{P}\) est infini    
+	Par l'absurde, supposons que \(\mathcal{P}\) est fini \cad \(\mathcal{P = \accol{p_1 \dots p_n}}\)\\~\\
+	On pose \(N = \paren{\prod_{i = 1}^{n} p_i} + 1\)\\~\\
+	alors \(\begin{cases}
+		N \in \N \\
+		N \geq 2
+	\end{cases}\) donc \(N\) admet un diviseur premier \(i_0\) \\~\\
+	\(\exists i_0 \in \interventierii{1}{n} , \begin{cases}
+		p_{i_0} \divise N \\
+		p_[i_0] \divise \prod_{i=1}^{n} p_i
+	\end{cases}\) donc \(p_{i_0} \divise 1\)\\~\\
+	d'où \(p_{i_0} = 1\) ce qui est faux car \(p_{i_0}\) est premier\\~\\
+	\conclusion \(\mathcal{P}\) est infini
 \end{dem}
 \subsection{Décomposition en produit de nombres premiers}
 
 \begin{theo}
-    Tout entier naturel \(n\) supérieur ou égal à \(2\) peut s’écrire de manière unique (à l’ordre près des facteurs) sous la forme
-    \[n = \prod_{i=1}^{k} p_i^{\alpha_i}\]
-    où \(k \in \Ns\) avec \(\forall i \in \interventierii{1}{k} , \alpha_i \in \Ns\) et \(p_i\) est un nombre premier.
+	Tout entier naturel \(n\) supérieur ou égal à \(2\) peut s’écrire de manière unique (à l’ordre près des facteurs) sous la forme
+	\[n = \prod_{i=1}^{k} p_i^{\alpha_i}\]
+	où \(k \in \Ns\) avec \(\forall i \in \interventierii{1}{k} , \alpha_i \in \Ns\) et \(p_i\) est un nombre premier.
 \end{theo}
 
 \begin{defprop}[Corrolaire]
-    Tout entier naturel non nul \(n\) s’écrit de manière unique (à l’ordre près des facteurs) sous la forme
-    \[n = \prod_{p \in \mathcal{P}}p^{\alpha_p}\]
-    où \(\paren{\alpha_p}_{p \in \mathcal{P}}\) est une famille presque nulle d’entiers naturels, c’est-à-dire une famille dans laquelle tous les éléments sont nuls sauf un nombre fini d’entre eux.
+	Tout entier naturel non nul \(n\) s’écrit de manière unique (à l’ordre près des facteurs) sous la forme
+	\[n = \prod_{p \in \mathcal{P}}p^{\alpha_p}\]
+	où \(\paren{\alpha_p}_{p \in \mathcal{P}}\) est une famille presque nulle d’entiers naturels, c’est-à-dire une famille dans laquelle tous les éléments sont nuls sauf un nombre fini d’entre eux.
 \end{defprop}
 
 \subsection{Valuation \(p\)-adique}
 \begin{defprop}
-    Soit \(p\) un nombre premier et \(n\) un entier naturel non nul.\\~\\
-    L’entier \(\alpha_p\) qui apparaît dans la décomposition primaire de \(n\)
-    \[n = \prod_{p \in \mathcal{p}} p ^{\alpha_p}\]
-    est appelé valuation \(p\)-adique de \(n\) et noté \(v_p(n)\) .\\~\\
-    \underline{Autrement dit}\\~\\
-    \(v_p(n)\) est le plus grand entier naturel \(k\) tel que \(p^k\) divise \(n\)
+	Soit \(p\) un nombre premier et \(n\) un entier naturel non nul.\\~\\
+	L’entier \(\alpha_p\) qui apparaît dans la décomposition primaire de \(n\)
+	\[n = \prod_{p \in \mathcal{p}} p ^{\alpha_p}\]
+	est appelé valuation \(p\)-adique de \(n\) et noté \(v_p(n)\) .\\~\\
+	\underline{Autrement dit}\\~\\
+	\(v_p(n)\) est le plus grand entier naturel \(k\) tel que \(p^k\) divise \(n\)
 \end{defprop}
 
 \begin{defprop}[Valuation \(p\)-adique d’un produit]
-    Pour tout nombre premier \(p\) et tous entiers naturels non nuls \(n\) et \(n'\), on a :
-    \[v_p(nn') = v_p(n) + v_p(n')\]
+	Pour tout nombre premier \(p\) et tous entiers naturels non nuls \(n\) et \(n'\), on a :
+	\[v_p(nn') = v_p(n) + v_p(n')\]
 \end{defprop}
 
 \begin{defprop}[Caractérisation de la divisibilité]
-    Soit \((a, b) \in (\Ns)^2\).\\~\\
-    \(b\) divise \(a\) si, et seulement si, pour tout nombre premier \(p\), on a : \(v_p(b) \leq v_p(a)\)
+	Soit \((a, b) \in (\Ns)^2\).\\~\\
+	\(b\) divise \(a\) si, et seulement si, pour tout nombre premier \(p\), on a : \(v_p(b) \leq v_p(a)\)
 \end{defprop}
 
 \begin{dem}
-    Soit \((a,b) \in \N^2\), procédons par double équivalence
-    \begin{itemize}
-        \item \impdir on suppose \(b\divise a\)\\~\\
-        alors \(\exists q \in \N, a = bq\) donc \(\forall p \in \mathcal{P}, v_p(a) = v_p(b) + v_p(q) \imp v_p(a) \geq v_p(b)\)
-        \item \imprec on suppose \(\forall p \in \mathcal{P}, v_p(a) \geq v_p(b)\)\\~\\
-        alors \(p^{v_p(a)} = p^{v_p(a) - v_p(b)} \times p^{v_p(b)}\) donc \(p^{v_p(b)} \divise p^{v_p(a)}\) ainsi\\~\\
-        \(\prod_{p \in \mathcal{P}}p^{v_p(b)} \divise \prod_{p \in \mathcal{P}}p^{v_p(a)}\) donc \(b \divise a\)
-    \end{itemize}
+	Soit \((a,b) \in \N^2\), procédons par double équivalence
+	\begin{itemize}
+		\item \impdir on suppose \(b\divise a\)\\~\\
+		      alors \(\exists q \in \N, a = bq\) donc \(\forall p \in \mathcal{P}, v_p(a) = v_p(b) + v_p(q) \imp v_p(a) \geq v_p(b)\)
+		\item \imprec on suppose \(\forall p \in \mathcal{P}, v_p(a) \geq v_p(b)\)\\~\\
+		      alors \(p^{v_p(a)} = p^{v_p(a) - v_p(b)} \times p^{v_p(b)}\) donc \(p^{v_p(b)} \divise p^{v_p(a)}\) ainsi\\~\\
+		      \(\prod_{p \in \mathcal{P}}p^{v_p(b)} \divise \prod_{p \in \mathcal{P}}p^{v_p(a)}\) donc \(b \divise a\)
+	\end{itemize}
 \end{dem}
 
 \begin{defprop}[PGCD et PPCM]
-    Soit \((a, b) \in (\Ns)^2\).\\~\\
-    Les PGCD et PPCM des entiers a et b vérifient :
-    \[a\wedge b = \prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}\]
-    \[a\vee b = \prod_{p \in \mathcal{P}}p^{\max\paren{v_p(a),v_p(b)}}\]
+	Soit \((a, b) \in (\Ns)^2\).\\~\\
+	Les PGCD et PPCM des entiers a et b vérifient :
+	\[a\wedge b = \prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}\]
+	\[a\vee b = \prod_{p \in \mathcal{P}}p^{\max\paren{v_p(a),v_p(b)}}\]
 \end{defprop}
 
 \begin{dem}
-    Soit \((a,b) \in \paren{\Ns}^2\)
-    \begin{itemize}
-        \item Montrons que \(a \wedge b = \prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}\)\\~\\
-         on note \(d = \prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}\)\\~\\
-         \(\forall p \in \mathcal{P},v_p(d) = \min\paren{v_p(a),v_p(b)}\) \\~\\
-         donc \(\forall p \in \mathcal{P}, \begin{cases}
-            v_p(d) &\leq v_p(a) \\
-            v_p(d) &\leq v_p(b)
-         \end{cases}\) d'où \(\begin{cases}
-            d&\divise a \\
-            d &\divise b
-         \end{cases}\)\\~\\
-         on note alors \(\begin{cases}
-            a = da' &\text{ avec } a'\in \Ns\\
-            b = db' &\text{ avec } b' \in \Ns
-        \end{cases}\)
-        Montrons alors que \(a'\wedge b' = 1\) ce qui donnerais alors \(a \wedge b = d\paren{a' \wedge b'} = d\)\\~\\
-        Soit \(k\) un diviseur commun à \(a'\) et \(b'\) différent de \(1\) alors \(k \geq 2\) donc \(k\) admet un diviseur premier \(p'\)\\~\\
-        donc \(\begin{cases}
-            p' \divise a' \\
-            p' \divise b'
-        \end{cases}\) d'où \(\begin{cases}
-            v_{p'}(p') \leq v_{p'}(a)\\
-            v_{p'}(p') \leq v_{p'}(b)
-        \end{cases}\) \ie \(\begin{cases}
-            1\leq v_{p'}(a) & \qquad (1)\\
-            1 \leq v_{p'}(b) & \qquad (2)
-        \end{cases}\)
-        Si \(v_{p'}(a) \leq v_{p'}(b)\) alors \(v_{p'}(d) = v_{p'}(a)\) et \(v_{p'}(a) = v_{p'}(d) + v_{p'}(a')\) d'où \(v_{p'}(a') = 0\) ce qui contredit \((1)\)\\~\\
-        Si \(v_{p'}(b) < v_{p'}(a)\) alors \(v_{p'}(d) = v_{p'}(b)\) donc \(v_{p'}(b') = 0\)\\~\\
-        Donc \(k=1\) d'où \(a'\wedge b' = 1\) d'où \(a \wedge b = d\)
-        \item Montrons que \(a\vee b = \prod_{p \in \mathcal{P}}p^{\max\paren{v_p(a),v_p(b)}}\)
-        on a :\begin{align*}
-            a \vee b = \frac{ab}{a\wedge b} &= \frac{\paren{\prod_{p \in \mathcal{P}} p ^{v_p(a)}}\paren{\prod_{p \in \mathcal{P}} p ^{v_p(b)}}}{\prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}} \\
-            & = \prod_{p \in \mathcal{P}}p^{\max\paren{v_p(a),v_p(b)}}*
-        \end{align*}
-        \end{itemize}
+	Soit \((a,b) \in \paren{\Ns}^2\)
+	\begin{itemize}
+		\item Montrons que \(a \wedge b = \prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}\)\\~\\
+		      on note \(d = \prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}\)\\~\\
+		      \(\forall p \in \mathcal{P},v_p(d) = \min\paren{v_p(a),v_p(b)}\) \\~\\
+		      donc \(\forall p \in \mathcal{P}, \begin{cases}
+			      v_p(d) & \leq v_p(a) \\
+			      v_p(d) & \leq v_p(b)
+		      \end{cases}\) d'où \(\begin{cases}
+			      d & \divise a \\
+			      d & \divise b
+		      \end{cases}\)\\~\\
+		      on note alors \(\begin{cases}
+			      a = da' & \text{ avec } a'\in \Ns  \\
+			      b = db' & \text{ avec } b' \in \Ns
+		      \end{cases}\)
+		      Montrons alors que \(a'\wedge b' = 1\) ce qui donnerais alors \(a \wedge b = d\paren{a' \wedge b'} = d\)\\~\\
+		      Soit \(k\) un diviseur commun à \(a'\) et \(b'\) différent de \(1\) alors \(k \geq 2\) donc \(k\) admet un diviseur premier \(p'\)\\~\\
+		      donc \(\begin{cases}
+			      p' \divise a' \\
+			      p' \divise b'
+		      \end{cases}\) d'où \(\begin{cases}
+			      v_{p'}(p') \leq v_{p'}(a) \\
+			      v_{p'}(p') \leq v_{p'}(b)
+		      \end{cases}\) \ie \(\begin{cases}
+			      1\leq v_{p'}(a)  & \qquad (1) \\
+			      1 \leq v_{p'}(b) & \qquad (2)
+		      \end{cases}\)
+		      Si \(v_{p'}(a) \leq v_{p'}(b)\) alors \(v_{p'}(d) = v_{p'}(a)\) et \(v_{p'}(a) = v_{p'}(d) + v_{p'}(a')\) d'où \(v_{p'}(a') = 0\) ce qui contredit \((1)\)\\~\\
+		      Si \(v_{p'}(b) < v_{p'}(a)\) alors \(v_{p'}(d) = v_{p'}(b)\) donc \(v_{p'}(b') = 0\)\\~\\
+		      Donc \(k=1\) d'où \(a'\wedge b' = 1\) d'où \(a \wedge b = d\)
+		\item Montrons que \(a\vee b = \prod_{p \in \mathcal{P}}p^{\max\paren{v_p(a),v_p(b)}}\)
+		      on a :\begin{align*}
+			      a \vee b = \frac{ab}{a\wedge b} & = \frac{\paren{\prod_{p \in \mathcal{P}} p ^{v_p(a)}}\paren{\prod_{p \in \mathcal{P}} p ^{v_p(b)}}}{\prod_{ p \in \mathcal{P}} p^{\min\paren{v_p(a),v_p(b)}}} \\
+			                                      & = \prod_{p \in \mathcal{P}}p^{\max\paren{v_p(a),v_p(b)}}*
+		      \end{align*}
+	\end{itemize}
 \end{dem}
 
 \subsection{Congruences}
 Soit \((x, y, z, t) \in \Z^4\) et \(n \in \Ns\).
 
 \begin{defi}
-    \(x\) est dit congru à \(y\) modulo \(n\) s’il existe \(k \in \Z\) tel que \(x = y + nk\) autrement dit si \(x - y \in n\Z\).\\~\\
-    \underline{Notation} : \( x \equiv y \croch{n}\)
+	\(x\) est dit congru à \(y\) modulo \(n\) s’il existe \(k \in \Z\) tel que \(x = y + nk\) autrement dit si \(x - y \in n\Z\).\\~\\
+	\underline{Notation} : \( x \equiv y \croch{n}\)
 \end{defi}
 
 \subsection{Caractérisation}
 \begin{defprop}
-    \(x \equiv y \croch{n}\) si, et seulement si, les restes des divisions euclidiennes de \(x\) et \(y\) par \(n\) sont égaux.
+	\(x \equiv y \croch{n}\) si, et seulement si, les restes des divisions euclidiennes de \(x\) et \(y\) par \(n\) sont égaux.
 \end{defprop}
 
 \begin{dem}
-    Soit \(\paren{x,y} \in \Z\) et \(n \in \Ns\) Montrons la caractérisation par double inclusion
-    \begin{itemize}
-        \item \impdir On suppose \(x \equiv y \croch{n}\) on écrit la division euclidienne de \(y\) par \(n\)\\~\\
-        \(\exists (q,r) \in \Z \times \interventierii{0}{n-1}, y =nq+r\)\\~\\
-        par hypothèse on a : \(\exists k \in \Z, x = y + nk\)\\~\\
-        donc \(x = n(k+q)+r\) est la division euclidienne de \(x\) par \(n\) donc \(r\) est le reste de la division euclidienne de \(x\) et \(y\) par \(n\)
-        \item \imprec On suppose que \(x\) et \(y\) ont le même reste dans la division euclidienne de \(x\) et \(y\) par \(n\) \\~\\
-        Ainsi \(\exists(k,k') \in \Z^2, \exists r \in \interventierii{0}{n-1} \begin{cases}
-            x &= nk+r \\
-            y = nk' +r
-        \end{cases}\)\\~\\
-        donc \(x-y = n(k-k')\) \ie \(x-y \in n\Z\) \ie \(x \equiv y \croch{n}\)
-    \end{itemize}
+	Soit \(\paren{x,y} \in \Z\) et \(n \in \Ns\) Montrons la caractérisation par double inclusion
+	\begin{itemize}
+		\item \impdir On suppose \(x \equiv y \croch{n}\) on écrit la division euclidienne de \(y\) par \(n\)\\~\\
+		      \(\exists (q,r) \in \Z \times \interventierii{0}{n-1}, y =nq+r\)\\~\\
+		      par hypothèse on a : \(\exists k \in \Z, x = y + nk\)\\~\\
+		      donc \(x = n(k+q)+r\) est la division euclidienne de \(x\) par \(n\) donc \(r\) est le reste de la division euclidienne de \(x\) et \(y\) par \(n\)
+		\item \imprec On suppose que \(x\) et \(y\) ont le même reste dans la division euclidienne de \(x\) et \(y\) par \(n\) \\~\\
+		      Ainsi \(\exists(k,k') \in \Z^2, \exists r \in \interventierii{0}{n-1} \begin{cases}
+			      x & = nk+r \\
+			      y = nk' +r
+		      \end{cases}\)\\~\\
+		      donc \(x-y = n(k-k')\) \ie \(x-y \in n\Z\) \ie \(x \equiv y \croch{n}\)
+	\end{itemize}
 \end{dem}
 
 \subsection{Propriétés}
 \begin{defprop}
-    \begin{enumerate}
-        \item \(x \equiv x \croch{n}\) \hfill (réflexivité)
-        \item si \(x \equiv y \croch{n}\) alors \(y \equiv x \croch{n}\) \hfill(symétrie)
-        \item si \(x \equiv y \croch{n} \) et \(y \equiv z \croch{n}\) alors \(x \equiv z \croch{n}\) \hfill(transitivité)
-    \end{enumerate}
+	\begin{enumerate}
+		\item \(x \equiv x \croch{n}\) \hfill (réflexivité)
+		\item si \(x \equiv y \croch{n}\) alors \(y \equiv x \croch{n}\) \hfill(symétrie)
+		\item si \(x \equiv y \croch{n} \) et \(y \equiv z \croch{n}\) alors \(x \equiv z \croch{n}\) \hfill(transitivité)
+	\end{enumerate}
 \end{defprop}
 
 \subsection{Opération}
 \begin{defprop}
-    \begin{enumerate}
-        \item  Si \(x \equiv y \croch{n} \) et \(z \equiv t \croch{n} \) alors \(x+z \equiv y+t \croch{n} \)\hfill (compatibilité avec l’addition)
-        \item  Si \(x \equiv y \croch{n} \) et \(z \equiv t \croch{n} \) alors \(xz \equiv yt \croch{n} \). \hfill(compatibilité avec la multiplication)
-    \end{enumerate}
+	\begin{enumerate}
+		\item  Si \(x \equiv y \croch{n} \) et \(z \equiv t \croch{n} \) alors \(x+z \equiv y+t \croch{n} \)\hfill (compatibilité avec l’addition)
+		\item  Si \(x \equiv y \croch{n} \) et \(z \equiv t \croch{n} \) alors \(xz \equiv yt \croch{n} \). \hfill(compatibilité avec la multiplication)
+	\end{enumerate}
 \end{defprop}
 
 \subsection{Inverse modulo \(n\)}
 \begin{defprop}
-    \begin{itemize}
-        \item Si \(x\) et \(n\) sont premiers entre eux, il existe un couple d’entiers \((u, v)\) tel que \(ux + vn = 1\).\\~\\
-            On en déduit que
-            \[ux \equiv 1 \croch{n}\]
-            et on dit que \(u\) est un inverse de \(x\) modulo \(n\).
-        \item Si \(u\) est un inverse de \(x\) modulo \(n\) alors il existe un couple d’entiers \((u, v)\) tel que \(ux + vn = 1\).
-            On en déduit que \(x\) et \(n\) sont premiers entre eux.
-    \end{itemize}
+	\begin{itemize}
+		\item Si \(x\) et \(n\) sont premiers entre eux, il existe un couple d’entiers \((u, v)\) tel que \(ux + vn = 1\).\\~\\
+		      On en déduit que
+		      \[ux \equiv 1 \croch{n}\]
+		      et on dit que \(u\) est un inverse de \(x\) modulo \(n\).
+		\item Si \(u\) est un inverse de \(x\) modulo \(n\) alors il existe un couple d’entiers \((u, v)\) tel que \(ux + vn = 1\).
+		      On en déduit que \(x\) et \(n\) sont premiers entre eux.
+	\end{itemize}
 \end{defprop}
 
 \subsection{Petit Théorème de Fermat}
 \begin{theo}
-    Si \(p\) est un nombre premier alors : 
-    \begin{enumerate}
-        \item \(\forall a \in \Z, ap \equiv a \croch{p}\).
-        \item \(\forall a \in \Z, a \wedge p = 1 \imp a^{p-1} \equiv 1 \croch{p}\).
-    \end{enumerate}
+	Si \(p\) est un nombre premier alors :
+	\begin{enumerate}
+		\item \(\forall a \in \Z, ap \equiv a \croch{p}\).
+		\item \(\forall a \in \Z, a \wedge p = 1 \imp a^{p-1} \equiv 1 \croch{p}\).
+	\end{enumerate}
 \end{theo}

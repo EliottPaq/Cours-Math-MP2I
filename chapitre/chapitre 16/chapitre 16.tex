@@ -1,0 +1,456 @@
+\chapter{Dérivation}
+
+\minitoc
+
+Dans ce chapitre, \(I\) et \(J\) sont des intervalles de \(\R\), non vides et non réduits à un point.
+
+\section{Dérivation des fonctions à valeurs réelles}
+\subsection{Dérivée en un point}
+Soit \(f\) une fonction définie sur \(I\), à valeurs dans \(\R\), et \(a\) un point de \(I\).
+
+\begin{defi}[Définition avec le taux d’accroissement]
+    ~\\
+	\(f\) est dite dérivable en \(a\) si la fonction \(x \mapsto \frac{f (x) - f (a)}{x - a}\) admet une limite réelle \(l\) en \(a\).\\~\\
+	Dans ce cas,\\~\\
+	la limite \(l\) obtenue est appelée dérivée de \(f\) en a et notée\( f'(a)\).
+\end{defi}
+
+\begin{defprop}[Caractérisation de la dérivabilité en un point par D.L d’ordre \(1\)]
+	\(f\) est dérivable en \(a\) si, et seulement si, il existe \((b_0, b_1) \in \R^2\) et une application \(\epsilon : I \to \R\) tel que :
+	\[\forall x \in I, f (x) = b_0 + b_1(x - a) + (x - a) \epsilon(x)\text{ et }\lim_{x\to a} \epsilon(x) = 0\]
+	Dans ce cas, \(b_0 = f (a)\) et \(b_1 = f '(a) \) et on dit que \(f\) admet un développement limité à l’ordre \(1\) en \(a\).
+\end{defprop}
+
+\begin{dem}
+    \begin{itemize}
+        \item \impdir On suppose \(f\) dérivable en \(a\) alors \(\frac{f(x)-f(a)}{x-a} \underset{x \to a}{\to} f'(a)\)\\~\\
+        On pose \(\epsilon(x) = \begin{cases}
+            \frac{f(x) -f(a)}{x-a} - f'(a) &\text{ si } x\neq a \\
+            0 &\text{ si } x=a
+        \end{cases}\) \\~\\
+        alors \(\epsilon(x) \underset{x \to a}{\to} 0 \) et \(\forall x \in I \pd \accol{a}, (x-a)\epsilon(x) = f(x) - f(a) - f'(x)(x-a)\) donc \(f(x) =f(a) + f'(x)(x-a) + (x-a)\epsilon(x)\)
+        \item \imprec On suppose qu'il existe \((b_0,b_1) \in \R^2\) et \(\epsilon : I \to \R\) tel que:
+        \begin{itemize}
+            \item si \(x\neq a \) alors \(f (x) = b_0 + b_1(x - a) + (x - a) \epsilon(x)\text{ et }\lim_{x\to a} \epsilon(x) = 0\)
+            \item si \(x = a\)  : \(f(a) = b_0\)
+        \end{itemize}
+        donc pour \(x \neq a , \frac{f(x) - f(a)}{x-a} = b_1 + \epsilon(x) \underset{x \to a}{\to} b_1\) ainsi \(f\) dérivable en \(a\) avec \(f'(a) = b_1\)   
+    \end{itemize}
+\end{dem}
+
+\begin{defprop}[Condition nécessaire de dérivabilité en un point]
+	Si \(f\) est dérivable en \(a\) alors \(f\) est continue en \(a\).\\~\\
+	\underline{Remarque}\\~\\
+	La réciproque est FAUSSE comme le prouve l’exemple classique de la fonction valeur absolue en \(0\).
+\end{defprop}
+\begin{dem}
+    Si \(f\) dérivable alors \(\forall x \in I, f (x) = f(a) + f'(a)(x - a) + (x - a) \epsilon(x)\text{ et }\lim_{x\to a} \epsilon(x) = 0\) donc \(f(x) \underset{x \to a}{\to} f(a)\) d'où \(f\) continue en \(a\)
+\end{dem}
+
+\begin{defprop}[Interprétations géométrique et cinématique]
+	\begin{itemize}
+		\item  Si \(f\) admet une dérivée au point \(a\) alors la courbe représentative de \(f\) admet une tangente en  \(M (a, f (a))\) dont la pente est égale à \(f '(a)\).
+		\item Si \(f (t)\) est l’abscisse à l’instant \(t \geq 0\) d’un mobile se déplaçant sur une droite et si \(f\) admet une dérivée au point \(a \geq 0\) alors \(f '(a)\) est la vitesse instantanée de ce mobile à l’instant \(a\).
+	\end{itemize}
+\end{defprop}
+
+\subsection{Dérivabilité à droite et à gauche}
+Soit \(f\) une fonction définie sur \(I\), à valeurs dans \(\R\), et \(a\) un point de \(I\).
+\begin{defi}
+	\begin{itemize}
+		\item On suppose ici que \(a\) n’est pas l’extrémité gauche de \(I\).\\~\\
+		      \(f\) est dite dérivable à gauche en \(a\) si \(x \mapsto \frac{1}{ x - a} (f (x) - f (a))\) admet une limite à gauche en \(a\).\\~\\
+		      La limite obtenue (unique si elle existe) est appelée dérivée à gauche de \(f\) en \(a\) et notée \(f '_g(a)\).
+		\item On suppose ici que \(a\) n’est pas l’extrémité droite de \(I\).\\~\\
+		      \(f\) est dite dérivable à droite en \(a\) si \(x \mapsto \frac{1}{x - a} (f (x) - f (a))\) admet une limite à droite en \(a\).\\~\\
+		      La limite obtenue (unique si elle existe) est appelée dérivée à droite de \(f\) en \(a\) et notée \(f '_d(a)\).
+	\end{itemize}
+\end{defi}
+
+\begin{prop}
+	On suppose ici que \(a\) n’est pas extrémité de \(I\).\\~\\
+	\(f\) est dérivable en \(a\) si, et seulement si, \(f\) est dérivable à gauche et à droite en \(a\) avec \(f '_g(a) = f '_d(a)\).\\~\\
+	Dans ce cas, \(f '(a) = f '_g(a) = f '_d(a)\).
+\end{prop}
+
+\subsection{Condition nécessaire d’extremum local en un point intérieur}
+\begin{defprop}
+	Soit \(f\) une fonction définie sur \(I\), à valeurs dans \(R\).\\~\\
+	Si \(f\) admet un extremum local en un point \(a\) de \(I\) qui n’est pas une extrémité de \(I\), et si \(f\) est dérivable en \(a\) alors \(f '(a) = 0\)
+	\underline{Remarques}
+	\begin{itemize}
+		\item Les points \(a\) de \(I\) en lesquels \(f\) est dérivable avec \(f '(a) = 0\) sont dits points critiques de \(f\).
+		\item La détermination des points critiques indique où des extremums sont susceptibles d’exister. Une étude complémentaire du signe de \(f (x) - f (a)\) au voisinage du point critique \(a\) est nécessaire pour conclure s’il y extremum local ou non en ce point \(a\).
+		\item Il peut y avoir des extremums locaux pour \(f\) en un point extrémité \(a\) de l’intervalle \(I\) en lequel \(f\) est dérivable sans que \(f '(a)\) ne soit égal à \(0\).
+	\end{itemize}
+\end{defprop}
+
+\begin{dem}
+    On suppose, sans perte de généralité, que \(f\) admet un maximum local en \(a\), point de \(I\) qui n’est pas extrémité de \(I\), et que \(f\) est dérivable en \(a\). Le cas du minimum local s’en déduit en remplaçant \(f\) par \(-f\).\\~\\
+    Alors, par définition d’un maximum local, il existe un réel \(\delta\) strictement positif tel que \\~\\
+    \[\forall x \in \intervee{a-\delta}{a+\delta},f(x)\leq f(a)\]
+    Ainsi, 
+    \[\forall x \in \intervee{a-\delta}{a},\frac{f(x)-f(a)}{x-a}\geq 0\]
+    et
+    \[\forall x \in \intervee{a}{a+\delta},\frac{f(x)-f(a)}{x-a}\leq 0\]
+    Comme \(f\) est dérivable en \(a\) et que \(a\) n'est pas extrémité de \(I\), \(f\) est dérivable à droite et à gauche en \(a\) avec
+    \[f'_g(a) = f'_d(a) = f'(a)\]
+    Par passage à la limite dans les inégalités précédentes, on a d’abord \(f '_g(a) \geq 0\) et \(f '_d(a) \geq 0\) puis
+    \[0 \leq f '(a) \leq 0\]
+    ce qui donne par antisymétrie que \(f '(a) = 0\).\\~\\
+    \underline{Bilan} : Si \(f\) a un extremum local en un point \(a\) de \(\mathring{I}\) et si \(f\) est dérivable en \(a\) alors \(f '(a) = 0\).\\~\\
+    \underline{Remarque} : \(\mathring{I}\) désigne l’intérieur de \(I\) ,c’est-à-dire ici, l’ensemble des points de \(I\) qui sont centres d’un intervalle ouvert inclus dans \(I\).
+\end{dem}
+
+\subsection{Dérivée sur un intervalle}
+Soit \(f\) une fonction définie sur \(I\), à valeurs dans \(\R\).
+\begin{defi}
+	\(f\) est dite dérivable sur \(I\) si \(f\) est dérivable en tout point \(a\) de \(I\).\\~\\
+	Dans ce cas,\\~\\
+	la fonction qui, à tout \(a\) de \(I\) fait correspondre \(f '(a)\) est appelée application dérivée de \(f\) et notée \(f '\).\\~\\
+	\underline{Notation}
+	Dans la suite, on note \(\mathcal{D} (I, \R)\) l’ensemble des fonctions définies et dérivables sur \(I\), à valeurs réelles.
+\end{defi}
+
+\begin{defprop}[Opérations sur les fonctions dérivables]
+	Les opérations sur les limites vues dans le chapitre “Limite et continuité” permettent de montrer que \(\mathcal{D} (I, \R)\) est stable par combinaison linéaire, produit et quotient (sous réserve que cela ait du sens).\\~\\
+	Plus précisément :
+	\begin{itemize}
+		\item une combinaison linéaire de fonctions dérivables sur \(I\) à valeurs réelles est dérivable sur \(I\) :
+		      \[\forall(f, g) \in \paren{\mathcal{D}(I,\R)}^2 , \forall(\lambda, \mu) \in \R ^2, \lambda f + \mu g \in \mathcal{D}(I,\R)\text{ et }(\lambda f + \mu g)' = \lambda f ' + \mu g'\]
+		\item un produit de fonctions dérivables sur \(I\) à valeurs réelles est dérivable sur \(I\) :
+		      \[\forall(f, g) \in \paren{\mathcal{D}(I,\R)}^2 , f g \in \mathcal{D}(I,\R)\text{ et }(f g)' = f 'g + f g'\]
+		\item un quotient de fonctions dérivables sur \(I\) à valeurs réelles dont le dénominateur ne s’annule pas sur \(I\) est dérivable sur \(I\) :
+		      \[\forall(f, g) \in \paren{\mathcal{D}(I,\R)}^2 , \forall x \in I, g(x)\neq 0 \imp \frac{f}{g}\in \mathcal{D}(I,\R)\text{ et} \paren{\frac{f}{g}}' = \frac{f 'g - f g'}{g^2}\]
+	\end{itemize}
+\end{defprop}
+
+\begin{dem}[Preuve dérivée \(\paren{\frac{f}{g}}' = \frac{f'g - fg'}{g^2}\)]
+    Soit \(\paren{f,g} \in\paren{\mathcal{D}(I,\R)}^2 \) avec \(\forall x \in I,g(x) \neq 0\)
+    Soit  \(a \in I\), \\~\\
+    Pour \(x \in I \pd \accol{a}\)
+    \begin{align*}
+        \frac{\frac{f}{g}(x) - \frac{f}{g}(a)}{x-a} &= \frac{\frac{f(x)g(a) - f(a)g(x)}{g(a)g(x)}}{x-a} \\
+        &= \frac{f(x)g(a) - f(a)g(x)}{x-a}\times \frac{1}{g(a)g(x)} \\
+        &= \frac{1}{g(a)g(x)} \times \paren{\frac{\paren{f(x) - f(a)}g(a)}{x-a} - \frac{f(a)\paren{g(x)-g(a)}}{x-a}}\\
+        &= \frac{1}{g(a)g(x)} \times \paren{\frac{\paren{f(x) - f(a)}}{x-a}g(a) - f(a)\frac{\paren{g(x)-g(a)}}{x-a}}
+    \end{align*}
+    Par passge à la limite vers \(a\) et par définition de la dérivée on retrouve donc 
+    \[\frac{\frac{f}{g}(x) - \frac{f}{g}(a)}{x-a} \underset{x \to a}{\to} \frac{1}{g^2(a)} \times \paren{f'(a)g(a) - f(a)g'(a)} = \frac{ f'(a)g(a) - f(a)g'(a)}{g^2(a)}\]
+\end{dem}
+
+\begin{defprop}[Composition de fonctions dérivables]
+    Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles tel que, pour tout \(x\) de \(I\),\( f (x)\) appartient à \(J\).\\~\\
+    Soit \(g\) une fonction définie sur \(J\) et à valeurs réelles.\\~\\
+    Si \(f\) est dérivable sur \(I\) et si \(g\) est dérivable sur \(J\) alors \(g \circ f\) est dérivable sur \(I\) avec 
+    \[\forall x \in I, (g \circ f )'(x) = g' (f (x)) \times f '(x)\]
+\end{defprop}
+
+\begin{dem}
+    Soit \(a \in I\). On note \(\Delta\) la fonction définie sur \(I\) par :
+    \[\Delta(t) = \begin{cases}
+        \frac{g(t) - g(f(a))}{t-f(a)} &\text{ si } t\neq f(a)\\
+        g'(f(a)) &\text{ si } t=f(a) 
+    \end{cases}\]
+    Par dérivabilité de \(g\) en \(f (a)\), on a \(\lim _{t \to f(a)} \Delta(t) = g'(f(a))\) \cad \(\lim_{t\to f(a)} \Delta(t) = \delta(f(a))\) donc \(\Delta\) est continue en \(f(a)\). Comme \(f\) est continue en \(a\) puisqu'elle y est dérivable, on en déduit alors par composition que \(\lim_{x\to a} \Delta (f(x)) = \Delta (f(a))\) ce qui donne : 
+    \[\lim_{x \to a} \Delta (f(x)) = g'(f(a))\] ce qui donne : 
+    \[\lim_{x\to a } \Delta (f(x)) = g'(f(a))\]
+    Par dérivabilité de \(f\) en \(a\), on a :
+    \[\lim_{x \to a}\frac{f(x)-f(a)}{x-a} = f'(a)\]
+    Comme pour tout \(x \in I \pd \accol{a}\),on peut écrire
+    \[\frac{g(f(a))-g(f(a))}{x-a} = \Delta(f(x)) \times \frac{f(x)-f(a)}{x-a}\].
+    On conclut par produit que la fonction \(x \mapsto \frac{g(f(x)) - g(f(a))}{x-a}\) admet une limite finie en \(a\) qui vaut \(g'(f(a)) \times f'(a)\) autrement dit que \(g \circ f\) est dérivable en \(a\) de dérivée \(g'(f(a)) \times f'(a)\).\\~\\
+    \underline{Conclusion} : \(g \circ f\) est dérivable sur \(I\) de dérivée \((g' \circ f)\times f'\).
+\end{dem}
+
+\begin{defprop}[Réciproque d’une fonction dérivable]
+    Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles.\\~\\
+    Si \(f\) est une bijection de \(I\) sur \(J = f (I)\), dérivable sur \(I\) et que sa dérivée ne s’annule pas sur \(I\) alors \(f ^{-1}\) est dérivable sur \(J\) et vérifie
+    \[\forall y \in J, \paren{f ^{-1}}'(y) = \frac{1}{f ' \paren{f ^{1}(y)}}\]
+\end{defprop}
+
+\begin{dem}
+    On suppose les hypothèses réunies. Alors \(f\) est continue sur \(I\) (car elle y est dérivable), à valeurs réelles et injective (car elle est bijective de \(I\) sur \(J\)). D’après une propriété du chapitre “Limite et continuité”,\(f\) est donc strictement monotone sur \(I\).\\~\\
+    Par théorème de la bijection continue, on en déduit en particulier que \(f^{-1}\) est continue sur \(J\).\\~\\
+    Soit \(b \in J\).\\~\\
+    Pour tout \(y \in J\pd \accol{b}\), on peut écrire :
+    \[\frac{f^{-1}(y)-f^{-1}(b)}{y-b} = \frac{f^{-1}(y) - f^{-1}(b)}{f(f^{-1}(y))-f(f^{-1}(b))} = \paren{\frac{f(f^{-1}(y))-f(f^{-1}(b))}{f^{-1}(y) - f^{-1}(b)}}^{-1}\]
+    car \(y \neq b \) et \(f^{-1}\) injective donnent \(f^{-1}(y) \neq f^{-1}(b)\)\\~\\
+    Par continuité de \(f^{-1}\) en \(b\), on a \(f^{-1}(y) \underset{y \to b}{\to} f^{-1}(b)\) et, par dérivabilité de \(f\) en \(a = f^{-1}(b)\), on a : 
+    \(\frac{f(x)-f(a)}{x-a} \underset{x \to a}{\to} f'(a) = f'(f^{-1}(b))\). Une composition de limites donne donc :
+    \[\frac{f(f^{-1}(y))-f(f^{-1}(b))}{f^{-1}(y) - f^{-1}(b)} \underset{y \to b}{\to} f'(f^{-1}(b))\]
+    Comme \(f'(f^{-1}(b))\neq 0 \) par hypothèse sur \(f'\), par limite d'une fonction inverse, on obtient : 
+    \[\paren{\frac{f(f^{-1}(y))-f(f^{-1}(b))}{f^{-1}(y) - f^{-1}(b)}}^{-1} \underset{y \to b}{\to} \paren{f'(f^{-1}(b))}^{-1}\]
+    Ainsi,
+    \[\frac{f^{-1}(y)-f^{-1}(b)}{y-b} \underset{y \to b}{\to} \frac{1}{f'(f^{-1}(b))} \paren{ \in \R}\]
+    \underline{Conclusion} : \(f^{-1}\) est dérivable en tout \(b\) de \(J\), donc sur \(J\) ,avec 
+    \[\forall b \in J,\paren{f^{-1}}'(b) = \frac{1}{f'f^{-1}(b)}\]
+\end{dem}
+
+\section{Théorèmes de Rolle et des accroissements finis}
+\subsection{Théorème de Rolle}
+\begin{theo}[Théorème de Rolle]
+    Soit \(a\) et \(b\) deux réels tels que \(a < b\).\\~\\
+    Soit \(f\) une fonction définie sur \(\intervii{a}{b}\) à valeurs réelles.\\~\\
+    Si \(f\) est continue sur le segment \(\intervii{a}{b}\), dérivable sur l’intervalle ouvert \(\intervee{a}{b}\) et vérifie \(f (a) = f (b)\) alors il existe un réel \(c\) dans l’intervalle ouvert \(\intervee{a}{b}\) tel que \(f '(c) = 0\).
+\end{theo}
+
+\begin{dem}
+    On suppose les hypothèse réunies\\~\\
+    \(f\) étant continue sur le segment \(\intervii{a}{b}\) et à valeurs réelles, par théorème, \(f\) est bornée et atteint ses bornes.\\~\\
+    On note \(m = \min f\) et \(M = \max f\) , et \((x_1, x_2) \in \intervii{a}{b}^2\) tel que \(m = f (x_1)\) et \(M = f (x_2)\).\\~\\
+    On raisonne par disjonction de cas.\\~\\
+\begin{itemize}
+    \item Si \(m = M\) alors \(f\) est une fonction constante donc sa dérivée est la fonction nulle ; le résultat attendu est alors immédiat.
+    \item Si \(m < M\) alors l’un des réels \(m\) ou \(M\) est différent de \(f (a)\). Dans la suite, on suppose, sans perte de généralité, que \(m\neq f (a)\). 
+\end{itemize}
+    Alors \(f (x_1)\neq f (a)\) et \(f (x_1)\neq f (b)\) (puisque \(f (a) = f (b)\)) donc \(x_1\neq a\) et \(x_1\neq b\).\\~\\
+    On en déduit que \(x_1\) appartient à l’intervalle ouvert \(\intervee{a}{b}\) . Comme de plus \(f\) est dérivable en \(x_1\) et \(y\) admet un minimum global (donc un extremum local), on conclut par condition nécessaire d’extremum local en un point intérieur que \(f '(x_1) = 0\).\\~\\
+    \underline{Conclusion} : Il existe un réel \(c\) dans l’intervalle ouvert \(\intervee{a}{b}\) tel que \(f '(c) = 0\).
+\end{dem}
+
+
+\begin{defprop}[Interprétations géométrique et cinématique]    
+    Si les hypothèses du théorème de Rolle sont réunies alors :
+    \begin{itemize}
+        \item il existe un point en lequel la courbe représentative de \(f\) admet une tangente horizontale ;
+        \item il existe un instant \(c\) en lequel la vitesse instantanée d’un mobile dont l’abscisse à l’instant \(t \geq 0\) sur une droite est donnée par \(f (t)\), est nulle.
+    \end{itemize}
+\end{defprop}
+
+
+\subsection{Accroissements finis}
+\begin{defprop}[Egalité des accroissements finis]
+    Soit \(a\) et \(b\) deux réels tels que \(a < b\).\\~\\
+    Soit \(f\) une fonction définie sur \(\intervii{a}{b}\) à valeurs réelles.\\~\\
+    Si \(f\) est continue sur \(\intervii{a}{b}\), dérivable sur \(\intervee{a}{b}\) alors il existe \(c\) dans \(\intervee{a}{b}\) tel que :\( f (b)-f (a) = (b-a)f '(c)\).
+\end{defprop}
+\begin{dem}
+    On suppose les hypothèses réunies et on définit
+    \[g : x \mapsto f (x) -\frac{ f (b) - f (a)}{b - a }(x - a)\]
+    \(g\) est définie et continue sur le segment \(\intervii{a}{b}\), dérivable sur \(\intervee{a}{b}\), à valeurs réelles avec \(g(a) = g(b)\).\\~\\
+    Par théorème de Rolle, il existe donc un réel \(c\) dans \(\intervee{a}{b}\) tel que \(g'(c) = 0\) avec \(g' : x \mapsto f '(x)- \frac{f (b) - f (a)}{b - a}\)
+    ce qui donne :
+    \[f '(c) =\frac{ f (b) - f (a)}{b - a}\]
+    et donc
+    \[f (b) - f (a) = (b - a)f '(c)\]
+\end{dem}
+
+\begin{defprop}[Inégalité des accroissements finis]
+    Soit \(f\) une fonction définie sur \(I\) à valeurs réelles.\\~\\
+    Si \(f\) est dérivable sur \(I\) et si \(\abs{f '}\) est majorée par un réel \(k\) alors \(f\) est \(k\)-lipschitzienne, c’est-à-dire que :
+    \[\forall (x, y) \in I^2, \abs{f (x) - f (y)} \leq k \abs{x - y} \]
+\end{defprop}
+
+\begin{dem}
+    On suppose les hypothèses réunies et \((x, y) \in I^2\). Le cas \(x = y\) étant immédiat, on suppose sans perte de généralité que \(x < y\).\\~\\
+    Alors \(f\) est continue sur \(\intervii{x}{y}\), dérivable sur \(\intervee{x}{y}\) donc, par égalité des accroissements finis, il existe un réel \(c\) dans \(\intervee{x}{y}\) tel que :
+    \[f (y) - f (x) = f '(c) (y - x)\] .
+    Ainsi \(\abs{f (y) - f (x)} = \abs{f '(c)} \abs{y - x}\) puis, par hypothèse sur \(\abs{f '|}\), on en déduit :
+    \[\abs{f (y) - f (x)} \leq k \abs{y - x} \].
+    Ceci étant vrai pour tout \((x, y) \in I^2\), \(f\) est donc \(k\)-lispchitzienne
+\end{dem}
+
+\subsection{Applications des théorèmes des accroissements finis}
+Soit \(f\) une fonction définie et dérivable sur \(I\) à valeurs réelles.
+
+\begin{defprop}[Caractérisation des applications constantes]
+    \(f\) est constante si, et seulement si, pour tout \(x\) de \(I\), \(f '(x) = 0\)
+\end{defprop}
+\begin{dem}
+    \begin{itemize}
+        \item \impdir Si \(f\) est constante alors sa dérivée est nulle.
+        \item \imprec Si la dérivée de \(f\) est nulle alors l’inégalité des accroissements finis donne, pour tout \((x, y) \in I^2\), \(\abs{f (x) - f (y)} \leq 0 \times \abs{ x - y}\) donc \(\abs{f (x) - f (y)} = 0\) puis \(f (x) = f (y)\) ce qui implique que f est constante.
+    \end{itemize}
+\end{dem}
+\begin{defprop}[Caractérisation des fonctions dérivables monotones]
+    \begin{enumerate}
+        \item \(f\) est croissante sur \(I\) si, et seulement si, pour tout \(x\) de \(I\), \(f '(x) \geq 0\).
+        \item \(f\) est décroissante sur \(I\) si, et seulement si, pour tout \(x\) de \(I\), \(f '(x) \leq 0\).
+    \end{enumerate}
+\end{defprop}
+
+\begin{dem}[Caractérisation des fonctions croissantes]
+    \begin{itemize}
+        
+        \item \impdir Si \(f\) est croissante sur \(I\) alors, pour tout \((x, y) \in I^2\) tel que \(x < y\), on a \(\frac{f (y) - f (x) }{y - x } \geq 0\).\\~\\
+        Comme \(f\) est dérivable en \(x\), \(f\) est dérivable à droite en \(x\) donc, par passage à la limite dans l’inégalité précédente, on trouve \(\lim_{ y\to x^+} \frac{f (y) - f (x)}{ y - x} \geq 0\) \cad \(f ' _d(x) \geq 0\) et enfin \(f '(x) \geq 0\).
+        \item \imprec on suppose que \(f '\) est positive. Soit \((x, y) \in I^2\) tel que \(x < y\). Par égalité des accroissements finis, il existe \(c \in \intervee{x}{y} \) tel que \(\frac{f (y) - f (x)}{y - x }= f'(c)\) donc, par hypothèse de positivité, on trouve \(\frac{f (y) - f (x)}{y - x} \geq 0\) ce qui prouve que \(f\) croissante
+    \end{itemize}
+\end{dem}
+
+\begin{defprop}[Caractérisation des fonctions dérivables strictement monotones]
+    \begin{enumerate}
+        \item  \(f\) est strictement croissante sur \(I\) si, et seulement si, les conditions suivantes sont réunies :
+        \begin{enumerate}
+            \item pour tout \(x\) de \(I\), \(f '(x) \geq 0\).
+            \item il n’existe pas de réels \(a\) et \(b\) dans \(I\) avec \(a < b\) tel que, pour tout \(x\) de \(\intervii{a}{b}\) , \(f '(x) = 0\).
+        \end{enumerate}
+
+        \item \(f\) est strictement décroissante sur \(I\) si, et seulement si, les conditions suivantes sont réunies :
+        \begin{enumerate}
+            \item pour tout \(x\) de \(I\), \(f '(x) \leq 0\).
+            \item il n’existe pas de réels \(a\) et \(b\) dans \(I\) avec \(a < b\) tel que, pour tout \(x\) de \(\intervii{a}{b}\) , \(f '(x) = 0\).
+        \end{enumerate}
+    \end{enumerate}
+\end{defprop}
+
+\begin{dem}[Caractérisation des fonctions strictement croissantes]
+    \begin{itemize}
+        
+        \item \impdir Si \(f\) est strictement croissante sur \(I\) alors \(f\) est croissante sur \(I\) donc \(f '\) est positive. Par ailleurs, si on suppose l’existence de réels \(a\) et \(b\) dans \(I\) avec \(a < b\) tels que \(f '_{|\intervii{a}{b}} = 0\) alors \(f '_{ |\intervii{a}{b}}\) est constante ce qui contredit la stricte croissance de \(f\) sur \(I\). Ainsi, il n’existe pas de réels \(a\) et \(b\) dans \(I\) avec \(a < b\) tel que, pour tout \(x\) de \(\intervii{a}{b}\) , \(f '(x) = 0\).
+        \item \imprec  on suppose que, pour tout \(x\) de \(I\), f\( '(x) \geq 0\) et que de plus, il n’existe pas de segment inclus dans \(I\) sur lequel la restriction de \(f '\) est nulle. Alors \(f\) est croissante sur \(I\) ainsi il n’existe pas de segment inclus dans \(I\) tel que \(f_{ |\intervii{a}{b}}\) est une fonction constante. Si \(f\) n’est pas strictement croissante, il existe un couple \((a, b) \in I^2\) avec \( a < b\) et \(f (a) \geq f (b)\). Par croissance de \(f\) sur \(I\), on en déduit :\( \forall x \in \intervii{a}{b} , f (a) \leq f (x) \leq f (b)\) donc \(\forall x \in \intervii{a}{b} , f (a) \leq f (x) \leq f (a)\) puis \(\forall x \in \intervii{a}{b} , f (x) = f (a)\). Ainsi \(f_{ |\intervii{a}{b}}\) est constante ce qui contredit ce qui précède. On conclut donc que : \(f\) est strictement croissante sur \(I\) .
+    \end{itemize}
+\end{dem}
+
+\begin{theo}[Théorème de la limite de la dérivée]
+    Soit \(a\) un point de \(I\).\\~\\
+    Si \(f\) est continue sur \(I\), dérivable sur \(I \pd \accol{a}\) et si \(f' _{|I\pd\accol{a}}\) admet une limite réelle \(l\) en \(a\) alors
+    \[\lim _{x\to a} \frac{f (x) - f (a)}{ x - a }= l\]
+    Dans ce cas :
+    \begin{enumerate}
+        \item \(f\) est dérivable en \(a\) avec \(f '(a) = l\) ;
+        \item \(f '\) est continue en \(a\).
+    \end{enumerate}
+    \underline{Remarque}\\~\\
+    La fonction \(f\) peut être dérivable en \(a\) sans que \(f _{|I\pd\accol{a}}\) ait une limite réelle en \(a\) (par exemple, pour la fonction \(f\) définie par \(f (0) = 0\) et \(f (x) = x^2 \sin \paren{\frac{1}{x}}\) si \(x\neq 0\)).
+\end{theo}
+
+\begin{dem}
+    On suppose les hypothèses réunies et on considère un réel strictement positif \(\epsilon\). \\~\\
+    Puisque \(f '_{|I\pd\accol{a}}\) a pour limite le réel \(l\), il existe un réel strictement positif \(\delta\) tel que :
+    \[\forall x \in I \pd \accol{a} , \abs{x - a} \leq \delta \imp \abs{f '(x) - l} \leq \epsilon\]
+    Prenons alors \(x \in I \pd \accol{a}\) tel que \(\abs{x - a} \leq \delta\).\\~\\
+    \(f\) étant continue sur \(I\) et dérivable sur \(I \pd \accol{a}\), \(f\) est continue sur le segment \(\intervii{a}{x}\) ou \(\intervii{x}{a}\) (suivant que \(a < x\) ou \(a > x\)), dérivable sur l’intervalle ouvert \(\intervee{a}{x}\) ou \(\intervee{x}{a}\).\\~\\
+    D’après l’égalité des accroissements finis, il existe donc un réel \(c_x\) dans \(\intervee{a}{x}\) ou \(\intervee{x}{a}\) tel que
+    \[\frac{f(x)-f(a)}{x-a} = f'(c_x)\]
+    Comme \(c_x\) appartient à l’intervalle ouvert d’extrémités \(a\) et \(x\), on a :
+    \[c_x \in I \pd \accol{a}\text{ et } \abs{c_x - a} \leq \abs{ x - a} \leq \delta\]
+    D’après ce qui a été dit précédement, on en déduit \(\abs{f '(c_x) - l} \leq \epsilon\) , c’est-à-dire :
+    \[\abs{\frac{f(x) - f(a)}{x-a} - l}\leq \epsilon\]
+    En résumé : 
+    \[\forall x \in \Rps, \exists \delta \in \Rps, \forall x \in I \pd \accol{a}, \abs{x-a}\leq \delta \imp \abs{\frac{f(x) - f(a)}{x-a} - l}\leq \epsilon\]
+    Autrement dit : \(x \mapsto \frac{f (x) - f (a)}{ x - a}\) a pour limite le réel \(l\) en \(a\) donc \(f\) est dérivable en \(a\) avec \(f'(a) = l\).\\~\\
+    De plus, \(f '(a) = \lim _{x\to a} f '(x)\) donc \(f '\) est continue en \(a\).
+\end{dem}
+
+\begin{defprop}[Extension du théorème de la limite de la dérivée]
+    Soit \(a\) un point de \(I\).\\~\\
+    Si \(f\) est continue sur \(I\), dérivable sur \(I \pd \accol{a}\) et si \(f'_{|I\pd\accol{a}}\) admet une limite infinie \(l\) en \(a\) alors
+    \[\lim _{x\to a} \frac{f (x) - f (a)}{ x - a} = l\]
+\end{defprop}
+
+\section{Classe \(\mathcal{C}^k\)}
+Soit \(f\) une fonction définie sur \(I\) à valeurs réelles.
+\subsection{Notations}
+\begin{nota}
+    On pose \(f ^{(0)} = f\) et, pour \(k \in \N\), sous réserve que cela ait du sens, \(f ^{(k+1)} = \paren{f^{(k)}}' \).
+\end{nota}
+
+\subsection{Définitions}
+\begin{defi}
+    Soit \(k \in \N\).
+    \begin{itemize}
+        \item \(f\) est dite \(k\) fois dérivable sur \(I\) si \(f ^{(k)}\) existe.
+        \item \(f\) est dite de classe \(\mathcal{C}^k\) sur \(I\) si \(f\) est \(k\) fois dérivable sur \(I\) avec \(f^{(k)}\) continue sur \(I\).
+        \item \(f\) est dite de classe \(\mathcal{C}^{\infty}\) sur \(I\) si, pour tout \(k \in \N\), \(f\) est de classe \(\mathcal{C}^k\) sur \(I\).
+    \end{itemize}
+    \underline{Remarque}\\~\\
+    Soit \(k \in \N \union \accol{\pinf}\) .\\~\\
+    L’ensemble des applications de classe \(\mathcal{C}^k\) sur \(I\) à valeurs dans \(R\) est souvent noté \(\mathcal{C}^k\paren{I,\R}\).
+\end{defi}
+
+\subsection{Opérations sur les fonctions de classe \(\mathcal{C}^k\) avec \(k \in \N \union \accol{\pinf}\) .}
+\begin{defprop}
+    \(\mathcal{C}^k\paren{I,\R}\) est stable par combinaison linéaire, produit et quotient (sous réserve que cela ait du sens).
+    Plus précisément :
+    \begin{itemize}
+        \item une combinaison linéaire de fonctions de classe \(\mathcal{C}^k\) sur \(I\) à valeurs réelles est de classe \(\mathcal{C}^k\) sur \(I\) :
+            \[\forall(f, g) \in \paren{\mathcal{C}^k(I,\R)}^2 , \forall(\lambda, \mu ) \in \R^2, \lambda f + \mu g \in \mathcal{C}^k(I,\R)\text{ et }\paren{\lambda f + \mu g}^{(k)} = \lambda f ^{(k)} + \mu g^{(k)}\]
+        \item un produit de fonctions de classe Ck sur I à valeurs réelles est de classe Ck sur I :
+            \[\forall(f, g) \in \paren{\mathcal{C}^k(I,\R)}^2 , f g \in \mathcal{C}^k(I,\R)\text{ et }\underbrace{(f g)^{(k)} = \sum_{i=0}^{k}\binom{k}{i}f^{(i)}g^{(k-i)} = \sum_{i=0}^k\binom{k}{i}f^{(k-i)}g^{(i)}}_{\text{formule de Leibniz}}\]
+        \item un quotient de fonctions de classe \(\mathcal{C}^k\) sur \(I\) à valeurs réelles dont le dénominateur ne s’annule pas sur \(I\) est de classe \(\mathcal{C}^k\) sur \(I\).
+    \end{itemize}
+\end{defprop}
+
+\subsection{Composition de fonctions de classe \(\mathcal{C}^k\) avec \(k \in \N \union \accol{\pinf}\) .}
+\begin{defprop}
+    Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles tel que, pour tout \(x\) de \(I\), \(f (x)\) appartient à \(J\).\\~\\
+    Soit \(g\) une fonction définie sur \(J\) et à valeurs réelles.\\~\\
+    Si \(f\) est de classe  \(\mathcal{C}^k\) sur \(I\) et si \(g\) est de classe  \(\mathcal{C}^k\) sur \(J\) alors \(g \circ f\) est de classe \(\mathcal{C}^k\) sur \(I\).
+\end{defprop}
+
+\subsection{Réciproque d’une fonction de classe \(\mathcal{C}^k\) avec \(k \in \N \union \accol{\pinf}\)}
+\begin{defprop}
+    Soit \(f\) une fonction définie sur \(I\) et à valeurs réelles.\\~\\
+    Si \(f\) est une bijection de \(I\) sur \(J = f (I)\), de classe \(\mathcal{C}^k\) sur \(I\) et que sa dérivée ne s’annule pas sur \(I\) alors \(f ^{-1}\) est de classe \(\mathcal{C}^k\) sur \(J\).
+\end{defprop}
+
+\section{Cas des fonctions à valeurs complexes}
+\subsection{Ce qui s’étend aux fonctions complexes}
+\begin{defprop}
+    \begin{itemize}
+        \item Dérivée en un point et sur un intervalle : définition et caractérisations, lien avec la continuité, dérivées à gauche et à droite, opérations
+        \item Classe \(\mathcal{C}^k\) : définition, opérations
+        \item Inégalité des accroissements finis
+    \end{itemize}
+\end{defprop}
+
+\subsection{Ce qui ne s’étend pas aux fonctions complexes}
+
+\begin{defprop}
+    \begin{itemize}
+        \item — Résultats utilisant la relation d’ordre :
+        \begin{itemize}
+            \item la notion d’extremum local (et donc la condition nécessaire d’existence d’un extremum local) 
+            \item le théorème de Rolle 
+            \item l’égalité des accroissements finis 
+            \item les caractérisations des fonctions constantes ou monotones parmi les fonctions dérivables.
+        \end{itemize}
+        \item Composition de fonctions dérivables
+        \item Réciproque d’une fonction dérivable
+    \end{itemize}
+\end{defprop}
+
+\subsection{Quelques résultats qui s’étendent détaillés}
+Soit \(f\) une fonction définie sur \(I\), à valeurs complexes.
+\begin{defi}
+    \begin{itemize}
+        \item \(f\) est dite dérivable en \(a \in I\) si la fonction à valeurs complexes \(x \mapsto \frac{f (x) - f (a)}{x- a}\) admet une limite complexe \(l\) en a appelée nombre dérivé de \(f\) en \(a\) et notée \(l = f '(a)\).
+        \item \(f\) est dite dérivable sur \(I\) si \(f\) est dérivable en tout point de \(I\).
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[Caractérisation]
+    \begin{itemize}
+        \item \(f\) est dérivable en \(a \in I\) si, et seulement si, \(\Reel{ (f )}\) et \(\Ima{(f )}\) le sont.\\~\\
+        Dans ce cas,
+            \[\paren{\Reel{f }}' (a) = \paren{\Reel{ f '(a)}}\text{ et }\paren{\Ima{f }}' (a) = \paren{\Ima{ f '(a)}} \]
+        — \(f\) est dérivable (respectivement de classe \(\mathcal{C}^k\)) sur \(I\) si, et seulement si, \(\Reel{ (f )}\) et \(\Ima{(f )}\) le sont.
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Inégalité des accroissements finis]
+    Si \(f\) est de classe \(\mathcal{C}^1\) sur \(I\) et si \(\abs{f'}\) est majorée par un réel \(k\) alors \(f\) est \(k\)-lipschitzienne, c’est-à-dire :
+    \[\forall (x, y) \in I^2, \abs{f (x) - f (y)} \leq k \abs{x - y} \]
+\end{defprop}
+
+\begin{dem}
+    \underline{Rappel} On rappelle que le théorème de Rolle et l’égalité des accroissements finis ne se généralisent pas au cas des
+    fonctions à valeurs complexes (non réelles).\\~\\
+    Par exemple, la fonction \(g : t \mapsto e^{2i\pi t}\) est continue sur le segment \(\intervii{0}{1}\), dérivable sur \(\intervee{0}{1}\) avec \(g(0) = g(1)\) mais sa dérivée \(g' : t \mapsto 2i\pi e^{2i\pi t}\) ne s’annule pas sur \(\intervee{0}{1}\).\\~\\
+    La preuve de l’inégalité des accroissements finis dans le cas des fonctions à valeurs complexes ne peut donc se faire comme dans le cas réel. On peut tout de même démontrer cette inégalité, pour les fonctions à valeurs complexes de classe C1 sur un intervalle, en admettant des propriétés de l’intégrale d’une fonction continue sur un segment que l’on verra dans le chapitre “Intégration sur un segment”.\\~\\~\\~\\
+    On suppose que \(f\) est de classe  \(\mathcal{C}^1\) sur \(I\) et que \(\abs{f '}\) est majorée par un réel \(k\).\\~\\
+    Soit \((x, y) \in I^2\) avec \(x \leq y\).\\~\\
+    Comme \(f '\) est continue sur le segment \(\intervii{x}{y}\) et \(f\) une primitive de \(f '\) sur \(I\), on peut écrire
+    \[\abs{f(x) - f(y)} = \abs{\int_x^y f'(t)dt}\]
+    puis, par propriété du module de l’intégrale,
+    \[\abs{f (x) - f (y)} \leq \int^y_x \abs{f '(t)} dt\]
+    Par hypothèse sur \(\abs{f '}\) et croissance de l’intégrale, on a alors
+    \[\abs{f (x) - f (y)} \leq \int^y_x k dt  \ie  \abs{f (x) - f (y)} \leq k (y - x)\] 
+    Ainsi :
+    \[\forall (x, y) \in I^2, x \leq y \imp \abs{f (x) - f (y)} \leq k \abs{y - x}\]
+    puis
+    \[\forall (x, y) \in I^2, \abs{f (x) - f (y)} \leq k \abs{y - x}\] 
+    Autrement dit, \(f\) est lipschitzienne de rapport \(k\).
+\end{dem}
