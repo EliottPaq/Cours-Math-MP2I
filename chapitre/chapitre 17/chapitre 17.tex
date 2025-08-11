@@ -1,0 +1,463 @@
+\chapter{Structure algébriques usuelles}
+
+\minitoc
+
+\section{généralité}
+Soit \(E\) un ensemble.
+\subsection{Loi de composition interne}
+\begin{defprop}
+    On appelle loi de composition interne sur \(E\) toute application \(f\) de \(E \times E\) dans \(E\).\\~\\
+    A tout couple \((x, y)\) de \(E \times E\), est ainsi associée une unique image \(f (x, y) \in E\) souvent notée \(x \star y\) ou \(x\top y\) et appelée composé de \(x\) et \(y\) pour la loi de composition interne \(\star\) ou \(\top\).\\~\\
+    \underline{Remarque}\\~\\
+    Un ensemble muni d’une loi de composition interne est dit magma.
+\end{defprop}
+
+\subsection{Définitions - Propriétés}
+
+\begin{defprop}[Associativité, commutativité]
+    Une loi de composition interne \(\star\) sur \(E\) est dite :\\~\\
+    \begin{enumerate}
+        \item associative si \(\forall (x, y, z) \in E^3, (x \star y) \star z = x \star (y \star z)\)
+        \item commutative si \(\forall (x, y) \in E^2, x \star y = y \star x\).
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Elément neutre]
+    On dit qu’une loi de composition interne \(\star\) sur \(E\) admet un élément neutre s’il existe \(e\) dans \(E\) tel que
+    \[\forall x \in E, x \star e = e \star x = x\]
+    \underline{Remarques}
+    \begin{enumerate}
+        \item Si \(\star\) admet un élément neutre sur \(E\) alors celui-ci est UNIQUE.\\
+        \item Un ensemble muni d’une loi de composition interne associative et qui admet un élément neutre est dit monoïde.
+    \end{enumerate}
+\end{defprop}
+
+\begin{dem}[Unicité de l'élement neutre]
+    Supposons qu'il existe deux élément neutre \(e\) et \(e'\) dans \(E\) pour la l.c.i \(\star\)\\~\\
+    Alors \(\forall x \in E\begin{cases}
+        x \star e & = x \\
+        x \star e' &= x 
+    \end{cases}\)\\~\\
+    en particulier en prenant \(x = e'\) dans le premier cas et \(x = e\) dans le deuxième cas, on obtient :
+    \[e = e \star e' = e' \star e = e'\]
+    donc on a bien \(e = e'\), Ainsi \(\star\) admet un unique élément neutre dans \(E\).
+\end{dem}
+
+\begin{defprop}[Inversibilité]
+    Soit \(\star\) une loi de composition interne sur \(E\) qui admet un élément neutre \(e\).\\~\\
+    Un élément \(x\) de \(E\) est dit inversible s’il existe \(x'\) dans \(E\) tel que
+    \[x \star x' = x' \star x = e\]
+    \underline{Remarques}
+    \begin{itemize}
+        \item Si de plus la loi est associative alors :
+        \begin{itemize}
+            \item l’élément \(x'\) est UNIQUE et dit inverse de \(x\) ;
+            \item si \(x\) et \(y\) sont des éléments de \(E\) inversibles alors l’élément \(x \star y\) est inversible d’inverse \(y' \star x'\).
+        \end{itemize}
+        \item Les termes “symétrisable” et “symétrique” sont parfois utilisés à la place de “inversible” et inverse”.
+    \end{itemize}
+\end{defprop}
+
+\begin{dem}[Unicité de l'élément inversible si \(\star\) est associative]
+    ~\\~\\
+    Soit \((x,x',x'') \in E^3\) tel que \(\begin{cases}
+        x \star x' = x' \star x &= e \quad (1)\\
+        x' \star x'' = x'' \star x' &= e \quad(2)
+    \end{cases}\)\\~\\
+    alors \(x''\star \paren{ x \star x'} = x'' \star e \) donc par associativité  \(\paren{x'' \star x} \star x' = x''\) donc d'après \((2)\) on a \(e \star x' = x''\) et donc \(x' = x''\)\\~\\
+    \underline{Conclusion} Si la l.c.i est associative sur \(E\) et admet un neutre alors tout élement inversible admet un unique inverse
+\end{dem}
+
+\begin{defprop}[Distributivité]
+    Soit \(\star\) et \(\top\) deux lois de composition interne sur\( E\).\\~\\
+    On dit que la loi \(\top\) est distributive par rapport à la loi \(\star\) si :
+    \[\forall (x, y, z) \in E^3, \begin{cases}
+    x\top (y \star z) &= (x\top y) \star (x\top z)\\
+    (y \star z) \top x &= (y\top x) \star (z\top x)
+    \end{cases} \]
+\end{defprop}
+
+\begin{defprop}[Quelques exemples usuels de lois de composition interne ]
+    \begin{itemize}
+        \item Loi \(+\)
+        \begin{itemize}
+            \item sur les ensembles de nombres \(\Z, \Q, \R, \C\) ;
+            \item sur les ensembles de fonctions : \(\mathcal{F}(X, \K), \mathcal{D} (I, \K)\) et \(\mathcal{C}^n (I, \K)\) ;
+            \item sur les ensembles de matrices : \(\mathcal{M}_{n,p} (\K), \mathcal{S}_n (\K)\) et \(\mathcal{A}_n (\K)\).
+        \end{itemize}
+        \item Loi \(\times\)
+        \begin{itemize}
+            \item sur les ensembles de nombres \(\Q, \Qp, \R, \Rp, \C, \U\) et \(\U_n\) ;
+            \item sur les ensembles de fonctions : \(\mathcal{F}(X, \K), \mathcal{D} (I, \K)\) et \(\mathcal{C}^n (I, \K)\) ;
+            \item sur les ensembles de matrices : \(\mathcal{M}_{n,p} (\K)\) et \(\mathcal{GL}_n (\K)\).
+        \end{itemize}
+        \item Autres lois 
+        \begin{itemize}
+            \item sur l’ensemble \(\mathcal{P}(E)\) des parties d’un ensemble \(E\) :\( \cup, \cap\) et \(\pd\) ;
+            \item sur l’ensemble des applications de \(E\) dans \(E\) avec \(E\) un ensemble : \(\circ\).
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+
+\subsection{Partie stable}
+\begin{defprop}
+    Soit \(\star\) une loi de composition interne sur \(E\).\\~\\
+    On dit qu’une partie \(A\) de \(E\) est stable pour la loi \(\star\) si \(\forall (x, y) \in A^2, x \star y \in A\).
+\end{defprop}
+
+\section{Groupes, sous-groupes}
+\subsection{Groupes}
+\begin{defi}
+    Un groupe est un ensemble \(G\) muni d’une loi de composition interne \(\star\) telle que :\\~\\
+    \begin{itemize}
+        \item \(\star\) est associative.
+        \item \(G\) admet un élément neutre \(e_G\) pour la loi \(\star\).
+        \item Tout élément \(x\) de \(G\) admet un inverse \(x'\) pour la loi \(\star\).
+    \end{itemize}
+    \underline{Remarques}\\
+    \begin{enumerate}
+        \item Il y a unicité de l’élément neutre de \(G\) et de l’inverse de tout élément de \(G\).
+        \item Dans tout groupe, il y a au moins un élément : le neutre pour la loi du groupe.
+        \item Si \(\star\) est commutative, on dit que \(G\) est un groupe commutatif (ou groupe abélien).
+    \end{enumerate}
+\end{defi}
+
+\begin{nota}[Notations dans un groupe additif et un groupe multiplicatif]
+    \begin{itemize}
+        \item Lorsque la loi du groupe \(G\) est notée \(+\) alors on parle de groupe additif et on écrit :
+        \begin{enumerate}
+            \item \(0_G\) au lieu de \(e_G\) ;
+            \item \(-x\) au lieu de\( x'\) ;
+            \item \(
+                nx = \begin{cases}
+                    x+ \dots + x \quad(n \text{ fois }) &\text{ si } n \in \Ns \\
+                    0_G &\text{ si } n = 0\\
+                    -(-nx) &\text{ si } n \in \Zms
+                \end{cases}\)
+        \end{enumerate}
+        \item Lorsque la loi du groupe \(G\) est notée \(\times\) alors on parle de groupe multiplicatif et on écrit : 
+        \begin{enumerate}
+            \item \(1_G\) au lieu de \(e_G\) ;
+            \item \(x^{-1}\) au lieu de\( x'\) ;
+            \item \(
+                x^n = \begin{cases}
+                    x\times \dots \times x \quad(n \text{ fois }) &\text{ si } n \in \Ns \\
+                    1_G &\text{ si } n = 0\\
+                    \paren{x^{-n}}^{-1} &\text{ si } n \in \Zms
+                \end{cases}\)
+        \end{enumerate}
+    \end{itemize}
+\end{nota}
+
+\begin{defprop}[Quelques exemples usuels de groupes déjà rencontrés cette année]
+    \begin{itemize}
+        \item Groupes additifs
+        \begin{itemize}
+            \item dans les ensembles de nombres : \(\Z, \Q, \R, \C\) ;
+            \item dans les ensembles de fonctions : \(\mathcal{F}(X, \K), \mathcal{D} (I, \K)\) et \(\mathcal{C}^n (I, \K)\) ;
+            \item dans les ensembles de matrices : \(mathcal{M}_{n,p} (\K), \mathcal{S}_n (\K)\) et \(\mathcal{A}_n (\K)\).
+        \end{itemize}
+        \item Groupes multiplicatifs
+        \begin{itemize}
+            \item dans les ensembles de nombres : \(\Q, \Qp, \R, \Rp, \C, \U\) et \(\U_n\);
+            \item dans les ensembles de matrices : \(\mathcal{GL}_n (\K)\).
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Groupe des permutations d’un ensemble]
+    Soit \(X\) un ensemble.\\~\\
+    L’ensemble des applications de \(X\) dans \(X\) qui sont des bijections est un groupe pour la loi de composition interne \(\circ\), appelé groupe des permutations de l’ensemble \(X\) et noté \(S_X\).
+\end{defprop}
+\begin{defprop}[Produit fini de groupes]
+    Soit \((G_1, \perp)\) et \((G_2, \top)\) deux groupes.\\~\\
+    Le produit cartésien \(G_1 \times G_2\) muni de la loi \(\star\) définie par :
+    \[\forall(x_1, x_2) \in G_1 \times G_2, \forall(y_1, y_2) \in G_1 \times G_2, (x_1, x_2) \star (y_1, y_2) = (x_1 \perp y_1, x_2\top y_2)\]
+    est un groupe, dit groupe-produit.\\~\\
+    Dans ce groupe-produit,
+    \begin{itemize}
+        \item l’élément neutre est \((e_{G_1},e_{G_2} )\) où \(e_{G_1}\) est le neutre de \(G_1\) et \(e_{G_2}\) est le neutre de \(G_2\) ;
+        \item l’inverse de \((x_1, x_2)\) de \(G_1 \times G_2\) est \((x'_1, x'_2)\) où \(x'_1\) est l’inverse de \(x_1\) et \(x'_2\) l’inverse de \(x_2\).
+    \end{itemize}
+    \underline{Remarques}
+    \begin{itemize}
+        \item on en déduit, par exemple, que :
+        \begin{itemize}
+            \item \(\K^2\) est un groupe additif de neutre \((0, 0)\) dans lequel \((-x, -y)\) est l’inverse de \((x, y)\) ;
+            \item \(\paren{\Ks}^2\) est un groupe multiplicatif de neutre \((1, 1)\) dans lequel \((x^{-1}, y^{-1})\) est l’inverse de \((x, y)\).
+        \end{itemize}
+        \item La propriété s’étend à un nombre fini \(m \quad(\geq 2)\) de groupes \((G_1, \underset{1}{\perp} ),(G_2, \underset{2}{\perp} ), \dots , (G_m, \underset{m}{\perp} )\).
+        \item Ainsi, par exemple, \(\K_m\) est un groupe additif et \(\paren{\Ks}^m\) est un groupe multiplicatif.
+    \end{itemize}
+\end{defprop}
+
+\subsection{Sous-groupes}
+\begin{defi}
+    Soit \((G, \star)\) un groupe.\\~\\
+    Une partie \(H\) de \(G\) est dite sous-groupe de \(G\) si les deux conditions suivantes sont réunies :
+    \begin{itemize}
+        \item \(H\) est une partie stable pour la loi \(\star\) ;
+        \item \(H\) est un groupe pour la loi de composition interne obtenue par restriction à \(H\) de la loi de composition interne \(\star\) de \(G\).
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[Caractérisation]
+    Une partie \(H\) d’un groupe \((G, \star)\) est un sous-groupe de \(G\) si, et seulement si, les conditions suivantes sont réunies :
+    \begin{enumerate}
+        \item \(H \neq \emptyset \)\hfill \((e_G \in H)\)
+        \item \(\forall (x, y) \in H^2, x \star y \in  H \) \hfill (stabilité par composition)
+        \item \(\forall x \in H, x' \in H \text{ avec } x' \text{ l’inverse de } x \text{ dans } (G, \star)\) \hfill (stabilité par passage à l’inverse)
+    \end{enumerate}
+    \underline{Caractérisation alternative}\\
+    Une partie \(H\) d’un groupe \((G, \star)\) est un sous-groupe de \(G\) si, et seulement si :
+    \[H \neq \emptyset \text{ et } \forall (x, y) \in H^2, x \star y' \in H\]
+\end{defprop}
+
+\section{Morphisme de groupes}
+\subsection{Morphisme}
+\begin{defi}
+    Une application \(f : G \to G'\) est dite morphisme de groupes si \(G\) et \(G'\) sont des groupes de lois respectives \(\star\) et \(\perp\) avec
+    \[\forall (x, y) \in G \times G, f (x \star y) = f (x) \perp f (y)\]
+\end{defi}
+
+\begin{prop}
+    Si \(f : G \to G'\) est un morphisme de groupes alors :\\~\\
+    \begin{itemize}
+        \item l’image de l’élément neutre de \(G\) par \(f\) est l’élément neutre de \(G'\), c’est-à-dire :
+            \[f (e_G) = e_{G'} \]
+        \item pour tout \(x \in G\), l’inverse de l’image de \(x\) par \(f\) est l’image de l’inverse de \(x\) par \(f\), c’est-à-dire :
+            \[(f (x))' = f (x')\]
+    \end{itemize}
+\end{prop}
+
+\begin{dem}
+    Soit \(f : G \to G'\)
+    \begin{itemize}
+        \item Montrons que  \(f(e_G) = e_{G'} \)\\
+        On a \(f(e_G) = f(e_G \star e_G) = f(e_G) \perp f(e_G)\)\\ 
+        ainsi par composition par l'inverse de \(f(e_G)\), on trouve \(\paren{f(e_G)}' \perp f(e_G) = \paren{\paren{f(e_G)}' \perp f(e_G)} \perp f(e_G)\)\\ 
+        donc \(e_{G'} = e_{G'} \perp f(e_G) = f(e_G)\) par associativité de \(\perp\) puis par définition de \(e_{G'}\).
+        \item Montrons que l'inverse d'une image st l'image de l'inverse \\
+        Soit \(x \in G\) alors : 
+        \[f(x) \perp f(x') = f(x \star x') = f(e_G) = e_{G'}\]
+        \[f(x') \perp f(x) = f(x' \star x) = f(e_G) = e_{G'}\]
+        donc \(\paren{f(x)}' = f(x')\)
+    \end{itemize}
+\end{dem}
+
+\begin{defprop}[Image directe et réciproque]
+    Si \(f : G \to G'\) est un morphisme de groupes alors,
+    \begin{enumerate}
+        \item l’image directe de tout sous-groupe \(H\) de \(G\), est un sous-groupe de \(G'\).
+        \item l’image réciproque de tout sous-groupe \(H'\) de \(G'\) est un sous-groupe de \(G\). 
+    \end{enumerate}
+\end{defprop}
+\begin{dem}
+    \begin{itemize}
+        \item Montrons que si \(H\) est un sous groupe de \(G\) alors \(f(H)\) sous groupe \(G'\)
+        \begin{itemize}
+            \item \(f(H) \subset G'\) par définition de \(f\)
+            \item \(f(H) \neq \emptyset\) car \(e_{G'} \in f(H)\) puisque \(e_{G'} = f(e_G)\) avec \(e_G \in H\)
+            \item Soit \(\paren{x,y} \in \paren{f(H)}^2\) ,Montrons que \(x \perp y' \in f(H)\) 
+            Par hypothèse il existe \(a\) et \(b\) dans \(H\) tel que \(\begin{cases}
+                x &= f(a)\\
+                y &= f(b)
+            \end{cases}\)\\
+            alors \begin{align*}
+                x \perp y &= f(a) \perp \paren{f(b)}' \\
+                &= f(a) \perp f(b')\\
+                &= f(a \star b') \hfill \text{ avec } a \star b' \in H \text{ car } H \text{ sous groupe } 
+            \end{align*}
+            Ainsi \(x \perp y \in f(H)\) 
+        \end{itemize}
+        donc par caractérisation, \(f(H)\) sous groupe de \(G'\)
+        \item Montrons que si \(H'\) est un sous groupe de \(G'\) alors \(f^{-1}(H)\) sous groupe \(G'\)
+        \begin{itemize}
+            \item \(f^{-1}(H') \subset G\) par définition de \(f^{-1}\)
+            \item \(f^{-1}(H') \neq \emptyset\) car \(e_{G} \in f^{-1}(H')\) puisque \(e_{G'} = f(e_G)\) avec \(f^{-1}(e_{G'}) \in H\)
+            \item Soit \(\paren{x,y} \in \paren{f^{-1}(H')}^2\) ,Montrons que \(x \star y' \in f^{-1}(H')\) 
+            Par hypothèse \(\begin{cases}
+                f(x) &\in H' \\
+                f(y)& \in H'
+            \end{cases}\)\\
+            alors \begin{align*}
+                f(x \perp y') &= f(x) \perp \paren{y'} \\
+                &= f(x) \perp f(b)'\\
+            \end{align*}
+            d'où \(f(x \star y') \in H' \) car \(H'\) sous-groupe ainsi \(x \star y' \in f^{-1}(H')\)
+        \end{itemize}
+        Donc par caractérisation, \(f^{-1}(H')\) est un sous groupe de \(G\)
+    \end{itemize}
+\end{dem}
+\begin{defprop}[Noyau et image d’un morphisme de groupes]
+    Si \(f : G \to G'\) est un morphisme de groupes alors,
+    \begin{enumerate}
+        \item L’image directe \(f (G)\) est un sous-groupe particulier de \(G'\), dit image de \(f\) et noté \(\im f\) .
+    \[\im f  \underset{\text{ déf}}{=} f(G) \underset{\text{déf}}{=} \accol{y \in G' \tq \exists x \in G, y = f (x)} \]
+        \item L’image réciproque \(f ^{-1} (\accol{e_{G'}})\) est un sous-groupe particulier de \(G\), dit noyau de \(f\) et noté \(\ker f\)
+    \[\ker f   \underset{\text{ déf}}{=} f ^{-1} (\accol{e_{G' }}) \underset{\text{ déf}}{=} \accol{x \in G \tq f (x) = e_{G'}} \]
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Caractérisation des morphisme injectif]
+    Un morphisme de groupes \(f : G \to G'\) est injectif si, et seulement si, \(\ker f = \accol{e_G}\)
+\end{defprop}
+
+\begin{dem}
+    Soit \(f : \paren{G,\star} \to \paren{G', \perp}\) un morphisme de groupe\\
+    Montrons que \(f\) injectif \( \iff \ker f = \accol{e_G}\) par double implication
+    \begin{itemize}
+        \item \imprec On suppose \(\ker f = \accol{e_G}\)\\
+        Soit \(\paren{x,y} \in G\) tel que \(f(x) = f(y)\)\\
+        alors par composition par \(\paren{f(x)}'\) on a :
+        \begin{align*}
+            \paren{f(x)}' \perp f(x) = \paren{f(x)}' \perp f(y) &\iff e_{G'} = f(x') \perp f(y)\\
+            &\iff e_{G'} = f(x' \star y)
+        \end{align*}
+        ainsi, \(x' \star y \in \ker f\), donc \(x' \star y = e_G\) par hypothèse puis par composition à gauche on trouve \(y = x\)\\~\\
+        \underline{Conclusion} \(f\) est injective
+        \item \impdir On suppose \(f\) injective\\
+        si \(\ker f \neq \accol{e_G}\) alors il existe \(x \in \ker f\) tel que \(x \neq e_G\) avec \(f(x) = e_{G'}\).\\
+        Donc \(f(x) = f(e_G)\) d'où \(x = e_G\) car \(f\) est injective ce qui est absurde, car on a supposé \(x \neq e_G\)\\~\\
+        \underline{Conclusion} \(\ker f = \accol{e_G}\)
+    \end{itemize}
+\end{dem}
+
+\subsection{Isomorphisme}
+\begin{defi}
+    \(f\) est dit isomorphisme de groupes si \(f\) est un morphisme de groupes et \(f\) est bijective.
+\end{defi}
+
+\begin{prop}
+    Si \(f : G \to G'\) est un isomorphisme de groupes alors \(f^{-1} : G' \to G\) est un isomorphisme de groupes.
+\end{prop}
+
+\section{Anneaux, corps}
+
+\subsection{Anneaux}
+\begin{defi}
+    Un anneau est un ensemble \(A\) muni de deux lois de composition interne \(\star\) et \(\perp\) telles que :
+    \begin{enumerate}
+        \item \((A, \star)\) est un groupe commutatif ;
+        \item \(\perp\) est associative ;
+        \item \(\perp\) est distributive par rapport à la loi \(\star\) ;
+        \item \(A\) admet un élément neutre pour la loi \(\perp\).
+    \end{enumerate}
+    \underline{Remarqes}\\
+    \begin{itemize}
+        \item Il y a unicité de l’élément neutre pour la loi \(\perp\).
+        \item Si \(\perp\) est commutative, on dit que \(A\) est un anneau commutatif.
+        \item Si les lois de \(A\) sont notées \(+ \) et \(\times\), les éléments neutres de \(A\) pour les lois \(+\) et \(\times\) sont alors souvent notés respectivement \(0_A\) et \(1_A\) (ou \(0\) et \(1\) s’il n’y a pas de confusion possible) et \(1_A\) est appelé élément unité de l’anneau.
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[Quelques exemples usuels d’anneaux déjà rencontrés cette année]
+    \begin{itemize}
+        \item Dans les ensembles de nombres : \(\Z, \Q, \R, \C\) ;
+        \item Dans les ensembles de fonctions : \(\mathcal{F}(X, \K), \mathcal{D} (I, \K)\) et \(\mathcal{C}^n (I, \K)\) ;
+        \item Dans les ensembles de matrices : \(\mathcal{M}_n (\K)\)
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Calculs dans un anneau]
+    Soit \((A, +, \times)\) un anneau.
+    \begin{enumerate}
+        \item \( \forall x \in A, 0_A \times x = x \times 0_A = 0_A \text{ et }\forall x \in A, (-1_A) \times x = x \times (-1_A) = -x\)
+        \item \(\forall (x, y) \in A^2, (-x) \times y = x \times (-y) = -(x \times y) \text{ et } (-x) \times (-y) = x \times y\)
+        \item \(\forall (x, y, z) \in A^3, (x - y) \times z = (x \times z) - (y \times z) \text{ et } z \times (x - y) = (z \times x) - (z \times y)\)
+        \item \(\forall n \in \Ns, \forall (x, y) \in A^2, x \times y = y \times x \imp (x + y)^n = \sum_{k=0}^n \binom{k}{n}x^k \times y^{n-k} \)
+        \item \(\forall n \in \Ns, \forall (x, y) \in A^2, x \times y = y \times x \imp x^n - y^n = (x - y) \times \sum^{n-1}_{k=0} x^k \times y^{n-1-k}\)
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Groupe des inversibles d’un anneau]
+    Si \((A, +, \times)\) est un anneau alors l’ensemble\\~\\
+    \[G = \accol{x \in A \tq x \text{ admet un symétrique pour la loi }\times \text{ dans }A}\]
+    muni de la loi \(\times\) est un groupe, dit groupe des inversibles de l’anneau \((A, +, \times)\)
+\end{defprop}
+
+\subsection{Sous-anneaux}
+\begin{defprop}
+    Une partie \(H\) d’un anneau \((A, +, \times)\) est un sous-anneau de \(A\) si, et seulement si,
+    \begin{enumerate}
+        \item \(1_A \in H\)
+        \item \(\forall(x, y) \in H2, x + y \in H\)
+        \item \(\forall x \in H, -x \in H\)
+        \item \(\forall(x, y) \in H2, x × y \in H\)
+    \end{enumerate}
+    \underline{Remarque}
+    On peut remplacer les conditions \((2)\) et \((3)\) par \(\forall(x, y) \in H2, x - y \in H\).
+\end{defprop}
+
+\subsection{Morphisme d’anneaux}
+\begin{defi}
+    Une application \(f : A \to B\) est dite morphisme d’anneaux si \(A\) et \(B\) sont des anneaux de lois respectives \((+, \times)\) et \((\star, \perp)\) avec :
+    \begin{enumerate}
+        \item \(f (1_A) = 1_B\) 
+        \item \(\forall (x, y) \in A^2, f (x + y) = f (x) \star f (y)\)
+        \item \(\forall (x, y) \in A^2, f (x \times y) = f (x)\perp f(y)\)
+    \end{enumerate}
+\end{defi}
+
+\begin{prop}
+    Si \(f : A \to B\) est un morphisme d’anneaux alors \(f\) est un morphisme de groupes.
+\end{prop}
+
+\begin{defprop}[Image et noyau d’un morphisme d’anneaux]
+    \begin{itemize}
+        \item Si \(f : A \to B\) est un morphisme d’anneaux alors \(\im f\) est un sous-anneau de \(B\).
+        \item Si \(f : A \to B\) est un morphisme d’anneaux avec \(B\neq \accol{0_B }\) alors \(\ker f\) n’est pas sous-anneau de \(A\).\\~\\
+            En effet, on a \(f (1_A) = 1_B\) mais \(1_B\neq 0_B\) (sinon \(B\) serait égal à \(\accol{0_B }\)) donc \(1_A\) n’appartient pas à \(\ker f = \accol{x \in A \tq f (x) = 0_B }\) et, par conséquent, \(\ker f\) n’est pas sous-anneau de \(A\).
+    \end{itemize}
+\end{defprop}
+
+\subsection{Isomorphisme d’anneaux}
+\begin{defi}
+    \(f\) est dit isomorphisme d’anneaux si \(f\) est un morphisme d’anneaux et \(f\) est bijective.
+\end{defi}
+
+\begin{prop}
+    Si \(f : A \to B\) est un isomorphisme d’anneaux alors \(f^{-1} : B \to A\) est un isomorphisme d’anneaux.
+\end{prop}
+
+\subsection{Anneau intègre}
+
+\begin{defi}
+    On dit qu’un anneau \((A, +, \times)\) est un anneau intègre si les conditions suivantes sont réunies :
+    \begin{enumerate}
+        \item \(A\neq \accol{0_A}\)
+        \item \(\forall (a, b) \in A^2, a \times b = 0_A \imp a = 0_A\text{ ou }b = 0_A\)
+    \end{enumerate}
+    \underline{Remarque}\\
+    Des éléments \(a\) et \(b\) de \(A\) tels que \(a \times b = 0_A\) avec \(a\neq 0_A\) et \(b\neq 0_A\) sont dits diviseurs de \(0_A\).
+\end{defi}
+
+\begin{defprop}[Quelques exemples d’anneaux intègres/non intègres déja rencontrés cette année]
+    \begin{itemize}
+        \item Dans les ensembles de nombres : \(\Z, \Q, \R, \C\) sont des anneaux intègres.
+        \item Dans les ensembles de fonctions : \(\mathcal{F}(X, \K), \mathcal{D} (I, \K)\) et \(\mathcal{C}^n (I, \K)\) ne sont pas des anneaux intègres.
+        \item Dans les ensembles de matrices : \(\mathcal{M}_{n,p} (\K)\) n’est pas un anneau intègre.
+    \end{itemize}
+\end{defprop}
+
+\subsection{Corps commutatif}
+\begin{defi}
+    On dit qu’un anneau \((A, +, \times)\) est un corps commutatif si les conditions suivantes sont réunies :
+    \begin{enumerate}
+        \item \(A\neq \accol{0_A}\).
+        \item \(A\) est commutatif.
+        \item tout élément de \(A\) différent de \(0_A\) admet un inverse dans \(A\) pour la loi \(\times\).
+    \end{enumerate}
+\end{defi}
+
+\begin{prop}
+    Tout corps commutatif est un anneau intègre.
+\end{prop}
+
+\begin{defprop}[Sous-corps]
+    Une partie \(H\) d’un corps \((A, +, \times)\) est un sous-corps de \(A\) si, et seulement si, les conditions suivantes sont réunies :
+    \begin{enumerate}
+        \item  \(H \) est un sous-anneau de \(A\).
+        \item  \(\forall x \in H, x\neq 0_A \imp x^{-1 } \in H \quad\) (où \(x^{-1}\) désigne l’inverse de \(x\) pour la loi \(\times\))
+    \end{enumerate}
+\end{defprop}
