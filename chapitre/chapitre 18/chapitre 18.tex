@@ -1,0 +1,476 @@
+\chapter{Polynômes}
+
+\minitoc
+Dans ce chapitre ,\(\K\) désigne le corps \(\R\) ou \(\C\).
+
+
+\section{Anneau des polynômes à une indéterminée}
+
+\subsection{L'ensemble \(\K\croch{X}\)}
+
+La construction de \(\K \croch{X}\) n’étant pas au programme, on se contente ici d’une présentation sommaire.
+
+
+\begin{defprop}[Polynômes (formels) à coefficients dans \(\K\)]
+    Une suite \(P = \paren{a_k}_{k\in \N}\) de \(\K^\N\) nulle à partir d’un certain rang est dite polynôme à coefficients dans \(\K\).\\~\\
+    Pour tout \(k \in \N\), l’élément \(a_k\) est appelé coefficient de degré \(k\) de \(P\) .\\~\\
+    \underline{Notations}
+    \begin{itemize} 
+    \item L’ensemble des polynômes à coefficients dans \(K\) est noté \(\K\croch{X}\).
+    \item Le polynôme dont tous les coefficients sont nuls est dit polynôme nul et noté \(0_{\K\croch{X}}\) ou même \(0\).
+    \item Le polynôme dont tous les coefficients sont nuls sauf celui de degré \(k\) qui vaut \(1\) est noté \(X^k\).
+    \end{itemize} 
+\end{defprop}
+\begin{defprop}[égalité entre deux polynômes (formels)]
+    Deux polynômes de \(\K\croch{X}\) sont égaux si, et seulement si, leurs coefficients de même degré sont égaux.
+\end{defprop}
+
+\begin{defprop}[Degré d’un polynôme (formel)]
+    Le degré d’un polynôme \(P = \paren{a_k}_{k\in \N}\) de \(K\croch{X}\) est noté \(\deg(P)\) et défini de la manière suivante :
+    \[\deg(P ) =\begin{cases}
+    \max \accol{k \in \N \tq a_k\neq 0} &\text{ si } P\neq 0_{\K\croch{X}}\\
+    \minf &\text{ si } P = 0_{\K\croch{X}}
+    \end{cases}\]
+\end{defprop}
+
+\begin{defprop}[Coefficient dominant d’un polynôme (formel)]
+    Soit \(P = \paren{a_k}_{k\in \N}\) un polynôme non nul de \(K\croch{X}\).
+    \begin{itemize}
+        \item Si \(P\) est de degré \(n\) alors \(a_n\) est dit coefficient dominant de \(P\) .
+        \item Si le coefficient dominant de \(P\) est égal à \(1\), on dit que \(P\) est un polynôme unitaire.
+    \end{itemize}
+\end{defprop}
+
+\subsection{L’anneau intègre \(\paren{\K \croch{X} , +, \times}\)}
+
+\begin{defprop}[Multiplication par un scalaire, somme et produit]
+    Soit \(P = \paren{a_k}_{k\in \N}\) et \(Q = \paren{b_k}_{k\in \N}\) deux polynômes de \(K\croch{X}\) et \(\lambda \in \K\)
+    \begin{itemize}
+        \item Le polynôme de \(K\croch{X}\) noté \(\lambda . P\) défini ci-dessous est dit polynôme multiplication de \(P\) par \(\lambda\) :
+            \[\lambda . P = \paren{\lambda a_n}_{n \in \N}\]
+        \item Le polynôme de \(K\croch{X}\) noté \(P + Q\) défini ci-dessous est dit polynôme somme de \(P\) et \(Q\) :
+            \[P+Q = \paren{a_n + b_n}_{n \in \N}\]
+        \item Le polynôme de \(K\croch{X}\) noté \(P \times Q\) défini ci-dessous est dit polynôme produit de \(P\) et \(Q\) :
+            \[P \times Q = \paren{c_n}_{n \in \N}\text{ avec, pour tout } n \in \N, c_n = \sum_{k=0}^{n} a_kb_{n-k} = \sum_{k=0}^n a_{n-k} b_k\]
+    \end{itemize}
+    \underline{Remarque}\\~\\ 
+    On peut faire l’analogie ici avec les expressions des coefficients des applications polynomiales obtenues après multiplication d’une application polynomiale par un scalaire, addition ou multiplication de deux applications polynomiales. En particulier, l’expression imposée pour les coefficients du produit de deux polynômes s’explique en pensant aux produits d’applications polynomiales.
+\end{defprop}
+
+
+
+\begin{defprop}[Notation usuelle des polynômes]
+    Si \(P = \paren{a_k}_{k\in \N}\) est un polynôme non nul de \(\K \croch{X}\) alors on note
+    \[P =\sum^{\deg(P )}_{k=0} a_k X^k\text{ ou }P =\sum^{\pinf}_{k=0} a_k X^k \]
+    \underline{Remarques}
+    \begin{itemize}
+        \item La somme \(\sum^{\pinf}_{k=0} a_k X^k\) est finie car tous ses termes sont nuls sauf un nombre fini d’entre eux.
+        \item Par définition du produit de deux polynômes, on a bien \(X^2 = X \times X\) et même plus généralement, \(X^k = X \times X^{k-1} = X^{k-1} \times X\) pour tout \(k \in \Ns\) ce qui justifie a posteriori la notation \(X^k\) choisie.
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Effet des opérations polynomiales sur le degré]
+    Si \(P\) et \(Q\) sont deux polynômes de \(\K \croch{X}\) et \(\lambda \in \K\) alors :
+    \[ \deg(\lambda.P) = \deg(P) \text{ si } \lambda \neq 0\]
+    \[ \deg(P \times Q) = \deg(P) + \deg(Q)\]
+    \[\begin{cases}
+        \deg(P+Q) &= \max (\deg(P),\deg(Q)) \text{ si } \deg(P) \neq \deg(Q) \\
+        \deg(P+Q)& \leq \max (\deg(P),\deg(Q)) \text{ si } \deg(P) = \deg(Q)
+    \end{cases}\]
+\end{defprop}
+\begin{dem}
+    Démonstration du degré du produit de deux polynôme :\\~\\
+    on a pour tout \(n\) entier naturel tel que \( n \geq s + l + 1\) avec \(s = \deg(P)\) et \(l = \deg (Q)\), \(c_n = 0\)\\
+    On a aussi \begin{align*}
+        c_{s+l} &= \sum_{k = 0}^{s+l} a_k + b_{s+l-k} \\
+        &= a_s b_l \qquad \text{car si } k \neq s \text{ alors } k > s \text{ donc } a_s = 0 \text{ ou } s+l-k > l \text{ donc } b_{s+l-k} = 0
+    \end{align*}
+    or \(a_s \neq 0\) et \(b_l \neq 0\) donc \(a_s b_l \neq 0 \) ainsi \(\deg(P \times Q) = s+l = \deg(P) + \deg(Q)\)
+\end{dem}
+\begin{defprop}[Structure d’anneau intègre commutatif]
+    \(\paren{\K \croch{X} , +, \times}\) est un anneau intègre commutatif dont l’élément neutre
+    \begin{itemize}
+        \item pour la loi \(+\) est le polynôme nul \((0, 0, \dots \dots )\) noté \(0_{\K\croch{X}}\) ;
+        \item pour la loi \(\times\) est le polynôme \(X^0 = (1, 0, \dots , 0, \dots )\) noté \(1_{\K\croch{X}}\).
+    \end{itemize}
+    En particulier , on a:
+    \[\forall(P,Q) \in \paren{\K \croch{X}}^2, PQ = 0_{\K\croch{X}} \imp P = 0_{\K\croch{X}} \text{ ou } Q = 0_{\K\croch{X}}\]
+\end{defprop}
+
+\subsection{L’ensemble \(\K_n \croch{X}\)}
+
+\begin{defi}
+    Pour \(n \in \N\), on note \(\K_n \croch{X}\) l’ensemble des polynômes de \(\K \croch{X}\) de degré inférieur ou égal à \(n\).
+    \underline{Remarques}
+    \begin{itemize}
+        \item Pour tout \(n \in \N, \K_n \croch{X} \subset \K_{n+1} \croch{X}\)
+        \item Les éléments de \(\K_0 \croch{X}\) sont appelés les polynômes constants.
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[Structure de \(\K_n \croch{X}\)]
+    \(\K_n \croch{X}\) est un sous-groupe de \(\paren{\K \croch{X} , +, \times}\).
+    \underline{Remarques}
+    \begin{itemize}
+        \item  \(\K_n \croch{X}\) n’est pas stable pour la loi \(\times\) donc n’est pas un anneau pour les lois usuelles \(+\) et \(\times\)
+        \item 
+    \end{itemize}
+\end{defprop}
+
+\subsection{Composition de polynômes}
+\begin{defi}
+    Soit \(\forall(P,Q) \in \paren{\K \croch{X}}^2\) avec \(P = \sum_{k=0}^{\pinf} a_k X^k\).\\~\\
+    On appelle polynôme composé de \(P\) et \(Q\) et on note \(P \circ Q\) le polynôme de \(\K \croch{X}\) défini par
+    \[P\circ Q = \sum_{k = 0}^{\pinf} a_k Q^k\]
+    \underline{Remarque}\\~\\
+    On rappelle que \(Q^0 = 1_{\K \croch{X}}\)
+\end{defi}
+
+\begin{defprop}[Degré]
+    Si \(P\) et \(Q\) sont des polynômes non nuls de \(\K \croch{X}\) et si \(Q\) est non constant alors
+    \[\deg(P \circ Q) = \deg(P ) \times \deg(Q)\]
+\end{defprop}
+\section{Divisibilité et division euclidienne dans \(\K \croch{X}\)}
+Soit \(\paren{A,B,C,D} \in \paren{\K \croch{X}}^4\)
+\subsection{Divisibilité}
+\begin{defi}
+    S’il existe \(Q\) dans \(\K \croch{X}\) tel que \(A = BQ\), on dit que \(B\) divise \(A\) (ou que \(B\) est un diviseur de \(A\), ou que \(A\) est divisible par \(B\) ou encore que \(A\) est un multiple de \(B\)) et on note \(B\divise A\).\\~\\
+    \underline{Remarque}\\~\\
+    Si \(B\) est non nul et si \(B\) divise \(A\) alors il existe un unique \(Q\) dans \(\K \croch{X}\) tel que \(A = BQ\).
+\end{defi}
+
+\begin{defprop}[Ensembles des diviseurs et des multiples]
+    \begin{itemize}
+        \item On note\( \mathcal{D}(A) = \accol{B \in \K \croch{X} \tq \exists Q \in \K \croch{X} , A = BQ}\) l’ensemble des diviseurs de \(A\)
+        \begin{itemize}
+            \item Si \(A = 0_{\K\croch{X}}\) alors \(\mathcal{D}(A) = \K \croch{X}\).
+            \item Si \(A\neq 0_{\K\croch{X}}\) alors \(\mathcal{D}(A)\) est composée de polynômes de degré \(n \leq \deg (A)\)
+        \end{itemize}
+        \item On note \(B\K \croch{X} = \accol{BQ \tq Q \in \K \croch{X}}\) l’ensemble des multiples de \(B\).
+        \begin{itemize}
+            \item Si \(B = 0_{\K\croch{X}}\) alors \(B \K \croch{X} = \accol{0_{\K\croch{X}}}\)
+            \item Si \(B \neq 0_{\K \croch{X}}\) alors  \(B \K \croch{X}\) est composé de \(0_{\K \croch{X}}\) et de polynômes de degré \(n \geq \deg(B)\).
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Caractérisation des polynômes associés]
+    \(A \divise B\) \ssi il existe \(\lambda\) dans \(\Ks\) tel que \(A = \lambda B\). (A et B sont alors dits associés)
+\end{defprop}
+
+\begin{prop}[Propriétés]
+    \begin{enumerate}
+        \item \(A \divise A\)
+        \item Si \(A \divise B\) et \(B \divise C\) alors \(A \divise C\)
+        \item Si \(A \divise B\) et \(C \divise D\) alors \(AC \divise BD\)
+        \item Si \(A \divise B\) alors, pour tout \(n \in \Ns\) , \(A^n \divise B^n\)
+        \item Si \(C \divise A\) et \(C \divise B\) alors, pour tout \(\paren{U,V} \in \paren{\K \croch{X}}^2\) , \(C \divise AU + BV\)
+    \end{enumerate}
+\end{prop}
+
+\subsection{Division euclidienne}
+\begin{theo}[Théorème de la division euclidienne]
+    Pour tout \(\paren{A,B}\) de \(\paren{\K \croch{X}}^2\) avec \(B \neq 0_{\K \croch{X}}\), il existe un unique couple \(\paren{Q,R}\) de \(\paren{\K \croch{X}}^2\) tel que : 
+    \[A = BQ+R \text{ et } \deg(R)< \deg(B)\]
+    Dans la division euclidienne de \(A\) par \(B\), \(A\) est appelé dividende, \(B\) diviseur, \(Q\) quotient et \(R\) reste.
+\end{theo}
+
+\begin{dem}
+    Soit \(\paren{A,B} \in \paren{\K \croch{X}}^2\) avec \(B \neq 0_{\K \croch{X}}\)
+    \begin{itemize}
+        \item \unicite\\
+        On suppose qu'il existe deux couple \((Q,R)\) et \((Q_1, R_1)\) de \(\paren{\K\croch{X}}\) tel que : 
+        \begin{enumerate}
+            \item \(A = BQ + R\) et \(\deg(R)<\deg(B)\)
+            \item \(A = BQ_1 + R_1\) et \(\deg(R_1)<\deg(B)\)
+        \end{enumerate}
+        Alors \(B(Q-Q_1) = R-R_1\) et donc \(\deg(B) + \deg( Q-Q_1) = \deg(R-R_1)\)\\
+        avec \(\deg(R-R_1) \leq \max(\deg(R),\deg(R_1))\) donc \(\deg(R-R_1) < \deg(B)\).
+        Ainsi , \(\deg(B) + \deg( Q-Q_1) < \deg(B)\) donc \(\deg( Q-Q_1) < 0\) ce qui donne \(Q - Q_1 = 0 _{\K \croch{X}}\). On en déduit \(Q = Q_1\) puis \(R = R_1\).
+        \item \existence
+        \begin{itemize}
+            \item Dans le cas où \(B\) divise \(A\), il existe \(Q \in \K \croch{X}\) tel que \(A = BQ\) donc le couple\( (Q, 0_{\K\croch{X}})\) convient.
+            \item On se place donc dans le cas où \(B\) ne divise pas \(A\) et on note \(J = \accol{\deg (A - BQ) \tq Q \in \K \croch{X}}\)
+        \end{itemize}
+        L’ensemble \(J\) est non vide (car il contient le degré de \(\)A) et est inclus dans \(\N\) (car il ne contient pas \(\minf\) puisque \(B\) ne divise pas \(A\) donc, quel que soit \(Q \in \K \croch{X}, A - BQ\neq 0_{\K\croch{X}}\)). L’ensemble \(J\) admet donc un minimum que l’on note \(r\) et il existe donc \(Q Q \in \K \croch{X}\) tel que \(\deg (A - BQ) = r\).\\~\\
+        Montrons que le polynôme \(R = A - BQ\) est de degré \(r\) strictement inférieur au degré \(b\) de \(B\).\\~\\
+        Pour cela, on peut raisonner par l’absurde, en supposant que \(\deg (R) \geq deg (B)\) donc \(r - b \geq 0\).\\~\\
+        En notant \(\alpha\) le coefficient dominant de \(R\), le polynôme\( S = R - \alpha X^{r-b}B\) est alors de degré strictement inférieur à \(r\). Or \(S\) peut s’écrire aussi \(S = A - B\paren{Q + \alpha X^{r-b}}\) donc \(S = A - BT\) avec \(T \in \K \croch{X}\) ce qui prouve que \(\deg (S) \in J\) et donc que \(\deg (S) \geq r\) car \(r est le minimum de J\). Ceci contredit le résultat \(\deg (S) < r\) trouvé.\\~\\
+        Ainsi, \(\deg (R) < b\) donc \(A = BQ + R\) avec \(\deg(R) < \deg (B)\) ce qui prouve l’existence attendue.
+    \end{itemize}
+    \conclusion il existe un unique couple \((Q, R)\) de \(\paren{\K \croch{X}}^2\) tel que : \(A = BQ + R\) et \(\deg(R) < \deg(B)\).
+\end{dem}
+
+\begin{defprop}[Caractérisation de la divisibilité]
+    Soit \(\paren{A,B} \in \paren{\K \croch{X}}^2 \) avec \(B\neq 0_{\K\croch{X}}\).\\~\\
+    \(B\) divise \(A\) si, et seulement si, le reste de la division euclidienne de \(A\) par \(B\) est nul.
+\end{defprop}
+
+\section{Fonction polynomiales et racines}
+\subsection{Fonction polynomiale associée à un polynôme}
+\begin{defi}
+    A tout polynôme \(P= \sum_{k=0}^{\pinf}\) de \(\K \croch{X}\) , on peut associer une fonction \(\wt{P} : \K \to \K\) définie par :
+    \[ \forall x \in \K, \wt{P} = \sum_{k=0}^{\pinf} a_k x^k\]
+    Cette fonction \(\wt{P}\) est dite fonction polynomiale associée à \(P\).\\~\\
+    \underline{Remarque}\\~\\
+    Par abus d’écriture, on utilise souvent la même notation pour \(P\) et \(\wt{P}\) alors que ce sont des objets de nature différente (une suite de \(\K^{\N}\) presque nulle pour l’un et une fonction de \(\K\) dans \(\K\) pour l’autre).
+\end{defi}
+
+\begin{prop}
+        Soit \(\paren{P,Q} \in \paren{\K \croch{X}}^2 \) et \(\lambda \in \K\) alors : 
+        \[ \wt{\lambda P} = \lambda \wt{P} \qquad \wt{P +Q} = \wt{P} + \wt{Q} \qquad \wt{P \times Q} = \wt{P} \times \wt{Q} \qquad \wt{P \circ Q} = \wt{P} \circ \wt{Q}\]
+\end{prop}
+
+\subsection{Racine (ou zéro) d’un polynôme}
+\begin{defi}
+    On dit que \(\alpha \in \K\) est une racine (ou un zéro) du polynôme \(P \in \K \croch{X} \text{ si } \wt{P} (\alpha) = 0\).\\~\\
+    \underline{Remarques}\\~\\
+    Pour \(\alpha \in \K\), l’écriture \(P (\alpha)\) n’a a priori pas de sens car \(P\) est une suite et pas une fonction. En pratique, on note tout de même \(P (\alpha)\) au lieu de \(\wt{P} (\alpha)\) et on parle d’évaluation du polynôme \(P\) en \(\alpha\) et non pas de la valeur de \(P\) en \(X = \alpha\) ce qui n’a pas de sens.
+\end{defi}
+
+\begin{defprop}[Caractérisation en termes de divisibilité]
+    Soit \(\alpha \in \K\) et \( P \in \K \croch{X}\).\\~\\
+    \(\alpha\) est une racine de \(P\) dans \(\K\) \ssi le polynôme \(X - \alpha\) divise \(P\)
+\end{defprop}
+\begin{dem}
+    \begin{itemize}
+        \item \impdir On suppose \(\alpha\) racine de \(P\) \\
+        Par théoreme de la division euclidienne sur \(P\) par \(X - \alpha\) :
+        \[\exists (Q,R) \in \paren{\K \croch{X}}^2 , P = Q\paren{X - \alpha} + R\]
+        avec \(\deg(R) < \deg(X-\alpha)\) donc \(R = \beta\) avec \(\beta \in \K\).\\
+        Par égalité sur les applications polynomiale on a donc \(\wt{P} = \paren{\wt{X - \alpha}}\wt{Q} + \wt{R}\) \\
+        Or \(\alpha\) est racine de \(P\) donc \begin{align*}
+            \wt{P}(\alpha) = 0 &\iff 0 = \paren{\wt{(\alpha - \alpha)}}\wt{Q(\alpha)} + \wt{R(\alpha)}\\
+            &\iff 0 = \wt{R(\alpha)}\\
+            \iff 0 = \beta
+        \end{align*}
+        Donc \(P = \paren{X - \alpha}Q\) ainsi \(\paren{X- \alpha} \divise P\)
+        \item \imprec   On suppose que \(\paren{X - \alpha} \divise P\) \\
+        alors \(\exists Q \in \K \croch{X}, P = \paren{X-\alpha}Q\) ainsi \(\wt{P} = \paren{\wt{X - \alpha}}\wt{Q}\) \\
+        d'où \(\wt{P}(\alpha) = \paren{\wt{\alpha - \alpha}}\wt{Q}(\alpha) = 0\)\\
+        donc \(\alpha\) est racine de \(P\). 
+    \end{itemize}
+    \conclusion \(\alpha\) est une racine de \(P\) dans \(\K\) \ssi le polynôme \(X - \alpha\) divise \(P\)
+\end{dem}
+\begin{defprop}[Propriété sur le nombre de racines]
+    Soit \(P \in \K \croch{X}\).\\~\\
+    \begin{itemize}
+        \item Si \(P=0_{\K \croch{X}}\) alors \(P\) a une infinité de racines dans \(\K\).\\
+        \item Si \(P = 0 _{\K\croch{X}}\) alors \(P\) a au plus \(\deg(P)\) racines dans \(\K\).
+    \end{itemize}
+    \underline{Remarque}:\\
+    Le polynôme \(P\) est entièrement déterminé par la fonction polynomiale \(\wt{P}\) associée. En effet si, \(\wt{P} = \wt{Q}\) alors \(\wt{P-Q} = 0_{\K \croch{X}}\) donc \(P-Q\) a une infinité de racines et par conséquent \(P-Q = 0_{\K \croch{X}}\) puis \(P = Q\) 
+\end{defprop}
+\begin{dem}
+    On note \(n = \deg(P)\).\\
+    Supposons que \(P\) a strictement plus de \(n\) racines distinctes dans ce cas il existe \((\alpha_1, \dots \alpha_{n+1})\) qui sont racines de \(P\), alors par propriété : \[Q = \prod_{k=1}^{n+1} \paren{X - \alpha_k} \text{ divise } P\]
+    donc \(\deg(Q) \leq \deg(P)\) \ie \(n+1 \leq n\) ce qui est faux.
+\end{dem}
+
+\begin{defprop}[Multiplicité d'une racine]
+    Soit \(P\) un polynôme  de \(\K\croch{X}\), \(\alpha \in \K\) et \(m \in \N\).\\~\\
+    On dit que \(\alpha\) est racine de multiplicité \(m\) dans \(P\) si \(\begin{cases}
+        \paren{X-\alpha}^m \text{ divise } P \\
+        \paren{X - \alpha} ^{m+1} \text{ divise } P
+    \end{cases}\)\\
+    autrement  dit s'il existe \(Q \in \K \croch{X}\) tel que: \[P = \paren{X-\alpha}^m Q \text{ avec } Q(\alpha) \neq 0\]
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Dire que \(\alpha\) est de multiplicité \(0\) dans \(P\) signifie que \(\alpha\) n'est pas racine de \(P\).
+        \item Une racine de \(P\) est dite simple (resp. double, triple,...) si sa multiplicité est 1 (resp. 2,3,...)
+    \end{itemize}
+\end{defprop}
+\subsection{Polynômes scindé}
+\begin{defi}
+    Un polynôme de \(\K \croch{X}\) est dit scindé sur \(\K\) s'il peut s'écrire comme produit de polynômes de \(\K \croch{X}\) de degré \(1\) (non nécessairement distincts).
+\end{defi}
+\begin{defprop}[Propriété sur le degré]
+    Soit \(P\) un polynôme non constant de \(\K \croch{X}\) . \\
+    Si \(P\) est scindé sur \(\K\) alors le degré de \(P\) est égal à la somme des multiplicités de ses racines dans \(\K\).
+\end{defprop}
+
+\begin{defprop}[Divisibilité par un produit de polynômes distintc de degré \(1\)]
+    Soit \(P \in  \K \croch{X}\) ayant \(r\) racines distinctes \(\alpha_1, \dots , \alpha_r\) avec \(r \in \Ns\)\\
+    Alors \(\prod_{k=1}^{r} \paren{X-a_k}\) divise \(P\)
+\end{defprop}
+
+\begin{dem}
+    Montrons cette propriété par récurrence.
+    \begin{itemize}
+        \item Pour \(r=1\) la propriété est vérifié
+        \item Soit \(r \in \Ns\) tel que, Pour tout \(P\) de \(\K\croch{X}\) ayant \(r\) racines distinctes \(\alpha_1, \dots , \alpha_r\) on a \(\prod_{k=1}^{r} \paren{X-a_k} \divise P\)\\
+        Soit \(P\) un polynôme de \(\K\croch{X}\) ayant\(r+1\) racines distinctes \(\alpha_1,\dots,\alpha_r,\alpha_{r+1}\).
+        Par hypothèse de récurrence, \(\prod_{k=1}^r \paren{X-\alpha_k}\) divise \(P\) donc il existe un polynôme \(Q\) de \(K \croch{X}\) tel que \(P = Q \prod_{k=1}^{r}\paren{X-\alpha_k}\) \\.
+        Comme \(\alpha_{r+1}\) est racine de \(P\), en évaluant ces polynômes en \(\alpha_{r+1}\), on trouve \(0 = Q(\alpha_{r+1})\prod_{k=1}^r \paren{\alpha_{r+1}-\alpha_k}\)\\
+        donc \(Q(\alpha_{r+1}) = 0\) puisque les \(\alpha_k\) sont deux à deux distincts.\\
+        Ainsi, \(Q\) a pour racine \(\alpha_{r+1}\) donc, par propriété, \(\paren{X-\alpha_{r+1}}\) divise \(Q\) i. e. il existe un
+        polynôme \(S\) tel que\( Q = (X - \alpha _{r+1}) S\) ce qui donne \(P = S \prod_{k=1}^{r+1}\paren{X-\alpha_k}\)
+        La propriété est donc vraie au rang \(r + 1\).
+    \end{itemize}
+    \conclusion Si \(P \in \K \croch{X}\) a \(r\) racines distinctes \(\alpha_1, \dots , \alpha_r\) avec \(r \in \Ns\) alors \(\prod_{k=1}^{r} \paren{X-a_k}\) divise \(P\)
+\end{dem}
+\section{Polynômes dérivés}
+\subsection{Dérivée formelle d'un polynôme}
+\begin{defi}
+    ~\\
+    Soit \(P =  \sum_{k=0}^{\pinf} a_k X^k\) un polynôme \(P\) noté \(P'\) défini par 
+    \[P' = \sum_{k=1}^{\pinf} k a_k X^k = \sum_{k=0}^{\pinf} (k+1) a_{k+1}X^k\] 
+\end{defi}
+
+\begin{defprop}[Degré du polynôme dérivé]
+    ~\\
+    Si \(P\) est un polynôme de \(\K\croch{X}\) alors \(\begin{cases}
+        \deg(P') = \deg(P) -1 &\text{ si } \deg(P) \geq 1\\
+        P' = 0_{\K \croch{X}} & \text{ sinon }
+    \end{cases}\)
+\end{defprop}
+\begin{defprop}[Lien avec la dérivée de la fonction polynomiale associée]
+    Dans le cas particulier où \(P\) est un polynôme à coefficients réels, on a \(\wt{P'} = \paren{\wt{P}}'\)
+\end{defprop}
+\begin{defprop}[Opération sur les polynômes dérivés]
+    Soit \(P\) et \(Q\) deux polynômes de \(\K \croch{X}\) et \(\lambda \in \K\)\\
+    Alors : 
+    \[\paren{ \lambda P}' = \lambda P' \quad \paren{P + Q}' = P' + Q' \quad \paren{P \times Q}' = P' \times Q + P \times Q' \quad \paren{P \circ Q}' = Q' \paren{P' \circ Q}\]
+\end{defprop}
+
+\subsection{Polynômes dérivés successifs}
+\begin{defi}
+    Soit \(P\) un polynôme de \(\K \croch{X}\).\\
+    On pose \(P^{\paren{0}} = P\) et, pour \(k \in \N, P ^{\paren{k+1}} = \paren{ P ^{\paren{k}}}'\) appelé polynôme dérivé formel de \(P\) d’ordre \(k + 1\)
+\end{defi}
+
+\begin{defprop}[Degré des polynômes dérivés successifs]
+    ~\\
+    Si \(P\) est un polynôme de \(\K \croch{X}\) et \(n\) un entier naturel alors \(\begin{cases}
+        \deg(P^{(n)}) = \deg(P)-n &\text{ si } \deg(P) \geq n \\
+        P ^{(n)} = 0_{\K \croch{X}} & \text{ sinon}
+    \end{cases}\)
+\end{defprop}
+
+\begin{defprop}[Opérations sur les polynômes dérivés successifs]
+    Soit \(P\) et \(Q\) deux polynômes de \(\K \croch{X}\), \(\lambda \in \K\) et \(n \in \N\)\\
+    Alors : 
+    \[(\lambda P)^{(n)} = \lambda P ^{(n)}\]
+    \[\paren{P + Q} ^{(n)} = P^{(n)} + Q^{(n)}\]
+    \[\paren{P \times Q}^{(n)} = \sum_{k=0}^n \binom{n}{k} P ^{(k)} \times Q ^{(n-k)} = \binom{n}{k} P ^{(n-k)} \times Q ^{(k)}\qquad \text{formule de Leibniz}\] 
+\end{defprop}
+
+\begin{defprop}[Formule de Taylor polynomiale]
+    Pour tout polynôme de \(P\) de \(\K \croch{X}\) et tout \(\alpha\) dans \(\K\), on a : 
+    \[P = \sum_{k=0}^{\pinf} \frac{P ^{k}(\alpha)}{k!}\paren{X- \alpha}^k\]
+    \underline{Remarque}\\
+    On en déduit que, pour tout \(k \in \N\), le coefficient de degré \(k\) de \(P\) est \(a_k = \frac{P^{(k)}(0)}{k!}\)
+\end{defprop}
+
+\begin{dem}
+    \begin{itemize}
+        \item Préliminaire : \\
+        Soit \(Q \in \K \croch{X}\) \\
+        Montrons que :\(Q = \sum_{k=0}^{\pinf} \frac{Q ^{k}(0)}{k!}\paren{X}^k\)\\
+        Soit \(Q = \sum_{i=0}^{\pinf} a_i X^i\) \\
+        alors \(Q^{(k)} = \sum_{k=0}^{\pinf} a_i \paren{X^i}^{(k)}\) avec \(\paren{X^i}^{(k)} = 0_{\K \croch{X}}\) si \(k>i\)\\
+        donc \begin{align*}
+            Q^{(k)}(0) &= \sum_{k=0}^{\pinf} \frac{Q ^{k}(0)}{k!}\paren{X}^a_i \frac{i!}{(i-k)!} X^{i-k} \\
+            &= a_k \frac{k!}{0!} +  \sum_{k=0}^{\pinf} \frac{Q ^{k}(0)}{k!}\paren{X}^a_i \frac{i!}{(i-k)!} X^{i-k} \\
+            & = a_k \frac{k!}{0!}  \hfill \text{ Car en 0} X^{i-k} = 0
+        \end{align*}
+        donc \(a_k =  \frac{Q^{(k)}(0)}{k!}\) ainsi on conclut que : \(Q = \sum_{k=0}^{\pinf} \frac{Q ^{k}(0)}{k!}\paren{X}^k\)
+        \item Preuve en \(\alpha\)\\
+        On applique le préliminaire à \(Q = P \circ \paren{X+\alpha}\)\\
+        alors \(Q' = \paren{P' \circ \paren{X + \alpha}}\paren{X+\alpha}' =P' \circ \paren{X + \alpha} \) donc \(Q'(0) = P'(\alpha)\)\\
+        et par récurrence immédiate \(Q^{(k)} = P^{(k)}\circ \paren{X-\alpha}\)  donc \(Q^{(k)}(0) = P^{(k)}(\alpha)\)\\
+        Ainsi avec le préliminaire on sait  : \(P \circ \paren{X-\alpha} = \sum_{k=0}^{\pinf} \frac{P ^{k}(\alpha)}{k!}\paren{X}^k\) \\
+        d'où \(P \circ \paren{X-\alpha} \circ \paren{X + \alpha} = \sum_{k=0}^{\pinf} \frac{P ^{k}(\alpha)}{k!}\paren{X-\alpha}^k\)
+    \end{itemize}
+    \conclusion \(\forall P \in \K \croch{X}, \forall \alpha \in \K ,P = \sum_{k=0}^{\pinf} \frac{P ^{k}(\alpha)}{k!}\paren{X- \alpha}^k\)
+\end{dem}
+
+\begin{defprop}[Caractérisation de la multiplicité d’une racine par les polynômes dérivés successifs]
+    Soit \(P\) un polynôme de \(\K \croch{X}\), \(\alpha \in \K\) et \(m \in \Ns\).\\~\\
+    \(\alpha\) est racine de multiplicité \(m\) dans \(P\) \ssi \(\begin{cases}
+        P^{(k)}(\alpha) = 0 &\text{ pour tout } k \in \interventierii{0}{m-1}\\
+        P^{(m)}(\alpha) \neq 0
+    \end{cases}\)
+    \underline{Remarque}
+    On en déduit que si \(\alpha\) est de multiplicité m non nulle dans \(P\) alors \(\alpha\) est de multiplicité \(m - 1\) dans \(P '\).
+\end{defprop}
+
+\begin{dem}
+    Par la formule de Taylor polynomiale en \(\alpha\) on a  : \[P  = \sum_{k=0}^{m-1} \frac{P ^{k}(\alpha)}{k!}\paren{X- \alpha}^k + \paren{X-\alpha}^m \sum_{k=m}^{\pinf} \frac{P ^{k}(\alpha)}{k!}\paren{X- \alpha}^k\] 
+    \ie \(P = \paren{X-\alpha}^mQ + R \)  avec \(\begin{cases}
+        \sum_{k=0}^{m-1} \frac{P ^{k}(\alpha)}{k!}\paren{X- \alpha}^k &= R \text{ et } \deg(R) < \deg\paren{ \paren{X-\alpha}^m}\\
+        \sum_{k=m}^{\pinf} \frac{P ^{k}(\alpha)}{k!}\paren{X- \alpha}^k & = Q
+    \end{cases}\)
+    On en déduit que  : \begin{align*}
+        \alpha \text{ est racine de multiplicité au moins } m &\iff \paren{X-\alpha}^m \divise P \\
+        &\iff \sum_{k=0}^{m-1} \frac{P ^{k}(\alpha)}{k!}\paren{X- \alpha}^k = 0_{\K \croch{X}} \\
+        &\iff \forall k \interventierii{1}{m-1} P ^{(k)}(\alpha) = 0
+    \end{align*}
+    \conclusion \(\alpha\) est racine de multiplicité \(m\) dans \(P\) \ssi \(\begin{cases}
+        P^{(k)}(\alpha) = 0 &\text{ pour tout } k \in \interventierii{0}{m-1}\\
+        P^{(m)}(\alpha) \neq 0
+    \end{cases}\)
+\end{dem}
+
+\section{Trois classiques incontournables}
+Soit \(n \in \Ns\).
+\subsection{Méthode de Horner pour l’évaluation polynomiale}
+\begin{defprop}
+    L’évaluation en \(\alpha \in \K\) du polynôme de degré \(n\), \(P = \sum_{k = 0}^n a_k X^k\) de \(\K \croch{X}\), peut se faire ainsi : 
+    \[P(\alpha) = a_0 + \alpha \paren{a_1 + \alpha\paren{a_2 + \dots + \alpha \paren{ a_{n-1} + \alpha a_n}}}\]
+    Cet algorithme dit “schéma de Horner” a une complexité linéaire (en version itérative ou récursive) alors que la méthode naïve d’évaluation a une complexité quadratique.
+\end{defprop}
+\subsection{Formule d’interpolation de Lagrange}
+\begin{defprop}
+
+    Soit \((x_1, \dots, x_n)\) une famille de \(n\) éléments de \(\K\) deux à deux distincts.\\
+    Soit \((y_1, \dots, y_n)\) une famille de \(n\) éléments de \(\K\).\\~\\
+    Il existe un unique polynôme \(P\) de \(K_{n-1}\croch{X}\) tel que : \(\forall j \in \interventierii{1}{n} , P (x_j ) = y_j\) . Ce polynôme, dit polynôme interpolateur de Lagrange, est donné par :
+    \[p = y_1 L_1 + \dots y_n + L_n \qquad \text{ avec } \qquad \forall i \in \interventierii{1}{n}, L_i = \frac{\prod_{k=1,k \neq i}^{n}\paren{X - x_k}}{\prod_{k=1,k \neq i}^{n}\paren{x_i - x_k}}\]
+    \underline{Remarque}: \\
+    \begin{itemize}
+        \item \(\forall (i,i) \in \paren{\interventierii{1}{n}}^2 L_i(x_j) = \delta_{ij}\)
+        \item Plus généralement les polynômes \(Q\) de \(\K \croch{X}\) tels que \(\forall j \in \interventierii{1}{n}, Q(x_j) =  y_j\) sont les polynômes.
+        \[Q = P + \paren{\prod_{k=1}^{n}\paren{X-x_k}}S\]
+        où \(P\) est le polynôme interpolateur de Lagrange et \(S\) un polynôme quelconque de \( \K \croch{X}\).
+    \end{itemize}
+\end{defprop}
+\begin{dem}
+Soit \((x_1, \dots , x_n)\) une famille de \(n\) éléments de \(\K\) deux à deux distincts et \((y_1, \dots , y_n)\) une famille de \(n\) éléments de \(\K\).
+\begin{itemize}
+    \item \unicite \\
+    On suppose qu’il existe deux polynômes \(P\) et \(Q\) de \(K_{n-1} \croch{X}\) tels que :\( \forall j \in \interventierii{1}{N} , P (x_j ) = Q(x_j ) = y_j \)\\
+    Alors : \(\forall j \in \interventierii{1}{n} , (P - Q)(x_j ) = 0\) donc le polynôme \(P - Q\) a \(n\) racines distinctes.\\
+    Comme \(P - Q\) appartient à \(K_{n-1} \croch{X}\), on en déduit que \(P - Q = 0_{\K\croch{X}}\) puis que \(P = Q\).
+    \item \existence \\
+    On exhibe ici un polynôme qui convient.\\~\\
+    Pour cela, on pose, pour tout \(i \in \interventierii{1}{n},L_i = \frac{\prod_{k=1,k \neq i}^{n}\paren{X - x_k}}{\prod_{k=1,k \neq i}^{n}\paren{x_i - x_k}} \) \\
+    Soit \(i \in \interventierii{1}{n}\)\\~\\
+    Comme produit de \(n - 1\) polynômes de degré \(1\), \(L_i\) est un polynôme de degré \(n - 1\) donc a fortiori \(L_i\) appartient à \(\K{n-1} \croch{X}\). De plus, \(L_i(x_i) = 1\) et \(L_i(x_j ) = 0\) si \(i\neq j\) autrement dit \(L_i(x_j ) = \delta_{i,j} \).\\
+    Ainsi, \(P = \sum^n _{i=1} y_iL_i\) est un polynôme de \(\K_{n-1} \croch{X}\) qui vérifie \(\forall j \in \interventierii{1}{n}, P (x_j ) = \sum^n _{i=1} y_iL_i(x_j ) = y_j\) .
+\end{itemize}
+\conclusion il existe un unique polynôme \(P\) de \(\K_{n-1}\croch{X}\) tel que : \(\forall j \in \interventierii{1}{n}, P (x_j ) = y_j\) .
+\end{dem}
+\subsection{Relations entre coefficients et racines (formules de Viète)}
+\begin{defprop}
+    Si \(P\) est un polynôme de \(\K \croch{X}\) de degré \(n\), scindé sur \(\K\) de racines \(\alpha_1, \dots , \alpha_n\) (répétées avec multiplicité) alors, en notant \(P = \sum_{k=0}^{n}a_k X^k\), on a :
+    \[\forall i \in \interventierii{1}{n}, \sigma_i = \paren{-1}^i \frac{a_{n-i}}{a_n} \quad \text{ avec } \sigma_i = \sum_{1 \leq k_1 < k_2 <\dots< k_i \leq n} \alpha_{k_1} \alpha_{k_2} \dots \alpha_{k_i}\]
+    \underline{Remarque}: \\
+    Les formules concernant la somme \(\sigma_1\) et le produit des racines \(\sigma_n\) sont à connaître par coeur :
+    \[\sigma_1 = \sum_{k=1}^n \alpha_k = - \frac{a_{n-1}}{a_n} \qquad \text{ et } \qquad \sigma_n = \prod_{k=1}^{n} \alpha_k = (-1)^n \frac{a_0}{a_n}\]
+    Les autres sont à savoir retrouver rapidement.
+\end{defprop}
+
+\begin{dem}
+    Par hypothèse sur \(P\), on peut écrire
+    \[P = a_n\paren{X-\alpha_1}\paren{X-\alpha_2}\dots \paren{X-\alpha_n}\]
+    ce qui donne après calculs dans l’anneau commutatif \(\K \croch{X}\)
+    \[P = a_n\paren{X^n - \paren{\alpha_1 + \alpha_2 + \dots + \alpha_n}X^{n-1} + \paren{\alpha_1 \alpha_2 + \alpha_1 \alpha_3 + \dots + \alpha_{n-1} \alpha_n}X^{n-2} + \dots + \paren{-1}^n \alpha_1 \alpha_2 \dots \alpha_n}\]
+    ou plus précisément 
+    \[P = a_n \paren{X^n - \sigma_1 X^{n-1} + \sigma_2 X^{n-2}} + \dots \paren{-1}^{n-1} \sigma_{n-1}X + \paren{-1}^n \sigma_n\]
+    avec 
+    \[\sigma_i = \sum_{1 \leq k_1 < k_2 <\dots< k_i \leq n} \alpha_{k_1} \alpha_{k_2} \dots \alpha_{k_i}\]
+    Par ailleurs, \(P = \sum_{k=0}^n a_k X^k\) donc, comme deux polynômes sont égaux si, et seulement si, leurs coefficients de même degré sont égaux, on trouve :
+    \[\forall i \interventierii{1}{n}, (-1)^i \sigma_i a_n = a_{n-i}\] 
+    et donc \[\forall i \in \interventierii{1}{n} \sigma_i = (-1)^i \frac{a_{n-1}}{a_n}\]
+\end{dem}
