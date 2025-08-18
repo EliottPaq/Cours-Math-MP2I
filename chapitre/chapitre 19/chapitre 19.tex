@@ -1,0 +1,291 @@
+\chapter{Analyse Asymptotique \((1)\)}
+
+\minitoc
+Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et \(I\) un intervalle de \(\R\), non vide et non réduit à un point.
+
+\section{Relations de comparaison pour les fonctions}
+
+\subsection{Définition}
+\begin{defprop}[Domination]
+    On dit que \(f\) est dominée par \(g\) au voisinage de \(a\) s’il existe un voisinage \(V_a\) de \(a\) et une fonction \(M : I \inter V_a \to \K\) bornée tel que
+    \[\forall x \in  I \inter V_a, f (x) = M (x)g(x)\]
+    On note alors \(f (x) = \underset{x\to a }{o \paren{g(x)}}\) ou \(f \underset{a}{=} o \paren{g}\).
+\end{defprop}
+
+
+\begin{defprop}[Négligeabilité]
+    On dit que \(f\) est négligeable devant \(g\) au voisinage de \(a\) s’il existe un voisinage \(V_a\) de \(a\) et une fonction \(\epsilon : I \inter V_a \to \K\) de limite nulle en \(a\) tel que
+    \[\forall x \in  I \inter V_a, f (x) = \epsilon(x)g(x)\]
+    On note alors \(f (x) \underset{x\to a}{=}o \paren{g(x)}\) ou \(f \underset{a}{} o \paren{g}\).
+\end{defprop}
+\begin{defprop}[Equivalence]
+    On dit que \(f\) est équivalente à \(g\) au voisinage de \(a\) s’il existe un voisinage \(V_a\) de \(a\) et une fonction \(u : I \inter V_a \to \K\) de limite égale à \(1\) en a tel que
+    \[\forall x \in  I \inter V_a, f (x) = u(x)g(x)\]
+    On note alors \(f (x) \underset{x\to a}{\sim} g(x)\) ou \(f \underset{a}{\sim} g\).
+\end{defprop}
+
+\subsection{Caractérisations pratiques}
+
+\begin{defprop}
+    Soit \(f : I \to  \K\) et \(g : I \to  \K\) deux fonctions et \(a \in  \R\) tel que \(a\) est point ou extrémité de \(I\).\\
+    Dans le cas où \(g\) ne s’annule pas au voisinage de \(a\), on a les équivalences suivantes :
+    \begin{enumerate}
+        \item \(f \underset{a}{=} o \paren{g}\) si, et seulement si, la fonction \(\frac{f}{g}\) est bornée au voisinage de \(a\).
+        \item \(f \underset{a}{=} o \paren{g}\) si, et seulement si, la fonction \(\frac{f}{g}\) a pour limite \(0\) en \(a\).
+        \item \( f \underset{a}{\sim} g\) si, et seulement si, la fonction \(\frac{f}{g}\) a pour limite \(1\) en \(a\).
+    \end{enumerate}
+    \underline{Remarques}
+    \begin{itemize}
+        \item En pratique, ce sont ces caractérisations qui seront utilisées plutôt que les définitions.
+        \item L’étude locale de \(f\) au voisinage de \(a \in  \R \) se ramène à l’étude de la fonction \(f (a + h)\) pour \(h \to  0\).
+        \item Les équivalences précédentes sont encore valables dans le cas où \(f\) et \(g\) s’annulent en \(a\) avec \(g\) qui ne s’annule pas sur un voisinage de \(a\) privé de \(a\).
+    \end{itemize}
+\end{defprop}
+
+\subsection{Lien entre les relations de comparaison}
+
+\begin{defprop}
+    Soit \(f : I \to  \K\) et \(g : I \to  \K\) deux fonctions et \(a \in  \R\) tel que \(a\) est point ou extrémité de \(I\).\\
+    Alors, on a :
+    \begin{enumerate}
+        \item \(f \underset{a}{=} o \paren{g} \imp f \underset{a}{=} o \paren{g}\) 
+        \item \(f \underset{a}{\sim} g \imp f \underset{a}{=} o \paren{g}\) 
+        \item \(f \underset{a}{\sim} g \iff f \underset{a}{=} g + o \paren{g}\).
+    \end{enumerate}
+
+\end{defprop}
+
+\subsection{Traduction des croissances comparées à l’aide des “\(o\)”}
+
+\begin{defprop}[Au voisinage de \(\pinf\)]
+    Pour tous réels strictement positifs \(\alpha, \beta\) et \(\gamma\), on a :
+    \begin{itemize}
+        \item \((\ln(x))^{\beta} \underset{x\to \pinf}{=}o \paren{x^{\alpha}}\) ;
+        \item \(x^{\alpha} \underset{x\to \pinf}{=} o \paren{e^{\gamma x}}\) ;
+        \item \( x^{\alpha} \underset{x\to \pinf}{=} o \paren{ x^{\beta}} \text{ dans le cas } \alpha < \beta\)
+    \end{itemize}
+
+
+\end{defprop}
+
+\begin{defprop}[Au voisinage de \(0\)]
+    Pour tous réels strictement positifs \(\alpha\) et \(\beta\), on a :
+    \begin{enumerate}
+        \item \(\abs{\ln(x)}^{\beta} \underset{x\to 0}{=} o \paren{\frac{1}{x^{\alpha}}}\)
+        \item \(x^{\alpha} \underset{x\to 0}{=} o\paren{ x^{\beta}} \text{ dans le cas} \alpha > \beta\).
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Obtention et utilisation des équivalents}
+
+\begin{defprop}[Obtention d’un équivalent par encadrement]
+    Si \(f\), \(g\) et \(h\) sont à valeurs réelles et vérifient \(g \leq f \leq h\) au voisinage de \(a\) avec \( g \underset{a}{\sim} h \) alors \( f \underset{a}{\sim} h \).
+\end{defprop}
+
+\begin{defprop}
+    \begin{itemize}
+        \item Si \(f\underset{a}{\sim} g\) alors \(f\) et \(g\) ont même “comportement” au voisinage de \(a\), c’est-à-dire que :
+        \begin{itemize}
+            \item \(f\) a pour limite \(l\) en \(a\) si, et seulement si, \(g\) a pour limite \(l\) en \(a\).
+            \item \(f\) n’a pas de limite en \(a\) si, et seulement si, \(g\) n’a pas de limite en \(a\).
+        \end{itemize}
+        \item Si \(f \underset{a}{\sim} g\) alors \(f\) et \(g\) ont le même signe au voisinage de \(a\).
+    \end{itemize}
+\end{defprop}
+
+\subsection{Règles usuelles de manipulation des relations de comparaison}
+
+\begin{defprop}[Cas des \(O\) (et des \(o\))]
+    \begin{enumerate}
+    \item Si \(f \underset{a}{=} O(g)\) et \(\lambda  \in  \Ks\) alors \(f \underset{a}{=}  O(\lambda  g)\) et \(\lambda f \underset{a}{=} O(g)\).
+    \item Si \(f \underset{a}{=} O(g)\) et\( g \underset{a}{=} O(h)\) alors \(f \underset{a}{=} O(h)\).
+    \item Si \(f \underset{a}{=} O(g)\) et\( h \underset{a}{=} O(g)\) alors \(f + h \underset{a}{=} O(g)\).
+    \item Si \(f \underset{a}{=} O(g)\) alors \(f h \underset{a}{=} O(gh)\).
+    \item Si \(f \underset{a}{=} O(g)\) et \(i \underset{a}{=} O(h)\) alors \(f i \underset{a}{=} O(gh)\).
+    \item Si \(f \underset{a}{=} O(g)\) et \(\lim_{b} h = a\) alors \(f \circ h \underset{b}{=} O(g \circ h)\).
+    \end{enumerate}
+\underline{Remarques}
+    \begin{itemize}
+        \item Dans tout ce qui précède, on peut remplacer \(O\) par \(o\).
+        \item JAMAIS de “composition des \(O\) (ou des \(o\)) à gauche” sans preuve directe
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Cas des équivalents]
+    \begin{enumerate}
+    \item Si \(f \underset{a}{\sim} g\) alors \(g \underset{a}{\sim} f\) .
+    \item Si \(f \underset{a}{\sim} g\) et \(g \underset{a}{\sim} h\) alors \(f \underset{a}{\sim} h\).
+    \item Si \(f \underset{a}{=} O (g)\) et \(g \underset{a}{\sim} h\) alors \(f \underset{a}{=} O (h)\).
+    \item Si \(f \underset{a}{=} o (g)\) et \(g \underset{a}{\sim} h\) alors \(f \underset{a}{=} o (h)\).
+    \item Si \(f \underset{a}{\sim} g\) alors \(f h \underset{a}{\sim} gh\).
+    \item Si \(f \underset{a}{\sim} g\) et \(i \underset{a}{\sim} h\) alors \(f i \underset{a}{\sim} gh\).
+    \item Si \(f \underset{a}{\sim} g\) avec \(f\) et \(g\) strictement positives au voisinage de \(a\) alors, pour tout réel \(\beta\), \(f ^{\beta} \underset{a}{\sim} g^{\beta}\) .
+    \item Si \(f \underset{a}{\sim} g\) avec \(f\) et \(g\) ne s’annulant pas au voisinage de \(a\) alors \(\frac{1}{f} \underset{a}{\sim}\frac{1}{g}\) .
+    \item Si \(f \underset{a}{\sim} g\) et \(\lim_{b} h = a\) alors\( f \circ h \underset{b}{\sim}g \circ h\).
+    \end{enumerate}
+    JAMAIS de “composition à gauche” ni de somme d’équivalents sans preuve directe.
+\end{defprop}
+
+\section{Développements limités}
+\subsection{Généralités}
+    Dans cette partie, \(f : I \to  \K\) est une fonction et \(a\) un RÉEL, point ou extrémité de \(I\).
+\begin{defi}
+    On dit que \(f\) admet un développement limité à l’ordre \(n \in  \N\) en \(a\) (abrégé en \(DL_n(a)\)) s’il existe des éléments \(b_0, \dots, b_n\) de \(\K\) tels que :
+    \[f (x) \underset{x\to a}{=} b_0 + b_1(x - a) + \dots + b_n(x - a)^n + o \paren{(x - a)^n}\]
+    \underline{Remarque}\\
+    En pratique, on se ramènera à la recherche d’un développement limité pour \(h \mapsto  f (a + h)\) en \(0\).
+\end{defi}
+
+\begin{defprop}[Exemple important déjà vu]
+    Pour tout \(n \in  \N\), \(x \mapsto  \frac{1}{1 - x}\) admet un \(DL_n(0)\) qui est : \(\frac{1}{1 - x} \underset{x \to 0}{=} 1 + x + x^2 + \dots + x^n + o(x^n)\).
+\end{defprop}
+
+\begin{defprop}[Unicité d’un développement limité]
+   S ’il existe des éléments \(b_0, \dots, b_n\) de \(\K\) tels que :
+   \[f (x) \underset{x \to a}{=} b_0 + b_1(x - a) + \dots + b_n(x - a)^n + o \paren{(x - a)^n}\]
+   alors ces éléments sont uniques.
+   \begin{itemize}
+        \item Ces éléments \(b_0, \dots, b_n\) sont appelés coefficients du \(DL_n(a)\) de \(f\) .
+        \item La fonction polynomiale \(x \mapsto  b_0 + \dots + b_n(x - a)^n\) est dite partie régulière du \(DL_n(a)\) de \(f\) .
+   \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Troncature d’un développement limité]
+    Si \(f\) admet un développement limité à l’ordre \(n \in  \N\) en \(a\) qui s’écrit \(f (x) \underset{x\to a}{=} \sum^n_{k=0} b_k(x - a)^k +o ((x - a)^n)\)
+    alors \(f\) admet un développement limité à tout ordre \(m \in  \interventierii{0}{n}\) obtenu par troncature du \(DL_n(a)\) :
+    \[f (x) \underset{x\to a}{=} \sum^m_{ k=0} b_k(x - a)^k + o ((x - a)^m)\] 
+\end{defprop}
+
+\subsection{Premiers résultats importants}
+\begin{defprop}[Développement limité et équivalent]
+    Soit \(f : I \to  \K\) une fonction et \(a\) un RÉEL, point ou extrémité de \(I\).\\
+    Si \(f\) admet un développement limité à l’ordre \(n \in  \N\) en a qui s’écrit \(f (x) \underset{x\to a}{=}\sum^n_{k=p} b_k(x - a)^k +o ((x - a)^n)\) avec \(p \in  \interventierii{0}{n} \) et \(b_p\neq 0\) alors \(f (x) \underset{x \to a}{\sim} b_p(x - a)^p\).
+\end{defprop}
+
+\begin{defprop}[Cas des fonctions paires ou impaires]
+    On suppose ici que \(I\) est centré en \(0\).
+Si \(f : I \to  \K\) admet un développement limité à l’ordre \(n \in  \N\) en \(0\) et que
+    \begin{enumerate}
+        \item \(f\) est paire alors la partie régulière de son \(DL_n(0)\) ne comporte que des monômes pairs.
+        \item \(f\) est impaire alors la partie régulière de son \( DL_n(0)\) ne comporte que des monômes impairs.
+    \end{enumerate}
+
+\end{defprop}
+
+\begin{defprop}[Caractérisation de la continuité et la dérivabilité avec un développement limité]
+    Soit \(f : I \to  \K\) une fonction et \(a\) un RÉEL appartenant à \(I\).
+    \begin{enumerate}
+    \item \(f\) est continue en \(a\) si, et seulement si, \(f\) admet un développement limité à l’ordre \(0\) en \(a\).\\
+        Dans ce cas, on \(a : f (x) \underset{x\to a}{=} f (a) + o(1)\).
+    \item \(f\) est dérivable en \(a\) si, et seulement si, \(f\) admet un développement limité à l’ordre \(1\) en \(a\).\\
+        Dans ce cas, on a : \(f (x) \underset{x\to a}{=} f (a) + f '(a)(x - a) + o ((x - a))\) .
+    \end{enumerate}
+    \underline{ATTENTION}
+Ce résultat n’est pas généralisable. Ainsi, la fonction \(f\) définie sur \(\R\) par \(f (x) = x^3 \sin\paren{\frac{1}{x}}\) si \(x\neq 0\) et \(f (0) = 0\) admet un \(DL_2(0)\) qui est \(f (x) = o(x2)\) mais n’est pas deux fois dérivable en \(0\).
+\end{defprop}
+
+\subsection{Opérations sur les développements limités}
+Soit \(f : I \to  \K\) et \(g : I \to  \K\) des fonctions et \(a\) un RÉEL tel que \(a\) est point ou extrémité de \(I\).
+
+\begin{defprop}[Combinaison linéaire]
+    Si \(f\) et \(g\) admettent des \(DL_n(a)\) et \((\lambda , \mu) \in  \K^2\) alors la fonction \(\lambda f + \mu g\) admet un \(DL_n(a)\) dont la partie régulière est obtenue par combinaison linéaire des parties régulières des \(DL_n(a)\) de \(f \) et \(g\).
+\end{defprop}
+
+\begin{defprop}[Produit]
+    Si \(f\) et \(g\) admettent des \(DL_n(a)\) alors la fonction \(f g\) admet un \(DL_n(a)\) dont la partie régulière peut s’obtenir par troncature à l’ordre \(n\) du produit des parties régulières des \(DL_n(a)\) de \(f\) et \(g\).\\
+    \underline{Remarque}\\
+    En pratique, la mise en facteur des termes prépondérants dans \(f (x)\) et \(g(x)\) permet de prévoir l’ordre des développements limités à utiliser pour obtenir la précision souhaitée pour le \(DL\) de \(f g\).
+\end{defprop}
+
+\begin{defprop}[Inverse/quotient]
+    Si \(f\) admet un \(DL_n(a)\) et que \(\lim_{a} f = 0\) alors la fonction \(\frac{1}{1 - f}\) admet un \(DL_n(a)\) qui peut s’obtenir par troncature à l’ordre \(n\) de la composée à droite de la partie régulière du \(DL_n(0)\) de \(x \mapsto  \frac{1}{1 - x}\) par la partie régulière du \(DL_n(a)\) de \(f\).
+    \underline{Remarques}
+    \begin{itemize}
+    \item Cette propriété, combinée à celle vue sur le produit, permet d’obtenir des développements limités pour des quotients de fonctions. Là encore, la mise en facteur des termes prépondérants au numérateur et au dénominateur est un préalable à tout calcul.
+    \item Aucun résultat général sur la composition de développements limités n’est au programme.
+    \end{itemize}
+\end{defprop}
+\subsection{Primitivation d’un développement limité}
+
+\begin{theo}
+    Soit \(f : I \to  \K\) une fonction et \(a\) un RÉEL appartenant à \(I\).\\
+    Si \(f\) est dérivable sur \(I\) et si \(f '\) admet un développement limité d’ordre \(n \in  \N\) en \(a\) de la forme
+    \[f '(x) \underset{x\to a}{=} c_0 + c_1(x - a) + \dots + c_n(x - a)^n + o ((x - a)^n)\]
+    alors \(f\) admet un développement limité d’ordre \(n + 1\) en \(a\) qui est
+    \[f (x) \underset{x\to a}{=} f (a) + \frac{c_0}{1} (x - a) + \frac{c_1}{2} (x - a)^2 + \dots + \frac{c_n}{n + 1}(x - a)^{n+1} + o (x - a)^{n+1}\]
+\end{theo}
+\begin{defprop}[Un exemple important]
+    Pour tout \(n \in  \N\), la fonction \(x \mapsto  - \ln(1 - x)\) admet un \(DL_n(0)\) qui est :
+    \[- \ln(1 - x) \underset{x \to 0}{=} x + \frac{1}{2}x^2 + \dots + \frac{1}{n}x^n + o(x^n)\]
+\end{defprop}
+
+\begin{theo}[ Formule de Taylor-Young]
+    Soit \(f : I \to  \K\) une fonction et \(a\) un RÉEL appartenant à \(I\).\\
+    Si \(f\) est de classe \(\mathcal{C}^n\) sur \(I\) alors \(f\) admet un développement limité à l’ordre \(n\) en \(a\) donné par :
+    \[f (x) \underset{x\to a}{=} f (a) + \frac{f^{(1)}(a)}{1!} (x - a) + \frac{f^{(2)}(a)}{2!} (x - a)^2 + \dots + \frac{f^{(n)}(a)}{n!} (x - a)^n + o ((x - a)^n)\]
+    ce qui peut s’écrire encore
+    \[f (x) \underset{x\to a}{=} \sum_{n}^{k=0}\frac{f ^{(k)}(a)}{k!} (x - a)^k + o ((x - a)^kn) \]
+    \underline{Remarques}\\
+    \begin{itemize}
+    \item Ce théorème donne une condition suffisante d’existence d’un \(DL\) à l’ordre \(n\) en \(a\) pour \(f\) .
+    \item Ce n’est pas une condition nécessaire : \cf l’exemple de la fonction 
+    \[f : x \mapsto \begin{cases}
+        x^3 \sin\paren{\frac{1}{x}} &\text{ si }x\neq 0\\
+        0 &\text{ si }x = 0 \end{cases}\]
+    qui admet bien un \(DL\) à l’ordre \(2\) en \(0\) mais n’est pas de classe \(\mathcal{C}^2\) sur \(\R\)
+    \end{itemize}
+
+\end{theo}
+
+\subsection{Développements limités usuels}
+\begin{defprop}
+    Soit \(n \in \N\)
+    \begin{enumerate}
+        \item \(\exp(x) \underset{x \to 0}{=} \sum_{k=0}^n \frac{1}{k!}x^k + o(x^n)\)
+        \item \(\sh(x) \underset{x \to 0}{=} \sum_{k=0}^n \frac{1}{(2k+1)!}x^{2k+1} + o(x^{2n+1})\)
+        \item \(\ch(x) \underset{x \to 0}{=} \sum_{k=0}^n \frac{1}{(2k)!}x^{2k} + o(x^{2n})\)
+        \item \(\sin(x) \underset{x \to 0}{=} \sum_{k=0}^n \frac{(-1)^{k}}{(2k+1)!}x^{2k+1} + o(x^{2n+1})\)
+        \item \(\ch(x) \underset{x \to 0}{=} \sum_{k=0}^n \frac{(-1)^{k}}{(2k)!}x^{2k} + o(x^{2n})\)
+        \item \(\frac{1}{1-x} \underset{x \to 0}{=} \sum_{k=0}^n x^{2} + o(x^{n})\)
+        \item \(\ln (1+x) \underset{x \to 0}{=} \sum_{k=0}^n \frac{(-1)^{k-1}}{k}x^k + o(x^{n})\)
+        \item \(\paren{1+x}^{\alpha}\underset{x \to 0}{=} 1+ \sum_{k=0}^n \frac{\alpha (\alpha-1) \dots (\alpha -(k-1))}{k!} x^k + o(x^n) \text{ pour tout } \alpha \in \R \pd \N\)
+        \item \(\arctan(x) \underset{x \to 0}{=} \sum_{k=0}^n \frac{(-1)^{k}}{(2k+1)}x^{2k+1} + o(x^{2n+1})\)
+        \item \(\tan(x) \underset{x \to 0}{=} x + \frac{1}{3}x^3 + o(x^3)\)
+    \end{enumerate}
+\end{defprop}
+\subsection{Application des développements limités à l’étude locale d’une fonction}
+
+\begin{defprop}[Calcul d’équivalents ou de limites]
+    La connaissance de DL permet de déterminer des limites de manière rapide en cas d’indétermination.
+\end{defprop}
+
+\begin{defprop}[Position relative d’une courbe et de sa tangente]
+    Soit \(f\) une fonction définie sur \(I\), à valeurs RÉELLES et \(a\) un REEL appartenant à \(I\).\\
+    Si \(f\) admet un développement limité à l’ordre\( n \geq 2\) en \(a\) qui s’écrit
+    \[f (x) \underset{x\to a}{=} b_0 + b_1 (x - a) + \dots + b_n (x - a)^n + o ((x - a)^n)\]
+    alors \(f\) est dérivable en \(a\) avec \(b_0 = f (a)\) et \(b_1 = f '(a)\) donc 
+    \[f (x) - (f (a) + f '(a) (x - a)) \underset{x\to a}{=} b_2 (x - a)^2 + \dots + b_n (x - a)^n + o ((x - a)^n)\]
+    Si de plus, il existe \(p \in  \N\) tel que \(2 \leq p \leq n\) et \(b_p\neq 0\), on obtient alors :
+    \[f (x) - (f (a) + f '(a) (x - a)) \underset{x \to a}{\sim} b_p(x - a)^p\]
+    Cela permet de connaître, au voisinage de \(a\), le signe de f\( (x)-(f (a) + f '(a) (x - a))\) donc les positions relatives de la courbe de \(f\) et de sa tangente au point \((a, f (a))\) dans un repère du plan.
+\end{defprop}
+
+\begin{defprop}[Condition nécessaire/suffisante d’existence d’un extremum local]
+    Soit \(f\) une fonction définie sur \(\)I, à valeurs RÉELLES et \(a\) un point de \(I\) mais pas extrémité de \(I\).
+    \begin{itemize}
+        \item Si \(f\) a un extremum local en \(a\) avec \(f\) dérivable en \(a\) alors \(f '(a) = 0\) \ie \(a\) est point critique de \(f\) .        
+        \item Si \(a\) est point critique de \(f\) et si \(f\) admet un développement limité à l’ordre \(n \geq 2\) en \(a\) qui s’écri
+    \end{itemize}
+    \[f (x) \underset{x\to a}{=} f (a) + b_p (x - a)^p + \dots + b_n (x - a)^n + o ((x - a)^n)\]
+    avec \(p \in  \N\) tel que \(2 \leq p \leq n\) et \(b_p\neq 0\) alors
+    \[f (x) - f (a) \underset{x \to a}{\sim} b_p(x - a)^p\]
+    \(f (x) - f (a)\) est donc de signe constant localement au voisinage de \(a\) uniquement pour \(p\) pair.\\
+    Dans ce cas, \(f\) admet un extremum local en \(a\) qui vaut \(f (a)\).
+\end{defprop}
+
+\begin{defprop}[Détermination d’asymptotes]
+    \begin{itemize}
+        \item Pour étudier une fonction \(f\) au voisinage de \(\minf\) (ou \(\pinf\)), on peut commencer par calculer un développement limité de la fonction \(g : t \mapsto  f\paren{1}{t}\) en \(0^-\) (ou \(0^+\)).
+        \item En revenant à \(f\) avec \(f : x \mapsto  g\paren{1}{x}\), on obtient alors un développement asymptotique de \(f\) au voisinage de \(\minf\) (ou \(\pinf\)) qu’on peut utiliser pour déterminer d’éventuelles asymptotes à la courbe de \(f\)= dans un repère.
+    \end{itemize}
+\end{defprop}
