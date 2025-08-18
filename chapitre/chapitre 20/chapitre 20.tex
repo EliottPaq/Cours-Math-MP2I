@@ -1,3 +1,331 @@
-\chapter{Espaces Vectoriels}
+ch{X}\chapter{Espaces Vectoriels}
 
 \minitoc
+Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\).
+\section{Espaces vectoriels}
+\subsection{Définition}
+\begin{defi}
+    On appelle espace vectoriel sur \(\K\) (ou \( \K\)-espace vectoriel) tout ensemble \(E\) muni d’une loi de composition interne \(+\) et d’une loi de composition externe \(.\) telles que :
+    \begin{itemize}
+        \item \((E, +)\) est un groupe commutatif.
+        \item \(\forall \lambda \in  \K, \forall (x, y) \in  E^2, \lambda.(x + y) = \lambda.x + \lambda.y\)
+        \item \(\forall (\lambda, \mu ) \in  \K^2, \forall x \in  E, (\lambda + \mu ).x = \lambda.x + \mu .x\)
+        \item \(\forall (\lambda, \mu ) \in  \K^2, \forall x \in  E, (\lambda\mu ).x = \lambda.(\mu .x)\)
+        \item \(\forall x \in  E, 1.x = x \text{ avec }1 \text{ l’élément unité de }\K\)
+    \end{itemize}
+    \underline{Remarque}\\
+    Les éléments d’un \(\K\)-espace vectoriel sont appelés vecteurs et ceux de \(\K\) sont appelés scalaires
+\end{defi}
+
+\subsection{Propriétés immédiates (règles de calcul)}
+\begin{prop}
+    Si \(E\) est un \( \K\)-espace vectoriel alors :
+    \begin{enumerate}
+        \item\( \forall \lambda \in  \K, \forall x \in  E, \lambda.x = 0_E \iff \lambda = 0 \text{ ou }x = 0_E \)
+        \item\( \forall \lambda \in  \K, \forall x \in  E, -(\lambda.x) = (-\lambda).x = \lambda.(-x)\)
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    Montrons la première équivalence par double implication :
+    \begin{itemize}
+        \item \imprec Si \(\lambda = 0\) ou  \(x = 0_E\)
+        \begin{itemize}
+            \item Si \(\lambda = 0\) :
+            \begin{align*}
+                0.x &= (0+0).x\\
+                0.x & = 0.x + 0.x \\
+                0_E &= 0.x
+            \end{align*}
+            \item Si \(x = 0_E\)
+            \begin{align*}
+                \lambda.0_E &= \lambda.(0_E + 0_E)\\
+                \lambda.0_E &= \lambda.0_E + \lambda.0_E \\
+                0_E &= \lambda.0_E
+            \end{align*}
+        \end{itemize}
+        \item Si \(\lambda.x = 0_E\)\\
+        si \(\lambda = 0\) c'est fini donc on suppose \(\lambda \neq 0\) :
+        \begin{align*}
+            x &= 1.x \\
+            x &= \frac{\lambda}{\lambda}.x \\
+            x &= \frac{1}{\lambda} 0_E\\
+            x &= 0_E
+        \end{align*}
+    \end{itemize}
+    \conclusion \( \forall \lambda \in  \K, \forall x \in  E, \lambda.x = 0_E \iff \lambda = 0 \text{ ou }x = 0_E \)
+\end{dem}
+\subsection{Produit fini d’espaces vectoriels}
+\begin{defprop}
+Si \(E_1, E_2, \dots, E_n\) sont des \(\K\)-espaces vectoriels alors le produit cartésien \(E = E_1 \times E2 \times \dots \times E_n \) muni des lois \(+\) et \(.\) définies, par :
+\[\forall \lambda \in  \K, \forall x \in  E, \forall y \in  E,\begin{cases}
+    x + y &= (x_1 + y_1, x_2 + y_2, \dots, x_n + y_n) \\
+\lambda.x &= (\lambda.x_1, \lambda.x_2, \dots, \lambda.x_n)
+\end{cases}\text{ avec } \begin{cases}
+x &= (x_1, x_2, \dots, x_n)\\
+y &= (y_1, y_2, \dots, y_n)
+\end{cases}\]
+est un \(\K\)-espace vectoriel dit espace vectoriel produit
+\end{defprop}
+
+\subsection{Espaces vectoriels de référence déjà rencontrés}
+\begin{defprop}
+    \begin{itemize}
+    \item \(\K^n\) avec \(n \in  \Ns\)
+    \item \(\K \croch{X}\)
+    \item \(\M{n,p} \text{ avec (n, p)} \in  \Ns \times \Ns\).
+    \item \(\mathcal{F} (\Omega, \K) = \K^{\Omega} \)avec \(\Omega\) un ensemble quelconque non vide.
+    \item \(\K^{\N}\).
+    \end{itemize}
+    \underline{Remarque}\\
+    Plus généralement, l’ensemble \(\mathcal{F} (\Omega, E)\) des fonctions de \(\Omega\) (ensemble quelconque non vide) dans \(E\)(\(\K\)-espace vectoriel) est un \(\K\)-espace vectoriel.
+\end{defprop}
+
+\subsection{Combinaison linéaire d’une famille de vecteurs}
+Soit \(E\) un \(\K\)-espace vectoriel.
+\begin{defprop}[Cas particulier d’une famille finie de vecteurs]
+    Soit \(n \in  \Ns\) et \((e_1, e_2, \dots, e_n)\) une famille finie de vecteurs de \(E\).\\~\\
+    Un vecteur \(x\) de \(E\) est dit combinaison linéaire de la famille \((e_1, e_2, \dots, e_n)\) s’il existe \(n\) éléments de \(\K\) notés \(\lambda_1, \lambda_2, \dots, \lambda_n\) tels que
+    \[x = \lambda_1 e_1 + \lambda_2e_2 + \dots + \lambda_ne_n\]
+    Les scalaires \(\lambda_1, \dots, \lambda_n\) sont appelés coefficients de la combinaison linéaire.\\
+    \underline{Exemples}\\
+    \begin{itemize}
+        \item Tout vecteur de \(\K^n\) est combinaison linéaire de la famille de vecteurs \((e_i)_{1\leq i\leq n}\) avec 
+        \[e_i = (\delta_{1i}, \delta_{2i}, \dots, \delta_{ni})\] 
+        \item Toute matrice de \(\M{n,p}\) est combinaison linéaire de la famille de matrices \((E_{ij})_{(i,j) \in \interventierii{1}{n} \times \interventierii{1}{p}}\) avec
+        \[E_{ij} = (\delta _{is}\delta _{jt})_{(s,t) \in \interventierii{1}{n}\times\interventierii{1}{p}}\]
+    \end{itemize}
+
+\end{defprop}
+
+
+\begin{defprop}[Cas général d’une famille quelconque de vecteurs]
+    Soit \(I\) un ensemble et \((e_i)_{i\in I}\) une famille de vecteurs de \(E\).\\~\\
+    Un vecteur \(x\) de \(E\) est dit combinaison linéaire de la famille \((e_i)_{i\in I}\) s’il existe une famille \((\lambda_i)_{i\in I}\) d’éléments de \(\K\) presque nulle (\ie dont tous les éléments sont nuls sauf un nombre fini d’entre eux), telle que
+    \[x = \sum_{i\in I}\lambda_ie_i\]
+    famille de scalaires \((\lambda_i)_{i\in I}\) est appelée famille des coefficients de la combinaison linéaire \\
+    \underline{Exemple}\\
+    Tout polynôme de \(\K \croch{X}\) est combinaison linéaire de la famille \((X^k)_{k \in \N}\)
+\end{defprop}
+
+\section{Sous-espaces vectoriels}
+\subsection{Définition}
+\begin{defprop}
+    Soit \(E\) un \(\K\)-espace vectoriel.\\~\\
+    Une partie \(H\) de \(E\) est dite sous-espace vectoriel de \(E\) si :
+    \begin{enumerate}
+        \item \(H\) est une partie stable par addition et par multiplication par un scalaire ;
+        \item \(H\) est un \(\K\)-espace vectoriel pour les lois de composition interne et externe obtenues par restriction à \(H\) des lois de \(E\).
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Caractérisation}
+\begin{defprop}
+    Soit \(E\) un \(\K\)-espace vectoriel et \(H\) une partie de \(E\).\\~\\
+    \(H\) est un sous-espace vectoriel de \(E\) si, et seulement si, les conditions suivantes sont réunies :
+    \begin{enumerate}
+        \item \(0_E \in  H\) 
+        \item \(H\) est stable par combinaison linéaire : \(\forall (\lambda, \mu ) \in  \K^2, \forall (x, y) \in  H^2, \lambda.x + \mu .y \in  H\)
+    \end{enumerate}
+
+    \underline{Exemples}\\
+    Soit \(E\) un \(\K\)-espace vectoriel.\\
+    \begin{itemize}
+        \item \(\accol{0_E }\) et \(E\) sont des sous-espaces vectoriels de \(E\) ; \(\accol{0_E }\) est dit sous-espace vectoriel nul de \(E\).
+        \item Si \(E\) est différent de \(\accol{0_E }\) alors, pour tout \(x \in  E \pd {0_E }\) , l’ensemble \(H = \accol{\alpha x \tq \alpha \in \K}\) est un sous-espace vectoriel de \(E\) dit droite vectorielle de \(E\) engendrée par le vecteur non nul \(x\).
+    \end{itemize}
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item En pratique, le recours à cette caractérisation est à privilégier systématiquement par rapport à la définition de sous-espace vectoriel dont la vérification des axiomes serait trop coûteuse.
+        \item En pratique, cette caractérisation permet aussi de montrer qu’un ensemble muni d’une loi de composition interne et d’une loi de composition externe est un espace vectoriel en démontrant que c’est un sous-espace vectoriel d’un espace vectoriel de référence pour ces lois.
+    \end{itemize}
+\end{defprop}
+
+\subsection{Quelques exemples de sous-espaces vectoriels déjà rencontrés}
+\begin{defprop}
+    \begin{itemize}
+    \item \(\K_n \croch{X}\), avec \(n \in  \N\), est un sous-espace vectoriel de \(\K \croch{X}\).
+    \item  \(\mathcal{C}^n (I, \K)\), avec \(n \in  \N\) et \(I\) un intervalle non vide de \(\R\), est un sous-espace vectoriel de \(\K^I\) .
+    \item  \(\accol{u \in  \K^{\N} \tq u \text{ converge}}\) est un sous-espace vectoriel de \(\K^{\N}\).
+    \item  L’ensemble des solutions d’un système linéaire homogène d’inconnue \((x_1, \dots, x_n) \in  \K^n\) est un sous-espace vectoriel de \(\K^n\).
+    \item  Si \((\alpha, \beta ) \in  \R^2 \pd \accol{0_{\R^2} }\) alors \(\Delta = \accol{(x, y) \in  \R^2 \tq \alpha x + \beta y = 0}\) est un sous-espace vectoriel de \(\R^2\) dit droite vectorielle de \(\R^2\).
+    \item  Si \((\alpha, \beta , \gamma) \in  \R^3 \pd \accol{0_{\R^3}}\) alors \(P = \accol{(x, y, z) \in  \R^3 \tq \alpha x + \beta y + \gamma z = 0}\) est un sous-espace vectoriel de \(\R^3\) dit plan vectoriel de \(\R^3\).
+    \end{itemize}
+\end{defprop}
+
+\subsection{Intersection de sous-espaces vectoriels}
+\begin{defprop}
+    L’intersection d’une famille (quelconque) de sous-espaces vectoriels d’un \(\K\)-espace vectoriel \(E\) est un sous-espace vectoriel de \(E\).\\
+    \underline{Remarque}\\
+    La réunion de sous-espaces vectoriels d’un espace vectoriel n’est pas, en général, un sous-espace vectoriel
+\end{defprop}
+\begin{dem}
+    Soit \(E\) un \(\K\)-espace vectoriel et \((H_i)_{i  \in I}\) une fammille de sous-espace vectoriel de \(E\)\\~\\
+    Montrons que \(H = \biginter_{i \in I}H_i\) est un sous-espace vectoriel de \(E\)\\
+    \begin{itemize}
+        \item \(H \subset E\) car \(\forall i \in I , H_i \subset E\)
+        \item \(0_E \in H\) car \(\forall i \in I , 0_E \in H_i \)
+        \item \(H\) stable par combinaison linéaire : \\
+        Soit \((\alpha,\beta) \in \K^2\) et \((x,y) \in H^2\), \\
+        alors \(forall i \in I ,\alpha x + \beta y \in H_i\) car  \(x \in H_i \) et \( y \in H_i\) et \(H_i\) est stable par combinaison linéaire \\
+        ainsi \(\alpha x + \beta y \in \biginter_{i \in I} H_i\) et ainsi \(\alpha x + \beta y \in H\)
+    \end{itemize}
+    Donc par caractérisation \(H = \biginter_{i \in I} H_i\) est un sous-espace vectoriel de \(E\)
+\end{dem}
+
+\subsection{Sous-espace vectoriel engendré par une partie}
+Soit \(A\) une partie d’un \(\K\)-espace vectoriel \(E\).
+\begin{defi}
+    L’intersection des sous-espaces vectoriels de \(E\) contenant la partie \(A\) est appelée sous-espace vectoriel de \(E\) engendré par la partie \(A\) et notée \(\Vect{A}\).\\
+    \underline{Remarque}\\
+    Si \((a_i) _{i\in I}\) est une famille d’éléments de \(E\), on note aussi \(\Vect{a_i}_{ i\in I} \) le sous-espace vectoriel de \(E\) engendré par la partie \(\accol{a_i \tq i \in  I}\) de \(E\).
+\end{defi}
+
+\begin{defprop}[Caractérisation]
+    \(\Vect{A}\) est le plus petit sous-espace vectoriel de \(E\), au sens de l’inclusion, qui contient \(A\).
+\end{defprop}
+
+\begin{theo}
+    \begin{itemize}
+        \item Si \(A\) est vide alors \(\Vect{A}\) est égal à \(\accol{0_E }\) .
+        \item Si \(A\) est non vide alors \(\Vect{A}\) est égal à l’ensemble des combinaisons linéaires d’éléments de \(A\).
+    \end{itemize}
+\end{theo}
+
+\section{Familles génératrices, libres ou bases d’un espace vectoriel}
+    Soit \(E\) un \(\K\)-espace vectoriel et \(F\) une famille (partie) de \(E\).
+\subsection{Famille (partie) génératrice}
+\begin{defi}
+    La famille (partie) \(F\) de \(E\) est dite génératrice de E si \(E = \Vect{F}\)\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item On dit aussi que “\(F\) engendre \(E\)” au lieu de ”\(F\) est génératrice de \(E\)”.
+        \item En pratique, seule l’inclusion \(E \subset \Vect{F}\) est à établir pour montrer que \(F\) engendre \(E\). L’autre inclusion est immédiate car \(E\) est espace vectoriel donc stable par combinaison linéaire. Montrer qu’une famille \(F\) est génératrice de \(E\), c’est donc montrer que tout élément de \(E\) peut s’écrire comme combinaison linéaire de cette famille \(F\).
+    \end{itemize}
+\end{defi}
+
+\begin{prop}
+    L’ajout d’un vecteur de \(E\) à une famille génératrice de \(E\) donne une nouvelle famille génératrice de \(E\).
+\end{prop}
+\subsection{Famille (partie) libre}
+\begin{defi}
+    La famille (ou partie) \(F\) de \(E\) est dite libre (ou linéairement indépendante) si toute combinaison linéaire nulle d’éléments de \(F\) a ses coefficients nuls.\\
+    \underline{ATTENTION} à ne pas commettre la confusion avec “si les coefficients de la combinaison linéaire sont tous nuls alors celle-ci est nulle” ce qui est vrai que la famille soit libre ou non.
+\end{defi}
+\begin{prop}
+    \begin{itemize}
+        \item Si on enlève un élément à une famille libre de \(E\), on obtient une famille libre.
+        \item Si on ajoute à une famille libre de \(E\) un élément de \(E\) qui n’est pas combinaison linéaire de cette famille, on obtient une famille libre
+    \end{itemize}
+\end{prop}
+\begin{defprop}[Un exemple important à connaître]
+    Toute famille de polynômes de \(\K \croch{X}\) de degrés entiers distincts est libre.
+\end{defprop}
+\begin{dem}
+    On considère une combinaison linéaire nulle de polynôme de \(\K \croch{ X}\) de degré entier distincts que l'on note \(\sum_{i = 1}^n \lambda_i P_i = 0 _{\K \croch{X}}\) avec 
+    \(\begin{cases}
+        \lambda_i &\in \K \\
+        P_i &\in \K \croch{X} \pd \accol{0_{\K \croch{X}}}
+    \end{cases}\).\\
+    On note \(d_i = \deg(P_i)\)\\
+    Par définition on a \(\lambda_1 P_1 + \dots + \lambda_n P_n = 0_{\K \croch{X}}\)\\
+    Par définition deux polynômes sont égaux si et seulement si leurs coefficients de même degré sont égaux, on touve donc  : \\
+    \(\lambda_n C_d(P_n) = 0\) avec \(C_d(P_n)\) le coefficients dominants de \(P_n\)\\
+    d'où \(\lambda_n = 0\) car \(C_d(P_n)\neq 0\)\\ de même pour tout les coefficients on retrouve donc \(\forall i \in \interventierii{1}{n}\lambda_i = 0\) \\
+    \conclusion\(\K\croch{X}\) est libre
+
+\end{dem}
+\subsection{Famille (partie) liée}
+\begin{defi}
+    La famille (partie) \(F\) de \(E\) est dite liée (ou dépendante linéairement) si elle n’est pas libre.\\
+    \underline{Remarque}\\
+    Les familles (parties) de \(E\) qui contiennent le vecteur \(0_E\) sont liées.
+\end{defi}
+
+\begin{defprop}[Caractérisations]
+    La famille \(F\) de \(E\) est liée si, et seulement si, l’une des assertions suivantes est vérifiée :
+    \begin{enumerate}
+        \item il existe une combinaison linéaire nulle d’éléments de \(F\) qui n’a pas tous ses coefficients nuls.
+        \item il existe un élément de la famille \(F\) qui est combinaison linéaire des autres éléments de \(F\).
+    \end{enumerate}
+\end{defprop}
+\subsection{Base}
+\begin{defi}
+    La famille \(F\) est dite base de \(E\) si \(F\) est une famille génératrice de \(E\) et libre.
+\end{defi}
+\begin{defprop}[Caractérisation]
+    La famille \(F\) est une base de \(E\) si, et seulement si, tout vecteur de \(E\) s’écrit de manière unique comme combinaison linéaire de \(F\).\\
+    Dans ce cas, la famille presque nulle des coefficients de la combinaison linéaire égale au vecteur \(x\) est appelée famille des coordonnées de x dans la base F de E.
+\end{defprop}
+\begin{dem}
+    Soit \(E\) un \(\K\)-espace vectoriel et \(F\) une fammille de \(E\) \\
+    Montrons que \(F\) est une base \ssi tout vecteurd de \(E\) s'écrit de manière unique comme combinaison linéaire de \(F\) par double implication 
+    \begin{itemize}
+       \item \impdir On suppose \(F\) comme base de \(E\)\\
+       alors \(F\) est génératric de \(E\) donc tout \(x\) de \(E\) est un combinaison linéaire de \(F\) sous la forme \(x = \sum_{i \in I} \lambda_i f_i\qquad\) où \((\lambda_i)_{i \in i}\) est une famille de scalaire presque nul et \(F =(f_i)_{i \in i}\)\\
+       On suppose que \(x\) s'écrit aussi \(x =\sum_{i \in I} \mu_i f_i \qquad\)  alors \(0_E = \sum_{i \in I}(\lambda_i - \mu_i)f_i\) \\
+       donc \(\forall i \in I, \lambda_i-\mu_i = 0 \iff \forall i \in I, \lambda_i = \mu_i \) car \(F\) est libre car base de \(E\)\\
+       Ainsi tout \(x\) de \(E\) s'écrit de manière unique comme combinaison linéaire de \(F\)
+       \item \imprec On suppose que tout \(x\) de \(E\) s'écrit de manière unique comme combinaison linéaire de \(F\) \\
+       alors \(F\) est génératrice de \(E\), de plus pour tout combinaison linéaire nulle de \(F\) : 
+       \begin{align}
+        \sum_{i\in I} \lambda_i f_i &= 0_E \\
+        \sum_{i\in I} \lambda_i f_i &= \sum_{i\in I} 0.f_i
+       \end{align}
+       donc \(\forall i \in I,f_i = 0\) par unicité d'écriture de \(0_E\) donc \(F\) est libre et génératrice, c'est donc une base.
+    \end{itemize}
+    \conclusion \(F\) est une base \ssi tout vecteurd de \(E\) s'écrit de manière unique comme combinaison linéaire de \(F\)
+\end{dem}
+\begin{defprop}[Bases de référence à connaître]
+    \begin{itemize}
+        \item Bases canoniques de \(\K^n, \M{n,p}, \K \croch{X}\) et \(\K^n \croch{X}\).
+        \item Bases de polynômes à degrés échelonnés dans \(\K \croch{X}\) et \(\K^n \croch{X}\)
+    \end{itemize}
+\end{defprop}
+\section{Somme et somme directe de deux sous-espaces vectoriels}
+    Soit \(E_1\) et \(E_2\) des sous-espaces vectoriels d’un \(\K\)-espace vectoriel \(E\).
+\subsection{Somme de deux sous-espaces vectoriels d’un même espace vectoriel}
+\begin{defi}
+    La somme des sous-espaces vectoriels \(E_1\) et \(E_2\) est l’ensemble noté \(E_1 + E_2\) défini par :
+    \[E_1 + E_2 = \accol{x \in  E \tq \exists(x_1, x_2) \in  E_1 \times E_2, x = x_1 + x_2} \]
+\end{defi}
+\begin{prop}
+    Si \(E_1\) et \(E_2\) sont deux sous-espaces vectoriels de \(E\) alors \(E_1 + E_2\) est un sous-espace vectoriel de \(E\).\\
+    \underline{Remarque}\\
+    \(E_1 + E_2\) est le plus petit sous-espace vectoriel de \(E\) (au sens de l’inclusion) contenant \(E_1 \union E_2\).
+\end{prop}
+\subsection{Somme directe}
+\begin{defi}
+    La somme \(E_1 + E_2\) est dite directe, et notée dans ce cas \(E_1 \oplus E_2\), si la décomposition de tout vecteur de \(E_1 + E_2\) comme somme d’un élément de \(E_1\) et d’un élément de \(E_2\) est unique.
+\end{defi}
+\begin{defprop}[Caractérisation par l’intersection]
+    La somme \(E_1 + E_2\) est directe si, et seulement si,\( E_1 \inter E2 = \accol{0_E }\).
+\end{defprop}
+\begin{dem}
+    Montrons que \(E_1 + E_2\) est directe \ssi \( E_1 \inter E2 = \accol{0_E }\) par double application
+    \begin{itemize}
+        \item \impdir Supposons \(E_1 + E_2\) directe\\
+        \begin{itemize}
+            \item \(\accol{0_E} \subset E_1 \inter E_2\) car \(E_1\) et \(E_2\) sous-espace vectoriel de \(E\) \\
+            \item Soit \(x \in E_1 \inter E_2\) \\
+            alors \(\underset{\in E_1}{x} + \underset{\in E_2}{0_E} = \underset{\in E_2}{x} + \underset{\in E_1}{0_E}\)\\
+            donc par unicité d'écriture ,car \(x \in E_1 \oplus E_2\), on as \(x = 0_E\) donc \(E_1 \inter E_2 = \accol{0_E}\)
+        \end{itemize}
+        \item \imprec On suppose que \(E_1 \inter E_2 = \accol{0_E}\) \\
+        Soit \(\paren{x_1,x_1'} \in E_1^2\) et \(\paren{x_2, x_2'} \in E_2^2\) tel que \(x_1 + x_2 = x_1' + x_2'\)\\
+        ainsi \(\underset{\in E_1}{x_1-x_1'} = \underset{\in E_2}{x_2 - x_2'}\) d'où \(x_1 - x_1' \in E_1 \inter E_2\) \ie \(x_1 - x_1' = 0_E\) \\
+        donc \(x_1 = x_1'\) et \(x_2 = x_2'\) càd que \(E_1 + E_2\) possède l'unicité d'écriture et donc c'est une somme direct
+    \end{itemize}
+    \conclusion \(E_1 + E_2\) est directe \ssi \( E_1 \inter E2 = \accol{0_E }\)
+\end{dem}
+\subsection{Sous-espaces supplémentaires}
+\begin{defi}
+    \(E_1\) et \(E_2\) sont dits supplémentaires si \(E = E_1 \oplus  E_2\).
+\end{defi}
+\begin{defprop}[Caractérisations pratiques]
+    \begin{enumerate}
+        \item \(E_1\) et \(E_2\) sont supplémentaires si, et seulement si, \(\forall x \in  E, \exists !(x_1, x_2) \in  E_1 \times E_2, x = x_1 + x_2\).
+        \item \(E_1\) et \(E_2\) sont supplémentaires si, et seulement si, \(E = E_1 + E_2\) et \(E_1 \inter E_2 = \accol{0_E }\).
+    \end{enumerate}
+    \underline{Remarque}\\
+    Le recours à une figure dans le plan ou l’espace pour représenter des sous-espaces supplémentaires est pertinent car il favorise la compréhension intuitive de la situation étudiée.
+\end{defprop}

@@ -50,6 +50,23 @@
 \usepackage{minitoc}
 \mtcselectlanguage{french}
 \setcounter{minitocdepth}{6}
+% --- Chiffres romains uniquement dans les minitoc
+\makeatletter
+\newcommand{\minitocromain}{%
+  {%
+    % Sauvegarde
+    \let\oldthesection\thesection
+    \let\oldthesubsection\thesubsection
+    \let\oldthesubsubsection\thesubsubsection
+    % Numérotation "Chapitre en Romain" dans le minitoc
+    \renewcommand{\thesection}{\Roman{chapter}.\arabic{section}}
+    \renewcommand{\thesubsection}{\Roman{chapter}.\arabic{section}.\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\Roman{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+    % Génération du minitoc
+    \minitoc
+  }%
+}
+\makeatother
 
 % Useful when units are needed.
 \usepackage{siunitx}
@@ -420,7 +437,12 @@ per-mode=power-positive-first
 \theorempostwork{\bigskip}
 \newtheorem{dem}[rem]{Démonstration}
 
-
+% Numérotation des environnements par sous-section
+\numberwithin{rem}{subsection}
+\renewcommand{\thesection}{\Roman{section}} % section en romain majuscule
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% Affichage du compteur : chapitre.section.soussection.num
+\renewcommand{\therem}{\Roman{section}.\arabic{subsection}.\arabic{rem}}
 
 % Commands to make proofs easier to write
 \newcommand{\impdir}{\fbox{\(\imp\)}~}
@@ -533,9 +555,9 @@ per-mode=power-positive-first
 \DeclareDocumentCommand{\polydeg}{O{\K} m O{X}}{#1_{#2}\croch{#3}}
 \DeclareDocumentCommand{\fracrat}{O{\K} O{X}}{#1\paren{#2}}
 
-\DeclareDocumentCommand{\M}{m O{\K}}{\mathscr{M}_{#1}\paren{#2}}
-\DeclareDocumentCommand{\sym}{m O{\K}}{\mathscr{S}_{#1}\paren{#2}}
-\DeclareDocumentCommand{\antisym}{m O{\K}}{\mathscr{A}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\M}{m O{\K}}{\mathcal{M}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\sym}{m O{\K}}{\mathcal{S}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\antisym}{m O{\K}}{\mathcal{A}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\GL}{m O{\K}}{\operatorname{GL}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\SL}{m O{\K}}{\operatorname{SL}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\Mat}{O{\fami{B}} m}{\operatorname{Mat}_{#1}\paren{#2}}
