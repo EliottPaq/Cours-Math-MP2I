@@ -150,6 +150,24 @@ Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et \(I\) un interval
    \end{itemize}
 \end{defprop}
 
+\begin{dem}
+    On raisonne par l’absurde.\\~\\
+    Supposons qu’il existe \((b_0, \dots, b_n) \in \K^{n+1}\) et \((c_0, \dots, c_n) \in \K^{n+1}\) avec \((b_0, \dots, b_n)\neq (c_0, \dots, c_n)\) tel que :
+    \[f (x) \underset{x \to a}{=} b_0 + b_1(x - a) + \dots + b_n(x - a)^n + o ((x - a)^n)\]
+    \[f (x) \underset{x \to a}{=} c_0 + c_1(x - a) + \dots + c_n(x - a)^n + o ((x - a)^n)\]
+    On note \(p\) le plus petit entier de \(\interventierii{0}{n}\) tel que \(b_p\neq c_p\).\\
+    Puisque\( b_k = c_k\) pour tout \(k \in \interventierii{0}{p - 1}\) , on a alors :\\
+    \[b_p(x - a)^p + \dots + b_n(x - a)^n + o ((x - a)^n) \underset{x \to a}{=} c_p(x - a)^p + \dots + c_n(x - a)^n + o ((x - a)^n)\]
+    Après division par \((x - a)^p\) sur un voisinage de \(a\) privé de \(a\), on trouve :
+    \[b_p + \dots + b_n(x - a){n-p} + o ((x - a)^{n-p}) = c_p + \dots + c_n(x - a)^{n-p} + o ((x - a)^{n-p})\]
+    Par passage à la limite en \(a\) dans cette égalité, on obtient
+    \[b_p = c_p\]
+    ce qui est faux par hypothèse sur \(b_p\) et \(c_p\).\\
+    On en déduit que l’hypothèse initiale est fausse ce qui permet de conclure.\\
+    \conclusion si f admet un développement limité à l’ordre n au voisinage de a alors il est unique.
+\end{dem}
+
+
 \begin{defprop}[Troncature d’un développement limité]
     Si \(f\) admet un développement limité à l’ordre \(n \in  \N\) en \(a\) qui s’écrit \(f (x) \underset{x\to a}{=} \sum^n_{k=0} b_k(x - a)^k +o ((x - a)^n)\)
     alors \(f\) admet un développement limité à tout ordre \(m \in  \interventierii{0}{n}\) obtenu par troncature du \(DL_n(a)\) :
@@ -171,6 +189,21 @@ Si \(f : I \to  \K\) admet un développement limité à l’ordre \(n \in  \N\) 
     \end{enumerate}
 
 \end{defprop}
+
+\begin{dem}
+    On se place dans le cas où \(f\) est paire (preuve facile à adapter pour \(f\) impaire) et où \(f\) admet un développement limité à l’ordre \(n \in \N\) en \(0\).\\~\\
+    Alors, il existe\((b_0, \dots , b_n) \in \K^{n+1}\) tel que :
+    \[f (x) \underset{x \to}{=} \sum^{n}_{k=0} b_kx^k + o (x^n)\]
+    Par composition à droite par la fonction \(h : x \mapsto -x\), on trouve :
+    \[f (-x) \underset{x \to}{=} \sum^n_{k=0} b_k(-x)^k + o (x^n)\]
+        donc
+    \[f (x) \underset{x \to}{=}\sum^n_{k=0}(-1)^kb_kx^k + o (x^n)\]
+    car \(f\) est paire.\\~\\
+    Par unicité d’écriture du développement limité à l’ordre\( n \in \N\) de \(f\) en \(0\), on en déduit :
+    \[\forall k \in \interventierii{0}{n} , b_k = (-1)^kb_k\]
+    ce qui donne, pour tous les \(k\) impairs, \(b_k = -b_k\) donc \(b_k = 0\). Les coefficients de tous les monômes impairs dans le développement limité de \(f\) en \(0\) sont donc nuls.\\~\\
+    \conclusion la partie régulière du \(\mathcal{DL}_n(0)\) de \(f\) ne comporte que des monômes pairs.
+\end{dem}
 
 \begin{defprop}[Caractérisation de la continuité et la dérivabilité avec un développement limité]
     Soit \(f : I \to  \K\) une fonction et \(a\) un RÉEL appartenant à \(I\).
@@ -214,6 +247,31 @@ Soit \(f : I \to  \K\) et \(g : I \to  \K\) des fonctions et \(a\) un RÉEL tel 
     alors \(f\) admet un développement limité d’ordre \(n + 1\) en \(a\) qui est
     \[f (x) \underset{x\to a}{=} f (a) + \frac{c_0}{1} (x - a) + \frac{c_1}{2} (x - a)^2 + \dots + \frac{c_n}{n + 1}(x - a)^{n+1} + o (x - a)^{n+1}\]
 \end{theo}
+
+\begin{dem}
+    Preuve dans le cas où \(f\) est à valeurs dans \(\R\)\\~\\
+    Montrons que \(g(x) \underset{x \to a}{=} o ((x - a)^{n+1})\) avec la fonction g\( : x \mapsto f (x) - f (a) -\sum^n_{k=0}c_k \frac{(x - a)^{k+1}}{k + 1}\)\\~\\
+    D’après les théorèmes généraux, \(g\) est dérivable sur \(I\) de dérivée \(g' : x \mapsto f '(x) -\sum^n_{k=0}c_k(x - a)^k.\)
+    D’après l’hypothèse faite sur \(f '\), on a donc \(g'(x) \underset{x \to a}{=} o ((x - a)^n)\) . 
+    \begin{itemize}
+        \item Soit \(x \in I \inter \intervee{a}{\pinf}\). Alors \(g\) est continue sur le segment \(\intervii{a}{x}\), dérivable sur \(\intervee{a}{x}\) et à valeurs réelles. D’après l’égalité des accroissements finis, il existe donc \(c_x \in \intervee{a}{x}\) tel que \(\frac{g(x) - g(a)}{x - a} = g' (c_x)\).
+        \item On peut faire de même avec \(x \in I \inter \intervee{\minf}{a}\) en travaillant sur \(\intervii{x}{a}\) et \(\intervee{x}{a}\).
+    \end{itemize}
+
+Ainsi, pour tout \(x \in I \pd \accol{a}\) , il existe \(c_x \in I \pd \accol{a}\) tel que \(\frac{g(x) - g(a)}{x - a} = g' (c_x) \) avec \(\abs{c_x - a} \leq \abs{x - a}\).\\~\\
+On a donc \(c_x \underset{x \to a}{ \to} a\) (par théorème d’encadrement) et on peut écrire :
+\[\frac{g(x) - g(a)}{(x - a)^{n+1}} = \frac{g(x) - g(a)}{x - a} \times \frac{1}{(x - a)^n} = \frac{g' (c_x)}{(x - a)^n} = \frac{g' (c_x)}{(c_x - a)^n} \times \frac{(c_x - a)^n}{(x - a)^n}\]
+avec :
+\begin{itemize}
+    \item \(\frac{g' (c_x)}{(c_x - a)^n} \underset{x \to a}{ \to} 0\) par composition de limites, car \(c_x \underset{x \to a}{ \to} a\) et \(\frac{g' (t)}{(t - a)^n} \underset{x \to a}{\to} 0\)
+    \item \(x \mapsto \abs{\frac{(c_x - a)^n}{(x - a)^n}}\) bornée (par \(1\)) sur voisinage de \(a\) privé de \(a\).
+\end{itemize}
+Ainsi \(\frac{g(x) - g(a)}{(x - a)^{n+1}} \underset{x \to a}{ \to} 0\) donc \(g(x) - g(a) = o ((x - a)^{n+1})\) puis \(g(x) = o ((x - a)^{n+1})\) car \(g(a) = 0\).\\~\\
+En revenant à la définition de \(g\), cela donne \(f (x) - f (a) -\sum^n_{k=0}c_k\frac{(x - a)^{k+1}}{k + 1} \underset{x \to a}{=} o ((x - a)^{n+1})\) ce qui permet de conclure.\\
+\conclusion \(f (x) \underset{x \to a}{=} f (a) + \sum^n_{k=0}c_k\frac{(x - a)^{k+1}}{k + 1} + o ((x - a)^{n+1})\) \\
+\ie on peut toujours primitiver un DL terme à terme
+\end{dem}
+
 \begin{defprop}[Un exemple important]
     Pour tout \(n \in  \N\), la fonction \(x \mapsto  - \ln(1 - x)\) admet un \(DL_n(0)\) qui est :
     \[- \ln(1 - x) \underset{x \to 0}{=} x + \frac{1}{2}x^2 + \dots + \frac{1}{n}x^n + o(x^n)\]
@@ -236,6 +294,27 @@ Soit \(f : I \to  \K\) et \(g : I \to  \K\) des fonctions et \(a\) un RÉEL tel 
     \end{itemize}
 
 \end{theo}
+
+\begin{dem}
+    On peut procéder par récurrence sur \(n \in \N\) pour montrer la propriété suivante :
+    \[\forall f \in \mathcal{C}^n(I, \K), f (x) \underset{x \to a}{=}\sum^n_{k=0}\frac{f ^{(k)}(a)}{k!}k! (x - a)^k + o ((x - a)^n)\] 
+    \begin{itemize}
+        \item \underline{Initialisation} : \\
+            On a déjà vu que : \(\forall f \in \mathcal{C}^0(I, \K), f (x) \underset{x \to a}{=} f (a) + o(1)\) (par continuité de \(f\) en \(a\)) donc la propriété est vraie au rang \(0\).
+        \item \underline{Hérédité} :\\ 
+        on suppose qu’il existe un entier \(n \in \N\) tel que la propriété soit vraie au rang \(n\).\\
+        On considère une fonction \(f \in \mathcal{C}^{n+1}(I, \K)\). \\
+        On peut appliquer l’hypothèse de récurrence à \(f '\) car \(f '\) appartient à \(\mathcal{n}(I, \K)\). Cela donne :
+            \[f '(x) \underset{x \to a}{=} \sum^n_{k=0}\frac{(f ')^{k} (a)}{k!} (x - a)^k + o ((x - a)^n) \underset{x \to a}{=} \sum^n_{k=0}\frac{f ^{k+1}(a)}{k!} (x - a)^k + o ((x - a)^n) .\]
+        Par théorème de primitivation des développements limités, on en déduit que :
+            \[f (x) \underset{x \to a}{=} f (a) +\sum^n_{k=0} \frac{f^{(k+1)}(a)}{k!} \frac{(x - a)^{k+1}}{k + 1} + o ((x - a)^{n+1})\]
+            \[f (x) \underset{x \to a}{=} f (a) + \sum^n_{k=0}\frac{f ^{(k+1)}(a)}{(k + 1)!} (x - a)^{k+1} + o ((x - a)^{n+1})\]
+            ce qui donne après changement d’indice
+            \[f (x) \underset{x \to a}{=} f (a) + \sum^{n+1}_{k=1}\frac{f ^{(k)}(a)}{k!} (x - a)^k + o ((x - a)^{n+1}) \underset{x \to a}{=} \sum^{n+1}_{k=0}\frac{f ^{(k)}(a)}{k!} (x - a)^k + o ((x - a)^{n+1})\]
+        La propriété est donc vraie au rang \(n + 1\).\\
+    \end{itemize}
+    \conclusion : par principe de récurrence, la propriété est vraie pour tout entier naturel \(n\)
+\end{dem}
 
 \subsection{Développements limités usuels}
 \begin{defprop}

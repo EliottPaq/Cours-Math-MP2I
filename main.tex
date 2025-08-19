@@ -193,6 +193,9 @@ per-mode=power-positive-first
 % Command to print the imaginary i with a little space on the right. This way, the exponents don't look confusing. \i normally prints a dotless i.
 \renewcommand{\i}{i\mkern1mu}
 
+%make the \mathcal command shorter
+\renewcommand{\cal}[1]{\mathcal{#1}}
+
 % Redefines \vec such that the arrow covers the whole name of the vector.
 %\renewcommand{\vec}[1]{\overrightarrow{#1}}
 
@@ -435,7 +438,7 @@ per-mode=power-positive-first
 \theoremsymbol{\ensuremath{\cqfd}}
 \theoremprework{\bigskip\needspace{\baselineskip}\color{yellow}\hrule\color{black}}
 \theorempostwork{\bigskip}
-\newtheorem{dem}[rem]{Démonstration}
+\newtheorem*{dem}{Démonstration}
 
 % Numérotation des environnements par sous-section
 \numberwithin{rem}{subsection}
@@ -790,7 +793,8 @@ per-mode=power-positive-first
 \include{chapitre/chapitre 19/chapitre 19}
 
 \include{chapitre/chapitre 20/chapitre 20}
-% \include{chapitre/chapitre 21/chapitre 21}
+
+\include{chapitre/chapitre 21/chapitre 21}
 % \include{chapitre/chapitre 22/chapitre 22}
 % \include{chapitre/chapitre 23/chapitre 23}
 % \include{chapitre/chapitre 24/chapitre 24}

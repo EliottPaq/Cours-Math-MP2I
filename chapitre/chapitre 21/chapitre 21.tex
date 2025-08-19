@@ -1,0 +1,292 @@
+\chapter{Espaces vectoriels de dimension finie}
+
+\minitoc
+
+Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\).
+
+\section{Existence de bases}
+\subsection{Définition}
+\begin{defi}
+    On dit qu’un \(\K\)-espace vectoriel \(E\) est de dimension finie s’il admet une famille génératrice finie. \\
+    \underline{Exemples} : \(\K^n\), \(\K_n \croch{X}\) , \(\M{n,p}\) sont de dimension finie mais pas \(\K \croch{X}\).
+\end{defi}
+
+\subsection{Algorithme de construction de bases}
+
+\begin{defprop}
+    Soit \((n, p) \in (\Ns)^2\) avec \(p \leq n\) et \((x_i)_{1\leq i\leq n}\) une famille d’un \(\K\)-espace vectoriel \(E\) de dimension finie.\\
+    Si la famille \((x_1, \dots , x_p)\) est libre et si la famille \( (x_1, \dots , x_p, x_{p+1}, \dots , x_n)\) est génératrice de E alors E admet une base qui contient à la fois :
+    \begin{itemize}
+        \item tous les vecteurs \(x_1, \dots , x_p\) ;
+        \item certains vecteurs parmi les vecteurs \(x_{p+1}, \dots , x_n\).
+    \end{itemize}
+
+\end{defprop}
+\begin{dem}
+    Soit \(\mathcal{F} = (x_1, \dots , x_p, x_{p+1}, \dots , x_n)\) une famille génératrice de \(E\) telle que la famille \((x_1, \dots , x_p)\) est libre.\\~\\
+    \underline{Algorithme en langage naturel}\\~\\
+    \(\cal{L} \leftarrow  \accol{x_1, \dots , x_p}\)\\
+    Pour tout entier \(k\) allant de \(p + 1\) à \(n\), faire : \\
+    \qquad Si \(L \union \accol{x_k}\) libre alors \(L \leftarrow L \union _accol{x_k}\) \\~\\
+    Cet algorithme termine et donne une partie \(L\) libre composée des vecteurs \(x_1, \dots , x_p\) et de certains vecteurs parmi les vecteurs \(x_{p+1}, \dots , x_n\).\\~\\
+    Notons \(\cal{B}\) la famille libre ainsi obtenue après balayage et montrons qu’elle engendre \(E\).
+    \begin{itemize}
+        \item Par construction de \(\cal{B}\), tout vecteur de \(\cal{F}\) est combinaison linéaire de vecteurs de \(\cal{B}\) donc appartient à \(\Vect{B}\).
+        \item Par stabilité des sous-espaces vectoriels de \(E\) par combinaison linéaire, on a : \(\Vect{\cal{F}} \subset \Vect{\cal{B}}\).
+        Ainsi \(E \subset \Vect{\cal{B}}\) (car \(\cal{F}\) engendre \(E\)) puis \(E = \Vect{\cal{B}}\) ce qui prouve que \(\cal{B}\) engendre \(E\).
+    \end{itemize}
+
+Conclusion : \(\cal{B}\) est une famille libre et génératrice de E donc c’est une base de E.
+\end{dem}
+
+\subsection{Théorèmes}
+\begin{theo}[Base extraite]
+    De toute famille génératrice d’un \(\K\)-espace vectoriel \(E\) de dimension finie différent de \(\accol{0_E}\), on peut extraire une base finie de \(E\).
+\end{theo}
+\begin{dem}
+    \begin{enumerate}
+        \item Soit \(\cal{F}\) une famille génératrice de \(E\).\\~\\
+        Comme \(E\) est de dimension finie, on peut extraire de \(\cal{F}\) une famille finie génératrice \(\cal{F}'\) de \(E\).\\~\\
+        En effet,\\
+        par définition de la dimension finie, \(E\) admet une partie génératrice finie \(\cal{G}\). Comme \(\cal{F}\) engendre \(E\),tout vecteur \(x\) de \(\cal{G}\) est en particulier combinaison linéaire de \(\cal{F}\), autrement dit il existe un nombre fini de vecteurs de \(\cal{F}\) dont \(x\) est la combinaison linéaire. Comme \(\cal{G}\) est elle-même une partie finie,on en déduit alors qu’on peut extraire de \(\cal{F}\) une famille finie \(\cal{F}'\) telle que \(\Vect{\cal{G}} \subset \Vect{\cal{F}'}\).Vu le caractère générateur de \(\cal{G}\), on a \(E = \Vect{\cal{G}}\) donc \(E \subset \Vect{\cal{F}'}\) et enfin \(E = \Vect{\cal{F}'}\) car \(\Vect{\cal{F}'}\) est un sous-espace vectoriel de \(E\). La famille finie \(\cal{F}'\) extraite de \(\cal{F}\) engendre donc \(E\).\\~\\
+        Comme \(E\) n’est pas réduit à \(\accol{0_E }\), la famille \(\cal{F}'\) contient un vecteur non nul \(x_1\) ce qui impliqueque la famille \((x_1)\) est une famille libre de \(E\). D’après l’algorithme de construction de bases, on peut alors construire une base de \(E\) qui contient \( x_1\) et certains vecteurs de la famille finie \(\cal{F}'\) donc de la famille génératrice F.\\~\\
+        \conclusion \(E\) a une base finie obtenue par extraction de vecteurs d’une famille génératrice.
+        \item Soit \(\cal{L}\) une famille libre de \(E\).\\
+        Comme \(E\) est de dimension finie alors \(\cal{L}\) finie par propriété et \(E\) admet une famille génératrice finie, notée \(\cal{F}\), par définition. En concaténant les familles \(\cal{L}\) et \(\cal{F}\), on obtient une nouvelle famille finie génératrice de \(E\) (car surfamille de la famille génératrice de \(E\)). Par l’algorithme de construction de bases, on obtient alors une base finie de \(E\) composée des vecteurs de la famille libre \(\cal{L}\) et de certains vecteurs de la famille génératrice \(\cal{F}\).\\
+        \conclusion \(E\) a une base finie obtenue par complétion d’une famille libre.
+    \end{enumerate}
+\end{dem}
+
+\begin{theo}[Base incomplète]
+    Toute famille libre (finie) d’un \(\K\)-espace vectoriel \(E\) de dimension finie différent de \(\accol{0_E}\) peut être complétée en une base finie de \(E\).
+\end{theo}
+\begin{theo}[Existence de bases en dimension finie]
+    Tout \(\K\)-espace vectoriel \(E\) de dimension finie différent de \(\accol{0_E}\) admet des bases finies.
+\end{theo}
+
+\section{Dimension d’un espace vectoriel}
+
+\subsection{Propriétés préliminaires}
+\begin{defprop}[Cardinal des familles libres en dimension finie]
+    Si \(E\) est un \(\K\)-espace vectoriel de dimension finie non réduit à \(\accol{0_E}\) et \(\mathcal{G}\) une famille génératrice finie de \(E\) à \(n\) élements alors toute famille libre \(\mathcal{L}\) de \(E\) a au plus \(n\) vecteurs :
+    \[\Card{\mathcal{L}} \leq \Card{\mathcal{G}} \]
+    \underline{Remarque}:\\
+    Dans le théorème de la base incomplète, on peut donc remplacer “famille libre finie” par “famille libre”.
+\end{defprop}
+\begin{dem}
+    On note \(\cal{G}\) une partie génératrice de \(E\) ayant \(n\) vecteurs et on raisonne par l’absurde.\\~\\
+    \begin{itemize}
+        \item On suppose qu’il existe une partie libre \(\cal{L}\) de vecteurs de \(E\) ayant \(n + 1\) éléments.\\~\\
+        Pour \(k \in \interventierii{0}{n}\), on note \(P(k)\) la propriété suivante :\\
+        “il existe une partie génératrice \(\cal{G}_k\) de \(E\) comportant \(k\) éléments de \(\cal{L}\) et \(n - k\) éléments de \(\cal{G}\)”.\\~\\
+        \underline{Montrons que, pour tout \(k \in \interventierii{0}{n}, P(k)\) est vraie.}
+        \begin{itemize}
+            \item \(P(0)\) est vraie car la partie \(\cal{G}_0 = \cal{G}\) convient.\\
+            \item Soit \(k \in \interventierii{0}{n-}\) tel que \(P(k)\) est vraie. Montrons que \(P(k + 1)\) est vraie.\\
+             Par hypothèse de récurrence, il existe \(\cal{G}_k = \accol{l_1, \dots , l_k, g_1, \dots , g_{n-k}}\) partie génératrice de \(E\) telle que \(\forall i \in \interventierii{1}{n-k} , l_i \in \cal{L}\) et \(\forall i \in \interventierii{1}{n-k} , g_i \in \cal{G}\)\\~\\
+            Comme la partie \(\cal{L}\) comporte \(n + 1\) éléments et que l’entier \(k\) est inférieur ou égal à \(n - 1\), il existe un vecteur \(l\) de \(\cal{L}\) qui est différent des vecteurs \(l_1, \dots , l_k\). Ce vecteur \(l\) appartient à \(E\) donc, par définition de \(\cal{G}_k\), il existe une famille de scalaires \((\alpha_1, \dots , \alpha_k, \beta_1, \dots , \beta_{n-k}) \in \K^n\) telle que
+            \[l = \sum^k_{i=1} \alpha_il_i + \sum^{n-k}_{i=1} \beta_ig_i\]
+            La partie \(\accol{l_1, \dots , l_k, l}\) est incluse dans la partie libre \(\cal{L}\) donc elle est libre et par conséquent, le vecteur \(l\) n’est pas combinaison linéaire de \(\accol{l_1, \dots , l_k}\) . Ainsi la famille de scalaires \((\beta_1, \dots , \beta_{n-k})\) est différente de \((0, \dots , 0)\) autrement dit il existe \(i \in \interventierii{1}{n-k}\) tel que \(\beta_i\) est non nul. Quitte à rénuméroter les \(\beta_i\), on peut supposer que \(\beta_{n-k}\) est non nul ce qui permet d’écrire
+            \[g_{n-k} = \frac{1}{\beta_{n-k}}l - \sum^{k}_{i=1} \frac{\alpha_i}{\beta_{n-k}}li - \sum^{n-1-k}_{i=1}\frac{\beta_i}{\beta_{n-k}}g_i\]
+            En notant \(l_{k+1} = l\) et \(\cal{G}_{k+1} = \accol{l_1, \dots , l_k, l_{k+1}, g_1, \dots , g_{n-k-1}}\), cela prouve que le vecteur \(g_{n-k}\) appartient à \(\Vect{\cal{G}_{k+1}}\). Comme par ailleurs, \(\cal{G}_k \pd \accol{g_{n-k}}\) est inclus dans \(\cal{G}_{k+1}\), on en déduit que \(\Vect{\cal{G}_k} \subset \Vect{\cal{G}_{k+1}}\) puis \(E \subset \Vect{\cal{G}_{k+1}}\) (car \(\cal{G}_k\) est génératrice de \(E\)) et enfin que \(E = \Vect{\cal{G}_{k+1}}\).\\~\\
+            Autrement dit, la partie \(\cal{G}_{k+1}\) est génératrice de \(E\) et comporte \(k + 1\) éléments de \(\cal{L}\) et \(n - (k + 1)\) éléments de \(\cal{G}\). La propriété \(P(k + 1)\) est donc vraie.
+        \end{itemize}
+        Par théorème de récurrence, la propriété \(P(k)\) est donc vraie pour tout entier \(k\) de \(\interventierii{0}{n}\).\\~\\
+        En particulier, \(P(n)\) est vraie. Il existe donc une partie génératrice de \(E\) composée de \(n\) vecteurs de \(\cal{L}\). Comme \(\cal{L}\) comporte \(n + 1\) vecteurs, l’un des vecteurs de \(\cal{L}\) est donc combinaison linéaire des \(n\) autres vecteurs ce qui contredit le caractère libre de\( \cal{L}\).\\
+        \conclusion : il n’existe pas de parties libres à \(n + 1\) éléments dans \(E\).
+        \item On suppose qu’il existe une famille libre de \(E\) ayant un nombre de vecteurs supérieur ou égal à \(n + 1\).
+        Toute sous-famille de cette famille libre est alors libre par propriété. En particulier, toute sous-famille à \(n + 1\) éléments de cette famille est libre ce qui est faux d’après la propriété démontrée ci-dessus.\\
+        \conclusion il n’existe pas de parties libres à plus de \(n + 1\) éléments dans E.
+    \end{itemize}
+    \conclusion : Si \(E\) a une famille génératrice à \(n\) vecteurs alors les familles libres de \(E\) ont au plus \(n\) vecteurs
+\end{dem}
+\begin{defprop}[Cardinal des bases en dimension finie]
+    Si \(E\) est un \(\K\)-espace vectoriel de dimension finie non réduit à \(\accol{0_E}\) alors :
+    \begin{itemize}
+        \item toutes les bases de \(E\) sont finies ;
+        \item toutes les bases de \(E\) ont le même nombre de vecteurs (appelé cardinal des bases).
+    \end{itemize}
+\end{defprop}
+
+\subsection{Dimension}
+\begin{defi}
+    Soit \(E\) un \(\K\)-espace vectoriel de dimension finie.\\
+    On appelle dimension de \(E\), et on note \(\dim{E}\), l’entier naturel défini de la manière suivante :
+    \begin{itemize}
+        \item Si \(E\neq \accol{0_E}\) alors \(\dim{E} = \Card{\mathcal{B}}\) où \(\mathcal{B}\) est une base quelconque de \(E\).
+        \item Si \(E = \accol{0_E}\) alors \(\dim{E} = 0\).
+    \end{itemize}
+    \underline{Remarque}\\
+    L’espace vectoriel nul est donc le seul \(\K\)-espace vectoriel de dimension finie égale à \(0\).
+\end{defi}
+
+\begin{defprop}[ Dimension d’espaces vectoriels déjà rencontrés]
+    \begin{enumerate}
+        \item \(\dim{\K^n} = n\)
+        \item \(\dim{\K_n\croch{X}} = n + 1\)
+        \item \(\dim{\M{n,p}} = n \times p\)
+        \item \underline{Solutions d’une équation différentielle linéaire homogène d’ordre \(1\)}\\
+            Soit \(I\) un intervalle de \(\R\), non vide et non réduit à un point, et \(a \in \mathcal{C(I, \K)}\).
+            L’ensemble-solution sur \(I\) de \((E) : y' + a(t)y = 0\) est un \(\K\)-espace vectoriel de dimension \(1\).
+        \item \underline{Solutions d’une équation différentielle linéaire homogène d’ordre \(2\) à coefficients constants}\\
+            Soit \((a, b) \in \K^2\)
+            L’ensemble-solution sur \(\R\) de \((E) : y'' + ay' + by = 0\) est un \(\K\)-espace vectoriel de dimension \(2\).
+        \item \underline{Suites récurrentes linéaire homogène d’ordre \(2\) à coefficients constants}\\
+            Soit \((a, b) \in \K \times \Ks\). L’ensemble des suites \((u_n)\) de \(\K^\N\) vérifiant\( \forall n \in \N, u_{n+2} + au_{n+1} + bu_n = 0\) est un \(\K\)-espace vectoriel de dimension \(2\).
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Caractérisation des bases en dimension finie}
+\begin{defprop}
+    Soit \(E\) un \(\K\)-espace vectoriel de dimension finie égale à \(n \in \Ns\).
+    \begin{enumerate}
+        \item Une famille libre de \(E\) est une base de \(E\) si, et seulement si, elle compte \(n\) vecteurs.
+        \item Une famille génératrice de \(E\) est une base de \(E\) si, et seulement si, elle compte \(n\) vecteurs.
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Rang d’une famille finie de vecteurs}
+\begin{defprop}
+    On appelle rang d’une famille finie de vecteurs \((x_1, x_2, \dots , x_n)\) d’un \(\K\)-espace vectoriel \(E\), et on note \(\rg(x_1, x_2, \dots , x_n)\), la dimension de l’espace vectoriel engendré par cette famille :
+    \[\rg (x_1, x_2, \dots , x_n) =  \dim{\Vect{ x_1, x_2, \dots , x_n}}.\]
+    \underline{Remarque}\\
+    On a \(\rg (x_1, x_2, \dots , x_n) \leq n\) avec égalité si, et seulement si, la famille \((x_1, x_2, \dots , x_n)\) est libre.
+\end{defprop}
+
+\subsection{Dimension d’un produit fini d’espaces vectoriels}
+\begin{defprop}
+    Si \(E_1, \dots , E_n\) sont des \(\K\)-espaces vectoriels de dimension finie alors le \(\K\)-espace vectoriel \(E_1 \times\dots\times E_n\) est de dimension finie avec
+    \[\dim E_1 \times \dots \times E_n = \dim E_1 + \dots + \dim E_n\]
+    \underline{Remarque}\\
+    Si, pour tout \(j \in \interventierii{1}{n}\), on note, \(\mathcal{B}_j\) une base de \(E_j\) alors une base de \(E_1 \times \dots \times E_n\) est la concaténation des familles
+    \[\paren{\paren{e, 0_{E_2} , \dots , 0_{E_n} }_{e\in \mathcal{B}_1} , \paren{0_{E_1}, e , \dots , 0_{E_n} }_{e\in \mathcal{B}_2} , \dots , \paren{0_{E_1}, \paren{0_{E_2}} , \dots , e }_{e\in \mathcal{B}_n}}\]
+\end{defprop}
+
+\section{Sous-espaces vectoriels en dimension finie}
+\subsection{Propriétés}
+\begin{defprop}[Dimension d’un sous-espace vectoriel]
+    Si \(E\) est un \(\K\)-espace vectoriel de dimension finie alors
+    \begin{enumerate}
+        \item tout sous-espace vectoriel \(H\) de \(E\) est de dimension finie inférieure ou égale à celle de \(E\).
+        \item un sous-espace vectoriel \(H\) de \(E\) est égal à \(E\) si, et seulement si, sa dimension est égale à celle de \(E\).
+    \end{enumerate}
+    \underline{Remarque}\\
+    Une base de \(E\) obtenue en complétant une base d’un sous-espace vectoriel \(H\) de \(E\) est dite base de \(E\) adaptée à \(H\).
+\end{defprop}
+
+\begin{dem}
+    On suppose que \(E\) est de dimension finie.\\~\\
+    \begin{itemize}
+        \item Dans le cas où \(E\) est de dimension nulle, les deux résultats sont immédiats car on a \(E = \accol{0_E }\) donc le seul sous-espace vectoriel de \(E\) est \(H = \accol{0_E }\) qui est de dimension finie nulle.
+        \item On se place dans le cas où \(E\) est de dimension \(n\) avec \(n \geq 1\) autrement dit le cas où \(E\neq \accol{0_E }\).
+        \begin{itemize}
+            \item Dans le cas \(H = \accol{0_E }\), les deux résultats sont immédiats car \(H\) est de dimension finie égale à \(0\) donc strictement inférieure à \(n\).
+            \item On se place dans le cas \(H\neq {0_E }\).
+            Alors \(H\) contient un vecteur \(x_1\) différent de \(0_E\) donc \(\accol{x_1}\) est une partie libre de \(H\) (et de \(E\)).\\~\\
+            \underline{Algorithme en langage naturel}\\
+            \qquad \(\cal{L}_1 \leftarrow \accol{x_1}\)
+            Tant que \(\cal{L}_k\) n’est pas une partie génératrice de \(H\),\\
+            faire \(\cal{L}_{k+1} \leftarrow \cal{L}_k \union \accol{x_{k+1}}\) avec \(x_{k+1}\) un vecteur de \(H \pd \Vect{\cal{L}_k}\).\\~\\
+
+            Par construction, les \(\cal{L}_k\) sont des parties libres de \(E\) donc de cardinal inférieur ou égal à \(n\) (qui est la dimension de \(E\)) et contiennent \(k\) vecteurs de \(H\). L’algorithme se termine donc (sinon la suite des cardinaux des parties \(\cal{L}_k\) serait une suite d’entiers croissante et majorée par \(n\) donc stationnaire ce qui contredirait sa stricte monotonie). Ainsi, il existe un entier \(k_0\) dans \(\interventierii{1}{k}\) tel que \(\cal{L}_{k_0}\) est une partie génératrice et libre de \(H\) donc une base de \(H\) de cardinal \(k_0 \leq n\).\\~\\
+            Par définition, \(H\) est donc de dimension finie avec \(\dim H \leq \dim E\).\\~\\
+            Par ailleurs, si \(\dim H = \dim E\) alors, par définition, toute base \(\cal{B}_H\) de \(H\) a pour cardinal la dimension de \(E\). Comme \(H\) est un sous-espace vectoriel de \(E\), \(\cal{B}_H\) est donc une famille libre de \(E\) qui a pour cardinal la dimension de \(E\). Par caractérisation des bases, \(\cal{B}_H\) est donc une base de \(E\) ce qui implique que \(E = \Vect{\cal{B}_H}\) donc que \(E = H\) puisque \(\cal{B}_H\) est base de \(H\).\\
+            \conclusion tout sous-espace vectoriel \(H\) de \(E\) est de dimension finie telle que \(\dim H \leq \dim E\) avec égalité des dimension si, et seulement si, \(H\) est égal à \(E\).
+        \end{itemize}
+    \end{itemize}
+\end{dem}
+
+\begin{defprop}[Egalité de sous-espaces vectoriels en dimension finie]
+    Soit \(H\) et \(G\) deux sous-espaces vectoriels d’un \(\K\)-espace vectoriel \(E\) de dimension finie.\\
+   \( H = G\) si, et seulement si, \(H \subset G\) et \(\dim H = \dim G\).
+\end{defprop}
+
+\subsection{Dimension d’une somme (formule de Grassmann)}
+\begin{defprop}
+    Soit \(H\) et \(G\) deux sous-espaces vectoriels d’un \(\K\)-espace vectoriel \(E\).\\
+    Si \(H\) et \(G\) sont de dimension finie alors \(H + G\) est de dimension finie avec
+    \[\dim H + G = \dim H + \dim G - dim H \inter G\]
+    \underline{Remarques}\\
+    Si de plus la somme \(H + G\) est directe alors :
+    \begin{itemize}
+        \item \(\dim H \oplus G = \dim H + \dim G\) 
+        \item la concaténation d’une base de \(H\) et d’une base de \(G\) donne une base de \(H \oplus G\) dite adaptée à la somme directe.
+    \end{itemize}
+        
+\end{defprop}
+
+\begin{dem}
+    Soit \(E\) un \(\K\)-espace vectoriel (de dimension non nécessairement finie) et, \(H\) et \(G\) deux sous-espaces vectoriels de dimension finie de \(E\).
+    \begin{itemize}
+        \item Par propriété, \(H \inter G\) est sous-espace vectoriel de \(E\) inclus dans \(H\) donc sous-espace vectoriel de \(H\).\\
+            Comme \(H\) est de dimension finie, \(H \inter G\) est de dimension finie donc admet une base finie \(\cal{B}_{H\inter G} = (e_i)_{i\in I}\).
+            Comme \(\cal{B}_{H \inter G} = (e_i)_{i\in I}\) est une famille libre de \(H \inter G\) (donc de \(H\) et \(G\)), on peut la compléter en :
+            \begin{itemize}
+                \item une base finie \(\cal{B}_H\) de \(H\) en lui ajoutant des vecteurs \(h_j\) avec \(j \in J\) ;
+                \item une base finie \(\cal{B}_G\) de \(G\) en lui ajoutant des vecteurs \(g_k\) avec \(k \in K\).
+            \end{itemize}
+            La famille \(\cal{B}\) obtenue en concaténant les familles \((e_i)_{i\in I}\) ,\((h_j )_{j\in J}\) et \((g_k)_{k\in K}\) est alors une famille génératrice du sous-espace vectoriel\( H + G\). En effet, tout élément de \(H + G\) s’écrit comme somme d’un élément de \(H\) et d’un élément de \(G\) donc comme combinaison linéaire de la famille obtenue en concaténant \(\cal{B}_H\) et \(\cal{B}_G\) et donc a fortiori comme combinaison linéaire de \(\cal{B}\).\\~\\
+            Comme \(\cal{B}\) est une famille finie, \(H + G\) est alors de dimension finie par définition.
+        \item Montrons que la famille \(\cal{B}\) ainsi créée est une base de \(H + G\).
+            On considère une combinaison linéaire nulle de la famille \(\cal{B}\). Elle peut s’écrire sous la forme
+            \[\sum_{i\in I}\alpha_ie_i + \sum_{j\in J}\beta_j h_j + \sum_{k\in K} \gamma_kg_k = 0_E \]
+            avec \((\alpha_i)_{i\in I} ,(\beta_j )_{j\in J}\) et \((\gamma_k)_{k\in K}\) trois familles de scalaires.
+            Alors 
+            \[\underbrace{\sum_{j\in J}\beta_j h_j}_{\in H} = \underbrace{-\sum_{i\in I} \alpha_ie_i - \sum_{k\in K}\gamma_kg_k}_{\in G}\]
+            donc le vecteur \(\sum_{j\in J} \beta_j h_j\) appartient à \(H \inter G\). Comme \((e_i)_{i\in I}\) est une base de \(H \inter G\), il existe donc une unique famille de scalaires \((\alpha'_i)_{i\in I}\) telle que
+            \[\sum_{j\in J}\beta_j h_j = \sum_{i\in I}\alpha'_ie_i\]
+            En réinjectant dans la toute première égalité, on trouve
+            \[\sum_{i\in I}(\alpha_i + \alpha'_i)e_i + \sum_{k\in K}\gamma_kg_k = 0_E\]
+            Comme \(\cal{B}_G\) est une base de \(G\), c’est une famille libre de \(E\) donc l’égalité précédente implique que
+            \[\forall i \in I, \alpha_i + \alpha'_i = 0 \text{ et }\forall k \in K, \gamma_k = 0\]
+            En réinjectant dans la trouve première égalité, on trouve 
+            \[\sum_{i\in I}\alpha_ie_i + \sum_{j\in J}\beta_j h_j = 0_E\]
+            Comme \(\cal{B}_H\) est une base de \(H\), c’est une famille libre de \(E\) donc l’égalité précédente implique que
+            \[\forall i \in I, \alpha_i = 0\text{ et }\forall j \in J, \beta_j = 0\]
+            avec de plus
+            \[\forall k \in K, \gamma_k = 0\]
+            En résumé, toute combinaison linéaire nulle de la famille \(\cal{B}\) a ses coefficients nuls donc, par définition, \(\cal{B}\) est libre. Comme \(\cal{B}\) est de plus une famille génératrice de \(H +G\), on en déduit que \(\cal{B}\) est une base de \(H +G\).\\~\\
+            Par construction de la famille finie \(\cal{B}\), on a :
+            \[\Card{\cal{B}} = \Card{\cal{B}_H} + \Card{\cal{B}_G} - \Card{\cal{B}_{H\inter G}}\]
+            Par définition de la dimension d’un espace vectoriel, on a alors :
+            \[\dim H + G = \dim H + \dim G - \dim H \inter G\]
+    \end{itemize}
+    \conclusion \(\dim H + G = \dim H + \dim G - dim H \inter G\)
+\end{dem}
+
+\subsection{Sous-espaces supplémentaires}
+
+\begin{theo}[Théorème d’existence]
+    Tout sous-espace vectoriel d’un \(\K\)-espace vectoriel de dimension finie possède au moins un supplémentaire.\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Il n’y a pas unicité des supplémentaires dans un \(\K\)-espace vectoriel de dimension finie.\\
+        Ainsi \(H = X^2\K_1 \croch{X}\) et \(G = (X^2 + 1)\K_1 \croch{X}\) sont des sous-espaces vectoriels différents de \(E = \K_3 \croch{X}\) tous deux supplémentaires de \(\K_1 \croch{X}\) dans l’espace vectoriel de dimension finie \(E\).
+        \item L’existence d’un supplémentaire pour tout sous-espace vectoriel en dimension quelconque dépasse les ambitions du programme de MP2I-MPI.
+    \end{itemize}
+\end{theo}
+
+\begin{dem}
+    Soit \(E\) un \(\K\)-espace vectoriel de dimension finie et \(H\) un sous-espace vectoriel de \(E\).\\~\\
+    \begin{itemize}
+        \item Dans le cas où \(H = \accol{0_E }\), on a immédiatement\( E = \accol{0_E }\oplus E\) donc \(H\) admet comme supplémentaire \(E\).
+        \item On se place dans le cas où \(H\neq \accol{0_E }\).
+            Comme \(H\) est un sous-espace vectoriel de l’espace vectoriel de dimension finie \(E\), \(H\) est alors de dimension finie supérieure ou égale à \(1\). \(H\) admet donc une base finie \(\cal{B}_H = (e_1, \dots , e_p)\), avec \(p = \dim H\), que l’on peut compléter en une base \(\cal{B} = (e_1, \dots , e_p, e_{p+1}, \dots e_n)\) de \(E\) où \(n = \dim E\)
+            Par unicité d’écriture de tout vecteur de \(E\) dans la base \(\cal{B}\) et par définition d’une somme directe, on en déduit que
+            \[E = \Vect{e_1, \dots , e_p} \oplus \Vect{e_{p+1}, \dots , e_n}\]
+            autrement dit, que
+            \[E = H \oplus Vect (e_{p+1}, \dots , e_n)\]
+            ce qui signifie que \(H\) admet \(\Vect{e_{p+1}, \dots , e_n}\) comme supplémentaire.
+    \end{itemize}
+    \conclusion tout sous-espace vectoriel d’un espace vectoriel de dimension finie a un supplémentaire.
+\end{dem}
+
+\begin{defprop}[Caractérisation des sous-espaces supplémentaires avec la dimension]
+    Soit \(H\) et \(G\) deux sous-espaces vectoriels d’un \(\K\)-espace vectoriel E de dimension finie.\\
+    \begin{enumerate}
+        \item \(H\) et \(G\) sont supplémentaires si, et seulement si, \(\dim E = \dim H + \dim G\) et \(H + G = E\)
+        \item \(H\) et \(G\) sont supplémentaires si, et seulement si, \(\dim E = \dim H + \dim G\) et \(H \inter G = \accol{0_E}\)
+    \end{enumerate}
+    \underline{Remarque}\\
+        Lorsque \(H\) et \(G\) sont des sous-espaces supplémentaires de \(E\), la concaténation d’une base de \(H\) et d’une base de \(G\) donne une base de \(E\) dite adaptée à la décomposition en somme directe.
+\end{defprop}
