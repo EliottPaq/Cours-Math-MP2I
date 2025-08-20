@@ -1,0 +1,419 @@
+\chapter{Application Linéaire (1)}
+
+\minitoc
+
+Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et, sauf mention contraire \(E, F\) et \(G\)  sont des \(\K\)-espaces vectoriels.
+
+\section{Généralités}
+\subsection{Définitions - Notations}
+\begin{defi}
+    \begin{enumerate}
+        \item Une application \(u\) de \(E\) dans \(F\) est dite application linéaire de \(E\) dans \(F\) si :
+        \[\forall (\lambda , \mu ) \in  \K^2, \forall (x, y) \in  E^2, u(\lambda  x + \mu y) = \lambda  u(x) + \mu u(y).\]
+        \item Les applications linéaires de \(E\) dans \(F\) constituent \(\cal{L}\paren{E,F}\).
+        \item Les applications linéaires bijectives de \(E\) dans \(F\) sont dites \underline{isomorphismes} de \(E\) sur \(F\) .
+        \item Les applications linéaires de \(E\) dans \(E\) sont dites \underline{endomorphismes} de \(E\) et constituent \(\cal{L}\paren{E}\).
+        \item Les endomorphismes bijectifs de \(E\) sont dits \underline{automorphismes} de \(E\) et constituent \(\cal{GL}\paren{E}\).
+    \end{enumerate}
+    \underline{Remarque}\\
+        Toute application \(u\) linéaire de \(E\) vers \(F\) est un morphisme de groupes additifs donc \(u (0_E ) = 0_F\) .
+\end{defi}
+\subsection{Opérations}
+\begin{defprop}
+    \begin{enumerate}
+        \item La combinaison linéaire de deux applications linéaires est une application linéaire.
+        \item La composée de deux applications linéaires est une application linéaire.
+        \item La bijection réciproque d’un isomorphisme est un isomorphisme.
+    \end{enumerate}
+\end{defprop}
+\subsection{Structures algébriques des ensembles d’applications linéaires}
+\begin{defprop}
+    \begin{enumerate}
+        \item \(\paren{\cal{L}\paren{E,F}, +, .}\) est un \(\K\)-espace vectoriel car sous-espace vectoriel du \(\K\)-espace vectoriel \(\cal{F}\paren{E, F }\).
+        \item \(\paren{\cal{L}\paren{E}, +, \circ }\) est un anneau dont l’élément neutre pour la loi \(\circ \) est \(\id{E}\) .
+        \item \(\paren{\cal{GL}\paren{E}, \circ }\) est un groupe dit groupe linéaire.
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Image directe et image réciproque d’un sous-espace vectoriel}
+\begin{defprop}
+    Si \(u\) est une application linéaire de \(E\) dans \(F\) alors
+    \begin{enumerate}
+        \item l’image directe par \(u\) d’un sous-espace vectoriel de \(E\) est un sous-espace vectoriel de \(F\) ;
+        \item l’image réciproque par \(u\) d’un sous-espace vectoriel de \(F\) est un sous-espace vectoriel de \(E\).
+    \end{enumerate}
+\end{defprop}
+\subsection{Image et noyau d’une application linéaire}
+\begin{defprop}[Structures algébriques]
+    Si \(u\) est une application linéaire de \(E\) dans \(F\) alors :
+    \begin{enumerate}
+        \item \(\im u = u(E) = \accol{y \in  F \tq \exists x \in  E, y = u(x)}\) est un sous-espace vectoriel de \(F\) , appelé image de \(u\) ;
+        \item \(\ker u = u^{-1} \accol{0_F } = \accol{x \in  E \tq u(x) = 0_F }\) est un sous-espace vectoriel de \(E\), appelé noyau de \(u\).
+    \end{enumerate}
+\end{defprop}
+\begin{defprop}[Famille génératrice de l’image d’une application linéaire]
+    Si \(u \in  \cal{L}\paren{E,F}\) et \(E = \Vect{(x_i)_{i\in I} } \) alors \(\im(u) = \Vect{(u(x_i))_{i\in I} }\).
+\end{defprop}
+\begin{defprop}[Caractérisation des applications linéaires injectives/surjectives]
+  \begin{enumerate}  
+        \item Une application linéaire \(u\) de \(E\) dans \(F\) est injective si, et seulement si, \(\ker u = \accol{0_E }\).
+        \item Une application (linéaire) \(u\) de \(E\) dans \(F\) est surjective si, et seulement si, \(\im u = F \).
+    \end{enumerate}
+
+        \underline{Remarques}\\
+        Sans la linéarité, l’équivalence \(1\) n’est pas conservée alors que l’équivalence \(2\) est conservée.
+\end{defprop}
+
+\subsection{Rang d’une application linéaire}
+\begin{defi}[Définition du rang d’une application linéaire]
+    Une application linéaire \(u\) de \(E\) dans \(F\) est dite de rang fini si son image \(\im(u)\) est de dimension finie.\\
+    Dans ce cas, la dimension de \(\im (u)\) est appelée rang de u et notée \(\rg(u)\) :
+    \[\rg(u) = \dim (\im (u))\]
+\end{defi}
+
+\begin{defprop}[Conditions suffisantes de finitude du rang]
+    \begin{enumerate}
+        \item Si \(u : E \to F\) est linéaire et \(E\) de dimension finie alors \(u\) est de rang fini avec \(\rg(u) \leq \dim E\).
+        \item Si \(u : E \to F\) est linéaire et \(F\) de dimension finie alors \(u\) est de rang fini avec \(\rg(u) \leq \dim F\) .
+    \end{enumerate}
+    \end{defprop}
+
+\begin{defprop}[Rang d’une composée]
+    Soit \(u \in  \cal{L}\paren{E,F}\) et \(v \in  \cal{L}\paren{F, G}\).\\
+    \begin{enumerate}
+        \item Si \(u\) et \(v\) sont de rang fini alors \(v \circ u\) est de rang fini et vérifie \(\rg (v \circ u) \leq \min(\rg(u), \rg(v))\).
+        \item Invariance du rang par composition par un isomorphisme
+        \begin{enumerate}
+            \item si \(u\) est un isomorphisme et \(v\) de rang fini alors \(v \circ u\) est de rang fini et \(\rg (v \circ u) = \rg (v)\).
+            \item si \(v\) est un isomorphisme et \(u\) de rang fini alors \(v \circ u\) est de rang fini et \(\rg (v \circ u) = \rg (u)\).
+        \end{enumerate}
+    \end{enumerate}
+\end{defprop}
+\begin{dem}
+    \begin{itemize}
+        \item On suppose que \(u\) et \(v\) sont de rang fini.\\
+        \begin{itemize}
+            \item Comme \(v\) est de rang fini alors \(\im v\) est de dimension finie. L’inclusion naturelle \(\im v\circ u \subset \im v\) donne alors que \(\im v \circ u\) est de dimension finie (comme sous-espace vectoriel d’un espace de dimension finie), donc que \(v \circ u\) est de rang fini, avec \(\rg (v \circ u) \leq \rg (v)\) par définition du rang.
+            \item D’autre part, \(\im v \circ u = \accol{v \circ u(x) \tq x \in  E} = \accol{v (u(x)) \tq x \in  E}\) donc on a :
+                \[\im v \circ u = \accol{v(y) \tq y \in  \im u}\]
+            On s’intéresse alors à \(\tilde{v} = v_{| \Im u}\) autrement dit à l’application \(\tilde{v} : \im u \to G\) définie par
+                \[\forall y \in  \im u, \tilde{v}(y) = v(y)\]
+            \(\tilde{v}\) est linéaire (car \(v\) l’est) d’espace de départ, \(\im u\), de dimension finie (car \(u\) est de rang fini) donc, par propriété, \(\tilde{v}\) est de rang fini avec \(\rg (\tilde{v}) \leq \dim (\im u)\) c’est-à-dire \(\dim (\im \tilde{v}) \leq \dim (\im u)\).\\~\\
+            Par définition de \(\tilde{v}\), on a donc \(\im v \circ u = \im \tilde{v}\) ce qui permet de conclure que \(\dim (\im v \circ u) \leq \dim (\im u)\) autrement dit que \(\rg (v\circ u) \leq \rg (u) \).\\~\\
+            Ainsi \(\rg (v \circ u) \leq \rg (v)\) et \(rg (v \circ u) \leq \rg (u)\) donc \(\rg (v \circ u) \leq \min (\rg (u) , \rg (v))\)\\~\\
+            \conclusion si \(u\) et \(v\) sont de rang fini alors \(v \circ u\) est de rang fini et \(\rg (v \circ u) \leq \min(\rg(u), \rg(v))\).
+        \end{itemize}
+        \item Invariance du rang par composition par un isomorphisme
+        \begin{enumerate}
+            \item On suppose que \(u\) est un isomorphisme et que \(v\) de rang fini. \\
+                On a vu au \(1\) que \(\im v \circ u = \accol{v(y) \tq y \in  \im u}\) autrement dit que \(\im v \circ u = v (\im u)\) par définition de l’image directe d’un ensemble.\\~\\
+                Or \(u\) est un isomorphisme de \(E\) vers \(F\) donc est en particulier surjectif ce qui donne \(\im u = F\) .\\
+                Ainsi, \(\im v \circ u = v (F )\) avec \(v (F ) = \im v\), par définition de l’image de \(v\), linéaire de \(F\) dans \(G\).\\~\\
+                On en déduit que \(\im v \circ u = \im v\) ce qui prouve que \(v \circ u\) est de rang fini (car \(v\) l’est) et que \(\rg (v \circ u) = \rg (v)\) .\\~\\
+                \conclusion pour \(u\) isomorphisme et \(v\) de rang fini, on a \(v \circ u\) de rang fini et \(\rg (v \circ u) =\rg (v)\).
+            \item On suppose que \(v\) est un isomorphisme et \(u\) de rang fini.
+                On reprend les notations et une partie des résultats de la preuve du \(1\)
+                \begin{itemize}
+                    \item On a \(\im v \circ u = \im\tilde{v}(\star)\) avec \(\tilde{v} = v_{|\im u}\) qui est de rang fini car elle est linéaire sur un espace de dimension finie \(\im u\).Par conséquent, \(\im \tilde{v}\) est de dimension finie et donc \(\im v \circ u\) aussi vu l’égalité écrite. Autrement dit, \(v \circ u\) est de rang fini.
+                    \item Déterminons une base de \(\im \tilde{v}\) (donc de \(\im v \circ u\))\\~\\
+                    Soit \((y_1, \dots , y_n)\) une base de \(\im u\) (espace de départ de \(\tilde{v}\)) avec \(n = \dim \im u\).\\~\\
+                    Alors, par propriété, \(\im \tilde{v} = \Vect{\tilde{v}(y_1), \dots , \tilde{v}(y_n)} \ie (\tilde{v}(y_1), \dots , \tilde{v}(y_n))\) engendre \(\im \tilde{v}\).\\~\\
+                    De plus, \((\tilde{v}(y_1), \dots , \tilde{v}(y_n))\) est une famille libre de \(G\).\\~\\
+                    En effet, pour \((\lambda_1, \dots , \lambda_n) \in  \K^n\) tel que \(\lambda_1\tilde{v}(y_1) + \dots + \lambda_n\tilde{v}(y_n) = 0_G\), on a\\~\\
+                    \(\lambda_1v(y_1) + \dots + \lambda_nv(y_n) = 0_G\) donc, par linéarité de \(v\),\( v (\lambda_1y_1 + \dots + \lambda_ny_n) = 0_G\) ce qui prouve que\( \lambda_1y_1 + \dots + \lambda_ny_n\) appartient au noyau de \(v\). Comme \(v\) est un isomorphisme, \(v\) est en particulier linéaire injective donc son noyau est réduit à \(\accol{0_F }\). On en déduit que\( \lambda_1y_1 + \dots + \lambda_ny_n = 0_F\) puis, par liberté de \((y_1, \dots , y_n)\) , que \(\lambda_1 = \dots = \lambda_n = 0\) ce qui prouve la liberté de \((\tilde{v}(y_1), \dots , \tilde{v}(y_n))\) .\\~\\
+                    Ainsi,\( (\tilde{v}(y_1), \dots , \tilde{v}(y_n))\) est une base de \(\im \tilde{v}\) donc \(\dim \im \tilde{v} = n = \dim \im u\) puis. On obtient alors : \(\dim \im v \circ u = \dim \im u\) autrement dit \(\rg (v \circ u) = \rg (u)\) .\\
+                    \conclusion pour \(v\) isomorphisme et \(u\) de rang fini, on a \(v\circ u\) de rang fini et \(\rg (v\circ u) = \rg (u)\).
+                \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+\end{dem}
+\section{Des applications linéaires usuelles}
+\subsection{Homothéties}
+\begin{defi}
+   Soit\( \lambda  \in  \K\).\\
+    L’application \(h_{\lambda}  = \lambda \id{E}\) est un endomorphisme de \(E\) appelé homothétie de rapport \(\lambda\) .
+\end{defi}
+
+\subsection{Projections/projecteurs}
+    On suppose ici que \(E_1\) et \(E_2\) sont des sous-espaces vectoriels supplémentaires de \(E\). Alors :
+    \[\forall x \in  E, \exists!(x_1, x_2) \in  E_1 \times E_2, x = x_1 + x_2\].
+\begin{defi}[Définition géométrique]
+    L’application \(p : E \to E\) définie par
+    \[\forall x \in  E, p(x) = x_1\]
+    est appelée projection (ou projecteur) sur \(E_1\) parallèlement à \(E_2\).
+\end{defi}
+\begin{prop}[Propriétés]
+    Si \(p\) est la projection sur \(E_1\) parallèlement à \(E_2\) alors :
+    \begin{enumerate}
+        \item \(p\) est un endomorphisme de \(E\) qui vérifie \(p \circ p = p\) ;
+        \item \(E_1 = \im p = \ker (p - \id{E} ) = \accol{x \in  E \tq p(x) = x}\) ;
+        \item \(E_2 = \ker p\).
+    \end{enumerate}
+\end{prop}
+
+\begin{defprop}[Caractérisation algébrique]
+    Une application \(p : E \to E\) est un projecteur de \(E\) si, et seulement si, \(p\) est linéaire et \(p^2 = p\).\\
+    Dans ce cas, on a :
+    \begin{enumerate}
+        \item \(E = \im p \oplus \ker p\) ;
+        \item \(p\) est la projection sur \(\im p = \ker (p - \id{E} )\) parallèlement à \(\ker p\) ;
+        \item \(\forall x \in  E, x = p(x) + (x - p(x)) \text{ avec} \begin{cases}
+            p(x) &\in  \im p\\
+            x - p(x) &\in  \ker p 
+        \end{cases}\)
+    \end{enumerate}
+\end{defprop}
+\begin{defprop}[Remarques]
+    \begin{enumerate}
+        \item Le seul projecteur de \(E\) bijectif est \(\id{E}\) .
+        \item On peut avoir \(E = \im u \oplus \ker u\) sans que l’endomorphisme \(u\) de \(E\) ne soit un projecteur.
+    \end{enumerate}
+\end{defprop}
+\subsection{Symétries}
+    On suppose ici que \(E_1\) et \(E_2\) sont des sous-espaces vectoriels supplémentaires de \(E\). Alors :
+    \[\forall x \in  E, \exists!(x_1, x_2) \in  E_1 \times E_2, x = x_1 + x_2\]
+\begin{defi}[Définition géométrique]
+    L’application \(s : E \to E\) définie par
+    \[\forall x \in  E, s(x) = x_1 - x_2\]
+    est appelée symétrie par rapport à \(E_1\) parallèlement à \(E_2\).\\
+    \underline{Remarque}\\
+    Cette application vérifie \(s = 2p - \id{E}\) où \(p\) est la projection sur \(E_1\) parallèlement à \(E_2\).
+\end{defi}
+
+\begin{prop}
+    Si \(s\) est la symétrie par rapport à \(E_1\) parallèlement à \(E_2\) alors :
+    \begin{enumerate}
+        \item \(s\) est un endomorphisme de \(E\) qui vérifie \(s \circ s = \id{E}\) ;
+        \item \(E_1 = \ker (s - \id{E} ) = \accol{x \in  E \tq s(x) = x}\) ;
+        \item \(E_2 = \ker (s + \id{E} ) = \accol{x \in  E \tq s(x) = -x}\).
+    \end{enumerate}
+\end{prop}
+
+\begin{defprop}[Caractérisation algébrique]
+    Une application \(s : E \to E\) est une symétrie de \(E\) si, et seulement si, \(s\) est linéaire et \(s^2 = \id{E}\).\\
+    Dans ce cas :
+    \begin{enumerate}
+        \item \(E = \ker (s - \id{E} ) \oplus \ker (s + \id{E} )\) ;
+        \item \(s\) est la symétrie par rapport à \(\ker (s - \id{E} )\) parallèlement à \(\ker (s + \id{E} )\) ;
+        \item \(\forall x \in  E, x = \frac{1}{2} (x + s(x)) + \frac{1}{2} (x - s(x))\text{ avec }\begin{cases}
+        \frac{1}{2} (x + s(x)) &\in  \ker (s - \id{E} )\\[10pt]
+        \frac{1}{2} (x - s(x)) &\in  \ker (s + \id{E} )
+        \end{cases}\)
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Bijectivité des symétries]
+    Toute symétrie \(s\) de \(E\) est un automorphisme de \(E\) dont la bijection réciproque est \(s\).
+\end{defprop}
+
+\section{Isomorphismes}
+\subsection{Détermination d’une application linéaire}
+\begin{defprop}[Action sur une base]
+    Si \((e_i)_{i\in I}\) est une base de \(E\) et \((f_i)_{i\in I}\) une famille de \(F\) alors il existe un unique \(u \in  \cal{L}\paren{E,F}\) tel que :
+    \[\forall i \in  I, u(e_i) = f_i.\]
+    Autrement dit, une application linéaire est entièrement déterminée par la connaissance de son action sur les vecteurs d’une base de son espace vectoriel de départ.
+\end{defprop}
+
+\begin{defprop}[Recollement]
+    Si \(E_1\) et \(E_2\) sont des sous-espaces vectoriels supplémentaires de \(E\) avec \(u_1 \in  L(E_1, F )\) et \(u_2 \in  L(E_2, F )\) alors il existe un unique \(u \in  \cal{L}\paren{E,F}\) tel que :
+    \[u_1 = u_{|E_1} \text{ et }u_2 = u_{|E_2} \]
+Autrement dit, une application linéaire est entièrement déterminée par la connaissance de son action sur les vecteurs de deux sous-espaces vectoriels supplémentaires de son espace vectoriel de départ.
+\end{defprop}
+
+\subsection{Caractérisations de l’injectivité, la surjectivité ou la bijectivité}
+\begin{defprop}
+    Soit \(u\) une application linéaire de \(E\) dans \(F\) et \((e_i)_{i\in I}\) une base de \(E\).
+    \begin{enumerate}
+        \item \(u\) est surjective si, et seulement si, \((u(e_i))_{i\in I}\) est une famille génératrice de \(F\) .
+        \item \(u\) est injective si, et seulement si, \((u(e_i))_{i\in I}\) est une famille libre de \(F\) .
+        \item \(u\) est bijective si, et seulement si, \((u(e_i))_{i\in I}\) est une base de \(F\) .
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Applications linéaires entre espaces de même dimension finie}
+\begin{defprop}[Caractérisation des isomorphismes]    
+    Si \(u\) est une application linéaire entre deux \(\K\) espaces vectoriels de même dimension finie alors les trois propositions suivantes sont deux à deux équivalentes.
+    \begin{enumerate}
+        \item \(u\) est injective
+        \item \(u\) est surjective
+        \item \(u\) est bijective.
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Caractérisation des automorphismes]
+    
+    Si \(u\) est un endomorphisme de \(E\) avec \(E\) de dimension finie alors les trois propositions suivantes sont deux à deux équivalentes.
+    \begin{enumerate}
+        \item \(u\) est bijective.
+        \item \(u\) est inversible à droite (c’est-à-dire qu’il existe \(v \in  \cal{L}\paren{E}\) tel que\( u \circ v = \id{E}\)).
+        \item \(u\) est inversible à gauche (c’est-à-dire qu’il existe \(w \in  \cal{L}\paren{E}\) tel que \(w \circ u = \id{E}\)).
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Espaces vectoriels isomorphes}
+\begin{defi}
+    Deux espaces vectoriels \(E\) et \(F\) sont dits isomorphes s’il existe un isomorphisme de \(E\) vers \(F\) .
+\end{defi}
+
+\begin{defprop}[Caractérisation par la dimension]
+    Si \(E\) est de dimension finie alors \(F\) est isomorphe à \(E\) si, et seulement si, \(E\) et \(F\) ont même dimension.
+\end{defprop}
+\begin{defprop}[dimension de \(\cal{L}\paren{E,F}\)]
+    Si \(E\) et \(F\) sont de dimension finie alors \(\cal{L}\paren{E,F}\) l’est aussi et\( \dim (\cal{L}\paren{E,F}) = \dim(E) \times \dim(F )\)
+\end{defprop}
+\section{Théorème du rang}
+\subsection{Théorème du rang (version géométrique)}
+\begin{theo}
+    Si \(u\) est une application linéaire de \(E\) vers \(F\) et si \(S\) est un supplémentaire de \(\ker(u)\) dans \(E\) alors l’application \(\tilde{u} : S \to \Im u\) définie par
+   \[ \forall x \in  S, \tilde{u}(x) = u(x)\]
+    est un isomorphisme.\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item L’image d’une application linéaire est donc isomorphe à tout supplémentaire de son noyau.
+        \item On dit aussi que \(u\) induit un isomorphisme de \(S\) sur \(\im(u)\).
+        \item On note parfois \(\tilde{u}\) de la manière suivante \(\tilde{u} = u^{|\im(u)}_{|S}\) en parlant de bi-restriction de \(u\).
+    \end{itemize}
+\end{theo}
+
+\begin{theo}[Théorème du rang (version dimension finie)]
+    Si \(u\) est une application linéaire de \(E\) vers \(F\) avec \(E\) de dimension finie alors
+    \begin{enumerate}
+        \item \(u\) est de rang fini ;
+        \item \(\dim E = \dim \ker (u) + \rg(u)\).
+    \end{enumerate}
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item la dimension finie de l’espace de départ sur lequel est définie l’application linéaire suffit ici.
+        \item \underline{ATTENTION}\\
+            Le théorème du rang n’implique pas l’égalité \(E = \ker u \oplus \im u\) \((\star)\). En effet,
+        \begin{itemize}
+            \item \((\star)\) peut n’avoir aucun sens si \(E\) et \(F\) sont distincts (sens de \(x + y\) avec \(x \in  E\) et \(y \in  F\) ?) ;
+            \item \((\star)\) peut être fausse si \(E\) et \(F\) sont égaux (cf \(u \in  \cal{L} (\R \croch{X})\) définie par \(\forall P \in  \R \croch{X} , u(P ) = P '\)).
+        \end{itemize}
+    \end{itemize}
+\end{theo}
+
+\section{Formes linéaires et hyperplans}
+\subsection{Formes linéaires}
+\begin{defprop}
+    Toute application linéaire de \(E\) vers \(\K\) est dite forme linéaire sur \(E\).\\
+    \underline{Exemple}\\
+    Si \(\cal{B} = (e_i)_{i\in I}\) est une base de \(E\) alors tout \(x\) de \(E\) s’écrit de manière unique sous la forme
+    \[x = \sum_{i\in I}\underbrace{e^{\star}_i (x)}_{\in \K} e_i\]
+    Les fonctions \(e^{\star}_i : E \to \K\) sont des formes linéaires sur \(E\) dite formes coordonnées relativement à \(B\).
+\end{defprop}
+\subsection{Hyperplans}
+\begin{defi}
+    Un sous-espace vectoriel de \(E\) est dit hyperplan s’il est le noyau d’une forme linéaire non nulle sur \(E\).
+\end{defi}
+
+\begin{defprop}[Caractérisations des hyperplans comme supplémentaires de droites]
+    Soit \(H\) un sous-espace vectoriel de \(E\).\\
+    \(H\) est un hyperplan de \(E\) si, et seulement si, \(H\) est supplémentaire d’une droite de \(E\).\\
+    \underline{Remarque}\\
+    Dans le cas où \(H\) est un hyperplan, pour toute droite \(D\) de \(E\) non contenue dans \(H\), on a : \(E = H \oplus D\).
+\end{defprop}
+
+\begin{dem}
+    \begin{itemize}
+        \item On suppose que \(H\) est un hyperplan de \(E\).\\
+        Alors, par définition, il existe \(\phi\) dans \(\cal{L} (E, \K)\) avec \(\phi\neq 0_{\cal{L}(E,\K)}\) tel que \(H = \ker\phi\).\\~\\
+        Comme \(\phi\) n’est pas nulle, il existe un vecteur \(a\) de \(E\) tel que \(\phi(a)\neq 0\) autrement dit tel que \(a \in  E \pd H\).\\
+        Le sous-espace vectoriel \(D = \Vect{a}\) est alors une droite puisque a est différent de \(0_E\) .\\~\\
+        \underline{Montrons que \(E = H \oplus D\)}\\
+        Soit \(x \in  E\).
+        \begin{itemize}
+            \item \analyse on suppose qu’il existe \((x_H , x_D) \in  H \times D\) tel que \(x = x_H + x_D\).\\~\\
+            Alors : \(\exists\lambda  \in  \K, x_D = \lambda a\) et \(x_H = x - x_D\) avec \(\phi(x_H ) = 0\) par définition de \(H\).
+            Par linéarité de \(\phi\), cela donne \(\phi(x) - \lambda\phi(a) = 0\) puis \(\lambda  = \frac{\phi(x)}{\phi(a)}\) car \(\phi(a)\neq 0\).\\~\\
+            On en déduit donc que le seul couple \((x_H , x_D)\) possible est \(\paren{x - \frac{\phi(x)}{\phi(a)} a, \frac{\phi(x)}{\phi(a)} a}\).
+            \item \synthese : on a bien \(x =\paren{x - \frac{\phi(x)}{\phi(a)} a}+ \frac{\phi(x)}{\phi(a)}a\) avec \(\frac{\phi(x)}{\phi(a)} a \in  D\) (par définition de \(D\) car \(\frac{\phi(x)}{\phi(a)} \in  \K\)) et \(x - \frac{\phi(x)}{\phi(a)} a \in  H\) (par définition de \(H\) et linéarité de \(\phi\) car \(\phi\paren{x - \frac{\phi(x)}{\phi(a)} a}= \phi(x) - \frac{\phi(x)}{\phi(a)} \phi(a) = 0\)).
+        \end{itemize}
+        On en déduit que tout vecteur de \(E\) s’écrit de manière unique comme somme d’un élément de \(H\) et d’un élément de \(D\). Ainsi \(E = H \oplus D\) ce qui prouve que \(H\) est supplémentaire d’une droite de \(E\).
+        \item On suppose que \(H\) est supplémentaire d’une droite de \(E\) que l’on note \(D = \Vect{a}\) avec \(a\neq 0_E\) .\\~\\
+        Tout \(x \in  E\) s’écrit donc de manière unique sous la forme
+        \[x = x_H + \lambda_a \text{ avec } x_H \in  H \text{ et }\lambda  \in  \K\]
+        On définit alors l’application linéaire \(\phi : E \to \K\) par recollement en posant :
+        \[\forall x_H \in  H, \phi(x_H ) = 0 \text{ et }\forall \lambda  \in  \K, \phi(\lambda a) = \lambda \]
+        Alors, \(\phi\) est une forme linéaire (par définition), non nulle car \(\phi(a) = 1(\neq 0)\) et de noyau \(H\). En effet,
+        \[\phi(x) = 0 \iff \phi(x_H + \lambda a) = 0 \iff \phi(x_H ) + \phi(\lambda a) = 0 \iff \lambda  = 0 \iff x = x_H \iff x \in  H\]
+        On en déduit donc, par définition, que \(H\) est un hyperplan de \(E\).
+    \end{itemize}
+    \conclusion : \(H\) hyperplan de \(E\) si, et seulement si, \(H\) est supplémentaire d’une droite de \(E\).
+\end{dem}
+
+\subsection{Hyperplans en dimension finie}
+    Sauf mention contraire, dans cette partie, \(E\) est de dimension finie non nulle notée \(n\).
+\begin{defprop}[Caractérisations des hyperplans avec la dimension]
+    Un sous-espace vectoriel \(H\) de \(E\) est un hyperplan de \(E\) si, et seulement si, \(\dim(H) = \dim(E) - 1\).
+\end{defprop}
+
+\begin{defprop}[Equations d’un hyperplan en dimension finie]
+    Soit \(H\) un sous-espace vectoriel de \(E\) et \(B = (e_1, \dots , e_n)\) une base de \(E\).\\
+    \(H\) est un hyperplan de \(E\) si, et seulement si, il existe \((a_1, a_2, \dots , a_n) \in  \K^n \pd \accol{(0, 0, \dots , 0)}\) tel que :
+        \[x \in  H \iff a_1x_1 + a_2x_2 + \dots a_nx_n = 0\]
+    avec \((x_1, \dots , x_n)\) la famille des coordonnées du vecteur \(x\) de \(E\) dans la base \(\cal{B}\).\\
+    L’équation \(a_1x_1 + a_2x_2 + \dots a_nx_n = 0\) est dite équation de \(H\) dans la base \(\cal{B}\)\\
+    \underline{Remarque}\\
+    Dans ce cas, \(H = \ker \phi\) où \(\phi\) est la forme linéaire sur \(E\) définie par
+    \[\phi : x \mapsto a_1x_1 + a_2x_2 + \dots a_nx_n\].
+\end{defprop}
+
+\begin{defprop}[Comparaison des équations d’un hyperplan en dimension finie]
+    Deux formes linéaires non nulles sur \(E\) de même noyau sont proportionnelles.\\
+    \underline{Remarque}\\ : 
+    les équations d’un même hyperplan en dimension finie diffèrent donc à une constante multiplicative non nulle près.
+\end{defprop}
+
+\begin{defprop}[Hyperplans en dimension \(2\) et \(3\)]
+    \begin{itemize}
+        \item Les hyperplans d’un espace vectoriel \(E\) de dimension finie égale à \(2\) sont les droites de \(E\). Leurs équations dans une base de \(E\) sont de la forme \(ax + by = 0\) avec \((a, b) \in  \K^2 \pd \accol{(0, 0)}\) en notant \(x\) et \(y\) les coordonnées d’un vecteur de \(E\) dans la base considérée.
+        \item Les hyperplans d’un espace vectoriel \(E\) de dimension finie égale à \(3\) sont les plans de \(E\). Leurs équations dans une base de \(E\) sont de la forme \(ax + by + cz = 0\) avec \((a, b, c) \in  \K^3 \pd \accol{(0, 0, 0)}\) en notant \(x, y\) et \(z\) les coordonnées d’un vecteur de \(E\) dans la base considérée.
+    \end{itemize}
+    \underline{Remarque}\\
+    On retrouve ainsi la forme des équations cartésiennes de droites vectorielles de \(\R^2\) et plans vectoriels de \(\R^3\) vues dans le chapitre “Espaces vectoriels”.
+\end{defprop}
+\subsection{Intersection d’hyperplans en dimension finie}
+    On suppose ici que \(E\) est de dimension finie non nulle \(n\) et que \(m \in \interventierii{1}{n}\).
+
+\begin{theo}
+    \begin{enumerate}
+        \item Si \(H_1, \dots , H_m\) sont des hyperplans de \(E\) alors \(\dim \biginter^{m}_{k=1}H_k \geq \dim E - m\).
+        \item Si \(F\) est un sous-espace vectoriel de \(E\) de dimension \(\dim E - m\) alors il existe \(m\) hyperplans de \(E\) notés \(H_1, \dots , H_m\) tels que \(F =\biginter^m_{k=1}H_k\).
+    \end{enumerate}
+\end{theo}
+
+\begin{dem}
+    \begin{enumerate}
+        \item On note \(F =\biginter^d{m}_{k=1}H_k\) avec \(H_1, \dots , H_m\) des hyperplans de \(E\), respectivement noyaux de \(\phi_1, \dots , \phi_m\) formes linéaires non nulles sur \(E\). On considère l’application \(u : E \to K^m\) définie par :
+        \[\forall x \in  E, u(x) = (\phi_1(x), \dots , \phi_m(x)) \]
+        \(u\) est linéaire sur \(E\) (car les \(\phi_i\) le sont) avec \(E\) de dimension finie. Le théorème du rang implique donc que \(\dim E = \dim \ker u + \dim \im u\).\\~\\
+        Par ailleurs, \(F = \ker u\) (car \(F =\biginter^d{m}_{k=1}\phi_k\)) et \(\dim \im u \leq m\) (car \(\im u \subset K^m\) et \(\dim K^m = m\)).\\~\\
+        Ainsi, \(\dim F = \dim E - \dim \im u\) donc \(\dim F \geq \dim E - m\).\\
+        \conclusion : si \(H_1, \dots , H_m\) sont des hyperplans de \(E\) alors \(\dim\biginter^m_{k=1}H_k \geq \dim E - m\).
+        \item Soit \(F\) un sous-espace vectoriel de \(E\) de dimension p\( = \dim E - m\).\\~\\
+        Soit \(\cal{B}_F = (e_1, \dots , e_p)\) une base de \(F\) , complétée en \(\cal{B} = (e_1, \dots , e_p, e_{p+1}, \dots , e_n)\) base de \(E\).\\~\\
+        Pour \(i \in \interventierii{1}{n}\) , on note \(e^{\star}_i\) la \(i_e\) forme coordonnée relativement à la base \(\cal{B}\) de \(E\).
+        Soit \(x \in  E\).
+        \begin{align*}
+            x \in  F &\iff \forall i \in  \interventierii{p+1}{n}e^{\star}_i (x) = 0.\\
+            &\iff x \in \biginter^{n}_{i=p+1} \ker e^{\star}_i \\
+            &\iff x \in \biginter^{n-p}_{k=1}\ker e^{\star}_{n-k+1} \qquad (\text{ après le changement d’indice } i = n - k + 1)
+        \end{align*}
+        Ainsi \(F =\biginter^{n-p}_{k=1}H_k\) avec \(H_k = \ker e^{\star}_{n-k+1}\) hyperplan de \(E\) (comme noyau d’une forme linéaire non nulle sur \(E\)) et \(n - p = m\).
+    \end{enumerate}
+    \conclusion : si \(F\) est sous-espace vectoriel de \(E\) de dimension \(\dim E - m\) alors \(F\) est intersection de \(m\) hyperplans de \(E\).
+\end{dem}
+
+\begin{defprop}[Système d’équations d’un sous-espace vectoriel]
+    Soit \(F\) un sous-espace vectoriel de \(E\) de dimension \(\dim E - m\) et \(H_1, \dots , H_m\) des hyperplans de \(E\) tels que
+    \[F = \biginter^{m}_{k=1}H_k\]
+    Le système d’équations obtenu en rassemblant des équations des \(m\) hyperplans \(H_i\) relativement à une base \(\cal{B}\) de \(E\) est appelé système d’équations du sous-espace vectoriel \(F\) relativement à \(B\).\\
+    \underline{Exemple}
+    Une droite vectorielle de \(\R^3\) a donc un système d’équations du type
+    \[\begin{cases}
+        ax + by + cz &= 0\\
+        a'x + b'y + c'z &= 0
+    \end{cases}\]
+    avec \((a, b, c) \in  \R^3 \pd \accol{(0, 0, 0)}\) et \((a', b', c') \in  \R^3 \pd \accol{(0, 0, 0)}\).
+\end{defprop}
