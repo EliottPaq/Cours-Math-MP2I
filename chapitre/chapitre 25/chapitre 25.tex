@@ -1,0 +1,131 @@
+\chapter{Fraction Rationelles}
+
+\minitoc
+
+\section{Généralités}
+La construction de l’ensemble des fractions rationnelles étant hors programme, la présentation faite ici est volontairement élémentaire.
+\subsection{Le corps \(\K\paren{X}\)}
+\begin{defi}
+    \begin{itemize}
+        \item On appelle fraction rationnelle à coefficients dans \(\K\) tout quotient (formel) du type 
+        \[F = \frac{A}{B} \text{ avec }A \in \K\croch{X} \text{ et } B \in \K\croch{X} \pd \accol{0_{\K\croch{X}}}\]
+        Si \(A\) et \(B\) sont premiers entre eux, on dit que la fraction rationnelle est irréductible.
+        \item L’ensemble des fractions rationnelles à coefficients dans \(K\) est noté \(\K\paren{X}\).
+    \end{itemize}
+    \underline{Remarques} \\
+    \begin{itemize}
+        \item Les éléments de \(\K\paren{X}\) se manipulent comme les éléments de \(\Q\).
+        \item Tout polynôme \(A\) est identifié à la fraction rationnelle \(\frac{A}{1_\K\croch{X}}\) donc \(\K \croch{X}\)  est inclus dans \(\K\paren{X}\).
+        \item Les fractions rationnelles \(\frac{A_1}{B_1}\) et \(\frac{A_2}{B_2}\) sont égales si, et seulement si, \(A_1B_2\) et \(A_2B_1\) sont égaux.
+    \end{itemize}
+\end{defi}
+
+\begin{defprop}[Opérations sur l’ensemble \(\K\paren{X}\)]
+    ~\\
+    Pour tous \(F_1 = \frac{A_1}{B_1}\) et \(F_2 = \frac{A_2}{B_2}\) éléments de \(\K\paren{X}\), on pose :
+    \[F_1 + F_2 = \frac{A_1B_2 + A_2B_1}{B_1B_2} \text{ et }F_1 \times  F_2 = \frac{A_1A_2}{B_1B_2}\]
+    \underline{Remarque} \\
+Ces opérations, qui ne dépendent pas de l’écriture des fractions rationnelles \(F_1\) et \(F_2\), prolongent l’addition et la multiplication vues dans \(\K\croch{X}\).
+\end{defprop}
+
+\begin{defprop}[Structure de corps]
+    L’ensemble \(\paren{\K\paren{X}, +, \times }\) est un corps :
+    \begin{itemize}
+        \item dont l’élément neutre pour l’addition est le polynôme \(0_{\K\croch{X}}\) ;
+        \item dont l’élément neutre pour la multiplication est le polynôme \(1_\K\croch{X}\) ;
+        \item qui contient l’anneau intègre \(\paren{\K\paren{X}, +, \times }\).
+    \end{itemize}
+    \underline{Remarque}\\
+    Avec la loi externe \(.\) définie sur \(\K\paren{X}\) par
+    \[\forall \lambda  \in K, \forall F = \frac{A}{B} \in \K\paren{X}, \lambda.F = \frac{\lambda A}{B}\]
+    \(\paren{\K\paren{X}, +, . }\) est aussi un \(\K\)-espace vectoriel.
+\end{defprop}
+
+\subsection{Degré d’une fraction rationnelle}
+\begin{defprop}
+    ~\\
+    Pour tout \(F = \frac{A}{B}\) de \(\K\paren{X}\), on définit le degré de la fraction rationnelle \(F\) , noté \(\deg(F )\), par :
+    \[\deg(F ) = \deg(A) - \deg(B)\]
+    \underline{Remarque} \\
+    Le degré d’une fraction rationnelle, qui ne dépend pas de l’écriture de celle-ci, appartient à \(\Z \union \accol{\pinf}\) et prolonge la notion de degré vu pour les polynômes de \(\K \croch{X}\) 
+\end{defprop}
+\subsection{Partie entière d’une fraction rationnelle}
+\begin{defprop}
+    Toute fraction rationnelle \(F = \frac{A}{B}\) de \(\K\paren{X}\) s’écrit de manière unique sous la forme \(F = E + F_1\) avec :
+    \begin{itemize}
+        \item \(E\) un polynôme de \(\K\croch{X}\), appelé partie entière de la fraction rationnelle \(F\) ;
+        \item \(F_1\) une fraction rationnelle de \(\K\paren{X}\) de degré strictement négatif.
+    \end{itemize}
+    Plus précisément,
+    \begin{itemize}
+        \item le polynôme \(E\) est le quotient de la division euclidienne de \(A\) par \(B\) ;
+        \item la fraction rationnelle \(F_1\) est égale à \(\frac{\R}{B}\) où \(\R\) est le reste de la division euclidienne de \(A\) par \(B\).
+    \end{itemize}
+    
+\end{defprop}
+\subsection{}
+\begin{defprop}[Zéros et pôles d’une fraction rationnelle]
+    ~\\
+    Soit \(F = \frac{A}{B}\) une fraction rationnelle irréductible de \(\K\paren{X}\) et \(m \in \N\).
+    \begin{itemize}
+        \item Toute racine du polynôme \(A\) de multiplicité \(m\) est dite zéro de \(F\) de multiplicité \(m\).
+        \item Toute racine du polynôme \(B\) de multiplicité \(m\) est dite pôle de \(F\) de multiplicité \(m\).
+    \end{itemize}
+\end{defprop}
+\subsection{}
+\begin{defprop}[Fonction rationnelle]
+    Soit \(F = \frac{A}{B}\) une fraction rationnelle irréductible de \(\K\paren{X}\).\\~\\
+    La fonction \(\tilde{F} : x \mapsto \frac{A(x)}{B(x)}\) définie sur \(\K\) privé de l’ensemble (fini) des pôles de \(F\) et à valeurs dans \(\K\) est dite fonction rationnelle associée à la fraction rationnelle \(F\).
+\end{defprop}
+\section{Décomposition en éléments simples}
+\subsection{Théorème de décomposition sur \(\C\) (preuve hors programme)}
+\begin{defprop}
+    Si \(F\) est une fraction rationnelle de \(\C\paren{X}\) de partie entière \(E\) et de pôles deux-à-deux distincts \(\lambda_1, \dots , \lambda_r\) de multiplicités \(m_1, \dots , m_r\) alors il existe une unique famille de complexes \((a_{k,p})_{(k,p)\in \interventierii{1}{r}\times \interventierii{1}{m_k}}\) telle que :
+\[F = E + \sum^r_{k=1}\paren{\sum^{m_k}_{p=1} \frac{a_{k,p}}{\paren{X - \lambda_k}^p}}\]
+autrement dit :
+\[F = E + \underbrace{\paren{\frac{a_{1,1}}{\paren{X - \lambda_1}} + \frac{a_{1,2}}{\paren{X - \lambda_1}^2} + \dots + \frac{a_{1,m_1}}{\paren{X - \lambda_1}^{m_1}}}}_{\text{Partie polaire associée au pôle } \lambda_1} + \dots + \underbrace{\paren{\frac{a_{r,1}}{\paren{X - \lambda_r}} + \frac{a_{r,2}}{\paren{X - \lambda_r}^2} + \dots + \frac{a_{r,m_r}}{\paren{X - \lambda_r}^{m_r}}}}_{\text{Partie polaire associée au pôle } \lambda_r}\]
+    \underline{Remarque}\\
+Pour décomposer une fraction rationnelle de \(\C\paren{X}\) en éléments simples, il convient de l’écrire sous forme irréductible puis de décomposer son dénominateur en facteurs rréductibles de \(\C \croch{X}\), c’est-à-dire en produit de polynômes de degré \(1\).
+\end{defprop}
+
+\subsection{Théorème de décomposition sur \(\R\) (preuve hors programme)}
+\begin{defprop}
+    Si \(F = \frac{A}{B}\) est une fraction rationnelle irréductible de \(\R\paren{X}\) de partie entière \(E\) et que la décomposition du polynôme \(B\) en facteurs irréductibles de \(\R \croch{X}\) s’écrit 
+    \[B = \beta \prod^r_{k=1} \paren{X - \lambda_k}^{m_k} \prod^s_{k=1} \paren{X^2 + b_kX + c_k}^{n_k}\]
+    alors il existe d’uniques suites de réels \((a_{k,p})_{(k,p)\in \interventierii{1}{r}\times \interventierii{1}{m_k}}\), \((d_{k,p})_{(k,p)\in \interventierii{1}{s}\times \interventierii{1}{n_k}}\) et \((e_{k,p})_{(k,p)\in \interventierii{1}{s}\times \interventierii{1}{n_k}}\) telles que :
+    \[F = E + \sum^r_{k=1}\paren{\sum^{m_k}_{p=1} \frac{a_{k,p}}{\paren{X - \lambda_k}^p}} + \sum^s_{k=1} \paren{\sum^{n_k}_{p=1}\frac{d_{k,p}X + e_{k,p}}{\paren{X^2 + b_kX + c_k}^p}}\]
+    \underline{Remarque} \\
+    Les irréductibles de \(\R \croch{X}\) sont les polynômes de degré \(1\) et les polynômes de degré \(2\) sans racine réelle. Dans la décomposition en facteurs irréductibles écrite pour \(B\) ci-dessus, les réels \(\lambda_1, \dots , \lambda_r\) sont les racines réelles deux-à-deux distinctes de \(B\) de mutiplicités respectives \(m_1, \dots , m_r\), les couples deux-à-deux distincts de réels \((b_k, c_k)\) vérifient \(b^2_k - 4c_k < 0\) et les \(n_k\) sont des entiers non nuls.
+\end{defprop}
+\subsection{Quelques applications des décompositions en éléments simples}
+\begin{defprop}[Calcul de primitives]
+    
+\end{defprop}
+\begin{defprop}[Calcul de dérivées successives]
+    
+\end{defprop}
+\begin{defprop}[Calcul de sommes de séries numériques]
+    
+\end{defprop}
+
+\subsection{Deux cas particuliers}
+\begin{defprop}[Coefficients des éléments simples associés aux pôles simples]   
+    Si \(F = \frac{A}{B}\) est une fraction rationnelle irréductible de \(\K\paren{X}\) et \(\lambda\) est un pôle simple de \(F\) alors, dans la décomposition en éléments simples de \(F\) , le coefficient de l’élément simple \(\frac{1}{X - \lambda}\)  est :
+    \[a = \frac{A(\lambda )}{B'(\lambda )}\].
+    \underline{Remarque} \\
+    Plus généralement, lorsque \(\lambda\)  est un pôle de multiplicité \(m\) de la fraction irréductible \(F\) , l’évaluation en \(\lambda\)  de la fraction rationnelle obtenue après réduction de \(\paren{X - \lambda }^mF\) donne le coefficient de l’élément simple \(\frac{1}{\paren{X - \lambda }^m}\) dans la décomposition en éléments simples de \(F\) 
+\end{defprop}
+
+\begin{defprop}[Décomposition en éléments simples d’une fraction rationnelle du type \(\frac{B'}{B}\)]    
+    Soit \(B \in \K \croch{X}  \pd \accol{0_{\R\croch{X}}}\) .
+    \begin{itemize}
+        \item On suppose que \(\K = \C\) et que la décomposition de \(B\) en facteurs irréductibles de \(\C \croch{X}\) s’écrit
+            \[B = \beta \prod^r_{k=1}\paren{X - \lambda_k}^{m_k}\] 
+            Alors, la décomposition en éléments simples de la fraction rationnelle \(F = \frac{B'}{B}\) sur \(\C\) est :
+            \[\frac{B'}{B} = \sum^r_{k=1} \frac{m_k}{\paren{X - \lambda_k}}\]
+        \item On suppose que \(\K = \R\) et que la décomposition de \(B\) en facteurs irréductibles de \(\R \croch{X}\) s’écrit
+            \[B = \beta \prod^r_{k=1} \paren{X - \lambda_k}^{m_k} \prod^s_{k=1}\paren{X^2 + b_kX + c_k}^{n_k} \]
+            Alors, la décomposition en éléments simples de la fraction rationnelle \(F = \frac{B'}{B}\) sur \(\R\) est :
+            \[\frac{B'}{B} = \sum^r_{k=1}\frac{m_k}{X - \lambda_k} + \sum^s_{k=1} \frac{n_k \paren{2X + b_k}}{X^2 + b_kX + c_k}\]
+    \end{itemize}
+\end{defprop}
