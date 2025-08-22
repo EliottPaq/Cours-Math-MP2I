@@ -1,0 +1,416 @@
+\chapter{Matrice et Application Linéaire (2)}
+
+\minitoc
+Dans ce chapitre, \(\K = \R\) ou \(\C\) et \((m, n, p) \in (\Ns)^3\).
+
+\section{Matrice d’une application linéaire en dimension finie}
+\subsection{Matrice d’un vecteur et d’une famille de vecteurs}
+Soit \(E\) un \(\K\)-espace vectoriel de dimension finie n muni d’une base \(\cal{B} = (e_1, \dots , e_n)\).
+\begin{defprop}[Cas d’un vecteur]
+Soit \(x\) un vecteur de \(E\) dont l’écriture dans la base \(\cal{B}\) de \(E\) est \(x = a_1e_1 +\dots+a_ne_n \)avec \((a_1, \dots , a_n) \in \K^n\).\\
+On appelle matrice du vecteur \(x\) dans la base \(\cal{B}\), et on note \(\Mat{\cal{B}}{x}\), la matrice de \(\M{n,1}\) définie par :
+\[\Mat{\cal{B}}{x}=
+\begin{pmatrix}
+a_{1} \\
+\vdots \\
+a_{i} \\
+\vdots \\
+a_{n}
+\end{pmatrix}\]
+\end{defprop}
+
+\begin{defprop}[Cas d’une famille finie de vecteurs]
+    
+Soit \(\cal{F} = (x_1, \dots , x_p)\) une famille finie de \(p\) vecteurs de \(E\).\\
+On appelle matrice de la famille de vecteurs \(\cal{F}\) dans la base \(\cal{B}\) et on note \(\Mat{\cal{B}}{\cal{F}}\) la matrice de \(\M{n,p}\) dont la \(j^e\) colonne contient les coordonnées de \(x_j\), le \(j^e\) vecteur de \(\cal{F}\), dans \(\cal{B}\) :
+\[\Mat{\cal{B}}{\cal{F}} =
+\begin{pmatrix}
+a_{11} & \cdots & a_{1j} & \cdots & a_{1p} \\
+\vdots &        & \vdots &        & \vdots \\
+a_{i1} & \cdots & a_{ij} & \cdots & a_{ip} \\
+\vdots &        & \vdots &        & \vdots \\
+a_{n1} & \cdots & a_{nj} & \cdots & a_{np}
+\end{pmatrix}
+\begin{array}{c}
+    e_1 \\
+    \vdots \\
+    e_i \\
+    \vdots \\
+    e_n
+\end{array}
+\]
+\end{defprop}
+
+\subsection{Matrice d’une application linéaire dans un couple de bases}
+Soit E un \(\K\)-espace vectoriel de dimension finie p muni d’une base \(\cal{B} = (e_1, \dots , e_p)\).
+Soit F un \(\K\)-espace vectoriel de dimension finie n muni d’une base \(\cal{C} = (f_1, \dots , f_n)\).
+Soit G un \(\K\)-espace vectoriel de dimension finie m muni d’une base \(\cal{D} = (g_1, \dots , g_m)\).
+
+
+\begin{defi}
+    Soit \(u \in \cal{L}(E, F )\).
+    On appelle matrice de l’application linéaire \(u\) relativement aux bases \(\cal{B}\) et \(\cal{C}\), et on note \(\Mat{\cal{B}, \cal{C}}{u}\), la matrice de la famille de vecteurs \((u(\cal{B}))\) dans la base \(\cal{C}\) de \(F\) :
+    \[\Mat{\cal{B},\cal{C}}{u} = \Mat{\cal{C}}{u(e_1), \dots, u(e_p)}= \begin{array}{c}
+  \begin{array}{cccccc}
+     \substack{u(e_1) \\ \downarrow} 
+     & \cdots 
+     & \substack{u(e_j) \\ \downarrow} 
+     & \cdots 
+     & \substack{u(e_p) \\ \downarrow}
+  \end{array} \\
+  \left(
+  \begin{array}{ccccc}
+  a_{11} & \cdots &        & \cdots & a_{1p} \\
+  \vdots & \ddots &        &        & \vdots \\
+  a_{i1} &        & a_{ij} &        & a_{ip} \\
+  \vdots &        &        & \ddots & \vdots \\
+  a_{n1} & \cdots &        & \cdots & a_{np}
+  \end{array}
+  \right)
+  \begin{array}{c}
+  f_1 \\
+  \vdots \\
+  f_i \\
+  \vdots \\
+  f_n
+  \end{array}
+\end{array}
+    \]
+
+\end{defi}
+
+\begin{defprop}[Coordonnées de l’image d’un vecteur par une application linéaire]
+    Soit \(u \in \cal{L}(E, F )\) et \((x, y) \in E \times F\). Alors,
+    \[u(x) = y \iff AX = Y \text{ avec } \begin{cases}
+    A &= \Mat{\cal{B},\cal{C}}{u} \\
+    X &= \Mat{\cal{B}}{u} \\
+    Y &= \Mat{\cal{C}}{y} 
+    \end{cases}
+    \]
+\end{defprop}
+
+\begin{defprop}[Isomorphisme entre les espaces vectoriels \(\cal{L}(E, F )\) et \(\M{n,p}\)]
+    Pour \(\cal{B}\) et \(\cal{C}\) des bases fixées de \(E\) et \(F\), l’application \(\psi : u \mapsto \Mat{\cal{B}, \cal{C}}{u}\) est un isomorphisme d’espaces vectoriels de \(\cal{L}(E, F )\) dans \(\M{n,p}\).\\
+    \underline{Remarque} \\
+    Autrement dit, \(\cal{L}(E, F )\) et \(\M{n,p}\) sont des espaces vectoriels isomorphes.
+\end{defprop}
+
+
+\begin{defprop}[Matrice d’une combinaison linéaire ou d’une composée d’applications linéaires]
+    \begin{enumerate}
+        \item \(\forall(u, v) \in (\cal{L}(E, F ))^2 , \forall(\lambda, \mu) \in K^2, \Mat{\cal{B}, \cal{C}}{\lambda u + \mu v} = \lambda \Mat{\cal{B}, \cal{C}}{u} + \mu \Mat{\cal{B}, \cal{C}}{v}\).
+        \item \(\forall(u, v) \in \cal{L}(E, F ) \times \cal{L}(F, G), \Mat{\cal{B}, \cal{D}} (v \circ u) = \Mat{\cal{C}, \cal{D}}{v} \times \Mat{\cal{B}, \cal{C}}{u}\).
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Matrice d’un isomorphisme]
+    Soit \(u \in \cal{L}(E, F )\) avec \(E\) et \(F\) de même dimension finie.\\
+    \(u\) est un isomorphisme de \(E\) sur \(F\) si, et seulement si, \(\Mat{\cal{B}, \cal{C}}{u}\) est inversible avec, dans ce cas,
+    \[\Mat{\cal{C}, \cal{B}}{u^{-1}} =\paren{\Mat{\cal{B}, \cal{C}}{u}}^{-1}\]
+
+\end{defprop}
+
+\subsection{Matrice d’un endomorphisme dans une base}
+    Soit \(E\) un \(\K\)-espace vectoriel de dimension finie \(n\) muni d’une base \(\cal{B} = (e_1, \dots , e_n)\).
+
+\begin{defi}
+    Soit \(u \in \cal{L}(E)\).
+    On appelle matrice de l’endomorphisme \(u\) relativement à la base \(\cal{B}\), et on note \(\Mat{\cal{B}}{u}\), la matrice \(\Mat{\cal{B}, \cal{B}}{u}\).  
+\end{defi}
+
+\begin{prop}[Isomorphisme entre les espaces vectoriels (resp. les anneaux) \(\cal{L}(E)\) et \(\M{n}\)]
+    Pour \(\cal{B}\) base fixée de \(E\), l’application \(\psi : u \mapsto \Mat{\cal{B}}{u}\) est un isomorphisme d’espaces vectoriels et un isomorphisme d’anneaux de \(\cal{L}(E)\) dans \(\M{n}\).\\
+    En particulier,
+    \begin{enumerate}
+        \item \(\forall(u, v) \in (\cal{L}(E))^2 , \forall(\lambda, \mu) \in \K^2, \Mat{\cal{B}}{\lambda u + \mu v} = \lambda \Mat{\cal{B}}{u} + \mu \Mat{\cal{B}}{v}.\)
+        \item \( \forall(u, v) \in (\cal{L}(E))^2 , \Mat{\cal{B}}{v \circ u} = \Mat{\cal{B}}{v}\times \Mat{\cal{B}}{u} \)
+        \item \(\Mat{\cal{B}}{\id{E}} = \cal{I}_n\).
+    \end{enumerate}
+\end{prop}
+
+\begin{defprop}[Matrice d’un automorphisme]
+    Soit \(u \in \cal{L}(E)\).\\~\\
+    \(u\) est un automorphisme de \(E\) si, et seulement si, \(\Mat{\cal{B}}{u}\) est inversible avec, dans ce cas,
+    \[\Mat{\cal{B}}{u^{-1}} =\paren{\Mat{\cal{B}}{u}}^{-1}\]
+\end{defprop}
+
+\section{Application linéaire canoniquement associée à une matrice}
+\subsection{Définition}
+\begin{defi}
+    Soit \(A \in \M{n,p}\).\\
+    On appelle application linéaire canoniquement associée à \(A\) l’application \(u\) de \(\cal{L}(\K^p, \K^n)\) telle que
+    \[\Mat{\cal{B}_{can},\cal{C}_{can}}{u}= A\]
+    où \(\cal{B}_{can}\) et \(\cal{C}_{can}\) sont les bases canoniques (\ie usuelles) de \(\K^p\) et \(\K^n\).
+\end{defi}
+
+\subsection{Identification usuelle de \(\K^m\) et \(\M{m,1}\)}
+\begin{defprop}
+    L’application de \(\K^m\) dans \(\M{m,1}\) qui à \(x \in K^m\) associe \(X = \Mat{\cal{D}_{can}}{x}\) où \(\cal{D}_{can}\) est la base usuelle de \(\K^m\) est un isomorphisme d’espaces vectoriels.\\
+    \underline{Remarque} \\
+    Dans la suite de ce cours, on identifiera donc souvent tout vecteur de \(\K^m\) à la matrice-colonne de ses coordonnées dans la base usuelle de \(\K^m\) autrement dit, on identifiera \(\K^m\) et \(\M{m,1}\).
+\end{defprop}
+
+\subsection{Noyau, Image, rang d’une matrice}
+\begin{defi}
+    On appelle noyau (resp. image, resp. rang) de \(A \in \M{n,p}\) et on note \(\ker A\) (resp. \(\im A\), resp. \(\rg A\)) le noyau (resp. l’image, resp. le rang) de l’application linéaire \(u \in \cal{L} (\K^p, \K^n)\) canoniquement associée à \(A\).\\~\\
+    Autrement dit,
+    \begin{enumerate}
+        \item \(\ker A = \accol{x \in \K^p \tq u(x) = 0_{\K^n} } = \accol{X \in \M{p,1} \tq AX = 0_{\M{n,1}}}\) .
+        \item \(\im A = \accol{u(x)\tq x \in \K^p} = \accol{AX\tq X \in \M{p,1}}\) .
+        \item \(\rg A = \dim \im u = \dim \im A\).  
+    \end{enumerate}
+\end{defi}
+
+\begin{prop}
+    Soit \(A \in \M{n,p}\).
+    \begin{enumerate}
+        \item \(\im A = \Vect (\cal{C}_1, \dots , \cal{C}_p) \text{ avec } \cal{C}_1, \dots , \cal{C}_p \text{ les colonnes de  }A\).
+        \item \(\rg A = \dim \Vect{\cal{C}_1, \dots , \cal{C}_p} = \rg (\cal{C}1, \dots , \cal{C}p) \text{ donc }\rg(A) \leq  \min{n, p}\).
+        \item \(\ker A\) a pour système d’équations\(
+        \begin{cases}            
+            L_1X &= 0\\
+            \dots\\
+            L_nX &= 0\\
+            \end{cases}
+            \)
+            avec \(X \in \M{p,1}\) et \(L_1, \dots , L_n\) les lignes de \(A\).
+    \end{enumerate}
+\end{prop}
+
+\begin{defprop}[Caractérisations des matrices inversibles]
+    Soit \(A \in \M{n}\).
+    Les assertions suivantes sont deux à deux équivalentes :
+    \begin{enumerate}
+        \item \(A \in \GL{n}\).
+        \item \(\ker A = \accol{0_{\K^n} }\).
+        \item \(\im A = \K^n\) (\ie les colonnes de \(A\) engendrent \(\K^n\)).
+        \item \(\rg A = n\).
+        \item \(A\) est inversible à droite (\ie il existe \(B \in \M{n} \) telle que \(AB = I_n\)).
+        \item \(A\) est inversible à gauche (\ie il existe \(C \in \M{n} \) telle que \(CA = I_n\)).
+    \end{enumerate}
+\end{defprop}
+\begin{defprop}[Cas des matrices triangulaires]
+    Une matrice triangulaire est inversible si, et seulement si, tous ses éléments diagonaux sont non nuls.\\~\\
+    \underline{Remarque} \\
+    L’inverse d’une matrice triangulaire supérieure (resp. inférieure) inversible est une matrice triangulaire supérieure (resp. inférieure) et 
+    \[\text{ pour }T =\left(
+    \begin{array}{cccc}
+    t_{11} & \times & \dots & \times \\
+    0      & t_{22} & \ddots &   \vdots     \\
+    \vdots & \ddots & \ddots & \times \\
+    0      & \dots  & 0 & t_{nn}
+    \end{array}
+    \right) \in \GL{n},\text{ on a }T^{-1} =\left(
+    \begin{array}{cccc}
+    t_{11}^{-1} & \star & \dots & \star \\
+    0      & t_{22}^{-1} & \ddots &   \vdots     \\
+    \vdots & \ddots & \ddots & \star \\
+    0      & \dots  & 0 & t_{nn}^{-1}
+    \end{array}
+    \right)\]
+\end{defprop}
+
+\subsection{Retour sur les systèmes linéaires}
+    Soit \(A = (a_{i,j} )_{\substack{1\leq i\leq n \\ 1\leq j\leq p}} \in \M{n,p}, X = (x_i) \in \M{p,1}\) et \(B = (b_i) \in  \M{n,1}\)
+\begin{defprop}[Rappels]
+    ~\\
+    Le système linéaire \(\begin{cases}
+    a_{11}x_1 + \dots + a_{1p}x_p &= b1 \\
+        &\vdots \\
+    a_{n1}x_1 + \dots + a_{np}x_p &= b_n
+    \end{cases}\)
+    d’inconnue \((x_1, \dots , x_p) \in \K^p\) est équivalent à \(AX = B\).\\
+    Dans le cas où \(B = 0_{\M{n,1}}\), on dit que le système linéaire est homogène. \\
+    \underline{Remarque} \\
+    Autrement dit, le système linéaire est équivalent à l’équation linéaire \(u(x) = b\) où \(u\) est l’application linéaire de \(\K^p\) dans \(\K^n\) canoniquement associée à \(A\), \(x\) est le vecteur de \(\K^p\) de matrice \(X\) dans la base usuelle de \(\K^p\) et \(b\) le vecteur de \(\K^n\) de matrice \(B\) dans la base usuelle de \(\K^n\).
+\end{defprop}
+
+\begin{defprop}[Solutions d’un système linéaire]
+    \begin{itemize}
+        \item Cas d’un système linéaire homogène
+        \begin{itemize}
+            \item On appelle rang du système linéaire homogène \(AX = 0\) le rang de \(A\).
+            \item L’ensemble des solutions du système homogène \(AX = 0\) est le noyau de \(A\) donc est un \(\K\)-espace vectoriel de dimension \(p - r\) où \(r\) est le rang du système.
+        \end{itemize}
+        \item Cas d’un système linéaire non homogène
+        \begin{itemize}
+            \item On dit que le système \(AX = B\) est compatible si \(B\) appartient à l’image de \(A\).
+            \item Si le système \(AX = B\) est compatible alors ses solutions sont les matrices \(X_0 + Y\) avec :
+            \begin{enumerate}
+                \item \(X_0 \in \M{p,1}\) une solution particulière de \(AX = B\) ;
+                \item \(Y \in \M{p,1}\) solution quelconque du système homogène \(AX = 0\) associé.
+            \end{enumerate}
+        \end{itemize}
+    \end{itemize}
+    L’ensemble-solution du système linéaire \(AX = B\) est donc :
+    \begin{itemize}
+        \item soit l’ensemble-vide (si le système n’est pas compatible) ;
+        \item soit l’ensemble noté \(X_0 + \ker A\) défini par
+            \[X_0 + \ker A = \accol{X_0 + Y\tq Y \in \ker A}\]
+        On dit alors que c’est un \(\K\)-espace affine passant par \(X_0\) (solution particulière de \(AX = B\)) et dirigé par \(\ker A\) (espace vectoriel des solutions du système linéaire homogène \(AX = 0\) associé)
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Cas particulier où la matrice du système est inversible]
+    On se place ici dans le cas où \(n = p\).\\
+    Le système linéaire \(AX = B\) admet une solution et une seule si, et seulement si, \(A\) est inversible. \\
+    Dans ce cas, on dit que le système est de Cramer.
+\end{defprop}
+
+\section{Changement de bases}
+Soit \(E\) un \(\K\)-espace vectoriel de dimension finie non nulle muni de deux bases \(\cal{B}\) et \(\cal{B'}\).
+Soit \(F\) un \(\K\)-espace vectoriel de dimension finie non nulle muni de deux bases \(\cal{C}\) et \(\cal{C'}\).
+
+\subsection{Matrice de passage entre deux base}
+\begin{defi}
+    On appelle matrice de passage de \(\cal{B}\) à \(\cal{B'}\), et on note \(\pass{\cal{B}}{\cal{B'}}\), la matrice de \(\cal{B'}\) dans la base \(\cal{B}\) :
+    \[\pass{\cal{B}}{\cal{B'}} = \Mat{\cal{B}}{\cal{B'}} = 
+\begin{array}{c}
+  \begin{array}{cccccc}
+     \substack{e'_1 \\ \downarrow} 
+     & \cdots 
+     & \substack{e'_j \\ \downarrow} 
+     & \cdots 
+     & \substack{e'_p \\ \downarrow}
+  \end{array} \\[6pt]
+  \left(
+  \begin{array}{ccccc}
+  a_{11} & \cdots & a_{1j} & \cdots & a_{1p} \\
+  \vdots &        & \vdots &        & \vdots \\
+  a_{i1} & \cdots & a_{ij} & \cdots & a_{ip} \\
+  \vdots &        & \vdots &        & \vdots \\
+  a_{n1} & \cdots & a_{pj} & \cdots & a_{np}
+  \end{array}
+  \right)
+  \begin{array}{c}
+  e_1 \\
+  \vdots \\
+  e_i \\
+  \vdots \\
+  e_n
+  \end{array}
+\end{array}
+\]
+\end{defi}
+
+\begin{prop}
+    \begin{enumerate}
+        \item \(\pass{\cal{B}}{\cal{B'}}=  \Mat{\cal{B'}, \cal{B}}{\id{E}}\).
+        \item \(P = \pass{\cal{B}}{\cal{B'}}\) est inversible d’inverse \(P^{-1} = \pass{\cal{B'}}{\cal{B}}\).
+    \end{enumerate}
+\end{prop}
+
+\subsection{Effet des changements de bases\dots}
+\begin{defprop}[\dots sur la matrice des coordonnées d’un vecteur dans une base]
+    Pour \(x \in E\), on a
+    \[X = P X'\]
+    avec
+    \[  P = \pass{\cal{B}}{\cal{B'}}, X = \Mat{B}{x}\text{ et } X' = \Mat{\cal{B'}{x}}.\]
+    \underline{Remarque} \\
+    Cette formule est très simple mais elle donne les coordonnées d’un vecteur dans “l’ancienne base” en fonction des coordonnées dans “la nouvelle base” ce qui n’est pas ce que l’on cherche à obtenir en général.
+\end{defprop}
+
+\begin{defprop}[\dots sur la matrice d’une application linéaire dans un couple de bases]
+    Pour \(u \in \cal{L}(E, F )\), on a
+    \[A' = Q^{-1}AP\]
+    avec
+\[A' = \Mat{\cal{B'}, \cal{C'}}{u}, Q = \pass{\cal{C}}{\cal{X}}, A = \Mat{\cal{B}, \cal{C}}{u} \text{ et }P = \pass{\cal{B}}{\cal{B'}}\]
+\end{defprop}
+
+\begin{defprop}[\dots sur la matrice d’un endomorphisme dans une base]
+    Pour \(u \in \cal{L}(E)\), on a
+    \[A' = P ^{-1}AP\]
+    avec
+\[A' = \Mat{\cal{B'}}{u}, A = \Mat{\cal{B}}{u} \text{ et }P = \pass{\cal{B}}{\cal{B'}}\]
+\end{defprop}
+
+\section{Matrices semblables et trace}
+\subsection{Matrices (carrées) semblables}
+    \begin{defi}
+        Deux matrices \(A\) et \(A'\) de \(\M{n}\) sont dites semblables s’il existe une matrice \(P\) dans \(\GL{n}\) telle que \(A' = P ^{-1}AP\) 
+    \end{defi}
+\begin{defprop}[Caractérisation géométrique]
+    Deux matrices \(A\) et \(A'\) de \(\M{n}\) sont semblables si, et seulement si, elles représentent le même endomorphisme dans des bases différentes.\\
+    \underline{Remarque} \\
+    Un des enjeux majeurs du programme d’algébre linéaire en MPI est de réduire les matrices en déterminant des matrices diagonales ou triangulaires qui leur sont semblables.
+\end{defprop}
+
+\subsection{Trace d’une matrice (carrée)}
+\begin{defi}
+    On appelle trace de la matrice \(A = (a_{ij} )_{1\leq i,j\leq n}\) de \(\M{n}\), et on note \(\tr(A)\), le scalaire égal à la somme des éléments diagonaux de \(A\) :
+\[\tr(A) = \sum^n_{i=1}a_{ii}  \qquad(\in \K)\] .
+\end{defi}
+
+\begin{prop}
+    \begin{enumerate}
+        \item  \(\forall(A, B) \in (\M{n}(\K))^2 , \forall(\lambda, \mu) \in \K^2, \tr(\lambda A + \mu B) = \lambda \tr(A) + \mu \tr(B)\)
+        \item  \(\forall(A, B) \in \M{n,p} \times \M{p,n}, \tr(AB) = \tr(BA)\)
+        \item  Deux matrices semblables ont même trace.
+    \end{enumerate}
+\end{prop}
+\subsection{Trace d’un endomorphisme en dimension finie}
+Soit \(E\) un \(\K\)-espace vectoriel de dimension finie non nulle
+\begin{defi}
+    On appelle trace de l’endomorphisme \(u\) de \(E\), et on note \(\tr(u)\), la trace d’une matrice représentant \(u\) dans une base quelconque de \(E\).
+\end{defi}
+\begin{prop}
+    \begin{enumerate}
+        \item \(\forall(u, v) \in (\cal{L}(E))^2 , \forall(\lambda, \mu) \in \K^2, \tr(\lambda u + \mu v) = \lambda \tr(u) + \mu \tr(v)\)
+        \item\( \forall(u, v) \in (\cal{L}(E))^2 , \tr(u \circ v) = \tr(v \circ u)\).
+    \end{enumerate}
+\end{prop}
+\begin{defprop}[Cas particulier des projecteurs]
+    La trace d’un projecteur de \(E\) est égale à son rang.
+\end{defprop}
+
+\section{Matrices (rectangles) équivalentes et rang}
+\subsection{Définition}
+\begin{defi}
+    Deux matrices \(A\) et \(B\) de \(\M{n,p}\) sont dites équivalentes s’il existe une matrice \(U\) dans \(\GL{n}\) et une matrice \(V\) dans \(\GL{p}\) telles que \(B = U AV\) .\\
+    \underline{Remarque} \\
+    Les matrices d’une même application linéaire dans des couples différents de base sont équivalentes.
+\end{defi}
+\subsection{Invariance du rang par multiplication par une matrice inversible}
+\begin{defprop}
+    \begin{enumerate}
+        \item \(\forall A \in \M{n,p}, \forall U \in \GL{n}, \rg U A = \rg A\)
+        \item \(\forall A \in \M{n,p}, \forall V \in GL{p}, \rg AV = \rg A\)
+    \end{enumerate}
+    \underline{Remarques} \\
+    \begin{itemize}
+        \item Le rang d’une matrice est conservé par multiplication (à droite/gauche) par une matrice inversible.
+        \item Des matrices équivalentes ont même rang.
+    \end{itemize}
+\end{defprop}
+\subsection{Caractérisation des matrices de rang \(r\)}
+\begin{defprop}
+    Une matrice \(A\) de \(\M{n,p}\) est de rang \(r\) si, et, seulement si, \(A\) est équivalente à \(J_r =
+    \left( \begin{array}{cc}
+    I_r & 0_{r,p-r} \\
+    0_{n-r,r} & 0_{n-r,p-r}        
+    \end{array} \right)\) \\
+    \underline{Remarque} \\
+    Si \(u \in \cal{L}(E, F )\) est de rang \(r\) alors il existe un couple de bases dans lequel \(u\) a pour matrice \(J_r\)
+\end{defprop}
+\subsection{Rang et transposition}
+\begin{defprop}
+    Soit \(A \in \M{n,p}\).
+    \begin{enumerate}
+        \item Le rang de \(A\) est égal au rang de \(\trans{A}\).
+        \item Le rang de \(A\) est égal au rang de la famille de ses vecteurs lignes.
+    \end{enumerate}
+\end{defprop}
+\subsection{Rang et opérations élémentaires}
+\begin{defprop}
+    Les opérations élémentaires sur les colonnes (resp. lignes) d’une matrice conservent l’image (resp. le rang, resp. le noyau).
+\end{defprop}
+\subsection{Rang et matrices extraites}
+\begin{defi}
+    Toute matrice obtenue en otant des lignes ou colonnes de \(A \in \M{n,p}\) est dite matrice extraite de \(A\).
+\end{defi}
+\begin{prop}
+    Le rang de \(A \in \M{n,p}\) est supérieur ou égal au rang de toute matrice extraite de \(A\).
+\end{prop}
+\begin{defprop}[Caractérisation du rang par les matrices carrées extraites]
+Le rang de \(A \in \M{n,p}\) est la taille maximale des matrices extraites de \(A\) qui sont inversibles.
+\end{defprop}

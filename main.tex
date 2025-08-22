@@ -561,10 +561,10 @@ per-mode=power-positive-first
 \DeclareDocumentCommand{\M}{m O{\K}}{\mathcal{M}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\sym}{m O{\K}}{\mathcal{S}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\antisym}{m O{\K}}{\mathcal{A}_{#1}\paren{#2}}
-\DeclareDocumentCommand{\GL}{m O{\K}}{\operatorname{GL}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\GL}{m O{\K}}{\operatorname{\cal{GL}}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\SL}{m O{\K}}{\operatorname{SL}_{#1}\paren{#2}}
-\DeclareDocumentCommand{\Mat}{O{\fami{B}} m}{\operatorname{Mat}_{#1}\paren{#2}}
-\newcommand{\pass}[2]{\mathscr{P}_{#1\to#2}}
+\DeclareDocumentCommand{\Mat}{m m}{\underset{#1}{\operatorname{Mat}}\paren{#2}}
+\newcommand{\pass}[2]{\operatorname{Pass}\paren{#1\to#2}}
 
 \DeclareDocumentCommand{\contm}{O{\intervii{a}{b}} O{\K}}{\classe{0}_m\paren{#1,#2}}
 \DeclareDocumentCommand{\Esc}{O{\intervii{a}{b}} O{\K}}{\operatorname{Esc}\paren{#1,#2}}
@@ -798,7 +798,7 @@ per-mode=power-positive-first
 
 \include{chapitre/chapitre 22/chapitre 22}
 
-% \include{chapitre/chapitre 23/chapitre 23}
+\include{chapitre/chapitre 23/chapitre 23}
 % \include{chapitre/chapitre 24/chapitre 24}
 % \include{chapitre/chapitre 25/chapitre 25}
 % \include{chapitre/chapitre 26/chapitre 26}
