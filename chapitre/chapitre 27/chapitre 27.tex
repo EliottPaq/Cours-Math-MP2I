@@ -1,0 +1,89 @@
+\chapter{Fonction Convexe}
+
+\minitoc
+
+Dans ce chapitre, \(I\) est un intervalle de \(\R\), non vide et non réduit à un point.
+
+\section{Généralités}
+\subsection{Définition}
+\begin{defi}
+    Une fonction \(f : I \to \R\) est dite convexe sur \(I\) si :
+    \[\forall (x, y) \in I^2, \forall \lambda  \in \intervii{0}{1} , f \paren{\lambda x + (1 - \lambda )y} \leq \lambda f (x) + (1 - \lambda )f (y).\]
+    \underline{Interprétation géométrique}\\
+    \(f\) est convexe si, et seulement si, tout sous-arc de sa courbe représentative est situé au-dessous de la corde correspondante.
+\end{defi}
+
+\subsection{Inégalité de Jensen}
+\begin{defprop}
+    Si \(f : I \to \R\) est convexe sur \(I\) alors, pour tous \(n \in \Ns\), \((x_1, \dots , x_n) \in In\) et \((\lambda_1, \dots , \lambda_n) \in \paren{\Rp}^n\) tels que \(\lambda_1 + \dots + \lambda_n = 1\), on a :
+    \[f\paren{\sum^n_{k=1}\lambda_kx_k} \leq \sum^n_{k=1}\lambda_k f(x_k)\]
+\end{defprop}
+
+\subsection{Caractérisation de la convexité par la croissance des pentes}
+\begin{defprop}
+    \(f : I \to \R\) est convexe sur \(I\) si, et seulement si, pour tout \(a \in I\), la fonction \(\delta_a : I \pd \accol{a} \to \R\) définie par
+    \[\forall x \in I \pd \accol{a}, \delta_a(x) = \frac{f (x) - f (a)}{x - a}\]
+    est croissante.\\
+    \underline{Remarque} \\
+    On appelle parfois \(\delta_a\) la fonction “pente en \(a\)”.
+\end{defprop}
+
+\subsection{Inégalité des trois pentes}
+\begin{defprop}
+    Si \(f : I \to \R\) est convexe sur \(I\) alors, pour tout \((a, b, c) \in I^3\) tel que \(a < b < c\), on a :
+    \[\frac{f (b) - f (a)}{b - a }\leq \frac{ f (c) - f (a) }{c - a } \leq \frac{f (c) - f (b) }{c - b}\] 
+\end{defprop}
+
+\subsection{Position de la courbe représentative par rapport aux sécantes}
+\begin{defprop}
+    Soit \(f : I \to \R\) une fonction convexe et \((x, y) \in I^2\) avec \(x < y\).\\
+    La courbe représentative de \(f\) est située :
+    \begin{itemize}
+        \item sous la sécante à la courbe aux points d’abscisse \(x\) et \(y\) sur le segment \(\intervii{x}{y} \);
+        \item au-dessus de la sécante à la courbe aux points d’abscisse \(x\) et \(y\) sur \(I \pd \intervii{x}{y}\) .
+    \end{itemize}
+\end{defprop}
+
+\section{Convexité et fonctions dérivables ou deux fois dérivables}
+\subsection{Fonctions convexes dérivables}
+\begin{defprop}[Caractérisation des fonctions convexes dérivables]
+    Soit \(f : I \to \R\) une fonction dérivable sur \(I\).\\
+    Alors : \(f\) est convexe sur \(I\) si, et seulement si, \(f '\) est croissante sur \(I\).
+\end{defprop}
+\begin{defprop}[Position de la courbe représentative par rapport aux tangentes]
+    Si \(f : I \to \R\) est une fonction convexe et dérivable sur \(I\) alors la courbe représentative de \(f\) est située au-dessus de ses tangentes.
+\end{defprop}
+
+\subsection{Fonctions convexes deux fois dérivables}
+\begin{defprop}
+    Soit \(f : I \to \R\) une fonction deux fois dérivable sur \(I\).\\
+    Alors : \(f\) est convexe sur \(I\) si, et seulement si, \(f ''\) est positive sur \(I\)
+\end{defprop}
+\section{Quelques exemples d’inégalités de convexité (à retrouver)}
+\subsection{Inégalités usuelles}
+\begin{defprop}
+    \begin{enumerate}
+        \item \( \forall x \in \R, \exp (x) \geq x + 1\).
+        \item \(\forall (x, y) \in \R^2, \exp \paren{\frac{x + y}{2}}\leq \frac{\exp(x) + \exp(y)}{2}\) 
+        \item \(\forall x \in \Rps, \ln (x) \leq x - 1\)
+        \item \(\forall (x, y) \in \paren{\Rps}^2 , \ln \paren{\frac{x + y}{2}}\geq \frac{\ln(x) + \ln(y)}{2}\) 
+        \item \(\forall x \in \intervii{0}{\frac{\pi}{2}}, \frac{2}{\pi}x \leq \sin (x) \leq x\)
+        \item \(\forall x \in \intervee{- \frac{\pi}{2}}{\frac{\pi}{2}} \abs{\tan(x)} \geq \abs{x}\)
+        \item \(\forall x \in \R, \abs{\arctan(x)} \leq \abs{x}\)
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Moyennes arithmétique, géométrique et harmonique (HP mais classique)}
+\begin{defprop}
+    Pour \((x_k)_{1\leq k\leq n} \in \paren{\Rps}^n\), on appelle moyenne :
+    \begin{itemize}
+        \item arithmétique des réels \(x_1, \dots , x_n\) le réel \(A_n\) défini par
+            \[A_n = \frac{1}{n} \paren{\sum^n_{k=1} x_k}\]
+        \item géométrique des réels \(x_1, \dots , x_n\) le réel \(G_n\) défini par
+            \[G_n =\paren{\prod^n_{k=1} x_k}^{\frac{1}{n}}\]
+        \item harmonique des réels \(x_1, \dots , x_n\) le réel \(H_n\) défini par
+        \[H_n = \frac{n}{\sum_{k=1}^n \frac{1}{x_k}}\]
+    \end{itemize}
+    Ces trois réels vérifient :
+    \[H_n \leq G_n \leq A_n\]
+\end{defprop}
