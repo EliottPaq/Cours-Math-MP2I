@@ -1,0 +1,159 @@
+\chapter{Séries numériques}
+
+\minitoc
+
+Dans tout ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\).
+\section{Généralités}
+Dans cette partie, sauf mention contraire, \((u_n)_{n\in \N}\) et \((v_n)_{n\in \N}\) sont deux suites de \(\K\).
+\subsection{Définition et notation d’une série}
+\begin{defi}
+    On pose, pour tout \(n\) de \(\N\), \(S_n =\sum^n_{k=0}u_k\) .
+    \begin{enumerate}
+        \item La suite \((S_n)_{n\in \N}\) est appelée série de terme général \(u_n\) et notée \(\sum_{n\geq 0}u_n\) ou plus simplement \(\sum u_n \).
+        \item Pour tout \(n \in  \N\), \(S_n\) est appelé somme partielle d’ordre \(n\) de la série \(\sum_{n\geq 0}u_n\).
+    \end{enumerate}
+\end{defi}
+\subsection{Nature d’une série}
+\begin{defi}
+    La série \(\sum u_n \) est dite convergente si la suite de ses sommes partielles \((S_n)_{n\in \N}\) est convergente.\\~\\
+    Sinon, elle est dite divergente.
+\end{defi}
+\subsection{Condition nécessaire de convergence}
+\begin{defprop}
+    Si la série \(\sum u_n \) converge alors la suite \((u_n)_{n\in \N }\) converge vers \(0\).\\~\\
+    \underline{Attention} : la réciproque est fausse comme le montre l’exemple de la série harmonique \(\sum_{n\geq 1} \frac{1}{n}\).
+\end{defprop}
+
+\begin{defprop}[Divergence grossière]
+    Si la suite \((u_n)_{n\in \N }\) ne converge pas vers \(0\) alors la série \(\sum u_n \) diverge.\\~\\
+    Dans ce cas,
+    on dit que la série \(\sum u_n \) diverge grossièrement.
+\end{defprop}
+
+\subsection{Somme et reste d’une série convergente}
+\begin{defi}
+    Si la série \(\sum u_n \) converge alors :
+    \begin{enumerate}
+        \item la limite \(S\) de la suite \((S_n)_{n \in \N}\) est appelée somme de la série \(\sum u_n \) et notée \(S =\sum^{\pinf}_{k=0}u_k\).
+        \item pour tout \(n \in  \N\), \(R_n = S - S_n\) est appelé reste d’ordre \(n\) de la série \(\sum u_n \) et noté \(R_n = \sum^{\pinf}_{k=n+1}u_k.\)
+    \end{enumerate}
+\end{defi}
+\begin{prop}
+    La suite \((R_n)_{n\in \N}\) des restes d’une série convergente a pour limite \(0\).
+\end{prop}
+\subsection{Lien suite-série}
+\begin{defprop}
+    La suite \((u_n)\) et la série télescopique \(\sum (u_{n+1} - u_n)\) ont même nature.
+\end{defprop}
+\subsection{Opérations algébriques sur les séries convergentes}
+\begin{defprop}
+    Si les séries \(\sum u_n \) et \(\sum v_n\) convergent alors, pour tout \((\alpha , \beta ) \in  \K^2\),
+    \begin{enumerate}
+        \item la série \(\sum(\alpha u_n + \beta v_n)\) converge,
+        \item \(\sum^{\pinf}_{k=0}(\alpha u_k + \beta v_k) = \alpha \paren{\sum^{\pinf}_{k=0}u_k}+ \beta \paren{\sum^{\pinf}_{k=0}v_k}\).\hfill (linéarité de la somme)
+    \end{enumerate}
+    \underline{Remarque}\\
+    On en déduit que l’application qui, à une série convergente associe sa somme, est linéaire.
+\end{defprop}
+\subsection{Cas des séries à termes complexes}
+\begin{defprop}
+    La série de nombres complexes \(\sum u_n \) converge si, et seulement si, les séries de nombres réels \(\sum_{n\geq 0}\Reel{u_n}\) et \(\sum_{n\geq 0}\Ima{u_n}\) convergent. Dans ce cas, les sommes de ces séries vérifient :
+    \[\sum^{\pinf}_{k=0}u_k = \paren{\sum^{\pinf}_{k=0}\Reel{u_k}} + \i \paren{\sum_{n\geq 0}\Ima{u_k}}\]
+\end{defprop}
+\subsection{Premières séries de référence : les séries géométriques de raison \(a \in  \K\)}
+\begin{defprop}
+    \begin{enumerate}
+        \item La série géométrique \(\sum a^n\) est convergente si, et seulement si, \(|\abs{a} < 1\).
+        \item Dans le cas \(\abs{a} < 1\), on a :
+        \begin{enumerate}
+             \item \(\sum^{\pinf}_{k=0}a^k = \frac{1}{1 - a}\)
+             \item\(\sum^{\pinf}_{k=n+1}a^k = \frac{a^{k+1}}{1 - a}\) pour tout \(n \in \N\)
+        \end{enumerate}
+    \end{enumerate}
+\end{defprop}
+
+\section{Séries à termes réels positifs}
+\subsection{Condition nécessaire et suffisante de convergence}
+\begin{defprop}
+    Une série \(\sum u_n \) de nombres réels positifs converge si, et seulement si, la suite de ses sommes partielles \((S_n)_{n \in \N}\) est majorée avec, en cas de convergence :
+\[\sum^{\pinf}_{k=0}u_k = \lim_{n} S_n = \sup_{n}S_n.\]
+\end{defprop}
+
+\subsection{Théorèmes de comparaison}
+\begin{theo}
+    \begin{enumerate}
+    \item Si \((u_n)_{n\in \N }\) et \((v_n)_{n\in \N}\) sont deux suites de nombres réels telles que \(\forall n \in  \N, 0 \leq u_n \leq v_n\) alors,
+    \begin{itemize}
+        \item la convergence de la série \(\sum v_n\) implique la convergence de la série \(\sum u_n \).
+        \item la divergence de la série \(\sum u_n \) implique la divergence celle de la série \(\sum v_n\).
+    \end{itemize}
+    En cas de convergence, les sommes de ces séries vérifient :
+    \[\sum^{\pinf}_{k=0}u_k \leq \sum^{\pinf}_{k=0} v_k\]
+    \item Si \((u_n)_{n\in \N }\) et \((v_n)_{n\in \N}\) sont deux suites de nombres réels positifs telles que \(u_n = \O{v_n}\) alors,
+    \begin{itemize}
+        \item la convergence de la série \(\sum v_n\) implique la convergence de la série \(\sum u_n\).
+        \item la divergence de la série \(\sum u_n \) implique la divergence de la série \(\sum v_n\).
+    \end{itemize}
+    \item Si \((u_n)_{n\in \N }\) et \((v_n)_{n\in \N}\) sont deux suites de nombres réels positifs telles que \(u_n \sim v_n\)\\
+    alors, les séries \(\sum u_n\) et \(\sum v_n\) sont de même nature.
+    \end{enumerate}
+    \underline{Remarques}\\
+    En cas de convergence des séries avec \(u_n = \O{v_n}\) ou \(u_n \sim v_n\), on ne peut pas écrire de relation de comparaison entre leurs sommes.
+\end{theo}
+\subsection{Encadrement des sommes partielles par la méthode des rectangles}
+\begin{defprop}
+    Si \(f\) est une application continue sur \(\intervie{0}{\pinf}\), à valeurs positives et décroissante alors, pour tout entier naturel \(n\), on a : 
+    \[\int^{n+1}_{0}f (t)dt \leq \sum^{n}_{k=0} f (k) \leq f (0) + \int^n_0 f (t)dt.\]
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Le résultat est conservé si on remplace \(0\) par \(n_0 \in  \Ns\) et \(n \in  \N\) par \(n \in  \interventierie{n}{\pinf}\) .
+        \item Le résultat s’adapte dans le cas où \(f\) est croissante en changeant le sens des inégalités.
+    \end{itemize}
+\end{defprop}
+\subsection{Autres séries de référence importantes : les séries de Riemann}
+\begin{defprop}
+   Pour \(\alpha  \in  \R\), la série de Riemann \(\sum \frac{1}{n^{\alpha}}\)  converge si, et seulement si, \(\alpha  > 1\).\\
+    \underline{Remarque}\\
+    Contrairement aux séries géométriques, il n’existe pas de formule générale donnant la valeur des sommes des séries de Riemann convergentes. 
+\end{defprop}
+
+\subsection{Convergence absolue d’une série}
+    Soit \((u_n)_{n\in \N }\) une suite de \(\K\).
+\subsection{Définition}
+\begin{defi}
+    La série \(\sum u_n \) est dite absolument convergente si la série  \(\sum \abs{u_n}\) converge.
+\end{defi}
+\subsection{Propriété importante}
+\begin{defprop}
+    Si la série \(\sum u_n \) converge absolument alors la série \(\sum u_n \) converge avec, pour tout \(n \in  \N\),
+    \[\abs{\sum^{\pinf}_{k=n}u_k} \leq\sum^{\pinf}_{k=n}\abs{u_k}\]
+\end{defprop}
+
+\subsection{Théorème de domination}
+\begin{theo}
+    Si \((u_n)_{n\in \N }\) est une suite de \(\K\) et \((v_n)_{n\in \N}\) est une suite de nombres réels positifs tel que \(u_n = \O{v_n}\) alors, la convergence de la série \(\sum v_n\) implique la convergence absolue de la série \(\sum u_n\) donc sa convergence.
+\end{theo}
+\subsection{Dernières séries de référence à connaître : les séries exponentielles}
+\begin{defprop}
+    ~\\
+    Pour tout \(z \in  \K\), la série \(\sum \frac{z^n}{n!}\) converge absolument donc converge. Sa somme est notée \(\exp(z) = \sum^{\pinf}_{k=0} \frac{z^k}{k!}\) et appelée exponentielle du nombre \(z\).
+\end{defprop}
+\section{Séries alternées}
+    Soit \((u_n)_{n\in \N }\) une suite de nombres réels.
+\subsection{Définition}
+
+\begin{defi}
+    La série \(\sum u_n \) est dite série alternée si, pour tout \(n \in  \N\), \(u_{n+1}\) et \(u_n\) sont de signes contraires.
+\end{defi}
+
+\subsection{Théorème spécial pour certaines séries alternées (règle de Leibniz)}
+\begin{theo}
+    Si la suite \((u_n)\) converge en décroissant vers \(0\) alors :
+    \begin{enumerate}
+        \item la série \(\sum (-1)^n u_n\) converge ;
+        \item pour tout \(n_0 \in  \N,\sum^{\pinf}_{n=n_0} (-1)^n u_n\) a même signe que son premier terme \((-1)^{n_0} u_{n_0}\) et vérifie 
+        \[\abs{\sum^{\pinf}_{n=n_0}(-1)^n u_n} \leq \abs{(-1)^{n_0} u_{n_0} }.\]
+    \end{enumerate}
+    \underline{Remarque}\\
+    Une série alternée peut être convergente sans vérifier les hypothèses du critère spécial.
+\end{theo}
