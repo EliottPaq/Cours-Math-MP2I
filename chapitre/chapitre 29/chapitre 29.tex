@@ -1,0 +1,303 @@
+\chapter{Intégration sur un segment}
+
+\minitoc
+Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et \(I\) un intervalle de \(\R\), non vide et non réduit à un point.
+
+\section{Continuité uniforme}
+    Soit \(f\) une fonction définie sur \(I\) et à valeurs dans \(\K\).\\
+    En MP2I, la notion de continuité uniforme est introduite pour construire l’intégrale. L’étude systématique des fonctions uniformément continues n’est pas un attendu ; la présentation faite ici est donc sommaire.
+
+\subsection{Définition}
+\begin{defi}
+    
+\end{defi}
+    \(f\) est dite uniformément continue sur \(I\) si :
+    \[\forall \epsilon  \in  \Rps, \exists \delta  \in  \Rps, \forall (a, x) \in  I^2, \abs{x -  a} \leq \delta  \imp \abs{f (x) -  f (a)} \leq \epsilon \]
+    \underline{Remarque}\\
+    Ici le réel \(\delta\)  ne dépend que du réel \(\epsilon\)  et pas des points de \(I\) (d’où la dénomination “continuité uniforme”) contrairement au réel \(\delta\)  qui apparaît dans la définition de la continuité rappelée ci-dessous qui lui dépend du réel \(\epsilon\)  et des points \(a\) de \(I\) considérés :\\~\\
+    Rappel : \(f\) est continue sur \(I\) si, pour tout réel \(a\) de \(I\), la fonction \(f\) a pour limite \(f (a) \) en \(a\) :
+    \[\forall a \in  I, \forall \epsilon  \in  \Rps , \exists \delta  \in  \Rps, \forall x \in  I, \abs{x -  a} \leq \delta  \imp \abs{f (x) -  f (a)} \leq \epsilon\] 
+\subsection{Propriétés}
+\begin{prop}
+    \(f\) lipschitzienne sur \(I\) \(\imp\) \(f\) uniformément continue sur \(I \imp f\) est continue sur \(I\).\\
+    \underline{Remarque}\\
+    Les réciproques de ces propriétés sont fausses (cf TD).
+\end{prop}
+\subsection{Théorème de Heine (preuve non exigible)}
+\begin{defprop}
+    Toute fonction numérique, qui est continue sur un segment de \(\R\), y est uniformément continue.
+\end{defprop}
+
+\begin{dem}
+    Soit \((a, b) \in \R^2\) tel que \(a < b\) et \(f : \intervii{a}{b} \to \K\) une fonction continue sur le segment \(\intervii{a}{b}\).\\~\\
+    Montrons que \(f\) est uniformément continue sur le segment \(\intervii{a}{b}\) en raisonnant par l’absurde.\\~\\
+    On suppose que \(f\) n’est pas uniformément continue ce qui se traduit par :
+    \[\exists \epsilon > 0, \forall \delta > 0, \exists  (x, y) \in \paren{\intervii{a}{b}}^2, \abs{x - y} \leq \delta \text{ et } \abs{f (x) - f (y)} > \epsilon \]
+    Pour cet \(\epsilon > 0\), on peut en déduire, en particulier que :
+    \[\forall n \in \Ns, \exists  (x_n, y_n) \in \paren{\intervii{a}{b}}^2 , \abs{x_n - y_n} \leq \frac{1}{n} \text{ et } \abs{f (x_n) - f (y_n)} > \epsilon\]
+    \begin{itemize}
+        \item Comme la suite \((x_n)\) est à valeurs dans le segment \(\intervii{a}{b}\), elle est bornée. D’après le théorème de Bolzano-Weierstrass, on peut donc en extraire une suite \((x_{\phi(n)})\), avec \(\phi\) application strictement croissante de \(\Ns\) dans \(\Ns\), qui converge vers \(c \in \intervii{a}{b}\) ce qui implique 
+        \[\abs{x_{\phi(n)} - c} \underset{n\to\pinf}{0}\]
+        \item Par inégalité triangulaire vérifiée par \(\abs{.}\) (valeur absolue ou module), on a successivement 
+        \[\forall n \in \Ns, \abs{y_{\phi(n)} - c }\leq \abs{y_{\phi(n)} - x_{\phi(n)}} + \abs{x_{\phi(n)} - c}\]
+        \[\forall n \in \Ns, \abs{y_{\phi(n)} - c} \leq \frac{1}{\phi(n)} + \abs{x_{\phi(n)} - c}\]
+        et enfin, par théorème d’encadrement :
+        \[\abs{y_{\phi(n)} - c} \underset{n \to \pinf}{\to} 0\]
+        Par conséquent, la suite \(\paren{y_{\phi(n)}}\) converge aussi vers \(c \in \intervii{a}{b}\) .
+        \item Comme \(f\) est continue sur \(\intervii{a}{b}\) , elle l’est en \(c\). Par caractérisation séquentielle de la continuité de \(f\) en \(c\), on en déduit que les suites \(\paren{f \paren{x_{\phi(n)}}}\) et \(\paren{f\paren{ y_{\phi(n)}}}\) convergent toutes deux vers \(f (c)\) donc que la suite \(\paren{f \paren{x_{\phi(n)}}  - f \paren{ y_{\phi(n)}}}\) converge vers \(0\). Ainsi, \(\abs{f \paren{x_{\phi(n)}}  - f \paren{ y_{\phi(n)}}}\underset{ n\to\pinf}{\to} 0\) ce qui est incompatible avec les inégalités
+        \[\forall n \in \Ns, \abs{f\paren{x_{\phi(n)}} - f\paren{ y_{\phi(n)}}} > \epsilon\]
+    \end{itemize}
+    \conclusion l’hypothèse initiale est fausse donc \(f\) est uniformément continue sur \(\intervii{a}{b}\).\\~\\
+    \underline{Remarque}\\
+    En revanche, la continuité sur un intervalle quelconque n’implique pas l’uniforme continuité sur cet intervalle comme le montre l’exemple simple de la fonction \(x \mapsto x^2\) sur \(\Rp\).
+\end{dem}
+
+\section{Continuité par morceaux sur un segment}
+    Soit \(a\) et \(b\) deux réels tels que \(a < b\).
+\subsection{Subdivision d’un segment}
+\begin{defprop}
+    On appelle subdivision du segment \(\intervii{a}{b}\) toute famille finie \((a_i)_{i\in \interventierii{0}{n}}\) telle que \(\underbrace{a_0}_{=a}< a_1 < \dots < \underbrace{a_n}_{=b}\). \\
+    Le réel positif \(\sigma = \max_{i\in \interventierii{1}{n}} \abs{a_i -  a_{i- 1}}\) est appelé pas de cette subdivision.
+\end{defprop}
+\subsection{Fonctions en escalier sur un segment}
+\begin{defprop}
+    Une fonction \(f\) définie sur le segment \(\intervii{a}{b}\), à valeurs dans \(\K\), est dite en escalier sur le segment \(\intervii{a}{b}\) s’il existe une subdivision \((a_i)_{i\in \interventierii{0}{n}}\) de \(\intervii{a}{b}\) telle que, pour tout \(i \in  \interventierii{1}{n}\), la restriction de \(f\) à \(\intervee{a_{i-1}}{a_i}\) est une fonction constante. \\
+    L’ensemble des fonctions en escalier sur \(\intervii{a}{b}\), à valeurs dans \(\K\), est noté \(\cal{E}\paren{\intervii{a}{b} , \K}\).
+\end{defprop}
+
+\subsection{Fonctions continues par morceaux sur un segment}
+\begin{defi}
+    Une fonction \(f\) définie sur le segment \(\intervii{a}{b}\), à valeurs dans \(\K\), est dite continue par morceaux sur le segment \(\intervii{a}{b}\) s’il existe une subdivision \((a_i)_{i\in \interventierii{0}{n}}\) de \(\intervii{a}{b}\) telle que, pour tout \(i \in  \interventierii{1}{n}\), la restriction de \(f\) à \(\intervee{a_{i-1}}{a_i}\) est prolongeable en une fonction continue sur le segment \(\intervii{a_{i-1}}{a_i}\).\\~\\
+    L’ensemble des fonctions continues par morceaux sur \(\intervii{a}{b}\), à valeurs dans \(\K,\) est noté \(\cal{CM}\paren{\intervii{a}{b} , \K}\).\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item \(\cal{E}  \paren{\intervii{a}{b} , \K} \subset \cal{CM} \paren{\intervii{a}{b} , \K}\) et \(\cal{C} \paren{\intervii{a}{b} , \K} \subset \cal{CM} \paren{\intervii{a}{b} , \K}\).
+        \item \(\cal{CM} \paren{\intervii{a}{b} , \K}\) est sous-espace vectoriel de \(\paren{\cal{F} \paren{\intervii{a}{b} , \K} , +, .}\) et sous-anneau de \(\paren{\cal{F} \paren{\intervii{a}{b} , \K} , +, \times }\).
+    \end{itemize}
+\end{defi}
+\subsection{Approximation uniforme des fonctions continues par morceaux}
+\begin{defprop}
+    Soit \(f\) une fonction continue par morceaux sur le segment \(\intervii{a}{b}\), à valeurs dans \(\K\). \\
+    Alors, pour tout \(\epsilon  > 0\), il existe une fonction \(\phi : \intervii{a}{b} \to \K\) en escalier sur le segment\( \intervii{a}{b}\) telle que 
+    \[\sup_{t\in \intervii{a}{b}} \abs{f (t) -  \phi(t)} \leq \epsilon .\]
+    \underline{Remarques} \\
+    \begin{itemize}
+        \item La borne supérieure écrite a du sens car toute fonction de \(\cal{CM} \paren{\intervii{a}{b}, \K}\) est bornée.
+        \item On déduit du résultat précédent que :
+            \[\forall f \in  \cal{CM} \paren{\intervii{a}{b}, \K} , \exists  (\phi_n) \in  \paren{\cal{E} \paren{\intervii{a}{b} , \K}}^{\N} , \sup_{t\in \intervii{a}{b}} \abs{f (t) -  \phi_n(t)} \underset{n \to \pinf}\to 0\]
+        Dans ce cas, on dit que la suite de fonctions \((\phi_n)\) converge uniformément vers \(f\) sur \(\intervii{a}{b}\).
+    \end{itemize}
+\end{defprop}
+\begin{dem}
+    Soit \((a, b) \in \R^2\) tel que \(a < b\) et \(f : \intervii{a}{b} \to \K\) une fonction continue par morceaux sur le segment \(\intervii{a}{b}\).\\~\\
+    Soit \(\epsilon > 0\).\\~\\
+    Montrons l’existence de \(\phi : \intervii{a}{b} \to \K\) en escalier sur le segment \(\intervii{a}{b}\) telle que \(\sup_{t\in\intervii{a}{b}}\abs{f (t) - \phi(t)} \leq \epsilon\).
+    \begin{itemize}
+    \item Cas particulier où \(f\) est continue sur le segment \(\intervii{a}{b}\).\\~\\
+        Dans ce cas, d’après le théorème de Heine, \(f\) est uniformément continue sur le segment \(\intervii{a}{b}\).\\~\\
+        Il existe donc un réel \(\delta > 0\) tel que, pour tout \((x, y) \in \paren{\intervii{a}{b}}^2\), \(\abs{x - y} \leq \delta \imp \abs{f (x) - f (y)} \leq \epsilon \hfill (\star)\).\\~\\
+        On note \(n\) un entier \(n \in \Ns\) tel que \(\frac{b - a}{n} \leq \delta\) (fixé dans la suite).\\~\\
+        On crée alors une subdivision \((a_i)_{i\in\interventierii{0}{n}}\) du segment \(\intervii{a}{b}\) en posant, pour tout \(i \in \interventierii{0}{n}\), \(a_i = a + i\frac{b - a}{n}\)\\~\\
+        On considère enfin la fonction \(\phi\), en escalier sur le segment \(\intervii{a}{b}\), définie par :
+        \[\forall i \in \interventierii{1}{n}, \forall x \in \intervie{a_{i-1}}{a_i} , \phi(x) = f (a_{i-1}) \text{ et } \phi(b) = f (b)\]
+        \underline{Montrons que} \(\sup_{t\in\intervii{a}{b}} \abs{f (t) - \phi(t)} \leq \epsilon\).\\~\\
+        Pour tout \(t \in \intervie{a}{b}\), il existe \(i \in \interventierii{1}{n}\) tel que \(t \in \intervie{a_{i-1}}{a_i}\) donc \(\abs{t - a_{i-1}} \leq a_i - a_{i-1} \leq \frac{b - a}{n} \leq \delta\).\\~\\
+        Par continuité uniforme de \(f\) , avec \((\star)\), on a : \(\abs{f (t) - \phi(t)} = \abs{f (t) - f (a_{i-1})} \leq \epsilon\). Ainsi,
+        \[\forall t \in \intervii{a}{b} , \abs{f (t) - \phi(t)} \leq \epsilon\]
+        (car l’inégalité est triviale pour \(t = b\)).\\~\\
+        Comme la fonction\( t \mapsto \abs{f (t) - \phi(t)}\) est par \(\epsilon\) sur le segment \(\intervii{a}{b}\), elle admet une borne supérieure qui vérifie \(\sup_{t\in\intervii{a}{b}}\abs{f (t) - \phi(t)} \leq \epsilon\) (en cas d’existence, la borne supérieure est le plus petit des majorants).\\~\\
+        \conclusion il existe \(\phi : \intervii{a}{b} \to \K\) en escalier sur le segment \(\intervii{a}{b}\) telle que \(\sup_{t\in\intervii{a}{b}}\abs{f (t) - \phi(t)} \leq \epsilon\).
+
+    \item Cas général où \(f\) est continue par morceaux sur le segment \(\intervii{a}{b}\).\\~\\
+        On note \((a_i)_{i\in\interventierii{0}{n}}\) une subdivision du segment \(\intervii{a}{b}\) adaptée à la fonction \(f\) .\\~\\
+        Soit \(i \in \interventierii{1}{n}\).\\~\\
+        Par définition, la restriction \(f_{|\intervee{a_{i-1}}{a_i}}\) est prolongeable en une fonction continue sur \(\intervii{a_{i-1}}{a_i}\).\\~\\
+        D’après le point précédent, il existe donc une fonction en escalier \(\phi_i : \intervii{a_{i-1}}{a_i} \to \K\) tel que
+        \[\forall t \in \intervee{a_{i-1}}{a_i} , \abs{f (t) - \phi_i(t)} \leq \epsilon\]
+        On définit alors une fonction en escalier \(\phi\) sur \(\intervii{a}{b}\) en posant :
+        \[\forall i \in \interventierii{1}{n}, \forall t \in \intervee{a_{i-1}}{a_i} , \phi(t) = \phi_i(t)\]
+        \[\forall i \in \interventierii{0}{n}, \phi (a_i) = f (a_i)\]
+        Par construction, cette fonction \(\phi\) vérifie
+        \[\forall t \in \intervii{a}{b} , \forall{f (t) - \phi(t)} \leq \epsilon\]
+        et on conclut, comme dans le cas précédent, que \(\sup_{t\in\intervii{a}{b}}\abs{f (t) - \phi(t)}\leq \epsilon\).\\~\\
+        \conclusion il existe \(\phi : \intervii{a}{b} \to \K\) en escalier sur le segment \(\intervii{a}{b}\) telle que \(\sup_{t\in\intervii{a}{b}} \abs{f (t) - \phi(t)} \leq \epsilon\)\\~\\
+    \end{itemize}
+    \underline{Remarque} : vocabulaire et notation\\~\\
+    Dans ce résultat, la fonction \(\phi\) dépend du réel \(\epsilon > 0\) fixé.\\~\\
+    Si on applique ce résultat avec \(\epsilon = \frac{1}{n + 1}\) pour tout \(n \in N\), on en déduit l’existence d’une suite de fonctions \((\phi_n)\) en escalier sur le segment \(\intervii{a}{b}\) tel que \(\forall n \in \N\), \(\sup _{t\in\intervii{a}{b}} \abs{f (t) - \phi_n(t)} \leq \frac{1}{n + 1}\).\\~\\
+    Ainsi
+    \[\sup_{t\in\intervii{a}{b}}\abs{f (t) - \phi_n(t)} \underset{n\to\pinf}{\to} 0\]
+    ce que l’on note plus simplement, en anticipant sur ce qui sera vu en MPI,
+    \[\norme{f - \phi_n}_{\infty} \underset{n\to\pinf}{\to} 0\]
+    et on dit que la suite de fonctions \((\phi_n)\) en escalier sur \(\intervii{a}{b}\) converge uniformément vers \(f\) sur \(\intervii{a}{b}\) ou encore que \(f\) est limite uniforme de la suite de fonctions \((\phi_n)\) en escalier sur \(\intervii{a}{b}\).
+\end{dem}
+\section{Intégrale sur un segment d’une fonction continue par morceaux}
+    Soit \(a\) et \(b\) deux réels tels que \(a < b\).
+\subsection{Cas particulier des fonctions en escalier sur un segment}
+\begin{defprop}
+    Soit \(f : \intervii{a}{b} \to \K\) une fonction en escalier sur \(\intervii{a}{b}\) et \((a_i)_{i\in \interventierii{0}{n}}\) une subdivision de \(\intervii{a}{b}\) adaptée à \(f\) .\\~\\
+    Pour tout \(i \in  \interventierii{1}{n}\), on note \(\lambda_i\) la valeur prise par \(f\) sur \(\intervee{a_{i-1}}{a_i}\).\\~\\
+    Alors, le scalaire \(\sum^n_{i=1}\lambda_i (a_i -  a_{i- 1})\) est :
+    \begin{itemize}
+        \item indépendant de la subdivision de \(\intervii{a}{b}\) adaptée à \(f\) choisie ;
+        \item appelé l’intégrale de \(f\) sur \(\intervii{a}{b}\) et noté \(\int_{\intervii{a}{b}} f\) ou \(\int^b_a f\) ou encore \(\int^b_a f (t)dt\) :
+        \[\int_{\intervii{a}{b}} f =\int^b_a f =\int^b_a f (t)dt = \sum^n_{i=1} \lambda_i (a_i -  a_{i- 1})\]
+    \end{itemize}
+    \underline{Remarque}\\
+    Dans le cas \(\K = \R\), on peut interpréter cette intégrale comme “aire algébrique sous la courbe de \(f\) ”.
+\end{defprop}
+\begin{dem}
+    \begin{itemize}
+        \item Convergence de la suite \(\paren{\int_{\intervii{a}{b}}\phi_n}\)\\~\\
+            Par hypothèse \(\norme{f - \phi_n}_{\infty} \underset{n\to\pinf}{\to} 0\) donc, il existe un rang \(n_0\) tel que \(\forall n \in \N, n \geq n_0 \imp \norme{f - \phi_n}_{\infty} \leq 1 \).\\~\\
+            Par inégalité triangulaire sur la norme \(\norme{ . }_{\pinf}\), on en déduit que :
+            \[\forall n \in \N, n \geq n_0, \norme{\phi_n}_{\infty} \leq \norme{f }_{\infty} + \norme{f - \phi_n}_{\infty} \leq \norme{f }_{\infty} + 1\]
+            puis, par inégalité triangulaire et croissance de l’intégrale sur un segment d’une fonction en escalier :
+            \[\forall n \in \N, n \geq n_0, \abs{\int_{\intervii{a}{b}} \phi_n} \leq \int_{\intervii{a}{b}}\abs{\phi_n} \leq\int_{\intervii{a}{b}}\paren{\norme{f }_{\infty} + 1}\]
+            Ainsi, la suite \(\paren{\int_{\intervii{a}{b}} \phi_n}_{n\in \N}\) à valeurs dans \(\K\) est bornée. D’après le théorème de Bolzano-Weierstrass, elle admet donc une suite extraite \(\paren{\int_{\intervii{a}{b}}\phi_{\alpha (n)}}_{n\in\N} \)convergente. On note \(l \in \K\) la limite de cette suite.\\~\\
+            Soit \(n \in N\).\\
+            En utilisant la linéarité, l’inégalité triangulaire et la croissance de l’intégrale sur un segment d’une fonction en escalier, on trouve successivement
+            \[\int_{\intervii{a}{b}}\phi_n - \int_{\intervii{a}{b}}\phi_{\alpha (n)} =  \int _{\intervii{a}{b}} (\phi_n - \phi_{\alpha (n)}) \]
+            \[\abs{\int_{\intervii{a}{b}}\phi_n -\int_{\intervii{a}{b}} \phi_{\alpha (n)}}\leq \int_{\intervii{a}{b}}\abs{\phi_n - \phi_{\alpha (n)}} \leq \int_{\intervii{a}{b}}\norme{\phi_n - \phi_{\alpha (n)}}_{\infty} \leq (b - a)\norme{\phi_n - \phi_{\alpha (n)}}_{\infty}\]
+            avec, par inégalité triangulaire sur la norme,
+            \[ \norme{\phi_n - \phi_{\alpha (n)}}_{\infty} \leq \norme{\phi_n - f }_{\infty} + \norme{f - \phi_{\alpha (n)}}_{\infty}\]
+            donc 
+            \[\abs{\int_{\intervii{a}{b}} \phi_n - \int_{\intervii{a}{b}} \phi_{\alpha (n)}} \leq (b - a) \paren{\norme{f - \phi_n}_{\infty} + \norme{f - \phi_{\alpha (n)}}_{\infty}}\]
+            Comme \((b - a) \paren{\norme{f - \phi_n}_{\infty} + \norme{f - \phi_{\alpha (n)}}_{\infty}} \underset{n\to\pinf}{\to} 0\) par hypothèse, on obtient par théorème d’encadrement que 
+            \[\int_{\intervii{a}{b}} \phi_n - \int_{\intervii{a}{b}} \phi_{\alpha (n)} \underset{n\to\pinf}{\to} 0\]
+            puis, comme \(\int_{\intervii{a}{b}} \phi_{\alpha (n)} \underset{n\to\pinf}{\to} l\), que
+            \[\int_{\intervii{a}{b}} \phi_n \underset{n\to\pinf}{\to} l\]
+            \conclusion la suite \(\paren{\int_{\intervii{a}{b}} \phi_n}\) converge.
+        \item Limite de la suite \(\paren{\int_{\intervii{a}{b}} \phi_n}\) indépendante du choix de la suite \((\phi_n)\).\\~\\
+            On considère ici une autre suite \((\psi_n)_{n\in\N}\) de fonctions en escalier sur \(\intervii{a}{b}\) telle que \(\abs{f - \psi_n}_{\infty} \underset{n\to\pinf}{\to} 0\).
+            Avec des arguments du même type que ci-dessus, on a :
+            \[\abs{\int_{\intervii{a}{b}}\phi_n - \int_{\intervii{a}{b}} \psi_n} = \abs{\int_{\intervii{a}{b}} (\phi_n - \psi_n)}\leq (b - a) \norme{\phi_n - \psi_n}_{\infty} \leq (b - a)\paren{\norme{f - \phi_n}_{\infty} + \norme{f - \psi_n}_{\infty}}\]
+            puis 
+            \[\abs{\int_{\intervii{a}{b}} \phi_n -\int_{\intervii{a}{b}}\psi_n }\underset{n\to\pinf}{\to} 0\]
+            et enfin, puisque les deux suites d’intégrales convergent,
+            \[\lim_{n\to\pinf}\int_{\intervii{a}{b}}\phi_n = \lim_{n\to\pinf} \int_{\intervii{a}{b}}\psi_n\]
+            \conclusion la limite de \(\paren{\int_{\intervii{a}{b}}\phi_n} \)ne dépend pas de la suite de fonctions en escalier \((\phi_n)_{n\in\N}\) qui approche uniformément \(f\) sur \(\intervii{a}{b}\).
+    \end{itemize}
+\end{dem}
+\subsection{Cas général des fonctions continues par morceaux sur un segment}
+\begin{defprop}
+    Soit \(f : \intervii{a}{b} \to \K\) une fonction continue par morceaux sur \(\intervii{a}{b}\).\\~\\
+    Soit \((\phi_n)\) une suite de fonctions en escalier sur \(\intervii{a}{b}\) à valeurs dans \(\K\) telle que 
+    \[\sup_{t\in \intervii{a}{b}} \abs{f (t) -  \phi_n(t)} \underset{n\to\pinf}{\to}  0\]
+    Alors, la suite \(\paren{\int_{\intervii{a}{b}} \phi_n}\) converge et sa limite est :
+    \begin{itemize}
+        \item indépendante du choix de la suite \((\phi_n)\) ;
+        \item appelée l’intégrale de \(f\) sur \(\intervii{a}{b}\) et notée \(\int_{\intervii{a}{b}} f\) ou \(\int^b_a f\) ou encore \(\int^b_a f (t)dt\) :
+        \[\int_{\intervii{a}{b}} f = \int^b_a f = \int^b_a f (t)dt = \lim_{n\to\pinf}\paren{\int_{\intervii{a}{b}} \phi_n}\]
+    \end{itemize}
+    \underline{Remarque}\\
+    Cette définition prolonge bien celle vu pour les fonctions en escalier sur le segment \(\intervii{a}{b}\) car, lorsque \(f\) est en escalier sur \(\intervii{a}{b}\), on retrouve la même intégrale que celle définie dans le paragraphe précédent.
+\end{defprop}
+\subsection{Valeur moyenne}
+\begin{defprop}
+    Pour tout \(f\) de \(\cal{CM} \paren{\intervii{a}{b}, \K}\), le scalaire \(\frac{1}{b - a}\int_{\intervii{a}{b}} f\) est dit valeur moyenne de \(f\) sur \(\intervii{a}{b}\).
+\end{defprop}
+\subsection{Propriétés}
+\begin{defprop}[Linéarité de l’intégrale]
+    Si \(f : \intervii{a}{b} \to \K\) et \(g : \intervii{a}{b} \to \K\) sont deux fonctions continues par morceaux sur \(\intervii{a}{b}\) et, \(\alpha\) et \(\beta\) deux éléments de \(\K\) alors
+    \[ \int_{\intervii{a}{b}} (\alpha f + \beta g) = \alpha \paren{\int_{\intervii{a}{b}} f} + \beta \paren{\int_{\intervii{a}{b}} g}\]
+\end{defprop}
+\begin{defprop}[Positivité (pour les fonctions à valeurs réelles)]
+    Si \(f : \intervii{a}{b} \to \R\) est une fonction continue par morceaux et positive sur \(\intervii{a}{b}\) alors 
+    \[ \int_{\intervii{a}{b}}f \geq 0\]
+\end{defprop}
+\begin{defprop}[    Croissance (pour les fonctions à valeurs réelles)]
+    Si \(f : \intervii{a}{b} \to \R\) et \(g : \intervii{a}{b} \to \R\) sont des fonctions continues par morceaux telles que \(f \leq g\) alors
+    \[\int_{\intervii{a}{b}} f \leq \int_{\intervii{a}{b}} g\]
+\end{defprop}
+
+\begin{defprop}[Inégalité triangulaire intégrale]
+    Si \(f : \intervii{a}{b} \to \K\) est une fonction continue par morceaux sur \(\intervii{a}{b}\) alors
+    \[\abs{\int_{\intervii{a}{b}} f} \leq \int_{\intervii{a}{b}} \abs{f }\]
+\end{defprop}
+\begin{defprop}[Relation de Chasles]
+    Soit \(f : \intervii{a}{b} \to \K\) une fonction continue par morceaux sur \(\intervii{a}{b}\).\\~\\
+    Alors, pour tout \((\alpha, \beta, \gamma) \in  \intervii{a}{b}\) , on a :
+    \[\int^{\beta}_{\alpha} f (t) dt = \int^{\gamma}_{\alpha} f (t) dt + \int^{\beta}_{\gamma} f (t) dt\]
+    avec les notations suivantes*
+    \[\int^{\beta}_{\alpha} f (t) dt = \begin{cases}
+        \int_{\intervii{\alpha}{\beta}} f &\text{ si } \alpha < \beta \\
+        0 & \text{ si } \alpha = \beta \\
+        - \int_{\intervii{\beta}{\alpha}} f &\text{ si } \alpha > \beta
+    \end{cases}\]
+\end{defprop}
+\begin{defprop}[Nullité (pour les fonctions à valeurs réelles)]
+    Si \(f : \intervii{a}{b} \to \R\) est une fonction CONTINUE, positive et d’intégrale nulle sur \(\intervii{a}{b}\) alors \(f\) est la fonction nulle. \\
+    \underline{Remarque} \\
+    Cette propriété n’est pas conservée dans le cas où \(f\) est seulement continue par morceaux.
+\end{defprop}
+\begin{defprop}[    Cas des fonctions à valeurs complexes]
+    Soit \(f : \intervii{a}{b} \to \C\) une fonction continue par morceaux sur\( \intervii{a}{b}\). \\
+    Alors : 
+    \[\int_{\intervii{a}{b}} f = \int_{\intervii{a}{b}} \Reel{f} + \i \int_{\intervii{a}{b}} \Ima{f }\]
+\end{defprop}
+
+\begin{defprop}[Cas des fonctions paires ou impaires]
+    Soit \(a\) un réel strictement positif et \(f : \intervii{-a}{a} \to \K\) une fonction continue par morceaux sur \(\intervii{-a}{a}\) .
+    \begin{enumerate}
+        \item Si \(f\) est paire alors \(\int^a_{- a} f (t) dt = 2 \int^a_0 f (t) dt\)
+        \item Si \(f\) est impaire alors \(\int^a_{- a} f (t) dt = 0\).
+    \end{enumerate}
+\end{defprop}
+
+\begin{defprop}[Cas des fonctions périodiques]
+    Soit \(f : \R \to \K\) une fonction continue par morceaux sur \(\R\).\\~\\
+    Si \(f\) est périodique de période \(T\) alors, pour tout réel \(a\), on a : \(\int^{a+T}_a f (t) dt = \int^T_0 f (t) dt\)
+\end{defprop}
+\begin{defprop}[Conséquences pratiques de la définition]
+   \begin{itemize}
+        \item Si \(f\) et \(g\) sont des fonctions continues par morceaux à valeurs dans \(\K\) qui coïncident sur \(\intervii{a}{b}\) privé d’un nombre fini de points alors
+        \[\int_{\intervii{a}{b}} f = \int_{\intervii{a}{b}} g\]
+        \item Si \(f\) est une fonction continue par morceaux à valeurs dans \(\K\) et \((a_i)_{i\in \interventierii{0}{n}}\) une subdivision de \(\intervii{a}{b}\) contenant les points de discontinuité de \(f\) alors
+        \[\int_{\intervii{a}{b}} f = \sum^n_{i=1} \paren{\int_{\intervii{a_{i- 1}}{a_i}} f }\]
+   \end{itemize}
+\end{defprop}
+\subsection{Sommes de Riemann à pas constant}
+\begin{defprop}
+    Si \(f : \intervii{a}{b} \to \K\) est une fonction continue par morceaux sur \(\intervii{a}{b}\) alors
+    \[\lim_{n\to\pinf} \frac{b -  a}{n} \paren{\sum^{n- 1}_{k=0} f \paren{a + k \frac{b -  a}{n}}} = \int_{\intervii{a}{b}} f \]
+    \underline{Remarque} \\~\\
+    Dans le cas où \(\K = \R\), le réel \(\frac{b -  a}{n} \paren{\sum^{n- 1}_{k=0} f \paren{a + k \frac{b -  a}{n}}}\) correspond à la somme des aires de \(n\) rectangles de largeur \(\frac{b - a}{n}\) et de longueur \(f\paren{a + k \frac{b -  a}{n}}\) avec \(k\) qui varie dans \(\interventierii{0}{n -  1}\)
+\end{defprop}
+\section{Lien entre intégrale et primitive d’une fonction continue}
+    Soit \(f\) une fonction définie sur \(I\), continue sur \(I\), à valeurs dans \(\K\).
+\subsection{Théorème fondamental}
+\begin{theo}
+    \begin{enumerate}
+        \item Pour tout \(a\) appartenant à \(I\), la fonction \(x \mapsto \int^x_a f (t) dt \)est :
+        \begin{itemize}
+            \item dérivable sur \(I\) de dérivée la fonction \(f\) ;
+            \item l’unique primitive de la fonction \(f\) sur \(I\) qui s’annule en \(a\).
+        \end{itemize}
+        \item Pour toute primitive \(F\) de \(f\) sur \(I\), on a :
+        \[\forall (a, b) \in  I^2,\int^b_a f (t) dt = F (b) -  F (a)\]
+    \end{enumerate}
+\end{theo}
+\begin{defprop}[Existence de primitives]
+    Toute fonction numérique continue sur un intervalle \(I\) admet des primitives sur \(I\) et celles-ci permettent de calculer les intégrales de cette fonction sur tout segment inclus dans \(I\).
+\end{defprop}
+\section{Formules de Taylor globales}
+\subsection{Formule de Taylor avec reste intégral}
+\begin{defprop}
+    Soit \(n \in  N\). \\
+    Si \(f\) est une application de classe \(\cal{C}^{n+1}\) sur \(I\) à valeurs dans \(\K\) alors, pour tout couple \((a, x) \in  I^2\), on a :
+    \[f (x) = Tn(x) + Rn(x)\]
+    avec
+    \[ T_n(x) = \sum^n_{K=0}\frac{(x -  a)^K}{K!} f^{(K)}(a) \text{ et } R_n(x) =\int^x_a \frac{(x -  t)^n}{n!} f^{(n+1)}(t) dt\]
+\end{defprop}
+\subsection{Inégalité de Taylor-Lagrange}
+\begin{defprop}
+    Soit \(n \in  N\).\\
+    Si \(f\) est une application de classe \(\cal{C}^{n+1}\) sur \(I\) à valeurs dans \(\K\) alors, pour tout couple \((a, x) \in  I^2\), on a :
+    \[\abs{f (x) -  T_n(x)} \leq \frac{\abs{x -  a}^{n+1}}{(n + 1)}M_{n+1}\]
+    avec
+    \[M_{n+1} \text{ un majorant de }f^{(n+1)} \text{ sur } \intervii{a}{x} (\text{ ou } \intervii{x, a})\]
+\end{defprop}
+\begin{defprop}[Remarque]
+Les deux formules précédentes ont une nature globale contrairement à la formule de Taylor-Young vue dans le chapitre \hyperref[chap:analyse-asymptotique1]{“Analyse asymptotique \((1)\)”} qui elle a une nature locale.
+\end{defprop}
