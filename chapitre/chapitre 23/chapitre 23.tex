@@ -107,8 +107,31 @@ Soit G un \(\K\)-espace vectoriel de dimension finie m muni d’une base \(\cal{
     Soit \(u \in \cal{L}(E, F )\) avec \(E\) et \(F\) de même dimension finie.\\
     \(u\) est un isomorphisme de \(E\) sur \(F\) si, et seulement si, \(\Mat{\cal{B}, \cal{C}}{u}\) est inversible avec, dans ce cas,
     \[\Mat{\cal{C}, \cal{B}}{u^{-1}} =\paren{\Mat{\cal{B}, \cal{C}}{u}}^{-1}\]
-
 \end{defprop}
+
+\begin{dem}
+    \begin{itemize}
+        \item \impdir Supposons que \(u\) est un isomorphisme de \(E\) sur \(F\) .\\
+        Alors, par propriété, sa bijection réciproque \(u^{-1}\) est un isomorphisme de \(F\) sur \(E\) et on a :
+        \[u \circ u^{-1} = \id{F}\text{ et }u^{-1} \circ u = \id{E} \].
+        Par traduction matricielle de ces égalités d’applications linéaires, on trouve successivement :
+        \[\Mat{\cal{B}, \cal{C}}{u} \times \Mat{\cal{C}, \cal{B}}{u^{-1}} = \Mat{\cal{C}, \cal{C}}{\id{F}}\text{ et }\Mat{\cal{C}, \cal{B}}{u^{-1}} \times \Mat{\cal{B}, \cal{C}}{u} = \Mat{\cal{B}, \cal{B}}{\id{E}}.\]
+        \[\Mat{\cal{B}, \cal{C}}{u} \times \Mat{\cal{C}, \cal{B}}{u^{-1}} = I_n \text{ et }\Mat{\cal{C}, \cal{B}}{u^{-1}} \times \Mat{\cal{B}, \cal{C}}{u} = I_n.\]
+        Ceci prouve, par définition, que : \(\Mat{\cal{B}, \cal{C}}{u}\) est inversible d’inverse \(\Mat{\cal{C}, \cal{B}}{u^{-1}}\).
+        \item \imprec Supposons que \(A = \Mat{\cal{B}, \cal{C}}{u}\) est inversible.\\
+        Alors, \(A^{-1}\) existe et appartient à \(\M{n,n}{\K}\). Comme \(\psi : w \mapsto \Mat{\cal{C}, \cal{B}}{w}\) est un isomorphisme de \(\cal{L}(F, E)\) vers \(\M{n,n}{\K}\), il existe une unique application linéaire \(v \in \cal{L}(F, E)\) telle que \(A^{-1}= \psi(v) = \Mat{\cal{C}, \cal{B}}{v}\).\\
+        Or \(\Mat{\cal{B}, \cal{B}}{v \circ u} = \Mat{\cal{C}, \cal{B}}{v} \times \Mat{\cal{B}, \cal{C}}{u}\) donc
+        \[\Mat{\cal{B}, \cal{B}}{v \circ u} = A^{-1} \times A = I_n\]
+        puis
+        \[\Mat{\cal{B}, \cal{B}}{v \circ u} = \Mat{\cal{B}, \cal{B}}{\id{E}}\]
+        et enfin
+        \[v \circ u = \id{E}\]
+        car une application linéaire est déterminée par la donnée de sa matrice dans un couple de bases fixé. \\
+        Ainsi, \(u\) est inversible à gauche donc, par caractérisation des isomorphismes entre espaces vectoriels de même dimension finie, \(u\) est un isomorphisme de \(E\) vers \(F\) . 
+    \end{itemize}
+    \conclusion le résultat attendu est montré par double-implication.
+\end{dem}
+
 
 \subsection{Matrice d’un endomorphisme dans une base}
     Soit \(E\) un \(\K\)-espace vectoriel de dimension finie \(n\) muni d’une base \(\cal{B} = (e_1, \dots , e_n)\).
@@ -392,6 +415,34 @@ Soit \(E\) un \(\K\)-espace vectoriel de dimension finie non nulle
     \underline{Remarque} \\
     Si \(u \in \cal{L}(E, F )\) est de rang \(r\) alors il existe un couple de bases dans lequel \(u\) a pour matrice \(J_r\)
 \end{defprop}
+\begin{dem}
+    \begin{itemize}
+        \item \imprec Supposons que \(A\) est équivalente \(J_r\).\\
+        Alors, par propriété, le rang de \(A\) est égal au rang de \(J_r\). Comme les \(r\) premières colonnes de \(J_r\) forment une famille libre de \(\K^n\) et que les suivantes sont nulles, le rang de \(J_r\) est égal à \(r\).
+        \conclusion : \(A\) est de rang \(r\).
+        \item \impdir Supposons que \(A\) est de rang \(r\). \\
+        Par définition, l’application linéaire \(u\) : \(\K^p \to \K^n\) canoniquement associée à \(A\) est alors de rang \(r\).\\~\\
+        Par théorème du rang appliqué à \(u \in \cal{L}(\K^p, \K^n)\) avec \(\K^p\) de dimension finie \(p\), on a : \(\dim \ker u = p - r\).\\~\\
+        Soit \(S\) un supplémentaire de \(\ker u\) dans \(\K^p\) (qui existe car \(\K^p\) est de dimension finie). On a : \(\dim S = r\).\\~\\
+        On considère \(\cal{B}_S = (e_1, \dots , e_r)\) une base de \(S\) et \(\cal{B}_{\ker} u = (e_{r+1}, \dots , e_p)\) une base de \(ker u\).
+        \begin{itemize}
+            \item Puisque \(\K^p = S \oplus \ker u\), par concaténation de \(\cal{B}_S\) et \(\cal{B}_{\ker} u\), on obtient une base de \(\K^p\)
+            \[B' = (e_1, \dots , e_r, e_{r+1}, \dots , e_p)\]
+            dite adaptée à la décomposition en somme directe.
+            \item D’après la version géométrique du théorème du rang, l’application \(\tilde{u} : S \to \im u\) définie par \(\forall x \in S, \tilde{u}(x) = u(x)\) est un isomorphisme donc transforme toute base de \(S\) en une base de \(\im u\).\\~\\
+            Ainsi, \((\tilde{u}(e_1), \dots , \tilde{u}(e_r)) = (u(e_1), \dots , u(e_r))\) est une base de \(\im u\) donc une famille libre de \(\K^n\).\\~\\
+            On peut donc la compléter, par théorème de la base incomplète, en une base de \(\K^n\) :
+            \[C' = (u(e_1), \dots , u(e_r), f_{r+1}, \dots , f_n) \]
+        \end{itemize}
+        Comme \(\forall i \in \interventierii{1}{r} , \tilde{u}(e_i) = u(e_i)\) et \(\forall i \in \interventierii{r+1}{p} , u(e_i) = 0_{\K^n}\) , par définition de la matrice d’une application linéaire dans un couple de bases, on a
+        \[\Mat{\cal{B}', \cal{C}' }{u} =
+        \left( \begin{array}{cc}
+        I_r & 0_{r,p-r} \\
+        0_{n-r,r} & 0_{n-r,p-r}        
+        \end{array} \right).\]
+    \end{itemize}
+    \conclusion \(A\) et \(J_r\) sont équivalentes, par propriété, car elles représentent \(u \in \cal{L} (\K^p, \K^n)\) dans des couples de bases différents.
+\end{dem}
 \subsection{Rang et transposition}
 \begin{defprop}
     Soit \(A \in \M{n,p}\).
@@ -411,6 +462,31 @@ Soit \(E\) un \(\K\)-espace vectoriel de dimension finie non nulle
 \begin{prop}
     Le rang de \(A \in \M{n,p}\) est supérieur ou égal au rang de toute matrice extraite de \(A\).
 \end{prop}
+\begin{dem}
+    On note \(B\) une matrice extraite de la matrice \(A\), c’est-à-dire une matrice obtenue en supprimant des colonnes \(C_{j_1} \dots , C_{j_s}\) ou des lignes \(L_{i_1} , \dots , L_{i_t}\) de \(A\).\\~\\
+    Par propriété, le rang d’une matrice est le rang de la famille de ses colonnes donc on a \(\rg A \geq \rg A'\)
+    où \(A'\) est la matrice extraite de \(A\) obtenue en supprimant les colonnes \(C_{j_1} \dots , C_{j_s}\) .\\~\\
+    De même
+    \[\rg\trans{A'} \geq \rg \trans{B}\]
+    car \(B\) est la matrice extraite de \(A'\) en supprimant les lignes \(L_{i_1} , \dots , L_{i_t}\) donc \(\trans{B}\) est une matrice extraite de \(\trans{A'}\) en supprimant des colonnes.\\~\\
+    Le rang étant invariant par transposition, on en déduit que : \(\rg A \geq \rg B\).
+    \conclusion Le rang de \(A\) est supérieur ou égal au rang de toute matrice extraite de \(A\).
+\end{dem}
 \begin{defprop}[Caractérisation du rang par les matrices carrées extraites]
 Le rang de \(A \in \M{n,p}\) est la taille maximale des matrices extraites de \(A\) qui sont inversibles.
 \end{defprop}
+\begin{dem}
+    Soit \(r \in \Ns\).\\~\\
+    Montrons que : \(rg A \geq r\) si, et seulement si, il existe une matrice extraite de \(A\) inversible et de taille \(r\).\\~\\
+    (ce qui prouvera que le rang de \(A\) est la taille maximale des matrices extraites de \(A\) inversibles sachant de plus que la matrice nulle est de rang nul et qu’aucune de ses matrices extraites n’est inversible).
+    \begin{itemize}
+        \item Supposons qu’il existe une matrice extraite de \(A\) qui soit inversible et de taille \(r\).\\~\\
+        Alors, par caractérisation de l’inversibilité par le rang, cette matrice est de rang \(r\) donc, par propriété vue sur le rang des matrices extraites de \(A\), on a : \( \rg A \geq r\).
+        \item Supposons \(\rg A \geq r\).\\~\\
+        Il existe donc \(r\) colonnes, \(C_{j_1} \dots , C_{j_r}\) , de \(A\) qui forment une famille libre. On note \(B \in \M{n,r}{\K}\) la matrice extraite de \(A\) en ne conservant que ces colonnes ; \(B\) est de rang \(r\).\\~\\
+        Par propriété, la matrice \(\trans{B} \in \M{r,n}{\K}\) est aussi de rang \(r\). En reprenant le même principe, on obtient donc une matrice \(D \in \M{r,r}{\K}\) de rang \(r\) extraite de \(\trans{B}\) en ne conservant que \(r\) colonnes de \(\trans{B}\) formant une famille libre.\\~\\
+        Les colonnes conservées étant des lignes de la matrice \(B\), la matrice \(\trans{D} \in \M{r}{\K}\) est une matrice extraite de \(A\) de taille \(r\) et de rang \(r\) donc elle est inversible.\\~\\
+        Ainsi, il existe bien une matrice extraite de \(A\) inversible et de taille \(r\).
+    \end{itemize}
+    \(\rg A \geq r\) si, et seulement si, il existe une matrice extraite de \(A\) inversible et de taille \(r\)
+\end{dem}
