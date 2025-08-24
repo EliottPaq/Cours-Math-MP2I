@@ -1,0 +1,63 @@
+\chapter{Groupe Symétrique}
+
+\minitoc
+\section{Généralités}
+\subsection{Groupe symétrique}
+    Soit \(n \in \Ns\).
+\begin{defprop}[Rappel sur le groupe des permutations d’un ensemble]
+    Soit \(X\) un ensemble.\\~\\
+    L’ensemble des applications de \(X\) dans \(X\) qui sont des bijections est un groupe pour la loi de composition interne \(\circ\), appelé groupe des permutations de l’ensemble \(X\) et noté \(\cal{S}_X\) .
+\end{defprop}
+\begin{defprop}[Groupe symétrique]
+    Le groupe des permutations de \(\interventierii{1}{n}\) est appelé groupe symétrique et souvent noté \(\cal{S}_n\) plutôt que \(\cal{S}_{\interventierii{1}{n}}\).
+\end{defprop}
+\subsection{Cycles, transposition}
+    Soit \(n \in \Ns, n \geq 2\).
+\begin{defprop}[Cycle de longueur \(p\)]
+    Soit \(p \in \interventierii{2}{n}\).\\
+    Tout élément \( \sigma\) de \(\cal{S}_n\) pour lequel il existe des éléments distincts \(a_1,\dots , a_p\) de \(\interventierii{1}{n}\) tel que :
+    \[\sigma (a_1) = a_2, \sigma (a_2) = a_3,\dots , \sigma (a_{p-1}) = a_p, \sigma (a_p) = a_1\]
+    et
+    \[\sigma(k) = k \text{ si } k \in \interventierii{1}{n} \pd \accol{a_1,\dots , a_p}\]
+    est dit cycle de longueur \(p\) de \(\interventierii{1}{n}\) et noté \(\sigma = (a_1a_2\dots a_p)\).
+\end{defprop}
+\begin{defprop}[Transposition] 
+    Tout cycle de longueur \(2\) de \(\interventierii{1}{n}\) est aussi appelé transposition de \(\interventierii{1}{n}\)
+\end{defprop}
+\subsection{Décomposition des permutations en produit de cycles disjoints}
+    Soit \(n \in \Ns, n \geq 2\)
+\begin{defprop}[Cycles disjoints]
+    Les cycles \((a_1a_2\dots a_p)\) et \((b_1b_2\dots b_q)\) de \(\interventierii{1}{n}\) sont dits disjoints si \(\accol{a_1,\dots , a_p} \inter \accol{b_1,\dots , b_q} = \emptyset\).\\~\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Deux cycles disjoints commutent.
+        \item Le terme “cycles disjoints” est parfois remplacé par “cycles à supports disjoints” ; le support d’une permutation \(\sigma\) de \(\interventierii{1}{n}\) étant l’ensemble des éléments de \(\interventierii{1}{n}\) qui ne sont pas invariants par \(\sigma\).
+    \end{itemize}
+\end{defprop}
+\begin{defprop}[Théorème de décomposition des permutations (ADMIS)]
+    Toute permutation de \(\interventierii{1}{n}\) peut s’écrire comme composée de cycles disjoints. Cette décomposition est unique, à l’ordre près des facteurs.\\
+    \underline{Remarque}\\
+    Le terme “produit” remplace le terme “composée” si on utilise la notation usuelle \(\sigma\sigma’\) au lieu de \(\sigma \circ \sigma'\).
+\end{defprop}
+\section{Signature d’une permutation}
+    Soit \(n \in \Ns, n \geq 2\).
+\subsection{Décomposition d’une permutation en produit de transpositions}
+\begin{defprop}
+    Toute permutation de \(\interventierii{1}{n}\) peut s’écrire comme composée de transpositions.\\
+    \underline{Remarque}\\
+    La décomposition d’une permutation de \(\interventierii{1}{n}\) comme composée de transpositions n’est pas unique.
+\end{defprop}
+\subsection{Théorème d’existence et unicité de la signature (ADMIS)}
+\begin{theo}
+    Il existe un morphisme de groupes \(\epsilon\) de \((S_n, \circ)\) dans \((\accol{-1, 1}, \times)\) qui envoie les transpositions sur \(-1\).\\
+    Il est défini par :
+    \[\forall\sigma \in S_n, \epsilon(\sigma) = \prod_{\accol{i,j}\in A} \frac{\sigma(j) - \sigma(i)}{j - i}\]
+    où
+    \[A = \accol{\accol{i, j} \tq (i, j) \in \interventierii{1}{n}^2}\] .
+    Ce morphisme de groupes est unique et appelé signature de \(S_n\).\\~\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item La signature d’un cycle de longueur \(p\) est \((-1)^{p-1}\).
+        \item La signature sera utilisée dans le chapitre “Déterminants” pour définir formellement le déterminant d’une famille de vecteurs, d’un endormorphisme ou d’une matrice carrée.
+    \end{itemize}
+\end{theo}
