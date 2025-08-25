@@ -1,0 +1,229 @@
+\chapter{Déterminants}
+
+\minitoc
+
+Dans ce chapitre, \(\K = \R\) ou \(\C\).
+\section{Formes \(n-\)linéaires alternées}
+Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
+\subsection{Définition}
+\begin{defi}
+    Une application \(f : E^n \to \K\) est dite forme \(n-\)linéaire alternée sur \(E\) si :
+    \begin{enumerate}
+        \item \(\forall j \in  \interventierii{1}{n} , \forall  (x_1, \dots  , x_{j-1}, x_{j+1}, \dots  , x_n) \in  E^{n-1}, (x \mapsto f \paren{x_1, \dots  , x_{j-1}, x, x_{j+1}, \dots  , x_n}) \in  \cal{L} (E, \K)\).
+        \item \(f\) s’annule en tout \((x_1, \dots  , x_n) \in  E^n\) pour lequel il existe \((j, k) \in  \interventierii{1}{n}^2 \) avec \(j\neq k\) et \(x_j = x_k\).
+    \end{enumerate}
+\end{defi}
+\subsection{Propriétés}
+\begin{defprop}[Effet sur les familles liées]
+    Si \(f\) est une forme \(n-\)linéaire  alternée sur \(E\) et \((x_1, \dots  , x_n)\) une famille de vecteurs de \(E\) liée alors \[f (x_1, \dots  , x_n) = 0\]
+\end{defprop}
+\begin{defprop}[Antisymétrie]
+    Si \(f\) est une forme \(n-\)linéaire  alternée sur \(E\) alors \(f\) est antisymétrique, c’est-à-dire que :
+    \[\forall  (x_1, \dots  , x_n) \in  E^n, \forall  (j, k) \in  \interventierii{1}{n}^2, j < k \imp f (x_1, \dots  , x_j , \dots  , x_k, \dots  , x_n) = -f (x_1, \dots  , x_k, \dots  , x_j , \dots  , xn) .\]
+    \underline{Remarque}\\
+    En notant \(\epsilon\)  la signature de \(\cal{S}_n\), l’antisymétrie de \(f\) se traduit par : pour tout \((x_1, \dots  , x_n) \in  E^n\) et pour toute transposition \(\theta\) de \(\interventierii{1}{n}\) , \(f\paren{x_{\theta (1)}, \dots  , x_{\theta (n)}} = \epsilon (\theta )f (x_1, \dots  , x_n) .\)
+\end{defprop}
+\begin{defprop}[Effet d’une permutation]
+    Si \(f\) est une forme \(n-\)linéaire  alternée sur \(E\) alors :
+    \[\forall \sigma  \in  \cal{S}_n, \forall  (x_1, \dots  , x_n) \in  E^n, f \paren{ x_{\sigma (1)}, \dots  , x_{\sigma (n)}} = \epsilon (\sigma )f \paren{x_1, \dots  , x_n} .\]
+\end{defprop}
+
+\section{Déterminant d’une famille de vecteurs dans une base}
+    Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle n muni d’une base \(\cal{B} = (e_1, \dots  , e_n)\) .
+\subsection{Théorème}
+\begin{theo}
+    \begin{enumerate}
+        \item Il existe une unique forme \(n-\)linéaire  alternée \(f\) sur \(E\) telle que \(f (\cal{B}) = f (e_1, \dots  , e_n) = 1\).
+            Cette forme \(n-\)linéaire  alternée sur \(E\) est notée \(\det_{\cal{B}}\) et vérifie :
+                \[\det_{\cal{B}}(\cal{B}) = 1.\]
+        \item Toute forme \(n-\)linéaire  alternée \(g\) sur \(E\) est un multiple de \(\det_{\cal{B}}\) avec, plus précisément :
+            \[g = g (\cal{B}) \det_{\cal{B}}.\]
+    \end{enumerate}
+\end{theo}
+\subsection{Déterminant d’une famille de vecteurs dans une base}
+\begin{defi}
+    Soit \((x_1, \dots  , x_n)\) une famille de \(n\) vecteurs de \(E\).\\~\\
+    Le scalaire \(\det_{\cal{B}} (x_1, \dots  , x_n)\) est dit déterminant de la famille \((x_1, \dots  , x_n)\) dans la base \(\cal{B}\).
+\end{defi}
+\begin{defprop}[Expression du déterminant avec les coordonnées]
+    Si \((x_1, \dots  , x_n)\) est une famille de \(n\) vecteurs de \(E\) et \(A = (a_{ij} )_{(i,j)\in \interventierii{1}{n}} = \Mat{\cal{B}}{x_1, \dots  , x_n}\) alors :
+    \[\det_{\cal{B}}(x_1, \dots  , x_n) = \sum_{\sigma \in \cal{S}_n} \epsilon (\sigma ) \paren{\prod^{n}_{j=1} a_{\sigma (j)j}}\]
+
+    \underline{Remarque}\\
+    A l’issue de ce chapitre, on disposera de moyens plus pratiques que le recours à cette formule théorique pour calculer le déterminant d’une famille de vecteurs.
+\end{defprop}
+
+\begin{defprop}[Cas particuliers des dimension \(2\) et \(3\)]
+    \begin{itemize}
+        \item Si \(E\) est de dimension \(2\) et \((x, y)\) une famille de deux vecteurs de \(E\) de matrice \(\begin{pmatrix}
+              x_{1} & y_{1} \\
+              x_{2} & y_{2}
+              \end{pmatrix}\) dans une base \(\cal{B}\) de \(E\) alors :
+            \[\det_{\cal{B}}(x, y) = x_1y_2 - x_2y_1 \underset{\text{Not.}}{=}\begin{vmatrix}
+              x_{1} & y_{1} \\
+              x_{2} & y_{2}
+              \end{vmatrix}\]
+        \item Si \(E\) est de dimension \(3\) et \((x, y, z)\) une famille de trois vecteurs de \(E\) de matrice\(\begin{pmatrix}
+              x_{1} & y_{1} & z_{1} \\
+              x_{2} & y_{2} & z_{2} \\
+              x_{3} & y_{3} & z_{3}
+              \end{pmatrix}\) dans une base \(\cal{B}\) de \(E\) alors :
+            \[\det_{\cal{B}}(x, y, z) = x_1 y_2 z_3 + x_2 y_3 z_1 + x_3 y_1 z_2 - x_3 y_2 z_1 - x_2 y_1 z_3 - x_1 y_3 z_2 \underset{\text{Not.}}{=} \begin{vmatrix}
+              x_{1} & y_{1} & z_{1} \\
+              x_{2} & y_{2} & z_{2} \\
+              x_{3} & y_{3} & z_{3}
+              \end{vmatrix}\]
+    \end{itemize}
+\end{defprop}
+\subsection{Formule de changement de bases}
+\begin{defprop}
+    Si \(\cal{B}'\) est une autre base de \(E\) alors \(\det_{\cal{B}'} = \det_{\cal{B}'}(B) \det_{\cal{B}}\) c’est-à-dire que :
+    \[\forall  (x_1, \dots  , x_n) \in  E, det_{\cal{B}'} (x_1, \dots  , x_n) = \det_{\cal{B}'}(\cal{B}) \det_{\cal{B}} (x_1, \dots  , x_n) \]
+\end{defprop}
+\subsection{Caractérisation des bases par le déterminant}
+\begin{defprop}
+    Une famille \(\cal{B}' = (x_1, \dots  , x_n)\) de \(n\) vecteurs de \(E\) est une base de \(E\) si, et seulement si, \(\det_{\cal{B}}(\cal{B}')\neq 0\) avec dans ce cas,
+    \[\det_{\cal{B}}(\cal{B}') = (\det_{\cal{B}'}(\cal{B}))^{-1} \]
+    \underline{Remarque}\\
+    En \(2^e\) année MPI, les notions d’orientation d’un \(\R-\)espace vectoriel de dimension finie et de bases directes ou indirectes seront définies en utilisant la notion de déterminant.
+\end{defprop}
+\section{Déterminant d’un endomorphisme ou d’une matrice carrée}
+\subsection{Cas d’un endomorphisme en dimension finie}
+    Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle.
+\begin{theo}
+    Soit \(u\) un endomorphisme de \(E\).\\~\\
+    Le scalaire \(\det_{\cal{B}} (u(\cal{B}))\), qui ne dépend pas de la base \(\cal{B}\) de \(\cal{E}\) considérée, est appelé déterminant de \(u\) et noté \(\det(u)\) :
+    \[\det (u) = \det_{\cal{B}} (u(\cal{B})) \text{ avec }\cal{B} \text{ base quelconque de } E\]
+    \underline{Exemples simples}\\
+    \begin{itemize}
+        \item En particulier, \( \det\paren{ 0_{\cal{L}(E)}} = 0\) et \(\det (\id{E} ) = 1\).
+        \item Plus généralement,
+        \begin{itemize}
+            \item le déterminant d’une homothétie \(h_\alpha\)  de \(E\) de rapport \(\alpha\)  est : \(\det (h_{\alpha} ) = \alpha  \dim E\) .
+            \item le déterminant d’une projection \(p\) de \(E\) autre que l’identité est : \(\det (p) = 0\).
+            \item de déterminant d’une symétrie \(s\) de \(E\) est : \(\det (s) = (-1)^{\dim E-\dim F}\) où \( F = \ker(s - \id{E} )\)
+        \end{itemize}
+    \end{itemize}
+\end{theo}
+\begin{prop}
+    \begin{enumerate}
+        \item \(\forall \lambda \in  \K, \forall u \in  \cal{L}(E), \det (\lambda u) = \lambda ^{\dim E} det (u)\)
+        \item \(\forall (u, v) \in  (\cal{L}(E))^2 , \det (v \circ u) = \det (v) \det (u) = \det (u) \det (v)\)
+        \item \(\forall q \in \N, \forall u \in  \cal{L}(E) , \det (u^q) = (\det u)^q \)
+    \end{enumerate}
+\end{prop}
+
+\begin{defprop}[Caractérisation des automorphismes avec le déterminant]
+    Un endomorphisme \(u\) de \(E\) est bijectif si, et seulement si, \(\det (u)\neq 0\) avec dans ce cas,
+    \[det (u^{-1}) = (\det (u))^{-1}\]
+\end{defprop}
+\begin{defprop}[Morphisme de groupes de \(\cal{GL}(E)\) vers \(\Ks\)]
+    L’application \(u \in  \cal{GL}(E) \mapsto \det (u)\) est un morphisme de groupes de \(\paren{\cal{GL}(E), \circ}\) vers \(\paren{\Ks, \times}\) .
+\end{defprop}
+\subsection{Déterminant d’une matrice carrée}
+    Soit \(n \in  \Ns\).
+\begin{defi}
+    On appelle déterminant d’une matrice \(A \in  \M{n}\), et on note \(\det (A)\), le déterminant de l’endomorphisme de \(\K^n\) canoniquement associé à \(A\).\\~\\
+    \underline{Exemples simples}\\
+    En particulier, \(\det \paren{0_{\M{n}}} = 0\) et \(\det (I_n) = 1\).  
+\end{defi}
+\begin{defprop}[Caractère \(n-\)linéaire  alterné du déterminant par rapport aux colonnes]
+    Si \(C_1, \dots  , C_n\) sont les colonnes de \(A \in  \M{n}\) et \(\cal{B}_{can}\) est la base canonique de \(\K^n\) alors
+    \[\det(A) = \det_{\cal{B}_{can}} (C_1, \dots  , C_n)\]
+    donc le déterminant d’une matrice carrée est \(n-\)linéaire  alterné par rapport aux colonnes.
+\end{defprop}
+
+\begin{prop}
+    Soit \(A\) et \(B\) deux matrices de \(\M{n}, \lambda \in  \K\) et \(q \in \N\).
+    \begin{enumerate}
+        \item \(\det(A) = -det(A')\) où \(A'\) est la matrice obtenue en échangeant deux colonnes de \(A\).
+        \item Si deux colonnes de \(A\) sont égales (resp. si les colonnes de \(A\) sont liées) alors \(\det(A) = 0\).
+        \item \(\det(\lambda A) = \lambda^n \det(A)\)
+        \item \(\det(AB) = \det(A) \det(B) = \det(B) \det(A)\).
+        \item \(\det(A^q) = (\det(A))^q\).
+    \end{enumerate}
+\end{prop}
+
+\begin{defprop}[Caractérisation des matrices inversibles avec le déterminant]
+    Une matrice\( A \in  \M{n}\) est inversible si, et seulement si, \(\det(A) \neq 0\) avec, dans ce cas, \[\det(A^{-1}) = (\det(A))^{-1}\]
+\end{defprop}
+
+\begin{defprop}[Morphisme de groupes de \(\cal{GL}_n(\K)\) vers \(\Ks\)]
+    L’application \(A \in  \cal{GL}_n(\K) \mapsto \det(A)\) est un morphisme de groupes de \((\cal{GL}_n(\K), \times)\) vers \((\Ks, \times)\) .
+\end{defprop}
+
+\begin{defprop}[Déterminant de matrices semblables]
+    Si \(A\) et \(B\) sont des matrices semblables alors \(\det(A) = \det(B)\).
+\end{defprop}
+\begin{defprop}[Expression du déterminant à l’aide des coefficients de la matrice]
+    Si \(A = (a_{ij} )_{(i,j)\in \interventierii{1}{n}^2} \in \M{n}\) alors
+    \[\det (A) = \sum_{\sigma \in \cal{S}_n} \epsilon (\sigma ) \paren{\prod^n_{j=1} a_{\sigma(j)j}}\]
+\end{defprop}
+
+\begin{defprop}[Déterminant et transposition]
+    Les déterminants d’une matrice carrée et de sa transposée sont égaux :
+    \[\forall A \in  \M{n} , \det(\trans{A}) = \det(A)\]
+    \underline{Remarque}\\
+    Les propriétés vues sur le déterminant d’une matrice carrée relatives à ses colonnes s’étendent aux lignes.
+\end{defprop}
+
+\subsection{Calcul de déterminants en pratique}
+    On note \(C_1, \dots  , C_n\) les colonnes (resp. \(L_1, \dots  , L_n\) les lignes) de \(A = (a_{ij} )_{1\leq i,j\leq n} \in  \M{n}\).
+\begin{defprop}[Effet des opérations élémentaires sur un déterminant]
+    \begin{enumerate}
+        \item L’opération élémentaire \(C_r \leftarrow \lambda C_r\) multiplie le déterminant par \(\lambda\).
+        \item L’opération élémentaire \(C_r \leftrightarrow C_s\) avec \(r\neq s\) multiplie le déterminant par \(-1\).
+        \item L’opération élémentaire \(C_r \leftarrow C_r + \lambda C_s\) avec \(r\neq s\) ne modifie pas le déterminant.
+    \end{enumerate}
+    \underline{Remarque}\\
+    On obtient le même résultat avec les opérations élémentaires sur les lignes.
+\end{defprop}
+
+\begin{defprop}[Développement suivant une colonne (ou une ligne)]
+    Pour \((i, j) \in  \interventierii{1}{n}^2\), on appelle cofacteur du coefficient \(a_{ij}\) de \(A\) le scalaire noté \(A_{ij}\) défini par :
+    \[A_{ij} = (-1)^{i+j} M_{ij}\]
+    où \(M_{ij}\) est le déterminant de la matrice extraite de \(A\) obtenue en supprimant \(L_i\) et \(C_j\) .
+    \begin{enumerate}
+        \item Formule de calcul du déterminant par développement suivant la \(j^e\) colonne.
+        \[\det(A) = a_{1j} A_{1j} + a_{2j} A_{2j} + \dots + a_{nj} A_{nj} = \sum^n_{i=1} a_{ij} A_{ij}\] 
+        \item Formule de calcul du déterminant par développement suivant la \(i^e\) ligne.
+        \[\det(A) = a_{i1}A_{i1} + a_{i2}A_{i2} + \dots + a_{in}A_{in} = \sum^n_{j=1} a_{ij} A_{ij} \]
+    \end{enumerate}
+    \underline{Remarque :}\\
+    Sauf cas particulier, avant d’utiliser ces formules de développement, on effectuera des opérations élémentaires pour obtenir un maximum de zéros ou un facteur commun sur une ligne/colonne.
+\end{defprop}
+
+\begin{defprop}[Déterminant de matrices particulières]
+    \begin{enumerate}
+        \item Le déterminant d’une matrice triangulaire est le produit de ses éléments diagonaux.
+        \item Déterminant de la matrice de Vandermonde pour \((x_1, \dots  , x_n) \in  \K^n \).
+        \[\det\begin{pmatrix}
+            1 & x_1 & \dots & x_{n-1}\\
+            1 & x_2 & \dots & x_{n-1}\\
+            \vdots & \vdots &&\vdots \\
+            1 & x_n \dots  x^{n-1}_n 
+            \end{pmatrix} = \prod_{1\leq s<t\leq n}(x_t - x_s)
+        \]
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Comatrice}
+\begin{defi}
+    Soit \(A = (a_{ij} )_{(i,j)\in \interventierii{1}{n}^2} \in  \M{n}\) .\\~\\
+    On appelle comatrice de \(A\), et on note \(\Com{A}\), la matrice de \(\M{n}\) définie par 
+    \[\Com{A} = (A_{ij} )_{(i,j) \in \interventierii{1}{n}^2}\]
+    où \(A_{ij}\) est le cofacteur de l’élément \(a_{ij}\) de \(A\).\\
+    \underline{Remarque}\\
+    Autrement dit, la comatrice de \(A\) est la matrice des cofacteurs de \(A\).
+\end{defi}
+
+\begin{defprop}[Relation liant \(A\) et sa comatrice]
+    Pour toute matrice \(A\) de \(\M{n}\), on a :
+    \[A \trans{\Com{A}} = \trans{\Com{A}} A = \det (A)I_n.\]
+\end{defprop}
+\begin{defprop}[Expression de l’inverse d’une matrice]
+    Si \(A\) est une matrice inversible de \(\M{n}\) alors
+    \[A^{-1} = \frac{1}{\det (A)} \trans{\Com{A}} \]
+    \underline{Remarque}\\
+    Cette formule est à bannir pour des calculs pratiques lorsque \(n \geq 3\) en raison de la lourdeur des calculs qu’elle implique.
+\end{defprop}
