@@ -13,6 +13,7 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
         \item \(f\) s’annule en tout \((x_1, \dots  , x_n) \in  E^n\) pour lequel il existe \((j, k) \in  \interventierii{1}{n}^2 \) avec \(j\neq k\) et \(x_j = x_k\).
     \end{enumerate}
 \end{defi}
+
 \subsection{Propriétés}
 \begin{defprop}[Effet sur les familles liées]
     Si \(f\) est une forme \(n-\)linéaire  alternée sur \(E\) et \((x_1, \dots  , x_n)\) une famille de vecteurs de \(E\) liée alors \[f (x_1, \dots  , x_n) = 0\]
@@ -29,7 +30,7 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
 \end{defprop}
 
 \section{Déterminant d’une famille de vecteurs dans une base}
-    Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle n muni d’une base \(\cal{B} = (e_1, \dots  , e_n)\) .
+    Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\) muni d’une base \(\cal{B} = (e_1, \dots  , e_n)\) .
 \subsection{Théorème}
 \begin{theo}
     \begin{enumerate}
@@ -40,6 +41,23 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
             \[g = g (\cal{B}) \det_{\cal{B}}.\]
     \end{enumerate}
 \end{theo}
+\begin{dem}
+    On note \(\cal{A}_n\) l’ensemble des formes \(n-\)linéaires alternées sur \(E\) et on considère \(g \in \cal{A}_n\).\\~\\
+    Soit \((x_1, \dots , x_n) \in E^n\).\\~\\
+    Pour tout \(j \in \interventierii{1}{n}\) , on note \(x_j = \sum^n_{i=1} a_{i,j} e_i\) la décomposition de \(x_j\) dans la base \(\cal{B} = \paren{e_1, \dots , e_n}\) de \(E\).\\~\\
+    Alors, par \(n-\)linéarité de \(g\), on a : \(g (x_1, \dots , x_n) = \sum_{(i_1,\dots,i_n)\in \interventierii{1}{n}^n} a_{i_1,1} \dots a_{i_n,n} \underbrace{g (e_{i_1} , \dots , e_{i_{n}} )}_{\substack{= 0\\ \text{ Si deux indices égaux}}}\)\\~\\
+    Vu le caractère alterné de \(g\), on ne conserve dans la somme que les termes correspondant aux \(n-\)uplets \((i_1, \dots , i_n)\) d’éléments deux à deux distincts, c’est-à-dire les \(n-\)uplets \((\sigma (1), \dots , \sigma (n))\) avec \(\sigma\)  qui décrit le groupe symétrique \(\cal{S}_n\). Ainsi :
+    \[g (x_1, \dots , x_n) = \sum_{\sigma \in\cal{S}_n} a_{\sigma (1),1} \dots a_{\sigma (n),n} g \paren{e_{\sigma (1)}, \dots , e_{\sigma (n)}}\]
+    Comme \(g\) est forme \(n-\)linéaire alternée sur \(E\), on a : \(\forall \sigma  \in \cal{S}_n, g \paren{e_{\sigma (1)}, \dots , e_{\sigma (n)}  = \epsilon(\sigma )g(e_1, \dots , e_n)}\) où \(\epsilon(\sigma )\) est la signature de \(\sigma\) . Cela donne, après factorisation,
+    \[\forall  (x_1, \dots , x_n) \in E^n, g (x_1, \dots , x_n) = \paren{\sum_{\sigma \in\cal{S}_n} \epsilon(\sigma ) \prod^n_{i=1} a_{\sigma (i),i}} \underbrace{g (e_1, \dots , e_n)}_{\in \K} \text{ donc } g = g (e_1, \dots , e_n)f \qquad \star\]
+
+    en notant \(f : E^n \to \K\) la forme \(n-\)linéaire alternée définie par \(f : (x_1, \dots , x_n) \mapsto \paren{\sum_{\sigma \in\cal{S}_n}\epsilon(\sigma)\prod^n_{i=1} a_{\sigma (i),i}}\) avec \((a_{k,i})_{1\geq k\geq n}\) famille des coordonnées de \(x_k\).\\~\\
+    Pour tout \(j \in \interventierii{1}{n}\) , on a \(e_j =\sum^n_{i=1}\delta_{i,j} e_i\) donc \(f (e_1, \dots , e_n) = \epsilon(\id{\cal{S}_n})\prod^n_{i=1} \delta_{\id{\N}(i),i}\) puis \(f (e_1, \dots , e_n) = 1\). La relation \((\star)\) assure de plus que \(f\) est la seule forme \(n-\)linéaire alternée sur \(E\) vérifiant cette égalité.\\~\\
+    D’après \((\star)\), on a l’inclusion \(\cal{A}_n \Subset \Vect{F}\) puis \(\cal{A}_n = \Vect{f}\) (car tout \(g\) de \(\Vect{f}\) est forme \(n-\)linéaire alternée sur \(E\) puisque \(f\) l’est) avec \(\Vect{f}\) espace vectoriel de dimension \(1\) (car \(f\) n’est pas nulle puisqu’elle vaut \(1\) en \((e_1, \dots , e_n)\)).\\~\\
+    \conclusion\\~\\
+     L’ensemble des formes \(n-\)linéaires alternées sur \(E\) est un espace vectoriel de dimension \(1\) engendré par \(f : (x_1, \dots , x_n) \mapsto \paren{\sum_{\sigma \in\cal{S}_n} \epsilon(\sigma ) \prod^n_{i=1} a_{\sigma (i),i}}\), seule forme \(n-\)linéaire alternée sur \(E\) qui vérifie \(f (\cal{B}) = 1\).\\~\\
+     En notant \(f = \det_{\cal{B}}\) (dit déterminant dans la base \(\cal{B}\) de \(E\)) , on a donc \(g = g (\cal{B}) \det_{\cal{B}} \) pour toute forme \(n-\)linéaire alternée \(g\) sur \(E\).
+\end{dem}
 \subsection{Déterminant d’une famille de vecteurs dans une base}
 \begin{defi}
     Soit \((x_1, \dots  , x_n)\) une famille de \(n\) vecteurs de \(E\).\\~\\
@@ -63,7 +81,7 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
               x_{1} & y_{1} \\
               x_{2} & y_{2}
               \end{vmatrix}\]
-        \item Si \(E\) est de dimension \(3\) et \((x, y, z)\) une famille de trois vecteurs de \(E\) de matrice\(\begin{pmatrix}
+        \item Si \(E\) est de dimension \(3\) et \((x, y, z)\) une famille de trois vecteurs de \(E\) de matrice \(\begin{pmatrix}
               x_{1} & y_{1} & z_{1} \\
               x_{2} & y_{2} & z_{2} \\
               x_{3} & y_{3} & z_{3}
@@ -77,7 +95,7 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
 \end{defprop}
 \subsection{Formule de changement de bases}
 \begin{defprop}
-    Si \(\cal{B}'\) est une autre base de \(E\) alors \(\det_{\cal{B}'} = \det_{\cal{B}'}(B) \det_{\cal{B}}\) c’est-à-dire que :
+    Si \(\cal{B}'\) est une autre base de \(E\) alors \(\det_{\cal{B}'} = \det_{\cal{B}'}(\cal{B}) \det_{\cal{B}}\) c’est-à-dire que :
     \[\forall  (x_1, \dots  , x_n) \in  E, det_{\cal{B}'} (x_1, \dots  , x_n) = \det_{\cal{B}'}(\cal{B}) \det_{\cal{B}} (x_1, \dots  , x_n) \]
 \end{defprop}
 \subsection{Caractérisation des bases par le déterminant}
@@ -105,6 +123,22 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
         \end{itemize}
     \end{itemize}
 \end{theo}
+\begin{dem}
+    On considère l’application \(g : E^n \to \K\) définie par
+    \[\forall  (x_1, \dots , x_n) \in E^n, g (x_1, \dots , x_n) = \det_{\cal{B}'}(u(x_1), \dots , u(x_n))\]
+    Montrons que \(g(\cal{B}') = \det_{\cal{B}} (u(\cal{B}))\) ce qui donnera le résultat souhaité.\\~\\
+    Comme \(\det_{\cal{B}'}\) est une forme \(n-\)linéaire alternée sur \(E\) et que \(u\) est un endomorphisme de \(E\), on vérifie aisément que \(g\) est une forme \(n-\)linéaire alternée sur \(E\).\\~\\
+    Par théorème, on a donc :
+    \[g = g(\cal{B}) \det_{\cal{B}}\]
+    En particulier :
+    \[g(\cal{B}') = g(\cal{B}) \det_{\cal{B}} (\cal{B}') \]
+    Or \(g(\cal{B}) = \det_{\cal{B}'} (u(\cal{B}))\) (par définition de \(g\)) et \(\det_{\cal{B}'} (u(\cal{B})) = \det_{\cal{B}'} (\cal{B}) \det_{\cal{B}}(u(\cal{B}))\) (par formule de changement de bases) donc :
+    \[g(\cal{B}') = \det_{\cal{B}'} (\cal{B}) \det_{\cal{B}} (\cal{B}') \det_{\cal{B}} (u(\cal{B}))\]
+    Comme \(\det_{\cal{B}}' (\cal{B}) \det_{\cal{B}} (\cal{B}') = \det_{\cal{B}'} (\cal{B}')\) (par formule de changement de bases) et \(\det_{\cal{B}'} (\cal{B}') = 1\) (par définition de \(\det_{\cal{B}'}\) ), on en déduit que :
+    \[g(\cal{B}') = \det_{\cal{B}} (u(\cal{B}))\]
+    autrement dit
+    \[\det_{\cal{B}'} (u(\cal{B}')) = \det_{\cal{B}} (u(\cal{B})) \]
+\end{dem}
 \begin{prop}
     \begin{enumerate}
         \item \(\forall \lambda \in  \K, \forall u \in  \cal{L}(E), \det (\lambda u) = \lambda ^{\dim E} det (u)\)
@@ -128,24 +162,24 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
     En particulier, \(\det \paren{0_{\M{n}}} = 0\) et \(\det (I_n) = 1\).  
 \end{defi}
 \begin{defprop}[Caractère \(n-\)linéaire  alterné du déterminant par rapport aux colonnes]
-    Si \(C_1, \dots  , C_n\) sont les colonnes de \(A \in  \M{n}\) et \(\cal{B}_{can}\) est la base canonique de \(\K^n\) alors
-    \[\det(A) = \det_{\cal{B}_{can}} (C_1, \dots  , C_n)\]
+    Si \(C_1, \dots  , C_n\) sont les colonnes de \(A \in  \M{n}\) et \(B_{can}\) est la base canonique de \(\K^n\) alors
+    \[\det(A) = \det_{B_{can}} (C_1, \dots  , C_n)\]
     donc le déterminant d’une matrice carrée est \(n-\)linéaire  alterné par rapport aux colonnes.
 \end{defprop}
 
 \begin{prop}
-    Soit \(A\) et \(B\) deux matrices de \(\M{n}, \lambda \in  \K\) et \(q \in \N\).
+    Soit \(A\) et \(\cal{B}\) deux matrices de \(\M{n}, \lambda \in  \K\) et \(q \in \N\).
     \begin{enumerate}
         \item \(\det(A) = -det(A')\) où \(A'\) est la matrice obtenue en échangeant deux colonnes de \(A\).
         \item Si deux colonnes de \(A\) sont égales (resp. si les colonnes de \(A\) sont liées) alors \(\det(A) = 0\).
         \item \(\det(\lambda A) = \lambda^n \det(A)\)
-        \item \(\det(AB) = \det(A) \det(B) = \det(B) \det(A)\).
+        \item \(\det(AB) = \det(A) \det(\cal{B}) = \det(\cal{B}) \det(A)\).
         \item \(\det(A^q) = (\det(A))^q\).
     \end{enumerate}
 \end{prop}
 
 \begin{defprop}[Caractérisation des matrices inversibles avec le déterminant]
-    Une matrice\( A \in  \M{n}\) est inversible si, et seulement si, \(\det(A) \neq 0\) avec, dans ce cas, \[\det(A^{-1}) = (\det(A))^{-1}\]
+    Une matrice \( A \in  \M{n}\) est inversible si, et seulement si, \(\det(A) \neq 0\) avec, dans ce cas, \[\det(A^{-1}) = (\det(A))^{-1}\]
 \end{defprop}
 
 \begin{defprop}[Morphisme de groupes de \(\cal{GL}_n(\K)\) vers \(\Ks\)]
@@ -153,7 +187,7 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
 \end{defprop}
 
 \begin{defprop}[Déterminant de matrices semblables]
-    Si \(A\) et \(B\) sont des matrices semblables alors \(\det(A) = \det(B)\).
+    Si \(A\) et \(\cal{B}\) sont des matrices semblables alors \(\det(A) = \det(\cal{B})\).
 \end{defprop}
 \begin{defprop}[Expression du déterminant à l’aide des coefficients de la matrice]
     Si \(A = (a_{ij} )_{(i,j)\in \interventierii{1}{n}^2} \in \M{n}\) alors
@@ -192,6 +226,66 @@ Soit \(E\) un espace vectoriel sur \(\K\) de dimension finie non nulle \(n\).
     \underline{Remarque :}\\
     Sauf cas particulier, avant d’utiliser ces formules de développement, on effectuera des opérations élémentaires pour obtenir un maximum de zéros ou un facteur commun sur une ligne/colonne.
 \end{defprop}
+\begin{dem}
+    On note \(C_1, \dots , C_n\) les colonnes (resp \(L_1, \dots , L_n\) les lignes) de \(A\) et \(\cal{B} = (e_1, \dots , e_n)\) la base usuelle de \(\K^n\).\\~\\
+    Soit \(j \in \interventierii{1}{n}\).\\
+    Par définition du déterminant de \(A\),on a :
+    \[\det (A) = \det_{\cal{B}} (C_1, \dots , C_j , \dots , C_n) = \det_{\cal{B}}\paren{ C_1, \dots , \sum^n_{i=1} a_{ij} e_i, \dots , C_n}\]
+    Par linéarité du déterminant d’une matrice par rapport à chacune des ses colonnes, on trouve :
+    \[\det (A) = \sum^n_{i=1} a_{ij} \det_{\cal{B}} \paren{C_1, \dots , e_i, \dots , C_n} \qquad(\star)\]
+    On note
+    \[A_{ij} = \det_{\cal{B}} \paren{C_1, \dots C_{j-1}, e_i, C_{j+1}, \dots , C_n} \]
+    Comme l’échange de deux colonnes multiplie le déterminant par \(-1\), en intervertissant successivement les colonnes \(j\) et \(j + 1\), puis \(j + 1\) et \(j + 2\) jusqu’aux colonnes \(n - 1\) et \(n\) ( ce qui fait \(n - j\) interversions), on trouve :
+    \[A_{ij} = (-1)^{n-j} \det_{\cal{B}} \paren{C_1, \dots C_{j-1}, C_{j+1}, C_{j+2}, \dots , C_n, e_j } \].
+    On procède de même avec les lignes en intervertissant successivement les lignes \(i\) et \(i + 1\), puis \(i + 1\) et \(i + 2\) jusqu’aux lignes \(n - 1\) et \(n\) (ce qui fait \(n - i\) interversions) et on trouve :
+    \[A_{ij} = (-1)^{n-j} (-1)^{n-i} \det 
+    \begin{pmatrix}
+    a_{1,1}   & \dots & a_{1,j-1}   & a_{1,j+1}   & \dots & a_{1,n}  & 0      \\
+    \vdots    &       & \vdots      & \vdots      &       & \vdots   & \vdots \\
+    a_{i-1,1} & \dots & a_{i-1,j-1} & a_{i-1,j+1} & \dots & a_{i-1,n}& 0      \\
+    a_{i+1,1} & \dots & a_{i+1,j-1} & a_{i+1,j+1} & \dots & a_{i+1,n}& 0      \\
+    \vdots    &       & \vdots      & \vdots      &       & \vdots   & \vdots \\
+    a_{n,1}   & \dots & a_{n,j-1}   & a_{n,j+1}   & \dots & a_{n,n}  & 0      \\
+    a_{i,1}   & \dots & a_{i,j-1}   & a_{i,j+1}   & \dots & a_{i,n}  & 1 
+    \end{pmatrix}
+    \]
+    Ainsi, \(A_{ij} = (-1)^{i+j} \det B_{ij}  \qquad (\star\star)\) où \(B_{ij}\) est la matrice définie par blocs
+    \[B_{ij} =\begin{pmatrix}
+        C_{ij} & 0_{n-1,1} \\
+        D_{ij} & 1         
+    \end{pmatrix}\]
+    avec
+    \begin{itemize}
+        \item \(C_{ij}\) matrice extraite de \(A\) en otant \(L_i\) et \(C_j\)
+        \item \(D_{ij}\) ligne extraite de \(L_i\) en otant sa colonne \(j\).
+    \end{itemize}
+    Montrons que \(\det B_{ij} = \det C_{ij}\)\\
+    (cas particulier d’un résultat général qui sera montré en MPI : le déterminant d’une matrice triangulaire par blocs est égal au produit des déterminants de ses blocs diagonaux)\\~\\
+    Pour simplifier, on note \(B\) (resp. \(C\)) et pas \(B_{ij}\) (resp. \(C_{ij}\) ) avec \(\cal{B} = (b_{i,j} )_{(i,j) \in\interventierii{1}{n}^2}\) et \(C = (c_{i,j})_{(i,j)\in \interventierii{1}{n-1}^2}\).\\~\\
+    On sait que
+    \[\det B = \sum_{\sigma \in\cal{S}_n} \epsilon(\sigma )b_{\sigma (1),1}b_{\sigma (2),2} \dots b_{\sigma (n),n}\]
+    avec, par définition de \(B, b_{\sigma (n),n} = 
+    \begin{cases}
+        0 \text{ si }\sigma (n)\neq n \\
+        1 \text{ si }\sigma (n) = n\\
+    \end{cases}
+    \)\\
+    Ainsi :
+    \[\det B = \sum_{\sigma \in T_n} \epsilon(\sigma )b_{\sigma (1),1}b_{\sigma (2),2} \dots b_{\sigma (n-1),n-1}\]
+    avec \(T_n = \accol{\sigma  \in \cal{S}_n \tq \sigma (n) = n}\) (\ie l’ensemble des permutations de \(\interventierii{1}{n}\) qui laissent \(n\) invariant).\\~\\
+    \(\psi : T_n \to \cal{S}_{n-1}\) définie par \(\forall \sigma  \in T_n, \psi(\sigma ) = \sigma '\) avec \(\sigma  \in \cal{S}_{n-1}\) tel que \(\forall i \in \interventierii{1}{n-1} , \sigma '(i) = \sigma (i)\)
+    \begin{itemize}
+        \item est bijective (de bijection réciproque \(\psi : \cal{S}_{n-1} \to T_n\) définie par \(\forall \sigma ' \in \cal{S}_{n-1}, \psi(\sigma ') = \sigma\)  avec \(\sigma  \in \cal{S}_n\) tel que \(\forall i \in \interventierii{1}{n-1} , \sigma (i) = \sigma '(i)\) et \(\sigma (n) = n\))
+        \item  conserve la signature des permutations \ie \(\forall \sigma  \in T_n, \epsilon (\psi(\sigma )) = \epsilon(\sigma )\) car, comme \(\sigma\)  et \(\sigma ' = \psi(\sigma )\)coïncident sur \(\interventierii{1}{n-1}\) et que \(n\) est invariant par \(\sigma\) , les permutations \(\sigma\)  et \(\psi(\sigma )\) peuvent se décomposer en le même produit de transpositions donc ont même signature.
+    \end{itemize}
+    On en déduit, avec le changement d’indice bijectif \(\sigma ' = \psi(\sigma )\), que 
+    \[\det B = \sum_{\sigma '\in\cal{S}_{n-1}}\epsilon(\sigma ')b_{\sigma '(1),1}b_{\sigma '(2),2} \dots b_{\sigma '(n-1),n-1}\]
+    Vu le lien entre les coefficients de \(C\) et ceux de \(\cal{B}\), on en déduit que \(\det \cal{B} = \sum_{\sigma '\in\cal{S}_{n-1}} \epsilon(\sigma ')c_{\sigma '(1),1}c_{\sigma '(2),2} \dots c_{\sigma '(n-1),n-1}\) ce qui donne, par formule théorique du déterminant de \(C\) :
+    \[\det B = \det C\]
+    \conclusion avec les résultats \((\star)\) et \((\star\star)\) trouvés, on en déduit que :
+    \[\det(A) = a_{1j} A_{1j} + \dots + a_{nj} A_{nj} = \sum^n_{i=1} a_{ij} A_{ij} \]
+    où \(A_{ij} = (-1)^{i+j} M_{ij}\) où \(M_{ij} = \det (C_{ij} )\) avec \(C_{ij}\) , matrice extraite de \(A\) en otant \(L_i\) et \(C_j\).
+\end{dem}
 
 \begin{defprop}[Déterminant de matrices particulières]
     \begin{enumerate}

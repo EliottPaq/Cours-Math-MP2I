@@ -61,3 +61,49 @@
         \item La signature sera utilisée dans le chapitre “Déterminants” pour définir formellement le déterminant d’une famille de vecteurs, d’un endormorphisme ou d’une matrice carrée.
     \end{itemize}
 \end{theo}
+
+\begin{dem}
+    \begin{itemize}
+    \item Montrons que \(\epsilon\)  est un morphisme de groupes de \(\paren{\mathcal{S}_n, \circ}\) vers \(\accol{-1, 1}\).\\~\\
+        On remarque d’abord que \(\epsilon\)  est bien définie car, pour tout \(\accol{i, j} \in A\), on a \(i\neq j\) .
+        \begin{itemize}
+            \item  Soit \(\sigma \in  \mathcal{S}_n\).\\~\\
+                \(\psi_{\sigma}  : \accol{i, j} \mapsto \accol{\sigma (i), \sigma (j)}\) est une bijection de \(A\) vers \(A\) (de réciproque \(\psi_{\sigma^{-1}}\) ) donc, avec le changement d’indice \(\accol{k, l} = \psi_{\sigma} (\accol{i, j})\), on a \(\prod_{\accol{i,j}\in A} \abs{\sigma (j) - \sigma (i)} = \prod_{\accol{k,l}\in A}\abs{k - l} = \prod_{\accol{i,j}\in A} \abs{j - i} \) donc \(\frac{\prod_{\accol{i,j}\in A} \abs{\sigma (j) - \sigma (i)}}{\prod_{\accol{i,j}\in A} \abs{j - i}} = 1\)  ce qui donne bien \(\epsilon (\sigma ) \in  \accol{-1, 1}\).
+            \item Soit \((\sigma , \sigma ') \in  (\mathcal{S}_n)^2\).\\~\\
+                \[\epsilon  (\sigma  \circ \sigma ') = \prod_{\accol{i,j}\in A} \frac{\sigma  \circ \sigma '(j) - \sigma  \circ \sigma '(i)}{j - i} = \prod_{\accol{i,j}\in A} \frac{\sigma  \circ \sigma '(j) - \sigma  \circ \sigma '(i)}{\sigma '(j) - \sigma '(i)} \times \prod_{\accol{i,j}\in A} \frac{\sigma '(j) - \sigma '(i)}{j - i}\]
+                Avec le changement d’indice \(\accol{k, l} = \psi_{\sigma '} (\accol{i, j})\), on a :
+                \[ \epsilon  (\sigma  \circ \sigma ') = \prod_{\accol{k,l}\in A} \frac{\sigma (k) - \sigma (l)}{k - l} \times \prod_{\accol{i,j}\in A} \frac{\sigma '(j) - \sigma '(i)}{j - i} = \epsilon (\sigma ) \times \epsilon  (\sigma ')\]
+                ce qui donne bien que \(\epsilon\)  est un morphisme de groupes.
+        \end{itemize}
+        \conclusion \(\epsilon\)  est un morphisme de groupes de \((\mathcal{S}_n, \circ)\) vers \(\accol{-1, 1}\).
+    \item Montrons que \(\epsilon\)  envoie toute transposition de \(\mathcal{S}_n\) vers \(-1\).\\~\\
+        Soit \(\tau = ( \quad a \quad b\quad ) \in  \mathcal{S}_n\) une transposition avec \(a < b\) et \(\accol{i, j} \in  A\).
+        \begin{itemize}
+            \item Si \(i \in  \accol{a,b}\) et \(j \in  \accol{a,b}\) alors
+                \[\frac{\tau (j) - \tau (i)}{j - i} = \frac{\tau (b) - \tau (a)}{b - a} = \frac{a - b}{b - a} = -1\]
+            \item Si \(i \notin  \accol{a,b}\) et \(j = a\) alors
+                \[\frac{\tau (j) - \tau (i)}{j - i }= \frac{\tau (a) - \tau (i)}{a - i} = \frac{b - i }{a - i} \]
+            \item Si \(i \notin  \accol{a,b}\) et \(j = b\) alors
+                \[\frac{\tau (j) - \tau (i)}{j - i} = \frac{\tau (b) - \tau (i)}{b - i} = \frac{a - i}{b - i}\]
+            \item Si \(i \notin  \accol{a,b}\) et \(j \notin  \accol{a,b}\) alors
+                \[\frac{\tau (j) - \tau (i)}{j - i} = \frac{j - i}{j - i} = 1\]
+        \end{itemize}
+        Les ensembles
+        \[A_1 = \accol{\accol{a,b}} , A_2 = \accol{\accol{i, j} \in  A \tq i \notin  \accol{a,b} \text{ et } j \in  \accol{a,b}}\]
+        et
+        \[A_3 = \accol{\accol{i, j} \in  A \tq i \notin  \accol{a,b} \text{ et }j \notin  \accol{a,b}}\]
+        formant une partition de \(A\), on en déduit que :
+        \[\epsilon (\tau ) = \prod_{\accol{i,j}\in A_1} \frac{\tau (j) - \tau (i)}{j - i} \times \prod_{\accol{i,j}\in A_2} \frac{\tau (j) - \tau (i)}{j - i} \times \prod_{\accol{i,j}\in A_3}\frac{\tau (j) - \tau (i)}{j - i}\]
+        donc que
+        \[\epsilon (\tau ) = -1 \times \prod_{\accol{i,j}\in A_2}\underbrace{\paren{\frac{ b - i}{a - i} \times \frac{ a - i}{b - i}}}_{=1} \times \prod_{\accol{i,j}\in A_3} 1 \]
+        et enfin \(\epsilon (\tau ) = -1\).
+    \item Montrons que \(\epsilon\)  est l’unique morphisme de groupes de \((\mathcal{S}_n, \circ)\) vers \(\accol{-1, 1}\) qui envoie les transpositions sur \(-1\).\\~\\
+        Supposons qu’il existe un autre morphisme de groupes, noté \(\epsilon '\), de \((\mathcal{S}_n, \circ)\) vers \(\accol{-1, 1}\) qui envoie les transpositions sur \(-1\).\\~\\
+        Soit \(\sigma  \in  \mathcal{S}_n\). Alors \(\sigma\)  peut s’écrire comme composée de p transpositions notées \(\tau_1, \tau_2, \dots , \tau_p\) :
+        \[\sigma  = \tau_1 \circ \tau_2 \circ \dots \circ \tau_p\]
+        Alors, par hypothèse sur les applications \(\epsilon\)  et \(\epsilon '\), on a :
+        \[\epsilon (\sigma ) = \epsilon  (\tau_1) \epsilon  (\tau_2) \dots \epsilon  (\tau_p) = (-1)^{p} \text{ et }\epsilon '(\sigma ) = \epsilon ' (\tau_1) \epsilon ' (\tau_2) \dots \epsilon ' (\tau_p) = (-1)^p\]
+        donc \(\epsilon (\sigma ) = \epsilon ' (\sigma )\).\\
+        \conclusion \(\epsilon  = \epsilon '\) d’où l’unicité du morphisme de groupes vérifiant les conditions souhaitées.
+    \end{itemize}
+\end{dem}
