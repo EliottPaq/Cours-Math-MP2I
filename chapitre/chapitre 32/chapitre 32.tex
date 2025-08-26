@@ -1,0 +1,206 @@
+\chapter{Espaces préhilbertiens réels}
+\minitoc
+Dans ce chapitre, \(E\) est un espace vectoriel sur \(\R\)
+\section{Généralités}
+\subsection{Produit scalaire}
+\begin{defi}
+    \begin{enumerate}
+        \item On appelle produit scalaire sur \(E\) toute application \(\phi\) de \(E \times E\) dans \(\R\) qui vérifie :
+        \begin{enumerate}
+            \item \(\forall (x, y) \in E^2, \phi(x, y) = \phi(y, x). \hfill (\phi \text{ symétrique })\)
+            \item \(\forall (\lambda , \mu ) \in \R^2, \forall (x, y, z) \in E^3, \phi(x, \lambda y + \mu z) = \lambda \phi (x, y) + \mu \phi (x, z). \hfill (\phi \text{ linéaire à droite })\)
+            \item \(\forall x \in E, \phi(x, x) \geq 0. \hfill (\phi \text{ positive})\)
+            \item \(\forall x \in E, \phi(x, x) = 0 \imp x = 0_E . \hfill (\phi \text{ définie })\)
+        \end{enumerate}
+        \underline{Remarques}\\
+        \begin{itemize}
+            \item Le réel \(\phi(x, y)\) est souvent noté \(\scal{x}{y}\), \(\paren{x | y}\) ou encore \(x \cdot y\).
+            \item L’application \(\phi\) est une forme bilinéaire symétrique définie positive sur \(E \times E\).
+        \end{itemize}
+        \item Un \(\R\) espace vectoriel muni d’un produit scalaire est dit :
+        \begin{enumerate}
+            \item espace préhilbertien réel ;
+            \item espace euclidien s’il est de plus de dimension finie.
+        \end{enumerate}
+    \end{enumerate}
+\end{defi}
+\subsection{Quatre exemples usuels à connaître}
+\begin{defprop}
+    \begin{enumerate}
+        \item L’application \(((x_1, \dots , x_n), (y_1, \dots , y_n)) \mapsto x_1y_1 + \dots + x_ny_n\) est un produit scalaire sur \(\R^n\).
+        \item L’application \((X, Y ) \mapsto \trans{X}Y\) est un produit scalaire sur \(\M{n,1}{\R}\).
+        \item L’application \((A, B) \mapsto \tr \paren{\trans{A}B}\) est un produit scalaire sur \(\M{n,p}{\R}\).
+        \item Soit \((a, b) \in \R^2\) avec \(a < b\).
+            \[ \text{ L’application }(f, g) \mapsto \int^b_a f (t)g(t) dt \text{ est un produit scalaire sur } \cal{C}([a, b] , \R)\]
+    \end{enumerate}
+\end{defprop}
+\subsection{Inégalités remarquables}
+Soit \(E\) un espace préhilbertien réel de produit scalaire noté \(\scal{.}{.}\).
+\begin{defprop}[Inégalité de Cauchy-Schwarz]
+    \[\forall (x, y) \in E^2, \abs{\scal{x}{y}} \leq \sqrt{\scal{x}{x}}\sqrt{\scal{y}{y}}\]
+    \underline{Remarque}\\
+    Il y a égalité dans l’inégalité précédente si, et seulement si, la famille \((x, y)\) est liée.
+\end{defprop}
+\begin{defprop}[négalité de Minkowski]
+    \[\forall (x, y) \in E^2, \sqrt{\scal{x + y}{x+y}} \leq \sqrt{\scal{x}{y}} + \sqrt{\scal{y}{y}}\]
+    \underline{Remarque}\\
+    Il y a égalité dans l’inégalité précédente si, et seulement si, \(x = 0_E\) ou (\(x\neq 0_E \)et \(\exists \alpha \in \Rp, y = \alpha x\)).
+\end{defprop}
+\subsection{Norme associée à un produit scalaire}
+Soit \(E\) un espace préhilbertien réel de produit scalaire noté \(\scal{.}{.}\).
+\begin{defprop}
+    \begin{itemize}
+    \item L’application de \(E\) dans \(\Rp\) , notée \(\norme{.}\), définie par
+        \[\forall x \in E, \norme{x} = \sqrt{\scal{x}{x}}\]
+    vérifie :
+    \begin{enumerate}
+        \item\( \forall x \in E, \norme{x} = 0 \imp x = 0_E ; \hfill( \text{ séparation })\)
+        \item\( \forall x \in E, \forall \lambda  \in \R, \norme{\lambda x} = \abs{\lambda } \norme{x} ;\hfill (\text{ homogénéité })\)
+        \item\( \forall (x, y) \in E^2, \norme{x +y} \leq \norme{x} + \norme{y} . \hfill(\text{ inégalité triangulaire })\)
+    \end{enumerate}
+    On dit que c’est une norme sur \(E\) (la notion de norme sera reprise dans un cadre plus général en MPI) et plus particulièrement que c’est la norme associée au produit scalaire \(\scal{.}{.}\).
+    \underline{Remarque}\\
+    Il y a égalité dans l’inégalité triangulaire si, et seulement si, \(x = 0_E\) ou (\(x\neq 0_E\) et \(\exists \alpha \in \Rp, y = \alpha x).\)
+    \item L’application \(d : E \times E\) dans \(\R\) définie par \(\forall (x, y) \in E^2, d(x, y) = \norme{x-y}\) est dite distance associée à la norme\( \norme{.}\).
+\end{itemize}
+\end{defprop}
+\begin{defprop}[Deux identités remarquables]
+    Si \(\norme{.}\) est la norme associée au produit scalaire \(\scal{.}{.}\) sur l’espace préhilbertien réel \(E\) alors :
+    \begin{enumerate}
+        \item \( \forall (x, y) \in E^2, \norme{x +y }^2 = \norme{x}^2 + \norme{y}^2 + 2 \scal{x}{y} ;\)
+        \item \( \forall (x, y) \in E^2, \scal{x}{y} = \frac{1}{2}\paren{\norme{x +y}^2 - \norme{x}^2 - \norme{y}^2}\) . \hfill (formule de polarisation)
+    \end{enumerate}
+\end{defprop}
+
+\section{Orthogonalité}
+Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et de norme associée \(\norme{.}\).
+\subsection{Vecteurs orthogonaux et vecteurs unitaires}
+\begin{defprop}
+    \begin{enumerate}
+        \item Deux vecteurs \(x\) et \(y\) de \(E\) sont dits orthogonaux si \(\scal{x}{y} = 0\).
+        \item Un vecteur \(x\) de \(E\) est dit unitaire (ou normé) si \(\norme{x} = 1\).
+    \end{enumerate}
+\end{defprop}
+\subsection{Orthogonal d’une partie}
+\begin{defi}
+    L’ensemble des vecteurs de \(E\) qui sont orthogonaux à tous les vecteurs d’une partie \(F\) de \(E\) est appelé orthogonal de \(F\) et noté \(F\ortho\) :
+    \[F\ortho = \accol{y \in E \tq \forall x_F \in F, \scal{x_F}{y} = 0} \]
+\end{defi}
+\begin{defprop}[Structure de l’orthogona]
+    Si \(F\) est une partie de \(E\) alors \(F\ortho\) est un sous-espace vectoriel de \(E\).
+\end{defprop}
+\subsection{Familles orthogonales et familles orthonormales}
+\begin{defi}
+    Une famille de vecteurs de \(E\) est dite :
+    \begin{enumerate}
+        \item orthogonale si ses vecteurs sont orthogonaux deux à deux.
+        \item orthonormale (orthonormée) si elle est orthogonale et que ses vecteurs sont unitaires (normés).
+    \end{enumerate}
+\end{defi}
+\begin{defprop}[Liberté des familles orthogonales]
+    Toute famille orthogonale de vecteurs non nuls de \(E\) est une famille libre de \(E\).
+    \underline{Remarque}\\
+    En particulier, toute famille orthonormale de vecteurs de \(E\) est libre
+\end{defprop}
+\begin{theo}[Théorème de Pythagore]
+    Soit \(p \in \Ns, p \geq 2\).\\
+    Si la famille \((x_1, \dots , x_p)\) est une famille orthogonale de \(E\) alors
+    \[\norme{\sum_{k=1^p} x_k}^2 = \sum_{k=1}^p\norme{x_k}^2\]
+    \underline{Remarque}\\
+    La réciproque est vraie pour \(p = 2\) et fausse pour \(p \geq 3\).
+\end{theo}
+\section{Bases orthonormales}
+    Soit \(E\) un espace euclidien de dimension \(n \in \Ns\) de produit scalaire \(\scal{.}{.}\) et de norme associée \(\norme{.}\).
+
+\subsection{Algorithme d’orthonormalisation de Gram-Schmidt}
+\begin{defprop}
+    Soit \(\cal{B} = (e_1, \dots , e_n)\) une base quelconque de \(E\).\\~\\
+    \begin{itemize}
+        \item Etape \(1\) : on pose \(u_1 = e_1\).
+        \item Etape \(2\) : on pose \(u_2 = e_2+ \alpha_1u_1\) et on cherche \(\alpha_1 \in \R\) tel que \(\scal{u_1}{u_} = 0\).\\~\\
+        Par linéarité à droite, on trouve : \(\alpha_1 = - \frac{\scal{u_1|}{e_2}}{\scal{u_1}{u_1}}\) puisque \(u_1\neq 0_E\) . Avec cette valeur de \(\alpha_1\), on obtient un vecteur \(u_2\) orthogonal à \(u_1\) tel que \(u_2\neq 0_E\) .
+        \item Etape \(3\) : on pose\( u_3 = e_3 + \beta_1u_1 + \beta_2u_2\) et on cherche \((\beta_1, \beta_2) \in \R^2\) tel que \(\scal{u_1}{u_3} = 0\) et \(\scal{u_2}{u_3} = 0\).\\~\\
+        Par linéarité à droite, on trouve : \(\beta_1 = - \frac{\scal{u_1}{e_3}}{\scal{u_1}{u_1 }}\) et \(\beta_2 = - \frac{\scal{u_2}{e_3}}{u_2}{u_2}\) puisque \(u_1\neq 0_E\) et \(u_2\neq 0_E\) . Avec ces valeurs de \(\beta_1\) et \(\beta_2\), on obtient un vecteur \(u_3\) orthogonal à \(u_1\) et \(u_2\) avec \(u_3\neq 0_E\) .\\~\\
+        Après \(n\) étapes, on obtient \((u_1, u_2, \dots , u_n)\) famille orthogonale de vecteurs non nuls de \(E\) donc famille libre de \(E\). Cette famille de \(E\) étant orthogonale, libre et de cardinal égal à la dimension de \(E\), on en déduit que \((u_1, u_2, \dots , u_n)\)est une base orthogonale de \(E\).
+    \end{itemize}
+    La famille \(\cal{B}' = (e'_1, \dots , e'_n)\) définie par \(\forall i \in \interventierii{1}{n}, e'_i = \frac{1}{\norme{u_i}}u_i\) est alors une base orthonormée de \(E\).
+\end{defprop}
+\subsection{Existence de bases orthonormales}
+\begin{defprop}
+    \begin{enumerate}
+        \item Tout espace euclidien de dimension non nulle admet au moins une base orthonormale.
+        \item Toute famille orthonormale d’un espace euclidien peut être complétée en une base orthonormale.
+    \end{enumerate}
+\end{defprop}
+\subsection{Calculs dans une base orthonormale}
+\begin{defprop}[Coordonnées d’un vecteur]
+    Si \(\cal{B} = (e_1, \dots , e_n)\) est une base orthonormée de \(E\) alors les coordonnées \((x_1, \dots , x_n)\) d’un vecteur \(x\) de \(E\) dans la base \(\cal{B}\) vérifient
+        \[\forall i \in \interventierii{1}{n}, x_i = \scal{e_i}{x}\ie X = \Mat{\cal{B}}{x} =
+        \begin{pmatrix}
+        \scal{e_1}{x}   \\
+        \dots   \\
+        \scal{e_n}{x}   
+        \end{pmatrix}
+        \]
+\end{defprop}
+\begin{defprop}[Expression de la norme et du produit scalaire]
+    Soit \(\cal{B}\) une base orthonormée de \(E\) et \((x, y) \in E^2\) tel que \(X = \Mat{\cal{B}}{x}\) et \(Y = \Mat{\cal{B}}{y}\).
+    Alors :
+    \[\scal{x}{y} = \trans{X}Y \qquad\text{ et }\qquad \norme{x} = \sqrt{\trans{X}X}\]
+\end{defprop}
+
+\section{Projection orthogonale sur un sous-espace de dimension finie}
+    Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et de norme associée \(\norme{.}\).
+\subsection{Supplémentaire orthogonal d’un sous-espace de dimension finie}
+\begin{defprop}
+    Si \(F\) est un sous-espace vectoriel de dimension finie de \(E\) alors \(E = F \oplus F\ortho\).
+    \underline{Remarques}\\
+    \begin{enumerate}
+        \item Cette propriété n’est pas conservée lorsque \(F\) est un sous-espace vectoriel de dimension non finie.
+        \item Dans le cas particulier où \(E\) est euclidien, pour tout sous-espace vectoriel \(F\) de \(E\), on a :
+            \[E = F \oplus F\ortho \text{ et }\dim E = \dim F + \dim F\ortho\].
+    \end{enumerate}
+\end{defprop}
+\subsection{Projection orthogonale sur un sous-espace de dimension finie}
+\begin{defprop}
+    Si \(F\) est un sous-espace vectoriel de \(E\) de dimension finie alors :
+    \begin{enumerate}
+        \item on peut définir la projection sur \(F\) parallèlement à \(F\ortho\) ;
+        \item cette projection est appelée projection orthogonale sur \(F\) et souvent notée \(p_F\) ;
+        \item pour tout \(x\) de \(E\), \(p_F (x)\) est appelé projeté orthogonal de \(x\) sur \(F\) .
+    \end{enumerate}
+\end{defprop}
+\subsection{Détermination pratique du projeté orthogonal d’un vecteur}
+\begin{defprop}
+    Soit \(F\) un sous-espace vectoriel de \(E\) de dimension finie et \(p_F (x)\) le projeté orthogonal sur \(F\) de \(x \in E\).
+    \begin{enumerate}
+    \item Utilisation d’une base orthonormée de \(F\)\\~\\
+        Si \((e_1, \dots , e_q)\) est une base orthonormée de \(F\) alors,
+            \[p_F (x) = \scal{e_1}{x} e_1 + \dots + \scal{e_q}{x} e_q\].
+    \item Utilisation d’une famille génératrice de \(F\)\\~\\
+        En écrivant que \(p_F (x)\) est un vecteur de \(F\) tel \(x - p_F (x)\) est orthogonal à tous les vecteurs d’une famille génératrice de \(F\) , on obtient un système linéaire qui permet de déterminer \(p_F (x)\).
+    \end{enumerate}
+\end{defprop}
+\subsection{Caractérisation du projeté orthogonal d’un vecteur}
+\begin{defprop}
+    Si \(F\) est un sous-espace vectoriel de \(E\) de dimension finie alors, pour tout \(x\) de \(E\), \(p_F (x)\) est l’unique vecteur \(y_0\) de \(F\) tel que
+    \[\norme{x - y_0} = \min_{y\in F} \norme{x-y} .\]
+    Ce minimum est appelé distance de \(x\) à \(F\) , noté \(d(x, F )\), et vérifie donc :
+    \[d(x, F ) = \norme{x - p_F (x)}\] .
+    \underline{Remarque}\\
+    On dit que le projeté orthogonal de \(x\) sur le sous-espace de dimension finie \(F\) est l’unique élément de \(F\) qui réalise la distance de \(x\) à \(F\) .
+\end{defprop}
+\subsection{Cas particulier des hyperplans}
+    On suppose ici que \(E\) est un espace euclidien de dimension non nulle.
+\begin{defprop}[Vecteur normal à un hyperplan]
+    Si \(H\) est un hyperplan de \(E\) alors tout vecteur directeur de la droite \(H\ortho\) est appelé vecteur normal à \(H\).
+    \underline{Remarque}\\
+    Si \(H\) est un hyperplan de \(E\) dont l’équation dans une base orthonormée \(B\) de \(E\) est
+    \[a_1x_1 + \dots + a_nx_n = 0\]
+    alors le vecteur \(a\) de \(E\) de coordonnées \((a_1, \dots , a_n)\) dans la base orthonormée \(\cal{B}\) est vecteur normal à \(H\).
+\end{defprop}
+
+\begin{defprop}[Distance d’un vecteur à un hyperplan H]
+    Si \(x\) est un vecteur de \(E\) et \(H\) un hyperplan de \(E\) de vecteur normal unitaire \(a\) alors
+    \[d(x, H) = \norme{x - p_H (x)} = \norme{p_H\ortho (x)} = \abs{\scal{a}{x}}\]
+\end{defprop}
