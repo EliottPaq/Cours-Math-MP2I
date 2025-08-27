@@ -1,0 +1,279 @@
+\chapter{Variables aléatoire sur un univers fini}
+\minitoc 
+    Dans ce chapitre, \((\Omega, \mathbb{P})\) désigne un espace probabilisé \underline{FINI}.
+\section{Loi d’une variable aléatoire}
+\subsection{Définitions, propriétés et notations}
+    Soit \(E\) un ensemble.
+\begin{defprop}[Variable aléatoire]
+    Toute application \(X\) définie sur l’univers \(\Omega\) à valeurs dans \(E\) est dite variable aléatoire (réelle si \(E = \R\)).\\~\\
+    Pour toute partie \(A\) de \(E\), l’image réciproque \(X^{-1} (A) = \accol{\omega \in  \Omega \tq X(\omega) \in  A}\) est une partie de \(\Omega\) donc un événement qui est noté \((X \in  A)\) ou\( \accol{X \in  A}\) :
+   \[ (X \in  A) = \accol{X \in  A} = \accol{\omega \in  \Omega \tq X(\omega) \in  A}\] 
+\end{defprop}
+\begin{defprop}[Loi d’une variable aléatoire]
+    On appelle loi de la variable aléatoire \(X : \Omega \to E\), l’application \(\mathbb{P}_{X} : \cal{P} (X(\Omega)) \to \intervii{1}{0}\)  définie par :
+    \[\forall A \in  \cal{P} (X (\Omega)) , \mathbb{P}_{X} (A) = \mathbb{P} (X \in  A) .\]
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item \(\mathbb{P}_{X}\) est une probabilité sur \(X(\Omega)\).
+        \item la loi de la variable aléatoire \(X : \Omega \to E\) (autrement dit \(\mathbb{P}_{X}\) ) est entièrement déterminée par la connaissance de l’ensemble fini \(X (\Omega)\) et des valeurs \(P (X = x)\) pour \(x\) variant dans \(X (\Omega)\) avec :
+            \[\forall x \in  X (\Omega) , \mathbb{P}_{X} ({x}) = \mathbb{P} (X = x)\] .
+        \item la loi de la variable aléatoire \(X : \Omega \to E\) (autrement dit \(\mathbb{P}_{X}\) ) est entièrement déterminée par la distribution de probabilités \((\mathbb{P}(X = x))_{x\in X(\Omega)}\) sur \(X(\Omega)\) et on a :
+            \[\forall A \in  \cal{P} (X (\Omega)) , \mathbb{P}_{X} (A) = \mathbb{P} (X \in  A) = \sum_{x\in A}\mathbb{P}(X = x)\]
+    \end{itemize}
+\end{defprop}
+\begin{nota}
+    Lorsque \(X\) et \(Y\) sont deux variables aléatoires sur \(\Omega\) de même loi (\ie \(\mathbb{P}_{X} = \mathbb{P}_{Y}\) ), on note \(X \sim Y\) .\\
+    \underline{Remarque}\\ 
+    si \(X\) et \(Y\) sont deux variables aléatoires sur \(\Omega\) égales alors elles ont évidemment même loi. \\
+    La réciproque est fausse.
+\end{nota}
+\subsection{Image d’une variable aléatoire par une fonction}
+\begin{defprop}
+    Soit \(E\) et \(F\) deux ensembles.\\~\\
+    Soit \(X : \Omega \to E\) une variable aléatoire sur \(\Omega\) et \(f : E \to F\) une application.
+    \begin{enumerate}
+        \item L’application \(f \circ X : \Omega \to F\) est une variable aléatoire sur \(\Omega\), notée \(f (X)\).
+        \item La loi de \(f (X) \) est entièrement déterminée par la connaissance de \(f\) et de la loi de \(X\) :
+            \[\forall y \in  f (X (\Omega)) , \mathbb{P}_{f (X)} (\accol{y}) = \mathbb{P}(f (X) = y) = \sum_{\substack{x\in X(\Omega)\\ f(x)=y}}\mathbb{P} (X = x)\]
+            \[\forall A \in  \cal{P} (f (X (\Omega))) , P_{f (X)} (A) = \mathbb{P} (f (X) \in  A) = X = \sum_{\substack{x\in X(\Omega) \\ f (x)\in A }}\mathbb{P} (X = x)\]
+    \end{enumerate}
+    \underline{Remarque}\\
+    Si \(X\) et \(Y\) sont deux variables aléatoires sur \(\Omega\) de même loi alors, sous réserve que cela ait du sens, les variables aléatoires \(f (X)\) et \(f (Y )\) ont même loi.
+\end{defprop}
+\subsection{Lois usuelles}
+\begin{defprop}[Loi uniforme]
+    Soit \(E\) un ensemble fini non vide.\\~\\
+    On dit que la variable aléatoire \(X : \Omega \to E\) suit la loi uniforme sur \(E\) (ou que \(X\) est une variable uniforme sur \(E\)) si sa loi \(\mathbb{P}_{X}\) est la probabilité uniforme sur \(E\), c’est-à-dire :
+    \[\forall A \in  \cal{P} (E) , \mathbb{P}_{X} (A) = \mathbb{P} (X \in  A) = \frac{\Card{A}}{\Card{E}}\]
+    On le note X\( \sim \cal{U}(E)\).
+\end{defprop}
+\begin{defprop}[Loi de Bernoulli]
+    Soit \(p\) un réel de \(\intervii{1}{0}\) .\\~\\
+    On dit que la variable aléatoire \(X : \Omega \to {0, 1}\) suit la loi de Bernoulli de paramètre \(p\) (ou que \(X\) est une variable de Bernoulli de paramètre \(p\)) si sa loi \(\mathbb{P}_{X}\) vérifie
+    \[\mathbb{P}_{X} (\accol{1}) = \mathbb{P} (X = 1) = p \text{ et }\mathbb{P}_{X} (\accol{0}) = \mathbb{P} (X = 0) = 1 - p\]
+    On le note \(X \sim \cal{B}(p)\).
+    \begin{itemize}
+    \item Indicatrice d’un événement\\
+    Soit \(A\) un événement.\\
+    L’indicatrice de \(A\) est une variable aléatoire de Bernoulli de paramètre \(\mathbb{P}(A) : \ind{A} \sim \cal{B}(\mathbb{P}(A))\).
+    \item Interprétation/Modélisation\\
+    Pour une expérience aléatoire du type "Succès-Echec", la variable aléatoire réelle prenant la valeur \(1\) en cas de succès et la valeur \(0\) en cas d’échec suit une loi de Bernoulli de paramètre \(p = \mathbb{P} (\text{ "Succès" })\) .
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Loi binomiale]
+    Soit \(n\) un entier naturel non nul et \(p\) un réel de \(\intervii{1}{0}\)  . \\
+    On dit que la variable aléatoire \(X : \Omega \to \interventierii{0}{n}\) suit la loi binomiale de paramètres \(n\) et \(p\) (ou que \(X\) est une variable binomiale de paramètres \(n\) et \(p\)) si sa loi \(\mathbb{P}_{X}\) vérifie
+    \[\forall k \in  \interventierii{0}{n} , \mathbb{P}_{X} (\accol{k}) = \mathbb{P} (X = k) = \binom{n}{k}p^k(1 - p)^{n-k}.\]
+    On le note \(X \sim \cal{B}(n, p)\).
+    \begin{itemize}
+    \item Interprétations/Modélisations\\
+        \begin{enumerate}
+            \item Si on répète \(n\) expériences aléatoires indépendantes du type "Succès-Echec" de même probabilité de succès, la variable aléatoire réelle comptabilisant le nombre de succès obtenus après les \(n\) expériences suit la loi binomiale de paramètres \(n\) et \(p\).
+            \item Si on considère "une urne" contenant uniquement des "boules blanches" en proportion \(p \in  \intervii{1}{0}\) et des "boules noires" en proportion \(1 - p\) et qu’on effectue \(n\) tirages successifs "d’une boule" dans "l’urne" avec remise après chaque tirage, la variable aléatoire réelle comptabilisant le nombre de "boules blanches" tirées après les \(n\) tirages suit la loi binomiale de paramètres \(n\) et \(p\).
+        \end{enumerate}
+    \end{itemize}
+\end{defprop}
+\subsection{Loi conditionnelle d’une variable aléatoire}
+\begin{defprop}
+    Soit \(X\) une variable aléatoire sur \(\Omega\) et \(A\) un événement de probabilité non nulle.\\
+    On appelle "loi conditionnelle de \(X\) sachant l’événement \(A\)" l’application de \(\cal{P}(X(\Omega))\) dans \(\intervii{1}{0}\) qui, à tout \(B\) de \(\cal{P} (X(\Omega))\), associe le réel \(\mathbb{P}_A (X \in  B)\) .\\
+    \underline{Remarque}\\
+    Cette loi est entièrement déterminée par la distribution de probabilités \((\mathbb{P}_A(X = x))_{x\in X(\Omega)}\) sur \(X(\Omega)\) :
+    \[\forall B \in  \cal{P} (X(\Omega)) , \mathbb{P}_A (X \in  B) = \sum_{x\in B}\mathbb{P}_A(X = x)\]
+\end{defprop}
+\subsection{Couple de variables aléatoires}
+\begin{defi}
+    Si \(X : \Omega \to E\) et\( Y : \Omega \to F\) sont deux variables aléatoires alors l’application \(Z : \Omega \to E \times F\) définie par
+    \[\forall \omega \in  \Omega, Z(\omega) = (X(\omega), Y (\omega))\]
+    est une variable aléatoire, dite couple des variables aléatoires \(X\) et \(Y\) et notée \(Z = (X, Y )\).\\~\\
+    Ces notations sont conservées dans la suite de ce paragraphe.\\~\\
+\end{defi}
+\begin{defprop}[Loi conjointe, lois marginales]
+    \begin{enumerate}
+        \item La loi \(\mathbb{P}_{(X,Y )}\) du couple \((X, Y )\), dite loi conjointe de \(X\) et \(Y\) , est définie par :
+            \[\forall (x, y) \in  X(\Omega) \times Y (\Omega), \mathbb{P}_{(X,Y )} (\accol{(x, y)}) = \mathbb{P} ((X, Y ) = (x, y)) = \mathbb{P} ((X = x) \inter (Y = y))\]
+        \item La loi \(\mathbb{P}_{X}\) est dite première loi marginale du couple \((X, Y )\) et vérifie :
+            \[\forall x \in  X(\Omega), \mathbb{P}_{X} (\accol{x}) = P(X = x) = \sum_{y\in Y (\Omega)} \mathbb{P} ((X = x) \inter (Y = y))\] .
+        \item La loi \(\mathbb{P}_Y\) est dite seconde loi marginale du couple \((X, Y )\) et vérifie :
+            \[\forall y \in  Y (\Omega), \mathbb{P}_Y ({y}) = \mathbb{P}(Y = y) = \sum_{x\in X(\Omega)} \mathbb{P} ((X = x) \inter (Y = y)) \]
+    \end{enumerate}
+    \underline{Remarque}\\
+    \begin{itemize}
+        \item La probabilité \(\mathbb{P}((X = x) \inter (Y = y))\) est souvent notée \(\mathbb{P}(X = x, Y = y)\)
+        \item La loi conjointe permet de déterminer les lois marginales ; la réciproque est fausse.
+        \item La connaissance de la loi de \(X\) et de la loi de \(Y\) sachant l’événement \(\accol{X = x}\) pour tout \(x \in  X(\Omega)\) permet de déterminer la loi conjointe de \(X\) et \(Y\) :
+            \[\forall (x, y) \in  X(\Omega) \times Y (\Omega), \mathbb{P} ((X, Y ) = (x, y)) = \mathbb{P}(Y = y | X = x)\mathbb{P}(X = x)\]
+    \end{itemize}
+\end{defprop}
+
+\subsection{Extension}
+\begin{defprop}
+    On définit de même la notion de \(n-\)uplet de variables aléatoires (avec \(n \geq 3\)) et, dans ce cadre, les notions de loi conjointe et lois marginales.
+\end{defprop}
+\section{Variables aléatoires indépendantes}
+    Dans cette partie, \((\Omega, \mathbb{P})\) désigne un espace probabilisé fini.
+\subsection{Cas de deux variables aléatoires}
+\begin{defi}
+    Les variables aléatoires \(X\) et \(Y\) définies sur \(\Omega\) sont dites indépendantes si, pour tout \((A, B)\) de \(\cal{P} (X(\Omega)) \times \cal{P} (Y (\Omega))\), les événements \((X \in  A)\) et \((Y \in  B)\) sont indépendants.
+\end{defi}
+\begin{defprop}[Caractérisation]
+    Les variables aléatoires \(X\) et \(Y\) définies sur \(\Omega\) sont indépendantes si, et seulement si,
+        \[\forall (x, y) \in  X(\Omega) \times Y (\Omega), \mathbb{P} ((X, Y ) = (x, y)) = \mathbb{P}(X = x)\mathbb{P}(Y = y)\]
+\end{defprop}
+\begin{defprop}[Images de variables aléatoires indépendantes]
+    Si \(X\) et \(Y\) sont deux variables aléatoires définies sur \(\Omega\) indépendantes et si \(f\) et \(g\) sont des applications définies respectivement sur \(X(\Omega)\) et \(Y (\Omega)\) alors les variables aléatoires \(f (X)\) et \(g(Y )\) sont indépendantes.
+\end{defprop}
+\subsection{Cas des \(n-\)uplets de variables aléatoires avec \(n \geq 2\)}
+    Dans la suite de cette partie, \(n\) désigne un entier naturel supérieur ou égal à \(2\).
+\begin{defi}
+    Les variables aléatoires \(X_1, \dots , X_n\) définies sur \(\Omega\) sont dites indépendantes si pour tout \((A_1, \dots , A_n)\) de \(\prod^n_{i=1} \cal{P} (X_i(\Omega))\), les événements \((X_1 \in  A_1), \dots , (X_n \in  A_n)\) sont indépendants.
+\end{defi}
+\begin{defprop}[Caractérisation]
+    Les variables aléatoires \(X_1, \dots , X_n\) définies sur \(\Omega\) sont indépendantes si, et seulement si, 
+    \[\forall (x_1, \dots , x_n) \in  X_1(\Omega) \times \dots \times X_n(\Omega), = \mathbb{P} ((X_1, \dots , X_n) = (x_1, \dots , x_n)) = \prod^n_{i=1} \mathbb{P}(X_i = x_i).\]
+    \begin{itemize}
+        \item Modélisation\\
+        Pour modéliser \(n\) expériences aléatoires indépendantes, on peut utiliser un \(n-\)uplet \((X_1, \dots , X_n)\) de variables aléatoires indépendantes correspondant aux résultats des différentes expériences.
+    \end{itemize}
+\end{defprop}
+\begin{defprop}[Somme de variables aléatoires de Bernoulli indépendantes]
+    Si \(X_1, \dots , X_n\) sont des variables aléatoires définies sur \(\Omega\), indépendantes et de loi de Bernoulli \(\cal{B}(p)\) alors \(X_1 + \dots + X_n\) suit la loi binomiale \(\cal{B}(n, p)\).
+\end{defprop}
+\begin{defprop}[Lemme des coalitions]
+    Si \(X_1, \dots , X_n\) sont des variables aléatoires indépendantes sur \(\Omega\) alors \(f (X_1, \dots , X_m)\) et \(g (X_{m+1}, \dots , X_n)\) sont des variables aléatoires indépendantes pour toutes applications \(f\) et \(g\) pour lesquelles cela a du sens.
+\end{defprop}
+
+\section{Espérance d’une variable aléatoire réelle ou complexe}
+\subsection{Définition}
+\begin{defprop}
+    Si \(X : \Omega \to \\K\) est une variable aléatoire numérique telle que \(X(\Omega) = \accol{X_1, \dots , xq}\) alors le scalaire
+        \[E(X) = \sum^q_{k=1} x_k\mathbb{P}(X = x_k) = \sum_{x\in X(\Omega)}x\mathbb{P}(X = x)\]
+    est dit espérance de la variable aléatoire \(X\). Si \(E(X) = 0\), \(X\) est dite variable aléatoire centrée.\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item \(E(X)\), moyenne des valeurs de \(X\) pondérées par leurs probabilités, est un indicateur de position.
+        \item Comme \(\Omega = \bigsqcup _{x\in X(\Omega)} \accol{\omega \in  \Omega \tq X(\omega) = x} = \bigsqcup _{x\in X(\Omega)} \accol{X = x}\), par additivité de \(\mathbb{P}\), on obtient \[E(X) = \sum_{\omega\in \Omega} X(\omega)\mathbb{P} (\accol{\omega})\]
+        formule alternative utilisée pour les preuves sur l’espérance et pas pour des calculs pratiques.
+    \end{itemize}
+\end{defprop}
+\subsection{propriétés}
+\begin{prop}
+    Soient \(X : \Omega \to \K\) et \(Y : \Omega \to \K\) des variables aléatoires numériques et \((\alpha , \beta ) \in  \K^2\).
+    \begin{itemize}
+        \item \(E(\alpha X + \beta Y ) = \alpha E(X) + \beta E(Y ).\) \hfill (linéarité de l’espérance)
+        \item Dans le cas \(\K = \R, X \geq 0 \imp E(X) \geq 0\). \hfill (positivité de l’espérance)
+        \item Dans le cas \(\K = \R, X \leq Y \imp E(X) \leq E(Y )\). \hfill(croissance de l’espérance)
+        \item \(\abs{E (X)} \leq E (\abs{X})\) . \hfill (inégalité triangulaire)
+    \end{itemize}
+\end{prop}
+\subsection{Espérance de variables aléatoires usuelles}
+\begin{defprop}
+    \begin{enumerate}
+        \item Si \(X\) est une variable aléatoire numérique constante égale à \(m\) alors \(E(X) = m\).
+        \item Si \(X\) est une variable aléatoire de Bernoulli de paramètre \(p\), alors \(E(X) = p\).
+        \item Si \(X\) est une variable aléatoire binomiale de paramètres \(n\) et \(p\), alors \(E(X) = np\).
+    \end{enumerate}
+    \underline{Remarque}\\
+    En particulier, pour toute partie \(A\) de \(\Omega\), on a : \(E(\ind{A}) = \mathbb{P}(A)\) .
+\end{defprop}
+\subsection{Formule de transfert}
+\begin{defprop}
+    Soit \(E\) un ensemble quelconque.\\~\\
+    Si \(X : \Omega \to E\) est une variable aléatoire et \(f : X(\Omega) \to \K\) une application numérique alors
+    \[E(f (X)) = \sum_{x\in X(\Omega)}f (x)\mathbb{P}(X = x)\]
+    \underline{Remarques}\\
+    \begin{enumerate}
+        \item Pour déterminer l’espérance de la variable aléatoire \(f (X)\) :
+        \begin{itemize}
+            \item il suffit de connaître la loi de \(X\) ;
+            \item il n’est pas nécessaire de connaître la loi de \(f (X)\).
+        \end{itemize}
+        \item Si \((X_1, \dots , X_n)\) est un \(n-\)uplet de variables aléatoires sur \(\Omega\) et si \(f : X_1(\Omega) \times \dots \times X_n(\Omega) \to \K\) est une application numérique, la formule de transfert s’écrit :
+        \[E(f (X_1, \dots , X_n)) = \sum_{(x_1,\dots,x_n)\in X_1(\Omega)\times\dots\times X_n(\Omega)} f (x_1, \dots , x_n)P ((X_1, \dots , X_n) = (x_1, \dots , x_n))\]
+    \end{enumerate}
+\end{defprop}
+\subsection{Produit de variables aléatoires indépendantes}
+\begin{defprop}
+    Si \(X : \Omega \to \K\) et \(Y : \Omega \to \K\) sont des variables aléatoires numériques indépendantes alors 
+        \[E(XY ) = E(X)E(Y )\].
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Plus généralement, pour \(n \in  \Ns\), \(n \geq 3\), si \(X_1 : \Omega \to \K, \dots , X_n : \Omega \to \K\) sont des variables aléatoires numériques indépendantes alors
+        \[E\paren{\prod^n_{i=1}X_i}= \prod^n_{i=1} E(X_i)\].
+        \item Les réciproques sont fausses.
+    \end{itemize}
+\end{defprop}
+\section{Variance, écart type, covariance}
+\subsection{Variance et écart-type d’une variable aléatoire réelle}
+\begin{defi}
+    Soit \(X : \Omega \to \R\) une variable aléatoire réelle.
+    \begin{enumerate}
+        \item On appelle variance de \(X\) le réel, noté \(V(X)\), défini par
+            \[V (X) = E (X - E(X))^2\]
+            Dans le cas\( V(X) = 1\), \(X\) est dite variable aléatoire réduite.
+        \item On appelle écart-type de \(X\) le réel, noté\( \sigma (X)\), défini par
+            \[\sigma (X) = \sqrt{V(X)}\]
+    \underline{Remarque}\\
+        Les réels positifs \(V(X)\) et \(\sigma (X)\) sont des indicateurs de dispersion des valeurs de \(X\) autour de \(E(X)\) ;\\
+        s’ils sont petits (resp. grands), il y a faible (resp. forte) dispersion.
+    \end{enumerate}
+\end{defi}
+\begin{prop}
+    Soient \(X : \Omega \to \R\) une variable aléatoire réelle et \((\alpha , \beta )\) un couple de réels.
+    \begin{enumerate}
+        \item On a : \(V(X) = E(X^2) - (E(X))^2\).
+        \item On a : \(V(\alpha X + \beta ) = \alpha^2 V(X)\).
+    \end{enumerate}
+    \underline{Remarque}\\
+    Dans le cas \(\sigma (X) > 0\), la variable aléatoire \(\frac{X - E(X)}{\sigma (X)}\) est centrée réduite.
+\end{prop}
+\begin{defprop}[Variance de variables aléatoires suivant des lois usuelles]
+    \begin{enumerate}
+        \item Si \(X\) est une variable aléatoire réelle constante égale à \(m\) alors \(V(X) = 0\).
+        \item Si \(X\) est une variable aléatoire de loi de Bernoulli de paramètre \(p\), alors \(V(X) = p(1 - p)\).
+        \item Si \(X\) est une variable aléatoire de loi binomiale de paramètres \(n\) et \(p\), alors \(V(X) = np(1 - p)\).
+    \end{enumerate}
+\end{defprop}
+\subsection{Covariance de deux variables aléatoires réelles}
+\begin{defi}
+    Si \(X : \Omega \to \R\) et \(Y : \Omega \to \R\) sont deux variables aléatoires réelles alors le réel, noté \(\cov{X}{Y}\), défini par
+    \[\cov{X}{Y} = E ((X - E(X)) (Y - E(Y )))\]
+    est dit covariance de \(X\) et \(Y\) .\\~\\
+    Dans le cas où \(\cov{X}{Y} = 0\), on dit que les variables aléatoires \(X\) et \(Y\) sont décorrélées.
+\end{defi}
+\begin{prop}
+    Si \(X : \Omega \to \R\) et  \(Y : \Omega \to \R\) sont deux variables aléatoires réelles alors
+    \[\cov{X}{Y} = E(XY ) - E(X)E(Y )\]
+\end{prop}
+\begin{defprop}[Covariance de deux variables aléatoires réelles indépendantes]
+    Si \(X : \Omega \to \R\) et  \(Y : \Omega \to \R\) sont deux variables aléatoires réelles indépendantes alors \(\cov{X}{Y} = 0\).\\
+    \underline{Remarque}\\
+    Autrement dit, deux variables aléatoires réelles indépendantes sont décorrélées ; la réciproque est fausse.
+\end{defprop}
+\begin{defprop}[Variance d’une somme de deux variables aléatoires réelles]
+    Si \(X : \Omega \to \R\) et  \(Y : \Omega \to \R\) sont deux variables aléatoires réelles alors :
+    \[V(X + Y ) = V(X) + V(Y ) + 2\cov{X}{Y}\].
+\end{defprop}
+\begin{defprop}[Variance d’une somme de deux variables aléatoires réelles décorrélées]
+  
+    Soit \(X : \Omega \to \R\) et  \(Y : \Omega \to \R\) deux variables aléatoires réelles.\\~\\
+    \(X\) et \(Y\) sont décorrélées si, et seulement si, \(V(X + Y ) = V(X) + V(Y )\).  
+\end{defprop}
+
+\begin{defprop}[Variance de \(n\) variables aléatoires réelles (programme de \(2\)e année MPI)]  
+    La variance de la somme de \(n(\geq 3)\) variables aléatoires réelles sera abordée en MPI :
+    \[V\paren{\sum^n_{k=1}X_k}=\sum^n_{k=1}V(Xk) + 2 \sum_{1\leq i< j\leq n} \cov{X_i}{X_j}\]
+    \underline{Remarque}\\
+    Si \(X\) est une variable aléatoire binomiale de paramètres \(n\) et \(p\) alors on écrire \(X = X_1 + \dots + X_n\) avec \(X_1, \dots , X_n\) des variables aléatoires de Bernoulli de même paramètre \(p\) et indépendantes. On retrouve alors la variance connue pour une variable aléatoire binomiale \(X\) avec la formule ci-dessus :
+    \[V(X) =\sum^n_{k=1} V(X_i) =\sum^n_{k=1}p(1 - p) = np(1 - p)\]
+\end{defprop}
+\subsection{Inégalités probabilistes}
+\begin{defprop}[Inégalité de Markov]
+    Si \(X : \Omega \to \K\) est une variable aléatoire numérique et \(a\) un réel strictement positif alors
+    \[\mathbb{P} (\abs{X}\geq a) \leq \frac{E (\abs{X})}{a}\] .
+\end{defprop}
+\begin{defprop}[Inégalité de Bienaymé-Tchebychev]
+    Si \(X : \Omega \to \R\) est une variable aléatoire réelle et a un réel strictement positif alors
+    \[\mathbb{P} (\abs{X - E(X)} \geq a) \leq \frac{V (X)}{a^2}\] .
+\end{defprop}
