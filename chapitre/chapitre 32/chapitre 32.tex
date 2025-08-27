@@ -58,10 +58,10 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire noté \(\scal{.}{.
         \item\( \forall x \in E, \forall \lambda  \in \R, \norme{\lambda x} = \abs{\lambda } \norme{x} ;\hfill (\text{ homogénéité })\)
         \item\( \forall (x, y) \in E^2, \norme{x +y} \leq \norme{x} + \norme{y} . \hfill(\text{ inégalité triangulaire })\)
     \end{enumerate}
-    On dit que c’est une norme sur \(E\) (la notion de norme sera reprise dans un cadre plus général en MPI) et plus particulièrement que c’est la norme associée au produit scalaire \(\scal{.}{.}\).
+    On dit que c’est une norme sur \(E\) (la notion de norme sera reprise dans un cadre plus général en MPI) et plus particulièrement que c’est la norme associée au produit scalaire \(\scal{.}{.}\).\\
     \underline{Remarque}\\
     Il y a égalité dans l’inégalité triangulaire si, et seulement si, \(x = 0_E\) ou (\(x\neq 0_E\) et \(\exists \alpha \in \Rp, y = \alpha x).\)
-    \item L’application \(d : E \times E\) dans \(\R\) définie par \(\forall (x, y) \in E^2, d(x, y) = \norme{x-y}\) est dite distance associée à la norme\( \norme{.}\).
+    \item L’application \(d : E \times E\) dans \(\R\) définie par \(\forall (x, y) \in E^2, d(x, y) = \norme{x-y}\) est dite distance associée à la norme \( \norme{.}\).
 \end{itemize}
 \end{defprop}
 \begin{defprop}[Deux identités remarquables]
@@ -98,7 +98,7 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et
     \end{enumerate}
 \end{defi}
 \begin{defprop}[Liberté des familles orthogonales]
-    Toute famille orthogonale de vecteurs non nuls de \(E\) est une famille libre de \(E\).
+    Toute famille orthogonale de vecteurs non nuls de \(E\) est une famille libre de \(E\).\\
     \underline{Remarque}\\
     En particulier, toute famille orthonormale de vecteurs de \(E\) est libre
 \end{defprop}
@@ -153,7 +153,7 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et
     Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et de norme associée \(\norme{.}\).
 \subsection{Supplémentaire orthogonal d’un sous-espace de dimension finie}
 \begin{defprop}
-    Si \(F\) est un sous-espace vectoriel de dimension finie de \(E\) alors \(E = F \oplus F\ortho\).
+    Si \(F\) est un sous-espace vectoriel de dimension finie de \(E\) alors \(E = F \oplus F\ortho\).\\
     \underline{Remarques}\\
     \begin{enumerate}
         \item Cette propriété n’est pas conservée lorsque \(F\) est un sous-espace vectoriel de dimension non finie.
@@ -186,14 +186,14 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et
     Si \(F\) est un sous-espace vectoriel de \(E\) de dimension finie alors, pour tout \(x\) de \(E\), \(p_F (x)\) est l’unique vecteur \(y_0\) de \(F\) tel que
     \[\norme{x - y_0} = \min_{y\in F} \norme{x-y} .\]
     Ce minimum est appelé distance de \(x\) à \(F\) , noté \(d(x, F )\), et vérifie donc :
-    \[d(x, F ) = \norme{x - p_F (x)}\] .
+    \[d(x, F ) = \norme{x - p_F (x)}\]
     \underline{Remarque}\\
     On dit que le projeté orthogonal de \(x\) sur le sous-espace de dimension finie \(F\) est l’unique élément de \(F\) qui réalise la distance de \(x\) à \(F\) .
 \end{defprop}
 \subsection{Cas particulier des hyperplans}
     On suppose ici que \(E\) est un espace euclidien de dimension non nulle.
 \begin{defprop}[Vecteur normal à un hyperplan]
-    Si \(H\) est un hyperplan de \(E\) alors tout vecteur directeur de la droite \(H\ortho\) est appelé vecteur normal à \(H\).
+    Si \(H\) est un hyperplan de \(E\) alors tout vecteur directeur de la droite \(H\ortho\) est appelé vecteur normal à \(H\).\\
     \underline{Remarque}\\
     Si \(H\) est un hyperplan de \(E\) dont l’équation dans une base orthonormée \(B\) de \(E\) est
     \[a_1x_1 + \dots + a_nx_n = 0\]
@@ -202,5 +202,5 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et
 
 \begin{defprop}[Distance d’un vecteur à un hyperplan H]
     Si \(x\) est un vecteur de \(E\) et \(H\) un hyperplan de \(E\) de vecteur normal unitaire \(a\) alors
-    \[d(x, H) = \norme{x - p_H (x)} = \norme{p_H\ortho (x)} = \abs{\scal{a}{x}}\]
+    \[d(x, H) = \norme{x - p_H (x)} = \norme{p_{H\ortho} (x)} = \abs{\scal{a}{x}}\]
 \end{defprop}

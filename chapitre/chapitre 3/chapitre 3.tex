@@ -272,8 +272,8 @@
 
 \section{Algorithme du Pivot}
 \begin{rem} [Remarque préliminaire]
-	En cycle terminal, de petits systèmes linéaires ont été rencontrés et résolus dans des cas simples, le plus souvent par “substitution”. \\
-	En MP2I, nous utiliserons en priorité la méthode de résolution par “pivot”. Plus efficace et élégante, cette technique sera reprise au semestre 2 dans le chapitre “Matrices” pour résoudre plus généralement des systèmes linéaires de \(n\) équations à \(p\) inconnues.
+	En cycle terminal, de petits systèmes linéaires ont été rencontrés et résolus dans des cas simples, le plus souvent par "substitution". \\
+	En MP2I, nous utiliserons en priorité la méthode de résolution par "pivot". Plus efficace et élégante, cette technique sera reprise au semestre 2 dans le chapitre "Matrices" pour résoudre plus généralement des systèmes linéaires de \(n\) équations à \(p\) inconnues.
 \end{rem}
 
 \begin{defprop}[Opérations élémentaires]
@@ -293,14 +293,14 @@
 \begin{defprop}[résolution d'un système linéaire par la méthode du pivot]
 	La résolution d’un système linéaire par la méthode du pivot se déroule en deux phases :
 	\begin{itemize}
-		\item \underline{phase de descente} : en effectuant des opérations élémentaires sur les lignes du système, on transforme le système en un système de forme “triangulaire” ou “trapézoïdale” comme, par exemple,
+		\item \underline{phase de descente} : en effectuant des opérations élémentaires sur les lignes du système, on transforme le système en un système de forme "triangulaire" ou "trapézoïdale" comme, par exemple,
 		      \[(S1) : \begin{cases} a_1x+b_1y = c_1 \\ b'_1y = c'_1 \end{cases}\]
 		      \[(S2) : \begin{cases} a_1x+b_1y+c_1z = d_1 \\ b'_1y+c'_1z = d'_1 \end{cases}\]
 		      \[(S3) : \begin{cases} a_1x+b_1y+c_1z = d_1 \\ b'_1y+c'_1z = d'_1 \\ c''_1z = d''_1 \end{cases}\]
 		\item \underline{phase de remontée} : Le système obtenu est équivalent au système initial ; il est facile à résoudre ce qui permet d’obtenir l’ensemble des solutions du système initial. Dans cette phase de remontée, on peut au choix :
 		      \begin{itemize}
 			      \item effectuer des substitutions successives (moins élégant) ;
-			      \item utiliser à nouveau des opérations élémentaires sur les lignes pour réduire le système sous forme “diagonale” (plus élégant et facile à coder).
+			      \item utiliser à nouveau des opérations élémentaires sur les lignes pour réduire le système sous forme "diagonale" (plus élégant et facile à coder).
 		      \end{itemize}
 	\end{itemize}
 \end{defprop}

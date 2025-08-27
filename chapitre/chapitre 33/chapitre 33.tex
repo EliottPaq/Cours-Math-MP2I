@@ -1,0 +1,221 @@
+\chapter{Dénombrement - Probabilité sur un univers fini}
+\minitoc
+\section{Dénombrement}
+    Conformément au programme officiel de MP2I, on exclut ici toute formalisation excessive. Les propriétés intuitives sont donc admises et le recours systématique à des bijections pour dénombrer n’est pas attendu.
+\subsection{Cardinal d’un ensemble fin}
+\begin{defi}
+    Soit \(A\) un ensemble.\\~\\
+    \(A\) est dit fini s’il est vide ou s’il existe un entier naturel non nul \(n\) et une bijection de \(\interventierii{1}{n}\) vers \(A\).\\~\\
+    Dans ce cas,
+    \begin{itemize}
+        \item si \(A\) est vide, on dit que \(A\) est de cardinal égal à \(0\).
+        \item si \(A\) est non vide alors l’entier \(n\) ci-dessus est unique et appelé cardinal de \(A\).
+    \end{itemize}
+    Notations utilisées pour le cardinal : \(\Card{A}\) ou \(\abs{A}\).
+\end{defi}
+\begin{prop}
+    \begin{itemize}
+        \item Cardinal d’une partie\\
+            Si \(B\) est une partie d’un ensemble fini \(A\) alors \(B\) est un ensemble fini avec \(\Card{B} \leq \Card{A}\) [et égalité des cardinaux si, et seulement si, \(B\) = \(A\)].
+        \item Opérations sur les cardinaux
+        \begin{enumerate}
+            \item Si \(A\) et \(B\) sont deux ensembles finis alors :
+                \begin{enumerate}
+                    \item \(A \union B\) est un ensemble fini et \(\Card{A \union B} = \Card{A} + \Card{B} - \Card{A \inter B}\).
+                    \item \(A \times B\) est un ensemble fini et\( \Card{A \times B} = \Card{A} \times \Card{B}\).
+                \end{enumerate}
+            \item Soit \(A\) et \(B\) des parties d’un ensemble fini \(E\).
+                \begin{enumerate}
+                    \item \(A\pd B\) est un ensemble fini et \(\Card{A\pd B} = \Card{A} - \Card{A \inter B}\)
+                    \item \(A\) est un ensemble fini et \(\Card{A} = \Card{E} - \Card{A}\).
+                \end{enumerate}
+        \end{enumerate}
+        \item Caractérisation des bijections entre ensembles finis de même cardinal\\
+            Une application entre deux ensembles finis de même cardinal est bijective si, et seulement si, elle est injective, si, et seulement si, elle est surjective.
+        \item Cardinal de l’ensemble des applications entre deux ensembles finis\\
+            Si \(A\) et \(B\) sont des ensembles finis alors l’ensemble \(B^A\) des applications de \(A\) vers \(B\) est fini avec
+            \[\Card{B^A} = \Card{B}^{\Card{A}}\] .
+        \item Cardinal de l’ensemble des parties d’un ensemble fini\\
+            Si \(A\) est un ensemble fini alors l’ensemble \(\cal{P}(A)\) des parties de \(A\) est fini avec
+            \[\Card{\cal{P}(A)} = 2^{Card{A}}.\]
+    \end{itemize}
+\end{prop}
+\subsection{Listes et combinaisons}
+\begin{defi}
+    Soit \(A\) un ensemble fini et \(p\) un entier naturel.
+    \begin{enumerate}
+        \item On appelle \(p-\)liste (ou \(p-\)uplet) d’éléments de \(A\) tout élément \((a_1, a_2, \dots , a_p)\) de \(A_p\).
+        \item On appelle \(p-\)arrangement d’éléments de \(A\) toute \(p-\)liste d’éléments distincts de \(A\).
+        \item On appelle \(p-\)combinaison d’éléments de \(A\) toute partie de \(A\) à \(p\) éléments.
+    \end{enumerate}
+\end{defi}
+\begin{prop}
+    Soit \(A\) un ensemble fini de cardinal \(n\) et \(p\) un entier naturel non nul inférieur ou égal à \(n\).
+    \begin{enumerate}
+        \item Le nombre de \(p-\)listes d’éléments de \(A\) est égal à \(n^p\).
+        \item Le nombre de \(p-\)listes d’éléments distincts de \(A\) est égal à \(\prod^{p-1}_{k=0}(n - k)= \frac{n!}{(n - p)!}\).
+        \item Le nombre de \(p-\)combinaisons d’éléments de \(A\) est égal à \(\frac{n!}{p!(n - p)!} =\binom{n}{p}\).
+    \end{enumerate}
+    \underline{Remarques}\\
+    Le nombre d’applications
+    \begin{itemize}
+        \item injectives d’un ensemble fini de cardinal \(p\) dans un ensemble fini de cardinal \(n\) est égal à \(\frac{n!}{(n - p)!}\)
+        \item bijectives d’un ensemble fini de cardinal \(n\) dans lui-même est égal à \(n!\).
+    \end{itemize}
+\end{prop}
+\begin{defprop}[Retour sur les formules de Pascal et du binôme (preuves combinatoires)]
+    ~\\
+    ~\\
+    \begin{enumerate}
+        \item \(\forall(n, p) \in \N^2, p \leq n \imp \binom{n}{p} + \binom{n}{p+1} = \binom{n+1}{p+1} \) \hfill (formule du triangle de Pascal)
+        \item \(\forall n \in \N, \forall(a, b) \in \C^2, (a + b)^n =\sum^n_{p=0}\binom{n}{p}a^pb^{n-p}\) \hfill (formule du binôme de Newton)
+    \end{enumerate}
+\end{defprop}
+\section{Probabilités sur un univers fini}
+\subsection{Probabilités sur un univers finiExpérience aléatoire et univers}
+\begin{defprop}[Expérience aléatoire]
+    Une expérience qui, reproduite dans des conditions identiques, peut conduire à plusieurs résultats possibles dont on ne peut prévoir le résultat par avance est dite expérience aléatoire.
+\end{defprop}
+\begin{defprop}[Univers]
+    L’ensemble des issues (résultats possibles ou réalisations) d’une expérience aléatoire est appelé univers (ou espace des états) et souvent noté \(\Omega\). \\~\\
+    Conformément au programme de MP2I, on se limite en \(1^{\text{re}}\) année à des univers finis.
+\end{defprop}
+\begin{defprop}[Evénements]
+    \begin{enumerate}
+        \item Toute partie de l’univers \(\Omega\) est appelée événement.
+        \item Parmi les parties de l’univers \(\Omega\), on trouve :
+            \begin{itemize}
+                \item la partie \(\Omega\), dite événement certain ;
+                \item la partie \(\emptyset\), dite événement impossible ;
+                \item les singletons de \(\Omega\), dits événements élémentaires souvent notés \(\accol{\omega}\) à pour \(\omega \in \Omega\).
+            \end{itemize}
+        \item Soient \(A\) et \(B\) deux parties de l’univers \(\Omega\) (autrement dit deux événements).
+            \begin{itemize}
+                \item La partie \(\conj{A} = \Omega \pd A\) est dite événement contraire de \(A\).
+                \item La partie \(A \union B\) est dite événement \("A\) ou \(B"\).
+                \item La partie \(A \inter B\) est dite événement \("A\) et \(B"\).
+                \item Les parties \(A\) et \(B\) sont dites événements incompatibles (ou disjoints) si \(A \inter B = \emptyset\).
+            \end{itemize}
+        \item Soit   \( q \in \Ns\) et \(A_1, A_2, \dots , A_q\) des parties de \(\Omega\).
+        L’ensemble  \(\accol{A_1, A_2, \dots , A_q}\) est dit système complet d’événements de \(\Omega\) si c’est une partition de \(\Omega\) autrement dit si :
+        \begin{itemize}
+            \item \(\bigunion_{i=1}^q A_i = \Omega \); \hfill (la réunion des événements du système est l’événement certain)
+            \item \(\forall  i \in \interventierii{1}{q} , A_i\neq \emptyset\) ; \hfill(pas d’événenement impossible dans le système)
+            \item \(\forall (i, j) \in \interventierii{1}{q}^2 , i\neq j \imp A_i \inter A_j = \emptyset.\) (événements du système incompatibles deux à deux)
+        \end{itemize}
+        \underline{Remarque}\\
+        On note parfois \(\Omega = \bigsqcup^q_{i=1} A_i\) pour indiquer que les événements \(A_i\) sont deux à deux disjoints.
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Espace probabilisés finis}
+\begin{defi}
+    Soit \(\Omega\) un univers fini.\\~\\
+    On appelle probabilité sur \(\Omega\) toute application \(\mathbb{P}\) de \(\cal{P}(\Omega)\) dans \(\intervii{0}{1}\) telle que :
+    \begin{enumerate}
+        \item \(\proba{\Omega} = 1\) ;
+        \item \(\forall (A, B) \in \cal{P} (\Omega) \times \cal{P} (\Omega), A \inter B = \emptyset \imp P(A \union B) = P(A) + P(B)\).
+    \end{enumerate}
+    Le couple \((\Omega, \mathbb{P})\) est alors appelé espace probabilisé fini.
+\end{defi}
+\begin{prop}
+    Soit \((\Omega, \mathbb{P})\) un espace probabilisé fini.
+    \begin{enumerate}
+        \item \(\proba{\emptyset} = 0\).\hfill (événement impossible)
+        \item \(\forall A \in \cal{P}(\Omega), \proba{\conj{A}} = 1 - \proba{A}\). \hfill (événement contraire)
+        \item \(\forall(A, B) \in \cal{P}(\Omega) \times \cal{P}(\Omega), \proba{A \union B} = \proba{A} + \proba{B} - \proba{A \inter B}\). \hfill(réunion d’événements)
+        \item \(\forall(A, B) \in \cal{P}(\Omega) \times \cal{P}(\Omega), \proba{A \pd B} = \proba{A} - \proba{A \inter B}\) \hfill (différence d’événements)
+        \item \(\forall(A, B) \in \cal{P}(\Omega) \times \cal{P}(\Omega), A \subset B \imp \proba{A} \leq \proba{B}\) \hfill (croissance des probabilités)
+    \end{enumerate}
+\end{prop}
+\begin{defprop}[Distribution de probabilités]
+    On appelle distribution de probabilités sur un ensemble fini \(I\) toute famille de réels positifs indexée par \(I\) et de somme égale à \(1\) .
+\end{defprop}
+\begin{defprop}[Détermination d’une probabilité]
+    Soit \(n \in \Ns\).\\~\\
+    Si \(\Omega = \accol{\omega_1, \dots , \omega_n}\) est un univers fini et \(p_1, \dots , p_n\) des réels positifs tels que \(p_1 + \dots + p_n = 1 \) alors il existe une probabilité \(\mathbb{P}\) et une seule sur \(\Omega\) telle que \(\forall i \in \accol{1, 2, \dots , n} , \proba{\accol{\omega_i}} = p_i\).\\
+
+    \underline{Remarque}\\
+    Autrement dit, une probabilité sur un univers fini est entièrement déterminée :
+    \begin{itemize}
+        \item par sa valeur sur les singletons de l’univers.
+        \item par la distribution de probabilités \(\paren{\proba{\accol{\omega}}}_{\omega\in\Omega}\) .
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Probabilité uniforme]
+    Soit \((\Omega, \mathbb{P})\) un espace probabilisé fini.\\~\\
+    \(\mathbb{P}\) est dite probabilité uniforme sur \(\Omega\) s’il existe \(p \in \intervii{0}{1}\) tel que \(\forall\omega \in \Omega, \proba{\accol{\Omega}} = p\).\\~\\
+    Dans ce cas,
+    \[p = \frac{1}{\Card{\Omega}}\text{ et }\forall\omega \in \Omega, \proba{\accol{\omega}} = \frac{1}{\Card{\Omega}}\text{ et }\forall A \in \cal{P} (\Omega) , \proba{A} = \frac{\Card{A}}{\Card{\Omega}} \]
+\end{defprop}
+\subsection{Probabilités conditionnelles}
+Soit \((\Omega, \mathbb{P})\) un espace probabilisé fini.
+\begin{defi}
+    Soient \((A, B) \in \cal{P}(\Omega) \times \cal{P}(\Omega)\) tel que \(\proba{B} > 0\).\\~\\
+    On appelle probabilité conditionnelle de \(A\) sachant \(B\) le réel, noté \(\proba{A|B} \) ou \(\probacond{A}{B}\), défini par
+    \[\proba{A|B} = \probacond{A}{B} = \frac{\proba{A \inter B}}{\proba{B} }\]
+    \underline{Remarque}\\
+    Pour tout \(B \in \cal{P} (\Omega)\) tel que \(\proba{B} > 0\), l’application \(\mathbb{P}_{B} : A \mapsto \frac{\proba{A \inter B}}{\proba{B}}\) est une probabilité sur \(\Omega\) et vérifie donc toutes les propriétés précédemment énoncées sur les probabilités.\\~\\
+    Ainsi, on a notamment :
+    \begin{itemize}
+        \item \(\forall A \in \cal{P} (\Omega) , \mathbb{P}_{B} (\conj{A}) = 1 - \mathbb{P}_{B} (A).\)
+        \item \(\forall (A, C) \in \cal{P}(\Omega) \times \cal{P}(\Omega), \mathbb{P}_{B} (A \union C) = \mathbb{P}_{B} (A) + \mathbb{P}_{B} (C) - \mathbb{P}_{B} (A \inter C).\)
+    \end{itemize}
+\end{defi}
+\begin{defprop}[Formule des probabilités composées]
+    Soit \(n \in N \)tel que \(n \geq 2\).
+    Si \(A_1, \dots , A_n\) sont des événements tels que \(\proba{A_1 \inter \dots \inter A_{n-1}}\) est non nulle alors 
+    \[\proba{A_1 \inter A_2 \inter \dots \inter A_n} = \proba{A_1} \probacond{A_2}{A_1} \probacond{A_3}{A_1 \inter A_2} \dots \probacond{A_n}{A_1 \inter \dots \inter A_{n-1}}\]
+\end{defprop}
+
+\begin{defprop}[Formule des probabilités totales]
+    Si \(\accol{A_1, \dots , A_n}\) est un système complet d’événements et \(B\) un événement quelconque alors
+    \[\proba{B} = \sum^n_{i=1} \probacond{B}{A_i} \proba{A_i}\]
+    avec la convention usuelle suivante conservée dans la suite du chapitre : \(\probacond{B}{A_i} \mathbb{P} (A_i) = 0\) si \(\mathbb{P} (A_i) = 0\).
+\end{defprop}
+
+\begin{defprop}[Formules de Bayes]
+    Soit \(B\) un événement de probabilité non nulle.
+    \begin{enumerate}
+        \item Si \(A\) est un événement alors
+            \[\probacond{A}{B} = \frac{\probacond{B}{A} \proba{A}}{\proba{B}}\] .
+        \item Si \(\accol{A_1, \dots , A_n}\) est un système complet d’événements alors
+        \[\forall j \in \interventierii{1}{n} , \frac{\probacond{A_j}{B} = \probacond{B}{A_j}\mathbb{P}(A_j)}{\sum^n_{i=1} \probacond{B}{A_i}\proba{A_i}}\]
+        (conséquence immédiate de la formule de Bayes précédente et de la formule des probabilités totales)
+    \end{enumerate}
+\end{defprop}
+
+\subsection{Evénements indépendants}
+Soit \((\Omega, \mathbb{P})\) un espace probabilisé fini.
+\begin{defprop}[Couple d’événements indépendants]
+    Deux événements \(A\) et \(B\) sont dits indépendants si \(\mathbb{P} (A \inter B)\) = \(\mathbb{P} (A) \mathbb{P} (B\)) .\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Si \(B\) est de probabilité non nulle, l’indépendance de \(A\) et \(B\) se traduit par \(\probacond{A}{B}  = \mathbb{P} (A)\).
+        \item La notion d’indépendance est une notion probabiliste (et pas ensembliste) à ne pas confondre avec la notion ensembliste d’événements disjoints/incompatibles
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Famille finie d’événements indépendants]
+    Soit \(n \in N\) tel que \(n \geq 2\).\\~\\
+    Les événements \(A_1, \dots , A_n\) sont dits indépendants si, pour tout \(I \subset \interventierii{1}{n}\),
+    \[\proba{\biginter_{i\in I}A_i}= \prod_{i\in I}\paren{\proba{A_i}}\]
+    \underline{Remarques} \\
+    \begin{itemize}
+        \item On parle parfois de mutuelle indépendance au lieu d’indépendance.
+        \item Pour \(n\) entier naturel supérieur ou égal à \(2\),
+        \item si les événements \(A_1, \dots , A_n\) sont indépendants alors ils sont deux à deux indépendants.
+        \item la réciproque de l’implication précédente est fausse pour \(n \geq 3\). Des événements peuvent être indépendants deux à deux sans être indépendants.
+    \end{itemize}
+\end{defprop}
+
+\begin{defprop}[Indépendance et événements contraires]
+    \begin{itemize}
+        \item Si \(A\) et \(B\) sont deux événements indépendants alors \(A\) et \(\conj{B}\) sont indépendants.
+        \item Plus généralement, pour \(n\) entier naturel supérieur ou égal à \(2\),\\~\\
+        si les événements \(A_1, \dots , A_n\) sont indépendants alors les événements \( A'_1, \dots , A'_n\) tels que
+        \[\forall i \in \interventierii{1}{n} , A'_i \in \accol{A_i, \conj{A_i}}\]
+        le sont aussi.
+    \end{itemize}
+\end{defprop}
