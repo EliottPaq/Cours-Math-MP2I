@@ -1,0 +1,168 @@
+\chapter{Famille sommables de réels ou complexes}
+\minitoc 
+Dans ce chapitre où \(\K\) désigne le corps \(\R\) ou \(\C\), on prolonge les calculs de sommes finies effectués en début d’année dans le chapitre "Sommes et produits finis" en présentant un cadre qui permet de sommer "en vrac" une famille infinie et procure ainsi un grand confort de calcul. On se concentre sur la pratique, vu son importance en MPI, dans les calculs d’espérance et de variance de variables aléatoires discrètes.
+\section{Familles sommables de réels positifs}
+\subsection{Rappel : relation d’ordre dans la demi-droite achevée \(\intervii{0}{\pinf}\)}
+
+\begin{defprop}
+    \begin{itemize}
+    \item  On appelle demi-droite achevée l’ensemble noté \(\intervii{0}{\pinf}\) défini par \(\intervii{0}{\pinf} = \intervie{0}{\pinf} \union \accol{\pinf }\) .\\~\\
+        Sur cette demi-droite achevée, on étend la relation d’ordre \(\leq\) , l’addition et la multiplication connues sur \(\intervie{0}{\pinf}\) avec les conventions suivantes :
+        \begin{enumerate}
+            \item \(\forall x \in  \intervie{0}{\pinf} , x < \pinf\) .
+            \item \(\forall x \in  \intervii{0}{\pinf} , x + (\pinf ) = (\pinf ) + x = \pinf \).
+            \item \(0 \times  (\pinf ) = (\pinf ) \times  0 = 0\).
+            \item \(\forall x \in  \intervii{0}{\pinf} \pd {0} , x \times  (\pinf ) = (\pinf ) \times  x = \pinf\) .
+        \end{enumerate}
+    \item Toute partie \(X\) de \(\intervii{0}{\pinf}\) admet une borne supérieure (plus petit des majorants) notée \(\sup X\) .
+        \begin{itemize}
+            \item Cas où \(X\) est une partie non vide et majorée :
+                \[\sup X \text{ est égale à la borne supérieure de } X \text{ vue comme partie de }\R.\]
+            \item Cas où \(X\) est la partie vide ou où \(X\) est une partie non majorée :
+                \[\sup X =\begin{cases}
+                    0 &\text{ si } X = \emptyset\\
+                    \pinf &\text{ si }X \text{ est non vide et non majorée }
+                \end{cases}\]
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+\subsection{Somme d’une famille de réels positifs}
+\begin{defprop}
+    Soit \(I\) un ensemble quelconque.\\~\\
+    On appelle somme d’une famille \((u_i)_{i\in I}\) d’éléments de \(\intervii{0}{\pinf}\), et on note \(\sum_{i\in I} u_i\), la borne supérieure dans \(\intervii{0}{\pinf}\) de l’ensemble des sommes \(\sum_{i\in F}u_i\) quand \(F\) décrit l’ensemble des parties finies de \(I\) :
+    \[\sum_{i\in I}u_i = \sup \accol{\sum_{i\in F}u_i \tq F partie finie de I}\]
+
+    \underline{Remarques}\\
+    Soit \((u_i)_{i\in I}\) une famille d’éléments de \(\intervii{0}{\pinf}\).\\~\\
+    \begin{itemize}
+        \item Dans le cas où \(I\) est fini, la somme \(\sum_{i\in I}u_i\) coïncide avec la notion de somme finie usuelle connue.
+        \item Dans le cas où \(I = \N\), la somme \(\sum_{i\in I}u_i\) coïncide avec la notion de somme de la série \(\sum u_n\) :
+        \begin{itemize}
+            \item dans le cas où la série \(\sum u_n\) d’éléments de \(\Rp\) converge ;
+            \item dans le cas où la série \(\sum u_n\) d’éléments de \(\Rp\) diverge avec la convention \(\sum^{\pinf}_{n=0}u_n = \pinf\) .
+            \[\sum_{i\in \N}u_i =\sum^{\pinf}_{n=0}u_n\]
+        \end{itemize}
+        \item Invariance de la somme par permutation\\~\\
+            Si \(\sigma\) est une permutation de \(I\) (i.e. une bijection de \(I\) sur \(I\) ) alors
+            \[\sum_{i\in I}u_i = \sum_{i\in I}u_{\sigma(i)}\].
+    \end{itemize}
+\end{defprop}
+
+\subsection{Sommabilité d’une famille de réels positifs}
+    Soit \(I\) un ensemble quelconque.
+\begin{defi}
+    La famille de réels positifs \((u_i)_{i\in I}\) est dite sommable si sa somme vérifie \(\sum_{i\in I}u_i < \pinf\) .
+\end{defi}
+\begin{prop}
+    Si \((a_i)_{i\in I}\) et \((b_i)_{i\in I}\) sont deux familles de réels positifs tel que, pour tout \(i\) de \(I\),\( 0 \leq  a_i \leq  b_i\) et si la famille \((b_i)_{i\in I}\) est sommable alors la famille \((a_i)_{i\in I}\) est sommable et \(\sum_{i\in I}a_i \leq  \sum_{i\in I}b_i\)
+\end{prop}
+\subsection{Opérations}
+\begin{defprop}
+    Soit \(I\) un intervalle quelconque.\\~\\
+    Si \((u_i)_{i\in I}\) et \((v_i)_{i\in I}\) sont deux familles de réels positifs et\( \alpha\)  un réel positif alors
+    \[\sum_{i\in I}u_i + \sum_{i\in I} v_i = \sum_{i\in I}(u_i + v_i)\qquad \text{  et }\qquad \alpha  \sum_{i\in I}u_i = \sum_{i\in I}\alpha u_i\]
+    \underline{Remarque}\\
+    Les conventions de calcul imposées dans \(\intervii{0}{\pinf}\) donnent du sens à ces égalités y compris dans le cas où l’une des familles de réels positifs écrites n’est pas sommable.
+\end{defprop}
+\subsection{Théorème de sommation par paquets positif (ADMIS)}
+\begin{theo}
+    Soit \(I\) et \(J\) deux ensembles quelconques.\\~\\
+    Si l’ensemble \(I\) est la réunion disjointe des ensembles \(I_j\) lorsque \(j\) décrit \(J\) et si \((u_i)_{i\in I}\) est une famille de réels positifs alors la somme de cette famille vérifie
+    \[\sum_{i\in I}u_i = \sum_{j\in J} \paren{\sum_{i\in I_j}u_i}\]
+    \underline{Remarque}\\
+    Les conventions de calcul imposées dans \(\intervii{0}{\pinf}\) donnent du sens à cette égalité y compris dans le cas où l’une des familles de réels positifs écrites n’est pas sommable.
+\end{theo}
+\subsection{Théorème de Fubini positif}
+\begin{theo}
+    Soit \(J\) et \(K\) des ensembles quelconques.\\~\\
+    Si \((a_{j,k})_{(j,k)\in J\times K}\)  est une famille de réels positifs alors la somme de cette famille vérifie
+
+    \[\sum_{(j,k)\in J\times K}a_{j,k} = \sum_{j\in J}\paren{\sum_{k\in K} a_{j,k}}= \sum_{k\in K}\paren{\sum_{j\in J} a_{j,k}}\]
+    \underline{Remarques}
+    \begin{itemize}
+        \item Les conventions de calcul imposées dans \(\intervii{0}{\pinf}\) donnent du sens à ces égalités y compris dans le cas où l’une des familles de réels positifs écrites n’est pas sommable.
+        \item Ce théorème est une conséquence du théorème de sommation par paquets vu ci-dessus pour les familles de réels positifs. Il résulte de l’écriture de l’ensemble \(I = J \times K\)  comme réunion disjointe :
+        \begin{itemize}
+            \item  des ensembles \(A_j =\accol{(j, k) \tq k \in K  }\) lorsque \(j\) décrit \(J\) d’une part ;
+            \item  des ensembles \(B_k = \accol{(j, k) \tq j \in  J}\) lorsque \(k\) décrit \(K\)   d’autre part.
+        \end{itemize}
+        \item Dans le cas où \(J\) et \(K\)   sont finis, on retrouve un résultat vu dans le chapitre "Sommes et produits finis" pour les sommes doubles rectangulaires.
+    \end{itemize}
+\end{theo}
+
+\section{Familles sommables d’éléments de \(\K\)  }
+    Soit \(I\) un ensemble quelconque.
+\subsection{Généralités}
+\begin{defprop}[Sommabilité]
+    
+    La famille \((u_i)_{i\in I}\) d’éléments de \(\K\)   est dite sommable si la famille de réels positifs \((\abs{u_i})_{i\in I}\) l’est, autrement dit si la somme \(\sum_{i\in I}\abs{u_i}\) vérifie
+    \[\sum_{i\in I}\abs{u_i} < \pinf .\]
+    On note \(\cal{l}^1(I, \K  )\) ou plus simplement \(\cal{l}^1(I)\) l’ensemble des familles \((u_i)_{i\in I}\) d’éléments de \(I\) sommables.
+    \underline{Remarque}
+    Une sous-famille d’une famille d’éléments de \(\K\) sommable est sommable.
+\end{defprop}
+\begin{defprop}[Somme d’une famille sommable]
+    \begin{itemize}
+        \item Si \((u_i)_{i\in I}\) est une famille de réels sommable, sa somme est définie par :
+            \[\sum_{i\in I}u_i = X\sum_{i\in I}u^{+}_i - \sum_{i\in I}u^{-}_i\]
+        où \(u^{+}_i = \frac{1}{2} (\abs{u_i} + u_i)\) et \(u^{-}_i = \frac{1}{2} (\abs{u_i} - u_i)\)
+        \item si \((u_i)_{i\in I}\) est une famille de complexes sommable, sa somme est définie par :
+            \[\sum_{i\in I}u_i = \sum_{i\in I}\Reel{u_i} + i\sum_{i\in I}\Ima{u_i}.\]
+    \end{itemize}
+    \underline{Remarques}
+    \begin{itemize}
+        \item Ces définitions ont du sens puisque que si \((u_i)_{i\in I}\) est une famille de réels (resp. complexes) sommable alors, d’après \(I. 3. 2.\), les familles de réels positifs \(\paren{u^{+}_i}_{i\in I}\) et \(\paren{u^{-}_i}_{i\in I}\) (resp. de réels \(\paren{\Reel{u_i}}_{i\in I}\) et \(\paren{\Ima{u_i}}_{i\in I}\) ) sont sommables puisque, pour tout \(i\) de \(I\), on a :
+        \[0 \leq  u^{+}_i \leq  \abs{u_i}\qquad \text{ et } \qquad 0 \leq  u^{-}_i \leq  \abs{u_i}\]
+        \[(\text{resp.} 0 \leq  \abs{\Reel{u_i}} \leq  \abs{u_i} \qquad \text{ et } \qquad 0 \leq  \abs{\Ima{u_i}} \leq  \abs{u_i})\]
+        \item Approximation de la somme d’une famille sommable par une somme finie\\
+        Si \((u_i)_{i\in I}\) est une famille d’éléments de \(\K\)   sommable et si \(\epsilon \in  \Rps\), il existe une partie finie \(F\) de \(I\) telle que
+        \[\abs{\sum_{i\in I}u_i - \sum_{i\in F}u_i} \leq \epsilon\]
+        \item Conservation de la sommabilité et invariance de la somme par permutation.\\~\\
+        Si \(\sigma\) est une permutation de \(I\) et si \((u_i)_{i\in I}\) est une famille d’éléments de \(\K \)  sommable alors la famille \(\paren{u_{\sigma(i)}}_{i\in I}\) est sommable \[\sum_{i\in I}u_i = \sum_{i\in I}u_{\sigma(i)}.\]
+    \end{itemize}
+\end{defprop}
+\subsection{Cas particulier important des familles d’éléments de \(\K\)   indexées par \(\N\)}
+\begin{defprop}
+    Une famille \((u_n)_{n\in \N}\) de \(\K\) est sommable si, et seulement si, la série \(\sum_{n \geq 0} u_n\) converge absolument.\\~\\
+    Dans ce cas,
+    \[\sum_{n\in \N}\abs{u_n} = \sum^{\pinf}_{n=0}\abs{u_n}\qquad \text{ et } \qquad \sum_{n\in \N}u_n = \sum^{\pinf}_{n=0}u_n\]
+\end{defprop}
+\subsection{Théorème de majoration}
+\begin{defprop}
+    Si \((u_i)_{i\in I}\) est une famille d’éléments de \(\K\)   et \((v_i)\) une famille sommable de réels positifs tel que, pour tout \(i \in  I\), \(\abs{ui} \leq v_i\) alors la famille \((u_i)_{i\in I}\) est sommable.
+\end{defprop}
+\subsection{Linéarité de la somme}
+\begin{defprop}
+    Soit \((u_i)_{i\in I}\) et \((v_i)_{i\in I}\) deux familles d’éléments de \(\K \)  et\( (\alpha , \beta)\) un couple d’éléments de \(\K\)  .\\~\\
+    Si les familles \((u_i)_{i\in I}\) et \((v_i)_{i\in I}\) sont sommables alors la famille \((\alpha u_i + \beta v_i)_{i\in I}\) est sommable, de somme :
+    \[\sum_{i\in I}(\alpha u_i + \beta v_i) = \alpha \sum_{i\in I}u_i + \beta \sum_{i\in I}v_i\]
+\end{defprop}
+\subsection{Théorème de sommation par paquets (ADMIS)}
+\begin{theo}
+    Si l’ensemble \(I\) est la réunion disjointe des ensembles \(I_j\) lorsque \(j\) décrit \(J\) et si \((u_i)_{i\in I}\) est une famille d’éléments de \(\K\) sommable alors la somme de cette famille vérifie
+    \[\sum_{i\in I}u_i = \sum_{j\in J}\paren{\sum_{i\in I_j} u_i}\]
+\end{theo}
+\subsection{Théorème de Fubini}
+\begin{defprop}
+    Soit \(J\) et \(K\)   des ensembles quelconques.\\~\\
+    Si \((a_{j,k})_{(j,k)\in J\times K}\)  est une famille d’éléments de \(\K\) sommable alors la somme de cette famille vérifie
+    \[\sum_{(j,k)\in J\times K}a_{j,k} = \sum_{j\in J}\paren{\sum_{k\in K} a_{j,k}}= \sum_{k\in K}\paren{\sum_{j\in J} a_{j,k}}\]
+\end{defprop}
+\subsection{Cas particulier}
+\begin{defprop}
+    Si \((b_j)_{j\in J}\) et \((c_k)_{k\in K}\)  sont sommables alors \((b_j c_k)_{(j,k)\in J\times K}\) est sommable et
+    \[\sum_{(j,k)\in J\times K}b_j c_k = \sum_{j\in J}b_j \times \sum_{k\in K}c_k\]
+    \underline{Remarque}\\
+    C’est une application du théorème de Fubini avec la famille \((a_{j,k})_{(j,k)\in J\times K}\)  où \(a_{j,k} = b_j c_k\).
+\end{defprop}
+\subsection{Produit de Cauchy}
+\begin{defprop}
+    Soit \((u_m)_{m\in \N}\) et \((v_n)_{n\in \N}\) deux suites d’éléments de \(\K\)  .\\~\\
+    Pour tout \(p \in  \N\), on note :
+    \[w_p = \sum_{m+n=p}u_mv_n.\]
+    Si les séries \(\sum u_m\) et \(\sum v_n\) convergent absolument alors la série \(\sum w_p\) converge absolument avec
+    \[\sum^{\pinf}_{p=0}w_p =\paren{\sum^{\pinf}_{m=0}u_m}\paren{\sum^{\pinf}_{n=0}v_n}\]
+    La série \(\sum w_p\) est dite série produit de Cauchy des séries \(\sum u_m\) et \(\sum v_n\).\\
+    \underline{Remarque}
+    Ceci est une conséquence du résultat vu au \(II. 7.\) appliqué à la famille \((a_{m,n})_{(m,n)\in \N^2}\) où \(a_{m,n} = u_mv_n\) et du théorème de sommation par paquets vu au \(II. 5.\) appliqué avec la partition \((I_p)_{p\in \N}\) de \(I = \N^2\) définie par \(I_p = \accol{(m, n) \in  \N^2\tq m + n = p}\).
+\end{defprop}
