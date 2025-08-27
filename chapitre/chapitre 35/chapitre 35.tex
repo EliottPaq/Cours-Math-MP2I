@@ -1,0 +1,241 @@
+\chapter{fonction de deux variable réelles}
+\minitoc 
+Dans ce chapitre, on s’intéresse à des fonctions de deux variables réelles à valeurs réelles (vision géométrique, calculs de dérivées partielles et "règle de la chaîne" essentiellement). Ce chapitre sera entièrement repris en MPI dans un cadre plus général ; le point de vue du cours de MP2I est donc essentiellement pratique sans extension ou développement théorique.
+\section{Ouverts et boules de l’espace euclidien usuel \(\R^2\)}
+On munit l’espace vectoriel \(\R^2\) du produit scalaire usuel noté \(\scal{.}{.}\) et de la norme associée notée \(\norme{.}\).
+\subsection{Boules pour la norme euclidienne}
+\begin{defprop}
+    Soit \(r \in \Rps\) et \((x_0, y_0) \in \R^2\).\\~\\
+    On appelle boule ouverte de centre \(a = (x_0, y_0)\) et de rayon \(r\) pour la norme \(\norme{.}\), l’ensemble \(\cal{B}(a, r)\) défini par :
+    \[\cal{B}(a, r) = \accol{(x, y) \in \R^2 \tq \norme{(x, y) - (x_0, y_0)} < r} = \accol{(x, y) \in \R^2 \tq \sqrt{(x - x_0)^2 + (y - y_0)^2} < r}\]
+\end{defprop}
+\subsection{Ouverts pour la norme euclidienne}
+\begin{defprop}
+    Soit \(\cal{O}\) une partie de \(\R^2\).\\~\\
+    \(\cal{O}\) est dit ouvert de \(\R^2\) (pour la norme euclidienne) si tout point de \(\cal{O}\) est centre d’une boule ouverte (pour la norme euclidienne) incluse dans \(\cal{O}\) :
+    \[\forall a \in \cal{O}, \exists r \in \Rps, \cal{B}(a, r) \subset \cal{O}\].
+\end{defprop}
+\subsection{Continuité des fonctions de deux variables réelles à valeurs réelles}
+\begin{defprop}[Représentation graphique]
+   
+    A toute fonction \(f : \cal{U} \to  \R\) définie sur une partie \(\cal{U}\) de\( \R^2\) à valeurs dans \(\R\) peut être associé l’ensemble de points de\( \R^3\)
+    \[S = \accol{(x, y, f (x, y)) \tq (x, y) \in \cal{U}}\]
+    dit surface d’équation cartésienne \(z = f (x, y)\) permettant ainsi de représenter graphiquement \(f\) .
+\end{defprop}
+\begin{defprop}[Continuité sur un ouvert de \(\R^2\)]
+    
+    Soit \(\cal{O}\) un ouvert de \(\R^2\) et \(f : \cal{O} \to  \R\) une fonction définie sur \(\cal{O}\).\\~\\
+    \(f\) est dite continue sur l’ouvert \(\cal{O}\) si \(f\) est continue en tout \((x_0, y_0)\) de \(\cal{O}\) ce qui se traduit par :
+    \[\forall (x_0, y_0) \in \cal{O}, \forall \epsilon \in \Rps, \exists \delta \in \Rps, \forall (x, y) \in \cal{O}, \underbrace{\sqrt{(x - x_0)^2 + (y - y_0)^2}}_{= \norme{(x,y)-(x_0,y_0)}} \leq \delta \imp \abs{f (x, y) - f (x_0, y_0)} \leq \epsilon\]
+    \underline{Remarque}\\
+    Cette définition étend la notion de continuité vue pour les fonctions d’une variable réelle à valeurs réelles ; la norme euclidienne sur \(\R^2\) remplace ici la valeur absolue, norme usuelle sur \(\R\).
+\end{defprop}
+\begin{prop}
+    \begin{enumerate}
+        \item La combinaison linéaire de fonctions continues sur un ouvert de \(\R^2\) à valeurs dans \(\R\) est continue.
+        \item Le produit de fonctions continues sur un ouvert de \( \R^2\) à valeurs dans \(\R\) est continu.
+        \item L’inverse d’une fonction continue sur un ouvert de \(\R^2\) à valeurs dans \(\Rs\) est continue.
+        \item La composée, à gauche ou à droite, d’une fonction continue sur un ouvert de \(\R^2\) à valeurs dans \(\R\) par une fonction continue est continue. Plus précisément :
+        \begin{itemize}
+            \item Si \(f : \cal{O} \to  \R\) est continue sur un ouvert \(\cal{O}\) de \(\R^2\) et si \(g : \cal{O}' \to  \R^2\) est continue sur un ouvert \(\cal{O}'\) de \(\R^2\) avec \(g(\cal{O}') \subset \cal{O}\) alors \(f \circ g\) est continue sur \(\cal{O}'\).
+            \item Si \(f : \cal{O} \to  \R\) est continue sur un ouvert \(\cal{O}\) de \(\R^2\) et si \(h : \cal{O}' \to  \R\) est continue sur un ouvert \(\cal{O}'\) de \(\R\) avec \(f (\cal{O}) \subset \cal{O}'\) alors \(h \circ f\) est continue sur \(\cal{O}\).
+        \end{itemize}
+    \end{enumerate}
+\end{prop}
+\begin{ex}
+    \begin{itemize}
+        \item Les fonctions polynomiales de \(\R^2\) dans \(\R\) sont continues sur tout ouvert de \(\R^2\).
+        \item Les quotients de fonctions polynomiales définies sur \(\R^2\) sont continues sur tout ouvert de \(\R^2\) où leur dénominateur ne s’annule pas.
+    \end{itemize}
+\end{ex}
+\section{Dérivées partielles d’ordre \(1\)}
+\subsection{Dérivées partielles d’ordre \(1\)}
+    Soit \(f : \cal{O} \to  \R\) une fonction définie sur un ouvert \(\cal{O}\) de \(\R^2\) et \(a = (x_0, y_0)\) un point de \(\cal{O}\).
+\begin{defprop}[Dérivées partielles en un point]
+    \begin{itemize}
+        \item On dit \(f\) admet une dérivée partielle d’ordre \(1\) en \((x_0, y_0)\) par rapport à la première place si la fonction \(f_1 : t \mapsto f (t, y_0)\) est dérivable en \(x_0\).
+        Dans ce cas, la dérivée obtenue est notée \(\frac{\partial f}{\partial x} (x_0, y_0)\) :
+        \[\frac{\partial f}{\partial x} (x_0, y_0) = f'_{1}(x_0) =  \lim_{t\to x_0} \frac{f (t, y_0) - f (x_0, y_0)}{t - x_0} = \lim_{h\to 0} \frac{f (h + x_0, y_0) - f (x_0, y_0)}{h} \]
+        \item On dit \(f\) admet une dérivée partielle d’ordre \(1\) en \((x_0, y_0)\) par rapport à la seconde place si la fonction \(f_2 : t \mapsto f (x_0, t)\) est dérivable en \(y_0\).
+        Dans ce cas, la dérivée obtenue est notée \(\frac{\partial f}{\partial y} (x_0, y_0)\) :
+        \[\frac{\partial f}{\partial y} (x_0, y_0) = f'_2(y_0) = \lim_{t\to y_0} \frac{f (x_0, t) - f (x_0, y_0)}{t - y_0}= \lim_{h\to 0} \frac{f (x_0, h + y_0) - f (x_0, y_0)}{h}\]
+    \end{itemize}
+    \underline{Remarque}\\
+    Pour \((x_0, y_0) \in \cal{O}\), les fonctions \(f_1 : t \mapsto f (t, y_0)\) et \(f_2 : t \mapsto f (x_0, t)\) sont respectivement appelées première fonction partielle et seconde fonction partielle de \(f\) en \((x_0, y_0)\).
+\end{defprop}
+\begin{defprop}[Dérivées partielles sur un ouvert]
+    Si \(f\) admet une dérivée partielle d’ordre \(1\) en tout \((x_0, y_0)\) de \(\cal{O}\) par rapport :
+    \begin{itemize}
+    \item à la première place alors la fonction \((x_0, y_0) \mapsto \frac{\partial f}{\partial x} (x_0, y_0)\) définie sur \(\cal{O}\) à valeurs dans \(\R\), est appelée première fonction dérivée partielle d’ordre \(1\) et notée \(\frac{\partial f}{\partial x}\) ;
+    \item à la seconde place alors la fonction \((x_0, y_0) \mapsto \frac{\partial f}{\partial y} (x_0, y_0)\) définie sur \(\cal{O}\) à valeurs dans \(\R\), est appelée seconde fonction dérivée partielle d’ordre \(1\) et notée \(\frac{\partial f}{\partial y}\)
+    \end{itemize} 
+\end{defprop}
+\section{Existence de dérivées partielles et continuité : point de vigilance !}
+\begin{defprop}
+    Contrairement aux cas des fonctions d’une variable réelle à valeurs réelles pour lesquelles la dérivabilité implique la continuité, l’existence de dérivées partielles d’ordre \(1\) pour une fonction de deux variables réelles réelles à valeurs dans \(\R\) n’assure pas sa continuité.\\~\\
+    \underline{Exemple}\\
+    La fonction \(g\) définie sur \(\R^2\) par \(g(x, y) = \frac{xy}{x^2 + y^2}\) si \((x, y)\neq (0, 0)\) et \(g(0, 0) = 0\) admet des dérivées partielles d’ordre \(1\) en \(0\) mais n’est pas continue en \((0, 0)\) car la suite \(\paren{\frac{1}{n} , \frac{1}{n} }_{n\geq 1}\) tend vers \((0, 0)\) alors que la suite \(\paren{g\paren{ \frac{1}{n} , \frac{1}{n}}}\) ne tend pas vers \(g(0, 0)\).
+\end{defprop}
+\subsection{Classe \(\cal{C}^{1}\)}
+\begin{defi}
+    Soit \(f : \cal{O} \to  \R\) une fonction définie sur un ouvert \(\cal{O}\) de \(\R^2\).\\~\\
+    \(f\) est dite de classe \(\cal{C}^{1}\) sur l’ouvert \(\cal{O}\) si ses dérivées partielles d’ordre \(1\) existent et sont continues sur \(\cal{O}\).
+\end{defi}
+\begin{defprop}[Opérations sur les applications de classe \(\cal{C}^{1}\)]
+    \begin{enumerate}
+        \item La combinaison linéaire de fonctions de classe \( \cal{C}^{1}\) sur un ouvert de \(\R^2\) à valeurs dans \(\R\) est de classe \(\cal{C}^{1}\).
+        \item Le produit de fonctions de classe \(\cal{C}^{1}\) sur un ouvert de \(\R^2\) à valeurs dans \(\R\) est de classe \(\cal{C}^{1}\).
+        \item L’inverse d’une fonction de classe \(\cal{C}^{1}\) sur un ouvert de \(\R^2\) à valeurs dans \(\Rs\) est de classe \(\cal{C}^{1}\).
+        \item La composée, à gauche ou à droite, d’une fonction de classe \(\cal{C}^{1}\) sur un ouvert de \(\R^2\) à valeurs dans \(\R\) par une fonction de classe \(\cal{C}^{1}\) est de classe \(\cal{C}^{1}\). (preuve avec la règle de la chaîne vue au \(II\)).
+    \end{enumerate}
+\end{defprop}
+\begin{ex}
+    \begin{itemize}
+        \item Les fonctions polynomiales de \(\R^2\) dans \(\R\) sont de classe \(\cal{C}^{1}\) sur tout ouvert de \(\R^2\).
+        \item Les quotients de fonctions polynomiales définies sur \(\R^2\) sont de classe \(\cal{C}^{1}\) sur tout ouvert de \(\R^2\) où leur dénominateur ne s’annule pas.
+    \end{itemize}
+\end{ex}
+\begin{defprop}[Développement limité (preuve hors programme)]
+    Soit \(f : \cal{O} \to  \R\) une fonction définie sur un ouvert \(\cal{O}\) de \(\R^2\).\\~\\
+    Si \(f\) est de classe \(\cal{C}^{1}\) sur l’ouvert \(\cal{O}\) alors,\\~\\
+    pour tout \((x_0, y_0)\) de \(\cal{O}\) et pour tout \((h, k) \in \R^2\) tel que \((x_0 + h, y_0 + k) \in \cal{O}\), on a :
+    \[f (x_0 + h, y_0 + k) = f (x_0, y_0) + \frac{\partial f}{\partial x} (x_0, y_0) h + \frac{\partial f}{\partial y} (x_0, y_0) k + \o{\norme{(h, k)}}\]
+    avec \[\lim_{(h,k)\to (0,0)} \frac{\o{\norme{(h, k)}}}{\norme{(h, k)}} = 0\]
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Pour tout \((x_0, y_0) \in \cal{O}\), le caractère "ouvert" de \(\cal{O}\) assure la possibilité de trouver une boule ouverte centrée en \((x_0, y_0)\) incluse dans \(\cal{O} \) donc de trouver des \((h, k) \in \R^2\) tel que \((x_0 + h, y_0 + k) \in \cal{O}\).
+        \item Ce développement limité de \(f\) en \((x_0, y_0)\) donne une approximation locale en \((x_0, y_0)\) de la fonction \((h, k) \mapsto f (x_0 + h, y_0 + k) - f (x_0, y_0)\) par l’application linéaire
+        \[ (h, k) \mapsto \frac{\partial f}{\partial x} (x_0, y_0) h + \frac{\partial f}{\partial y} (x_0, y_0) k\]
+        Cela préfigure la notion de différentielle de \(f\) en \((x_0, y_0)\) qui sera vue en MPI.
+        \item Si on munit \(\R^3\) de sa structure euclidienne usuelle, le plan d’équation cartésienne
+        \[z - z_0 = \frac{\partial f}{\partial x} (x_0, y_0) (x - x_0) + \frac{\partial f}{\partial y} (x_0, y_0) (y - y_0)\]
+        est dit plan tangent à la surface \(S\) d’équation \(z = f (x, y)\) au point \(M_0(x_0, y_0, z_0)\).
+    \end{itemize}
+\end{defprop}
+\subsection{Classe \(\cal{C}^{1}\) et continuité}
+\begin{defprop}
+    Soit \(f : \cal{O} \to  \R\) une fonction définie sur un ouvert \(\cal{O}\) de \(\R^2\).\\~\\
+    Si \(f\) est de classe \(\cal{C}^{1}\) sur \(\cal{O}\) alors \(f\) est continue sur \(\cal{O}\).\\
+    \underline{Remarque}\\
+    On rappelle que l’existence de dérivées partielles d’ordre \(1\) n’assure pas la continuité (cf \(II. 2\)).
+\end{defprop}
+\subsection{Gradient d’une fonction de classe \(\cal{C}^{1}\)}
+\begin{defprop}[Définition par les coordonnées]
+    Soit \(f : \cal{O} \to  \R\) une fonction définie et de classe \(\cal{C}^{1}\) sur un ouvert \(\cal{O}\) de \(\R^2\) et \((x_0, y_0)\) un point de \(\cal{O}\).
+    On appelle gradient de \(f\) en \((x_0, y_0)\) le vecteur de \(\R^2\) noté \(\nabla f (x_0, y_0)\) défini par
+    \[\nabla f (x_0, y_0) = \paren{\frac{\partial f}{\partial x} (x_0, y_0), \frac{\partial f}{\partial y} (x_0, y_0)}\]
+    dans la base usuelle de \(\R^2\).
+\end{defprop}
+\begin{prop}
+    Si \(f\) est de classe \(\cal{C}^{1}\) sur l’ouvert \(\cal{O}\) et \((x_0, y_0)\) est un point de \(\cal{O}\) alors
+    \[\forall (h, k) \in \R^2, \scal{ \nabla f (x_0, y_0)}{ (h, k) } = \frac{\partial f}{\partial x} (x_0, y_0) h + \frac{\partial f}{\partial y} (x_0, y_0) k\]
+    où \(\scal{}{}\) désigne le produit scalaire usuel sur \(\R^2\).\\
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Cela résulte du fait que la base usuelle de \(\R^2\) est orthonormée pour le produit scalaire usuel.
+        \item  Lorsque \(f\) est de classe \(\cal{C}^{1}\) sur l’ouvert \(\cal{O}\), le développement limité de \(f\) en tout \((x_0, y_0)\) de \(\cal{O}\) à l’ordre \(1\) peut donc s’écrire sous la forme
+        \[f (x_0 + h, y_0 + k) = f (x_0, y_0) + \scal{ \nabla f (x_0, y_0)}{ (h, k) } + o(\norme{(h, k)})\]
+        Lorsque \(\nabla f (x_0, y_0)\neq 0_{\R^2}\) , le vecteur gradient donne la direction dans laquelle \(f\) croît le plus vite.
+    \end{itemize}
+\end{prop}
+\section{Extremums}
+\subsection{Définitions}
+\begin{defi}
+    Soit \(f\) une application définie sur une partie \(\cal{U}\) de \(\R^2\), à valeurs dans \(\R\), et \(a\) un point de \(\cal{U}\).
+    \begin{enumerate}
+        \item On dit que \(f\) admet :
+        \begin{enumerate}
+            \item un maximum local en \(a = (x_0, y_0)\) s’il existe \(r > 0\) tel que :
+                \[\forall (x, y) \in \cal{U} \inter \cal{B}(a, r), f (x, y) \leq f (x_0, y_0)\]
+            \item un minimum local en \(a = (x_0, y_0)\) s’il existe \(r > 0\) tel que :
+                \[\forall (x, y) \in\cal{U} \inter \cal{B}(a, r), f (x_0, y_0) \leq f (x, y)\]
+            \item un extremum local en \(a = (x_0, y_0)\) si \(f\) admet un maximum ou un minimum local en \(a\).
+        \end{enumerate}
+    \item On dit que \(f\) admet :
+        \begin{enumerate}
+            \item un maximum global en \(a = (x_0, y_0)\) si : \(\forall (x, y) \in\cal{U}, f (x, y) \leq f (x_0, y_0)\).
+            \item un minimum global en \(a = (x_0, y_0)\) si : \(\forall (x, y) \in\cal{U}, f (x_0, y_0) \leq f (x, y)\).
+            \item un extremum global en \(a\) si \(f\) admet un maximum ou un minimum global en \(a\).
+        \end{enumerate}
+    \end{enumerate}
+\end{defi}
+\subsection{Condition NECESSAIRE d’existence d’un extremum local}
+\begin{defprop}
+    Si \(f\) est une fonction définie et de classe \(\cal{C}^{1}\) sur un ouvert \(\cal{O}\) de \(\R^2\), à valeurs réelles qui admet un extremum local en \((x_0, y_0) \in \cal{O}\) alors
+    \[\nabla f ((x_0, y_0)) = 0_{\R^2}\] 
+    \underline{Remarques}\\
+    \begin{itemize}
+        \item Tout \((x_0, y_0) \in \cal{O}\) tel que \(\nabla f ((x_0, y_0)) = 0_{\R^2}\) est dit point critique de \(f\) .
+        \item La recherche d’éventuel extremum local pour \(f\) de classe \(\cal{C}^{1}\) sur un ouvert, à valeurs réelles,
+        \begin{itemize}
+            \item commence par la détermination des éventuels points critiques de \(f\) sur l’ouvert ;
+            \item se pousuit par l’étude du signe de \(f (x, y) - f (x_0, y_0)\) au voisinage des points critiques \((x_0, y_0)\) :
+            \begin{itemize}
+                \item si ce signe est constant sur une boule ouverte centrée en \((x_0, y_0)\) alors il y a extremum local ;
+                \item si ce n’est pas le cas, il n’y a pas d’extremum local.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{defprop}
+\section{Règle de la chaîne}
+Soit \(f : \cal{O} \to  \R\) une fonction définie sur un ouvert \(\cal{O}\) de \(\R^2\).
+\subsection{Dérivée selon un vecteur}
+\begin{defprop}
+     On dit que la fonction \(f\) est dérivable en \((x_0, y_0) \in \cal{O}\) selon le vecteur \(u = (h, k)\) de \(\R^2\) si la fonction \(t \mapsto f ((x_0, y_0) + t(h, k))\) est dérivable en \(0\). On note alors
+     \[D_uf (x_0, y_0) = \lim_{t\to 0} \frac{1}{t} (f ((x_0, y_0) + t(h, k)) - f (x_0, y_0))\]
+    et on dit que \(D_uf (x_0, y_0)\) est la dérivée de \(f\) en \((x_0, y_0)\) selon le vecteur \(u\).\\
+    \underline{Remarque}\\
+    orsqu’elles existent, les dérivées partielles premières de \(f\) en \((x_0, y_0)\) sont donc les dérivées de \(f\) en \((x_0, y_0)\) selon les deux vecteurs \(e_1\) et \(e_2\) de la base usuelle de \(\R^2\).
+    \begin{itemize}
+        \item Si \(f\) admet des dérivées en tout \((x_0, y_0) \in \cal{O}\) selon le vecteur \(u = (h, k)\) de \(\R^2\) alors la fonction \((x_0, y_0) \mapsto D_uf (x_0, y_0)\) définie sur \(\cal{O}\) à valeurs dans \(\R\), est appelée fonction dérivée de \(f\) selon le vecteur \(u\) et notée \(D_uf\) . On a, en particulier :
+        \[D_{e_1} f = \frac{\partial f}{\partial x} \qquad \text{ et } \qquad D_{e_2} f = \frac{\partial f}{\partial y}\]
+    \end{itemize}
+\end{defprop}
+
+\subsection{Expression des dérivées directionnelles avec le gradient}
+\begin{defprop}
+    Si \(f\) est une fonction définie et de classe \(\cal{C}^{1}\) sur un ouvert \(\cal{O}\) de \(\R^2\) et \((x_0, y_0)\) un point de \(\cal{O}\) alors \(f\) admet des dérivées en \((x_0, y_0)\) selon tout vecteur \(u = (h, k)\) de \(\R^2\) données par :
+        \[ D_uf (x_0, y_0) = \scal{ \nabla f (x_0, y_0)}{u} \]
+\end{defprop}
+\subsection{Règle de la chaîne}
+\begin{theo}
+    Soit \(x\) et \(y\) des fonctions de \(I\) (intervalle non vide, non réduit à un point, de \(\R\)) dans \(\R\) tel que :
+    \[\forall t \in I, (x(t), y(t)) \in \cal{O}\]
+    Si \(x\) et \(y\) sont de classe \(\cal{C}^{1}\) sur \(I\) et si \(f\) est de classe \(\cal{C}^{1}\) sur l’ouvert \(\cal{O}\) alors la fonction 
+        \[\psi : t \mapsto f (x(t), y(t))\]
+    est de classe \(\cal{C}^{1}\) sur \(I\) et sa dérivée est :
+    \[\psi' : t \mapsto \frac{\partial f}{\partial x} (x(t), y(t)) x'(t) + \frac{\partial f}{\partial y} (x(t), y(t)) y'(t)\]
+    ce que l’on peut encore écrire
+    \[\frac{d}{dt} (f (x(t), y(t))) = \frac{\partial f}{\partial x} (x(t), y(t)) x'(t) + \frac{\partial f}{\partial y} (x(t), y(t)) y'(t)\]
+\end{theo}
+\begin{defprop}[Interprétation géométrique de la règle de la chaîne]
+    Avec les hypothèses et notations du \(II. 3. 1.\), en notant \(\gamma : I \mapsto \R^2\) la fonction de classe \(\cal{C}^{1}\) définie par 
+    \[\forall t \in I, \gamma(t) = (x(t), y(t))\]
+    la dérivée de la fonction \(f \circ \gamma\) peut s’écrire :
+    \[\forall t \in I, (f \circ \gamma)' (t) = \scal{ \nabla f (\gamma(t))}{ \gamma'(t) }\]
+    On parle alors de dérivée de \(f\) le long de l’arc paramétré donné par \(\gamma : t \mapsto (x(t), y(t))\).
+\end{defprop}
+\begin{defprop}[Application géométrique de la règle de la chaîne]
+    Soit \(k \in \R\) et \((x_0, y_0) \in \cal{O}\).\\~\\
+    Si \(f\) est de classe \(\cal{C}^{1}\) sur \(\cal{O}\) avec \(\nabla f (x_0, y_0)\neq 0_{\R^2}\) et \(f (x_0, y_0) = k\) alors \(\nabla f (x_0, y_0)\) est orthogonal à la courbe
+    \[C_k = \accol{(x, y) \in \cal{O} \tq f (x, y) = k}\]
+    appelée ligne de niveau de \(f\) .
+\end{defprop}
+\subsection{Propriétés}
+\begin{prop}
+    Soit \(x\) et \(y\) des fonctions de \(\cal{O}'\) (ouvert non vide de \(\R^2\)) dans \(\R\) tel que :
+    \[\forall (u, v) \in \cal{O}', (x(u, v), y(u, v)) \in \cal{O}\]
+    Si \(x\) et \(y\) sont de classe \(\cal{C}^{1}\) sur \(\cal{O}'\) et si \(f\) est de classe \(\cal{C}^{1}\) sur \(\cal{O}\) alors l’application
+    \[g : (u, v) \mapsto f (x(u, v), y(u, v))\]
+    est de classe \(\cal{C}^{1}\) sur \(\cal{O}'\) et ses dérivées partielles d’ordre \(1\) sont :
+    \[\frac{\partial g}{\partial u}(u, v) = \frac{\partial x}{\partial u}(u, v)\frac{\partial f}{\partial x} (x(u, v), y(u, v)) + \frac{\partial y}{\partial u}(u, v)\frac{\partial f}{\partial y} (x(u, v), y(u, v)) \]
+    \[\frac{\partial g}{\partial v} (u, v) = \frac{\partial x}{\partial v} (u, v)\frac{\partial f}{\partial x} (x(u, v), y(u, v)) + \frac{\partial y}{\partial v} (u, v)\frac{\partial f}{\partial y }(x(u, v), y(u, v)) \]
+    Exemple important du passage en coordonnées polaires\\~\\
+    Soit \(\cal{O}'\) un ouvert non vide de \(\R^2\) tel que \(\forall (r, \theta) \in \cal{O}'\), \((r \cos \theta, r \sin \theta) \in \cal{O}\).
+    \begin{itemize}
+        \item Les fonctions \(x : (r, \theta) \mapsto r \cos \theta\) et \(y : \theta \mapsto r \sin \theta\) sont de classe \(\cal{C}^{1}\) sur \(\cal{O}'\) car leurs dérivées partielles d’ordre \(1\) existent et sont continues.
+        \item Ainsi, si \(f\) de classe \( \cal{C}^{1}\) sur \(\cal{O}\) alors \(g : (r, \theta) \mapsto f (r \cos \theta, r \sin \theta)\) est de classe \(\cal{C}^{1}\) sur \(\cal{O}'\) avec :
+        \[ \frac{\partial g}{\partial r} (r, \theta) = -r \cos \theta \frac{\partial f}{\partial x} (r \cos \theta, r \sin \theta) + r \sin \theta \frac{\partial f}{\partial y} (r \cos \theta, r \sin \theta) \]
+        \[ \frac{\partial g}{\partial \theta} (r, \theta) = -r \sin \theta \frac{\partial f}{\partial x} (r \cos \theta, r \sin \theta) + r \cos \theta \frac{\partial f}{\partial y }(r \cos \theta, r \sin \theta) \]
+    \end{itemize}
+\end{prop}
