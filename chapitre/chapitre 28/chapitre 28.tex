@@ -112,12 +112,48 @@ Dans cette partie, sauf mention contraire, \((u_n)_{n\in \N}\) et \((v_n)_{n\in 
 \end{defprop}
 \subsection{Autres séries de référence importantes : les séries de Riemann}
 \begin{defprop}
-   Pour \(\alpha  \in  \R\), la série de Riemann \(\sum \frac{1}{n^{\alpha}}\)  converge si, et seulement si, \(\alpha  > 1\).\\
+   Pour \(\alpha  \in  \R\), la série de Riemann \(\sum_{k\geq 1} \frac{1}{k^{\alpha}}\)  converge si, et seulement si, \(\alpha  > 1\).\\
     \underline{Remarque}\\
     Contrairement aux séries géométriques, il n’existe pas de formule générale donnant la valeur des sommes des séries de Riemann convergentes. 
 \end{defprop}
 
-\subsection{Convergence absolue d’une série}
+\begin{dem}
+    \begin{itemize}
+        \item Si \(\alpha < 0\) alors \(\sum \frac{1}{k^{\alpha}} = \sum k^{-\alpha} \underset{k \to \pinf}{\pinf}\)
+        \item Si \(\alpha = 0\) alors \(\sum \frac{1}{k^{\alpha}} = \sum 1 \underset{n \to \pinf}{\to} \pinf \)
+        \item Si \(\alpha >0\) :
+            On pose \(\fonction{f_{\alpha}}{\intervie{1}{\pinf}}{\Rp}{t}{\frac{1}{t^{\alpha}}}\) On remarque donc que \(\begin{cases}
+                f_{\alpha} &\in \cal{C}\paren{\intervie{1}{\pinf},\Rp}\\
+                f_{\alpha} &\text{ est décroissante}
+            \end{cases}\)\\~\\
+            Ainsi \(\forall n \in \N \int_{1}^{n+1}f_{\alpha}(t)dt\leq \underbrace{ \sum_{k=1}^n f_{\alpha}(k)}_{ = S_n} \leq f_{\alpha}(1) + \int_{1}^n f_{\alpha}(t)dt\)\\~\\
+            or de manière immédiate \(\int f_{\alpha}(t)dt = \int t^{-\alpha} = \begin{cases}
+                \frac{1}{1-\alpha}t^{-\alpha +1} &\text{ si } \alpha \neq 1\\
+                \ln(t) &\text{ si } \alpha = 1 
+            \end{cases}\)
+            Ainsi :
+            \begin{itemize}
+                \item Pour \(\alpha = 1\)\\~\\
+                    \[\forall n \in \Ns, \ln(n+1)\leq S_n\] 
+                    donc 
+                    \[S_n \underset{n \to \pinf}{\to} \pinf \text{ et donc } \sum \frac{1}{n} \text{ Diverge }\]
+                \item pour \( 0 < \alpha < 1\)
+                    \[\forall n \in \Ns, \frac{1}{1-\alpha}\paren{\paren{n+1}^{1-\alpha}-1}\leq S_n\] 
+                    donc 
+                    \[S_n \underset{n \to \pinf}{\to} \pinf \text{ et donc } \sum \frac{1}{n^{\alpha}} \text{ Diverge }\]
+                \item pour \(\alpha > 1\)
+                    \[ \forall n \in \Ns,\] 
+                    \begin{align*}
+                        S_n &\leq 1+ \frac{1}{1-\alpha}\paren{\paren{n}^{1-\alpha}-1}\\
+                            &\leq 1 - \frac{1}{1-\alpha} + \frac{n^{1-\alpha}}{1-\alpha}\\
+                            &\leq 1 - \frac{1}{1-\alpha}
+                    \end{align*}
+                    donc \(S_n\) est majorée ce qui implique que \(\sum_{\frac{1}{n^{\alpha}}}\) converge
+            \end{itemize}
+    \end{itemize}
+\end{dem}
+
+\section{Convergence absolue d’une série}
     Soit \((u_n)_{n\in \N }\) une suite de \(\K\).
 \subsection{Définition}
 \begin{defi}
@@ -128,6 +164,8 @@ Dans cette partie, sauf mention contraire, \((u_n)_{n\in \N}\) et \((v_n)_{n\in 
     Si la série \(\sum u_n \) converge absolument alors la série \(\sum u_n \) converge avec, pour tout \(n \in  \N\),
     \[\abs{\sum^{\pinf}_{k=n}u_k} \leq\sum^{\pinf}_{k=n}\abs{u_k}\]
 \end{defprop}
+
+
 
 \subsection{Théorème de domination}
 \begin{theo}

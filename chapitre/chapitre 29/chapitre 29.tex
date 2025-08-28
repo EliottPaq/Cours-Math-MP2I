@@ -264,6 +264,22 @@ Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et \(I\) un interval
     \underline{Remarque} \\~\\
     Dans le cas où \(\K = \R\), le réel \(\frac{b -  a}{n} \paren{\sum^{n- 1}_{k=0} f \paren{a + k \frac{b -  a}{n}}}\) correspond à la somme des aires de \(n\) rectangles de largeur \(\frac{b - a}{n}\) et de longueur \(f\paren{a + k \frac{b -  a}{n}}\) avec \(k\) qui varie dans \(\interventierii{0}{n -  1}\)
 \end{defprop}
+\begin{dem}
+    Soit \(f \in \cal{C}^1\paren{\intervii{a}{b},\K}\)
+    \begin{align*}
+         \abs{\sum^{n-1}_{k=0}\frac{b -  a}{n} f \paren{a_k} - \int_{\intervii{a}{b} f}} &= \abs{\sum^{n-1}_{k=0}\frac{b -  a}{n} f \paren{a_k} - \sum^{n-1}_{k=0}\int_{\intervii{a_k}{a_{k+1}}}f}\\
+        & = \abs{\sum^{n-1}_{k=0} \paren{\frac{b -  a}{n} f \paren{a_k} - \int_{\intervii{a_k}{a_{k+1}}}f}}\\
+        & = \abs{\sum^{n-1}_{k=0}\int_{\intervii{a_k}{a_{k+1}}} \paren{ f \paren{a_k} - f}}\\
+        & \leq \sum^{n-1}_{k=0}\int_{\intervii{a_k}{a_{k+1}}} \abs{f \paren{a_k} - f} \\
+        &\leq \sum^{n-1}_{k=0}\int_{\intervii{a_k}{a_{k+1}}} M\abs{a_k - t} \qquad  \text{ Car } f \text{ est } M-\text{liepschitziene} \\
+        &\leq \sum^{n-1}_{k=0} \int_{\intervii{a_k}{a_{k+1}}} M\paren{a_k - t} \\
+        & \leq    \sum^{n-1}_{k=0} M \paren{\frac{-1}{2}t^2 + a_kt}^{a_{k+1}}_{a_k} \\
+        &\leq \frac{M}{2} \sum^{n-1}_{k=0} \paren{\frac{b-a}{n}}^2 \\
+        & \leq\frac{M}{2} \times \frac{n \paren{b-a}^2}{n^2}\\
+        &\leq \frac{ M\paren{b-a}^2}{2n}
+        \end{align*}
+    or \(\frac{ M\paren{b-a}^2}{2n} \underset{n \to \pinf}{\to} 0\) donc \(\lim_{n\to\pinf} \frac{b -  a}{n} \paren{\sum^{n- 1}_{k=0} f \paren{a + k \frac{b -  a}{n}}} = \int_{\intervii{a}{b}} f\)
+\end{dem}
 \section{Lien entre intégrale et primitive d’une fonction continue}
     Soit \(f\) une fonction définie sur \(I\), continue sur \(I\), à valeurs dans \(\K\).
 \subsection{Théorème fondamental}
@@ -278,6 +294,33 @@ Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et \(I\) un interval
         \[\forall (a, b) \in  I^2,\int^b_a f (t) dt = F (b) -  F (a)\]
     \end{enumerate}
 \end{theo}
+\begin{dem}
+    Soit \(f : I \to \K\) continue sur \(I\)\\~\\
+    Soit \(a \in I\), on note \(\fonction{F}{I}{\K}{x}{\int_a^x f(t dt)}\)\\~\\
+    Montrons que \(F\) est dérivable sur \(I\) avec \(F' = f\) \cad \(F\) est une primitive de \(f\) sur \(I\)\\~\\
+    Soit \(x_0 \in I\)
+    \begin{align*}
+        \forall x \in I\pd \accol{x_0} \abs{\frac{F(x) - F(x_0)}{x-x_0} - f(x_0)} &= \abs{\frac{1}{x-x_0}\paren{\int_{x_0}^x f(t)dt - \int_{x_0}^x f(x_0)dt}} \\
+        & = \abs{\frac{1}{x-x_0}\paren{\int_{x_0}^x f(t)dt -  f(x_0)dt}}\\
+        & \leq \begin{cases}
+            \frac{1}{\abs{x-x_0}} \int_{x_0}^{x} \abs{f(t) - f(x_0)} dt &\text{ si } x> x_0\\
+            \\
+            \frac{1}{\abs{x-x_0}} \int_{x}^{x_0} \abs{f(t) - f(x_0)} dt &\text{ si } x< x_0\\
+        \end{cases} \\
+    \end{align*}
+    Soit \(\epsilon > 0\) \(f\) étant continue en \(x_0\) \(\exists \delta >0 \) tel que \(\forall t \in I \abs{t-x_0}\leq\delta \imp \abs{f(t) - f(x_0)} \leq \epsilon\)\\~\\
+    Donc par croissance de l'intégrale : \(\begin{aligned}\forall x  \in I \abs{x-x_0}\leq \delta \imp \abs{\Delta(x)-f(x_0)}&\leq \begin{cases}
+            \frac{1}{\abs{x-x_0}} \int_{x_0}^{x} \epsilon dt &\text{ si } x> x_0\\
+            \\
+            \frac{1}{\abs{x-x_0}} \int_{x}^{x_0} \epsilon dt &\text{ si } x< x_0\\
+        \end{cases}\\
+        &\leq \epsilon
+    \end{aligned} \)\\~\\
+    Ainsi \(\forall \epsilon > 0, \exists x \in I, \forall x \in I, \abs{x-x_0}< \delta \imp \abs{\frac{F(x)-f(x_0)}{x-x_0} - f(x_0)}\leq \epsilon\)\\~\\
+    \ie \(\frac{F(x)-f(x_0)}{x-x_0} \underset{x\to x_0}{\to} f(x_0) \qquad \in \K\)\\~\\
+    \ie \(F\) dérivable en \(x_0\) avec \(F'(x_0) = f(x_0) \qquad \forall x_0 \in I\)\\~\\
+    Ainsi \(\forall f \in \cal{C}\paren{I,\K} \forall a \in I, F : x \to \int_a^x f(t) dt\) alors \(\underbrace{F \in \cal{D}\paren{I,\R} \text{ et } F' = f}_{F\in \cal{C}^1\paren{I,\R}}\) 
+\end{dem}
 \begin{defprop}[Existence de primitives]
     Toute fonction numérique continue sur un intervalle \(I\) admet des primitives sur \(I\) et celles-ci permettent de calculer les intégrales de cette fonction sur tout segment inclus dans \(I\).
 \end{defprop}
@@ -290,6 +333,22 @@ Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et \(I\) un interval
     avec
     \[ T_n(x) = \sum^n_{K=0}\frac{(x -  a)^K}{K!} f^{(K)}(a) \text{ et } R_n(x) =\int^x_a \frac{(x -  t)^n}{n!} f^{(n+1)}(t) dt\]
 \end{defprop}
+\begin{dem}
+    Montrons cette formule par récurrence
+    \begin{itemize}
+        \item \(n = 0\) : \\
+        Soit \(f \in \cal{C}^1\paren{I,\K} \)\\~\\
+        Alors \(T_0(x) = \frac{f^{(0)}(a)}{0!} (x-a)^{0} = f(a)\) et \(R_0(x) = \int_a^x\frac{x-t}{0!}f^{(1)}(t)dt = f(x)-f(a)\) \\
+        donc \(T_0(x) + R_0(x) = f(x)\)
+        \item Soit \(n \in \N\) tel que la propriété est vrai au rang \(n\) :\\
+        Soit \(f\in \cal{C}^{n+2}\paren{I,\K}\) alors \(f\in \cal{C}^{n+1}\paren{I,\K}\) donc par hypothèse \(f(x) = T_n(x ) + R_n(x)\)\\
+        Donc par Intégration Par Partie de \(R_n(x)\) ,\begin{align*}
+            R_n(x) &= \croch{\frac{-(x-t)^{n+1}}{(n+1)!}f^{(n+1)}(t)}^x_a - \int_{a}^x \frac{-(x-t)^{n+1}}{(n+1)!}f^{(n+2)}(t)dt \\
+            & = \frac{-(x-a)^{n+1}}{(n+1)!}f^{(n+1)}(a) + \int_{a}^x \frac{(x-t)^{n+1}}{(n+1)!}f^{(n+2)}(t)dt\\
+        \end{align*} 
+        Ainsi \(\forall (a,x) \in I^2, f(x) = T_n(x ) + \frac{-(x-a)^{n+1}}{(n+1)!}f^{(n+1)}(a) + \int_{a}^x \frac{(x-t)^{n+1}}{(n+1)!}f^{(n+2)}(t)dt = T_{n+1}(x) + R_{n+1}(x)\) 
+    \end{itemize}
+\end{dem}
 \subsection{Inégalité de Taylor-Lagrange}
 \begin{defprop}
     Soit \(n \in  N\).\\
@@ -298,6 +357,29 @@ Dans ce chapitre, \(\K\) désigne le corps \(\R\) ou \(\C\) et \(I\) un interval
     avec
     \[M_{n+1} \text{ un majorant de }f^{(n+1)} \text{ sur } \intervii{a}{x} (\text{ ou } \intervii{x, a})\]
 \end{defprop}
+\begin{dem}
+    Soit \(f \in \cal{C}^{n+1}\paren{I,\K}\) et \((a,x) \in I^2\), alors par théorème de Taylor avec reste intégral : \\
+    \[\begin{aligned}
+        \abs{f(x) - T_n(x)} &= \abs{\int^x_a \frac{(x -  t)^n}{n!} f^{(n+1)}(t) dt }\\
+        &\leq \begin{cases}
+        \int^x_a \frac{(x -  t)^n}{n!} \abs{f^{(n+1)}(t)} dt &\text{ si } x>a \\
+        \int_x^a \frac{(x -  t)^n}{n!} \abs{f^{(n+1)}(t)} dt &\text{ si } x<a
+        \end{cases} \qquad \text{ inégalité triangulaire }
+    \end{aligned}\]
+    Ainsi \[\begin{aligned}
+        f(x) - T_n(x) &\leq\begin{cases}
+        \frac{M_{n+1}}{n!}\int^x_a (x -  t)^n  dt &\text{ si } x>a \\
+        \frac{M_{n+1}}{n!}\int_x^a (t - x)^n dt &\text{ si } x<a
+        \end{cases} \qquad  M_{n+1} \text{ un majorant de } f^{(n+1)} \text{ car } f \text{ est } n+1-\text{liepschitziene} \\
+        &\leq \begin{cases}
+        \frac{(a-x)^{n+1}}{(n+1)!}  M_{n+1} &\text{ si } x>a \\
+        \frac{(a-x)^{n+1}}{(n+1)!} M_{n+1} dt &\text{ si } x<a
+        \end{cases}\\
+        &\leq \frac{\abs{x-a}^{n+1}}{(n+1)!} M_{n+1}
+    \end{aligned}\]
+    Par ailleur \(\frac{\abs{x-a}^{n+1}}{(n+1)!} M_{n+1} \underset{n \to \pinf}{\to} 0\)\\
+    Donc \(T_n(x) \underset{n \to \pinf}{\to} f(x)\) donc \(f(x) = \sum_{k=0}^{\pinf} \frac{f^{(k)}(a)}{k!} (x-a)^k\)
+\end{dem}
 \begin{defprop}[Remarque]
 Les deux formules précédentes ont une nature globale contrairement à la formule de Taylor-Young vue dans le chapitre \hyperref[chap:analyse-asymptotique1]{"Analyse asymptotique \((1)\)"} qui elle a une nature locale.
 \end{defprop}

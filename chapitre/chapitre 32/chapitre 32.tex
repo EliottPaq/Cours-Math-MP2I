@@ -41,11 +41,56 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire noté \(\scal{.}{.
     \underline{Remarque}\\
     Il y a égalité dans l’inégalité précédente si, et seulement si, la famille \((x, y)\) est liée.
 \end{defprop}
+\begin{dem}
+    Soit \((x,y) \in E^2\), on note \(P : \lambda \mapsto \scal{\lambda x +y}{\lambda x +y}\)\\~\\
+    Ainsi \(\forall \lambda \in \R, \begin{cases}
+        P(\lambda) \geq 0  \text{ par positivité du produit scalaire} \\
+        P(\lambda) = \lambda \scal{x}{\lambda x +y} + \scal{y}{ \lambda x +y} = \lambda^2 \scal{x}{x} + 2\lambda \scal{x}{y} + \scal{y}{y}
+    \end{cases}\)
+    \begin{itemize}
+        \item Cas où \(x \neq 0_E\)\\~\\
+            Alors \(\scal{x}{x} \neq 0\) donc \(P\) est fonction polynomiale de degré \(2\) positive donc \(\Delta \leq 0\) avec \(\Delta = 4\scal{x}{y}^2 - 4\scal{x}{x}\scal{y}{y}\)\\
+            ainsi \(\scal{x}{y}^2\leq \scal{x}{x}\scal{y}{y}\) donc \(\abs{\scal{x}{y}} \leq \sqrt{\scal{x}{x}}\sqrt{\scal{y}{y}}\)
+        \item Si \(x = 0_E\) alors l'inégalité est triviale car \(\begin{cases}
+            \scal{x}{y} &=0 \\
+            \scal{x}{x}\scal{y}{y} &= 0
+        \end{cases}\)
+        
+    \end{itemize}
+    \underline{Etude du cas d'égalité}\\~\\
+    Pour \( x = 0_E\) il y a égalité trivialement\\~\\
+    Pour \(x \neq 0_E\), l'égalité implique \(\Delta = 0\) donc \(\exists \lambda_0 \in \R, P(\lambda_0) = 0\) ce qui implique par le caractère définie du produit scalaire que \(\lambda_0 x + y = O_E\) et donc que \((x,y)\) est liée\\~\\
+    Ainsi si il y a égalité avec l'inégalité de Cauchy-Schwarz alors \((x,y)\) est liée\\~\\
+    Réciproquement, si \((x,y)\) est liée alors sans perte de généralité \(\exists \lambda \in \R\) tel que \(x = \lambda y\)\\~\\
+    \(\abs{\scal{x}{y}} = \abs{\lambda \scal{y}{y}} = \abs{y}\scal{y}{y}\)\\
+    \(\sqrt{\scal{x}{x}}\sqrt{\scal{y}{y}} = \sqrt{\lambda^2\scal{y}{y}}\sqrt{\scal{y}{y}} = \abs{\lambda}\scal{y}{y}\)
+    Ce qui démontre bien que \(\abs{\scal{x}{y}} =\sqrt{\scal{x}{x}}\sqrt{\scal{y}{y}} \)
+\end{dem}
 \begin{defprop}[négalité de Minkowski]
     \[\forall (x, y) \in E^2, \sqrt{\scal{x + y}{x+y}} \leq \sqrt{\scal{x}{y}} + \sqrt{\scal{y}{y}}\]
     \underline{Remarque}\\
     Il y a égalité dans l’inégalité précédente si, et seulement si, \(x = 0_E\) ou (\(x\neq 0_E \)et \(\exists \alpha \in \Rp, y = \alpha x\)).
 \end{defprop}
+\begin{dem}
+    Soit \((x,y) \in E^2\)\\
+    \[\scal{x+y}{x+y} = \scal{x}{x}+2\scal{x}{y} + \scal{y}{y}\]
+    et \[\scal{x}{y} \leq \abs{\scal{x}{y}} \leq \sqrt{\scal{x}{x}}\sqrt{\scal{y}{y}} \qquad \text{ par Cauchy-Schwarz }\]
+    Ainsi  \begin{align*}
+        \scal{x+y}{x+y} &\leq \scal{x}{x}+2\sqrt{\scal{x}{x}}\sqrt{\scal{y}{y}} + \scal{y}{y} \\
+        \paren{ \sqrt{\scal{x+y}{x+y}}}^2 &\leq \paren{\sqrt{\scal{x}{x}} + \sqrt{\scal{y}{y}}}^2 \\
+        \sqrt{\scal{x+y}{x+y}} &\leq\sqrt{\scal{x}{x}} + \sqrt{\scal{y}{y}}
+    \end{align*}
+    par ailleur le cas d'égalité est vérifié que si \(\scal{x}{y} = \abs{\scal{x}{y}} = \sqrt{\scal{x}{x}}\sqrt{\scal{y}{y}}\)
+    ainsi il y a égalité \ssi \(\begin{cases}
+        \scal{x}{y} &\geq 0\\
+        (x,y) &\text{ liée}
+    \end{cases} \iff \begin{cases}
+    x &= 0_E \\
+    \text{ ou } \\
+    x&\neq 0_E \text{ et } \exists \alpha \in \R, y = \alpha x
+    \end{cases}\)
+\end{dem}
+
 \subsection{Norme associée à un produit scalaire}
 Soit \(E\) un espace préhilbertien réel de produit scalaire noté \(\scal{.}{.}\).
 \begin{defprop}
@@ -57,7 +102,7 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire noté \(\scal{.}{.
         \item\( \forall x \in E, \norme{x} = 0 \imp x = 0_E ; \hfill( \text{ séparation })\)
         \item\( \forall x \in E, \forall \lambda  \in \R, \norme{\lambda x} = \abs{\lambda } \norme{x} ;\hfill (\text{ homogénéité })\)
         \item\( \forall (x, y) \in E^2, \norme{x +y} \leq \norme{x} + \norme{y} . \hfill(\text{ inégalité triangulaire })\)
-    \end{enumerate}
+    \end{enumerate}~\\
     On dit que c’est une norme sur \(E\) (la notion de norme sera reprise dans un cadre plus général en MPI) et plus particulièrement que c’est la norme associée au produit scalaire \(\scal{.}{.}\).\\
     \underline{Remarque}\\
     Il y a égalité dans l’inégalité triangulaire si, et seulement si, \(x = 0_E\) ou (\(x\neq 0_E\) et \(\exists \alpha \in \Rp, y = \alpha x).\)
@@ -109,6 +154,19 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et
     \underline{Remarque}\\
     La réciproque est vraie pour \(p = 2\) et fausse pour \(p \geq 3\).
 \end{theo}
+\begin{dem}
+    Démontrons cette égalité par récurrence en supposans les hypothèses vérifié
+    \begin{itemize}
+        \item \(p = 2 \)\\~\\
+        \[\norme{x_1 + x_2}^2 = \norme{x}^2 + \norme{y}^2 + 2\underbrace{\scal{x_1}{x_2}}_{ \substack{= 0\\ \text{ car } x_1 \text{ et } x_2 \text{ sont  orthogonaux}}}\]
+        \item Supposons la propriété vérifié au rang \(n\) montrons là au rang \(n+1\)\\~\\
+        \begin{align*}
+            \norme{\sum_{k=1^{n+1}} x_k}^2 &= \norme{\sum_{k=1^{n}} x_k}^2 + \norme{x_{n+1}}^2 + 2\underbrace{\scal{\sum_{k=0}^n x_k}{x_{n+1}}}_{ \substack{= 0\\ \text{ car } \sum_{k=0}^n x_k \text{ et } x_2 \text{ sont orthogonaux}}} \\
+            &=\sum_{k=1}^n\norme{x_k}^2 + \norme{x_{n+1}}^2\\
+            &=\sum_{k=1}^{n+1}\norme{x_k}^2
+        \end{align*}
+    \end{itemize}
+\end{dem}
 \section{Bases orthonormales}
     Soit \(E\) un espace euclidien de dimension \(n \in \Ns\) de produit scalaire \(\scal{.}{.}\) et de norme associée \(\norme{.}\).
 
@@ -161,6 +219,32 @@ Soit \(E\) un espace préhilbertien réel de produit scalaire \(\scal{.}{.}\) et
             \[E = F \oplus F\ortho \text{ et }\dim E = \dim F + \dim F\ortho\].
     \end{enumerate}
 \end{defprop}
+\begin{dem}
+    Supposons les hypothèses vérifié\\~\\
+    Procédons par analyse-synthèse pour démontrer que \(E = F \oplus F\ortho\)
+    \begin{itemize}
+        \item \analyse\\~\\
+            Supposons que \(E = F \oplus F\ortho\) alors tout \(x\) de \(E\) s'écrit \(x = x_F + X_{F\ortho}\)\\~\\
+            Soit \(\cal{B}_F = (e_1, \dots, e_p)\) une base orthonormé de \(F\) alors \(x_F = \sum_{k=1}^p \scal{x}{e_k}e_k\)\\~\\
+            avec \(\forall k \in \interventierii{1}{p}, \scal{x}{e_k} = \scal{x_F}{e_k} + \underbrace{\scal{x_{F\ortho}}{e_k}}_{ = 0}\)\\~\\
+            Ainsi \(\begin{cases}
+                x_F &= \sum_{k=1}^p \scal{x}{e_k}e_k \\
+                x_{F\ortho} = x-x_F
+            \end{cases}\)
+        \item \synthese \\~\\
+            Pour \(x \in E\) : \begin{itemize}
+                \item \(x_F \in F\)
+                \item \(x_{F\ortho} \in F\ortho\) \\
+                Car \begin{align*}
+                \forall k \in \interventierii{1}{P} \scal{e_k}{x_{F\ortho}} &= \scal{e_k}{x} - \scal{e_k}{x_F}\\
+                &= \scal{e_k}{x} - \sum_{i=1}^p \scal{x}{e_i}\scal{e_k}{e_i}\\
+                &=  \scal{e_k}{x} - \scal{x}{e_k}\\
+                &= 0
+                \end{align*}
+            \end{itemize}
+    \end{itemize}
+    \conclusion Si \(F\) est un sous-espace vectoriel de dimension finie de \(E\) préhilbertien alors \(E = F \oplus F\ortho\)
+\end{dem}
 \subsection{Projection orthogonale sur un sous-espace de dimension finie}
 \begin{defprop}
     Si \(F\) est un sous-espace vectoriel de \(E\) de dimension finie alors :
