@@ -1,4 +1,4 @@
-\chapter{Famille sommables de réels ou complexes}
+\chapter{Familles sommables de réels ou complexes}
 \minitoc 
 Dans ce chapitre où \(\K\) désigne le corps \(\R\) ou \(\C\), on prolonge les calculs de sommes finies effectués en début d’année dans le chapitre "Sommes et produits finis" en présentant un cadre qui permet de sommer "en vrac" une famille infinie et procure ainsi un grand confort de calcul. On se concentre sur la pratique, vu son importance en MPI, dans les calculs d’espérance et de variance de variables aléatoires discrètes.
 \section{Familles sommables de réels positifs}
@@ -30,7 +30,7 @@ Dans ce chapitre où \(\K\) désigne le corps \(\R\) ou \(\C\), on prolonge les 
 \begin{defprop}
     Soit \(I\) un ensemble quelconque.\\~\\
     On appelle somme d’une famille \((u_i)_{i\in I}\) d’éléments de \(\intervii{0}{\pinf}\), et on note \(\sum_{i\in I} u_i\), la borne supérieure dans \(\intervii{0}{\pinf}\) de l’ensemble des sommes \(\sum_{i\in F}u_i\) quand \(F\) décrit l’ensemble des parties finies de \(I\) :
-    \[\sum_{i\in I}u_i = \sup \accol{\sum_{i\in F}u_i \tq F partie finie de I}\]
+    \[\sum_{i\in I}u_i = \sup \accol{\sum_{i\in F}u_i \tq F \text{partie finie de I}}\]
 
     \underline{Remarques}\\
     Soit \((u_i)_{i\in I}\) une famille d’éléments de \(\intervii{0}{\pinf}\).\\~\\
@@ -64,7 +64,7 @@ Dans ce chapitre où \(\K\) désigne le corps \(\R\) ou \(\C\), on prolonge les 
     \underline{Remarque}\\
     Les conventions de calcul imposées dans \(\intervii{0}{\pinf}\) donnent du sens à ces égalités y compris dans le cas où l’une des familles de réels positifs écrites n’est pas sommable.
 \end{defprop}
-\subsection{Théorème de sommation par paquets positif (ADMIS)}
+\subsection{Théorème de sommation par paquets positifs (ADMIS)}
 \begin{theo}
     Soit \(I\) et \(J\) deux ensembles quelconques.\\~\\
     Si l’ensemble \(I\) est la réunion disjointe des ensembles \(I_j\) lorsque \(j\) décrit \(J\) et si \((u_i)_{i\in I}\) est une famille de réels positifs alors la somme de cette famille vérifie
@@ -104,7 +104,7 @@ Dans ce chapitre où \(\K\) désigne le corps \(\R\) ou \(\C\), on prolonge les 
 \begin{defprop}[Somme d’une famille sommable]
     \begin{itemize}
         \item Si \((u_i)_{i\in I}\) est une famille de réels sommable, sa somme est définie par :
-            \[\sum_{i\in I}u_i = X\sum_{i\in I}u^{+}_i - \sum_{i\in I}u^{-}_i\]
+            \[\sum_{i\in I}u_i = \sum_{i\in I}u^{+}_i - \sum_{i\in I}u^{-}_i\]
         où \(u^{+}_i = \frac{1}{2} (\abs{u_i} + u_i)\) et \(u^{-}_i = \frac{1}{2} (\abs{u_i} - u_i)\)
         \item si \((u_i)_{i\in I}\) est une famille de complexes sommable, sa somme est définie par :
             \[\sum_{i\in I}u_i = \sum_{i\in I}\Reel{u_i} + i\sum_{i\in I}\Ima{u_i}.\]
@@ -163,6 +163,6 @@ Dans ce chapitre où \(\K\) désigne le corps \(\R\) ou \(\C\), on prolonge les 
     Si les séries \(\sum u_m\) et \(\sum v_n\) convergent absolument alors la série \(\sum w_p\) converge absolument avec
     \[\sum^{\pinf}_{p=0}w_p =\paren{\sum^{\pinf}_{m=0}u_m}\paren{\sum^{\pinf}_{n=0}v_n}\]
     La série \(\sum w_p\) est dite série produit de Cauchy des séries \(\sum u_m\) et \(\sum v_n\).\\
-    \underline{Remarque}
+    \underline{Remarque}\\
     Ceci est une conséquence du résultat vu au \(II. 7.\) appliqué à la famille \((a_{m,n})_{(m,n)\in \N^2}\) où \(a_{m,n} = u_mv_n\) et du théorème de sommation par paquets vu au \(II. 5.\) appliqué avec la partition \((I_p)_{p\in \N}\) de \(I = \N^2\) définie par \(I_p = \accol{(m, n) \in  \N^2\tq m + n = p}\).
 \end{defprop}

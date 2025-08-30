@@ -9,7 +9,7 @@
 		\item \(\C\) contient\(\R \)
 		\item \(\C\) est muni de deux opérations \(+\) et \(\times\) sur \(\C\) qui étendent les opérations \(+\) et \(\times\) connues sur \(\R\) et suivent les mêmes règles de calcul que celles-ci
 		\item \(\C\) contient un élément noté \(\i\) vérifiant \(\i^2 = -1\)
-		\item Tout élément \(z\) de \(\C\) s'écrit de manière uneique sous la forme \(z = a+\i b\) avec \(\paren{a,b} \in \R^2\)
+		\item Tout élément \(z\) de \(\C\) s'écrit de manière unique sous la forme \(z = a+\i b\) avec \(\paren{a,b} \in \R^2\)
 	\end{enumerate}
 \end{defi}
 \begin{rem}
@@ -24,14 +24,14 @@
 	\end{itemize}
 \end{rem}
 
-\begin{defprop}[Opériation sur \(\C\)]
+\begin{defprop}[Opération sur \(\C\)]
 	L’ensemble \(\C = \accol{a + \i b \tq \paren{a, b} \in \R^2}\) est muni deux opérations + et \(+\) et \(\times\) définies par, pour tout nombre complexe \(z\) de forme algébrique \(a + \i b\) et tout nombre complexe \(z'\) de forme algébrique \(a' + \i b'\) : \[\begin{cases}
 			z+z' = (a+\i b) + (a'+\i b') = (a+a')+\i(b+b') \\
 			z \times z' = (a+\i b) \times (a'+\i b') = (aa'-bb') + \i(ab'+a'b)
 		\end{cases}\]
 \end{defprop}
 
-\begin{defprop}[Extension des résultat vus dans \(\R\)]
+\begin{defprop}[Extension des résultats vus dans \(\R\)]
 	\begin{enumerate}
 		\item Pour tout \(n\) entier naturel et tout nombre complexe \(z\) différent de \(1\), on a :
 		      \[\sum_{k=0}^n z^k = \frac{1-z^{k+1}}{1-z}\]
@@ -76,12 +76,12 @@
 	\end{enumerate}
 \end{defprop}
 
-\section{module d'un nombre complexe}
+\section{Module d'un nombre complexe}
 \begin{defprop}
 	On appelle module d’un nombre complexe \(z\) et on note \(\abs{z}\) le nombre réel positif défini par : \[\abs{z} = \sqrt{ \paren{\Reel{z}}^2+\paren{\Ima{z}}^2}\]
 \end{defprop}
 
-\begin{defprop}[interprétation géometriques]
+\begin{defprop}[interprétations géometriques]
 	\begin{itemize}
 		\item Pour tout nombre complexe \(z\), le module \(\abs{z}\) est : \begin{itemize}
 			      \item la distance entre le point d’affixe \(0\) et le point d’affixe \(z\) ;
@@ -188,7 +188,7 @@
 \begin{appl}[Applications usuelles importantes]
 	~\\
 	Soit \(C = \sum_{k=0}^n \cos(kt)\) et \(S = \sum_{k=0}^n \sin(kt)\) avec \(n \in \N\) et \(t \in \R\)\\
-	On Obtient des expressions simplifiées des sommes \(C\) et \(S\) par le calcul annexe suivant
+	On obtient des expressions simplifiées des sommes \(C\) et \(S\) par le calcul annexe suivant
 	\[C+\i S = \sum_{k=0}^n e^{\i kt} = \sum_{k=0}^n \paren{e^{\i t}}^k =
 		\begin{cases}
 			n+1                               & \text{si } t\equiv 0\croch{2 \pi} \\
@@ -199,7 +199,7 @@
 			n+1                                                                       & \text{si } t\equiv 0\croch{2 \pi} \\
 			\frac{\paren{1-e^{\i(n+1)t}}\paren{1-e^{\i t}}}{2\paren{1-\cos\paren{t}}} & \text{ sinon }
 		\end{cases} \]
-	On conclut alors sur les valeurs de \(C\) et \(S\) en exhibant les parties réelle et imaginaire de \(C + \i S\).
+	On conclut alors sur les valeurs de \(C\) et \(S\) en exhibant les parties réelles et imaginaires de \(C + \i S\).
 \end{appl}
 
 \section{Forme trigonométrique pour les nombres complexes non nuls}
@@ -252,7 +252,7 @@
 \section{Fonctions d'une variable réelle à valeurs complexes}
 
 \begin{defi}
-	Une fonction de variable réelle à valeurs complexes notée \(f\) est un objet mathématique qui, tout élément \(x\) d’une partie non vide de \(\R\), associe un et un seul nombre complexes noté \(f (x)\).
+	Une fonction de variable réelle à valeurs complexes notée \(f\) est un objet mathématique qui, tout élément \(x\) d’une partie non vide de \(\R\), associe un et un seul nombre complexe noté \(f (x)\).
 \end{defi}
 
 \begin{defprop}[Ce qui s’étend aux fonctions de variable réelle à valeurs complexes]
@@ -278,7 +278,7 @@
 
 \begin{defprop}[Dérivation]
 	Soit \(I\) un intervalle de \(\R\) non vide et non réduit à un point.
-	Soit \(f\) une fonction définie sur \(I\) à valeurs complexe. \\
+	Soit \(f\) une fonction définie sur \(I\) à valeurs complexes. \\
 	On note \(\Reel{f} :I \to \R\) et \(\Ima{f}:I\to\R\) les fonctions d’une variable réelle à valeurs réelles définies par :
 	\[\quantifs{\forall x \in I}\paren{\Reel{f}}(x) = \Reel{f(x)} \text{ et } \paren{\Ima{f}}(x) = \Ima{f(x)} \]
 	On dit que : \begin{itemize}
@@ -287,7 +287,7 @@
 	\end{itemize}
 	Selon le cas de figure, on appelle :
 	\begin{itemize}
-		\item nombre dérvée de \(f\) en \(x_0\) et on note \(f'(x_0)\) le nombre complexe suivant : \[f'(x_0) = \paren{\Reel{f}'(x_0)} + \ \paren{\Ima{f}'(x_0)}\]
+		\item nombre dérivé de \(f\) en \(x_0\) et on note \(f'(x_0)\) le nombre complexe suivant : \[f'(x_0) = \paren{\Reel{f}'(x_0)} + \ \paren{\Ima{f}'(x_0)}\]
 		\item fonction dérivée de \(f\) sur \(I\) et on note \(f'\) la fonction de variable réelle à valeurs complexes suivante :
 		      \[ f' = \paren{\Reel{f}'} + \ \paren{\Ima{f}'}\]
 	\end{itemize}

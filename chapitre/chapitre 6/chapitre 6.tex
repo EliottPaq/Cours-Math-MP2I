@@ -2,7 +2,7 @@
 
 \minitoc
 
-\section{Équations algébreiques}
+\section{Équations algébriques}
 \subsection{Préliminaires}
 \begin{defi}[Définition d'une fonction polynomiale]
     Une fonction \(P:\C\to\C\) est dite fonction polynomiale à coefficients complexes s'il existe un entier naturel \(n\) et un \(n+1\)-uplet de nombres complexes \((b_0,b_1,\dots,b_n)\) tel que pour tout \(z\) de \(\C\), 
@@ -29,7 +29,7 @@
 \begin{defprop}[Cas général]
     soit \(a,b\) et \(c\) des nombres complexes avec \(a\) non nul. \\
     \begin{itemize}
-        \item \underline{Racines} \\Les solutions de l'équations polynomiale \(az^2+bz+c=0\) d'inconnue le nombre complexe \(z\) sont : 
+        \item \underline{Racines} \\Les solutions de l'équation polynomiale \(az^2+bz+c=0\) d'inconnue le nombre complexe \(z\) sont : 
         \[z_1 = \frac{-b-\delta}{2a} \text{ et } z_2 = \frac{-b+\delta}{2a}\]
         où \(\delta\) est une "racine carré" de \(\Delta = b^2 -4ac\), autrement dit où \(\delta\) est un nombre complexe vérifiant : 
         \[\delta^2 = \Delta\]
@@ -86,7 +86,7 @@
         \item \underline{Racines} \\
         Il y a \(n\) racine \(n\)-ième de l'unité qui sont les nombres complexes suivants : 
         \[\omega_k = e^{\i\frac{2k\pi}{n}} \text{ avec } k \in \interventierii{0}{n-1}\] 
-        \item \underline{L'ensemble des raicnes} \\
+        \item \underline{L'ensemble des racines} \\
         \begin{itemize}
             \item L'ensemble des racines \(n\)-ièmes de l'unité est noté 
             \[\U_n = \accol{z\in\R \tq z^n = 1}\]
@@ -134,7 +134,7 @@
     \end{cases}\) \\
     Ce qui est absurde et prouve que \(e^{\i \frac{k2\pi}{n}} \neq e^{\i \frac{k'2\pi}{n}}\)\\
     \conclusion \\
-    Il y as exactement \(n\) racine \(n\)-ièmes de l'unité qui sont les \( \omega_k = e^{\i \frac{k2\pi}{n}}\) pour \(k\in \interventierii{0}{n-1}\)
+    Il y a exactement \(n\) racine \(n\)-ièmes de l'unité qui sont les \( \omega_k = e^{\i \frac{k2\pi}{n}}\) pour \(k\in \interventierii{0}{n-1}\)
 \end{dem}
 
 
@@ -156,13 +156,13 @@
 \begin{defi}
 Pour tout nombre complexe \(z\), on appelle exponentielle de \(z\) le nombre complexe noté \(e^z\) le nombre complexe \(e^z\) défini par : 
 \[e^z = e^{\Reel{z}}e^{\i \Ima{z}}\]
-dont le module est \(\abs{e^z} = e^{\Reel{z}}\) et les arguments vérrfient \(\arg(e^z)\equiv \Ima{z} [2\pi]\)
+dont le module est \(\abs{e^z} = e^{\Reel{z}}\) et les arguments vérifient \(\arg(e^z)\equiv \Ima{z} [2\pi]\)
 \end{defi}
 
 \begin{prop}
-    Soit un couple de nombres complexe \((z,z')\)
+    Soit un couple de nombres complexes \((z,z')\)
     \begin{itemize}
-        \item on as l'égalité suivante : 
+        \item on a l'égalité suivante : 
         \[e^{z+z'} = e^ze^{z'}\]
         on en déduit les propriétés suivantes :
         \begin{itemize}
@@ -222,7 +222,7 @@ dont le module est \(\abs{e^z} = e^{\Reel{z}}\) et les arguments vérrfient \(\a
         On a alors l'équivalence suivante : \(z' = f(z)\) so et seulement si, \(z'-z = b\) \\
         L'application \(f\) est donc la translation de vecteur d'affixe \(b\).
         \item\underline{Cas où \(a\neq1\)}\\ 
-        \(f\) admet alors un point fixe \(\omega\) donné par \(\omega = \frac{b}{1-a} \) dont le point image image est noté \(\Omega\) \\
+        \(f\) admet alors un point fixe \(\omega\) donné par \(\omega = \frac{b}{1-a} \) dont le point image est noté \(\Omega\) \\
         On en déduit les équivalences suivantes :  \\
         \begin{align*}
             z' = f(z) &\text{ si, et seulement si, } z'-\omega = a'(z-\omega) \\
@@ -237,7 +237,7 @@ dont le module est \(\abs{e^z} = e^{\Reel{z}}\) et les arguments vérrfient \(\a
     \end{itemize}
 \end{defprop}
 
-\begin{defprop}[Applicaitons \(z\mapsto a\conj{z}+b\) avec \((a,b) \in \Cs\times\C\)]
+\begin{defprop}[Applications \(z\mapsto a\conj{z}+b\) avec \((a,b) \in \Cs\times\C\)]
     Soit  \((a,b) \in \Cs\times\C\). \\
     L'application \(g\) de \(\C\) dans \(\C\) définie par 
     \[g(z) = a\conj{z}+b\]
